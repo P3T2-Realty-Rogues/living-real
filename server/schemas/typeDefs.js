@@ -41,9 +41,7 @@ const typeDefs = gql`
     renterDeposit: Float
     appFee: Float
     ownerInfo: AdminPropertyDetails
-    }
-    
-    const TenantArr = [Tenant]
+  }
 
   type AdminPropertyDetails {
     mortgage: Float
