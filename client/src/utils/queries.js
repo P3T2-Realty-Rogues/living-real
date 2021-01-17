@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const QUERY_OWNER = gql`
+export const QUERY_ADMIN = gql`
   {
     owners {
       _id
@@ -48,14 +48,15 @@ export const QUERY_PROPERTY = gql`
    petDeposit
    renterDeposit
    applicationFee
-   ownerInfo: adminPropertyDetails
-#----Admin Property Details------- the data here only available to Admins -------------
-   monthlyMortgage
-   yearlyPropertyTaxes
-   yearlyPropertyInsurance
-   propertyAvailable
-   tenants []
-   applicant []
+   ownerInfo: AdminPropertyDetails {
+      #----Admin Property Details------- the data here only available to Admins -------------
+      monthlyMortgage
+      yearlyPropertyTaxes
+      yearlyPropertyInsurance
+      propertyAvailable
+      tenants []
+      applicant []
+    }
   }
 }
 `;

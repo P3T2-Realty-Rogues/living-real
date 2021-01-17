@@ -5,7 +5,7 @@
 
 // Import the defined actions
 import {
-    UPDATE_OWNER,    
+    UPDATE_ADMIN,    
     UPDATE_TENANT,   
     UPDATE_PROPERTY,
     ADD_TENANT,
@@ -29,8 +29,8 @@ import {
   
   export const reducer = (state = initialState, action) => {
       switch (action.type) {
-          // If action type value is the value of `UPDATE_OWNERS`, return a new state object with an updated owner array
-          case UPDATE_OWNER:
+          // If action type value is the value of `UPDATE_ADMINS`, return a new state object with an updated owner array
+          case UPDATE_ADMIN:
               return {
                   ...state,                          // the 'spread' operator
                   owners: [...action.owners],

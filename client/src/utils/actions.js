@@ -1,7 +1,7 @@
 
 
 // Define the actions needed - to maintain and update our state.
-export const UPDATE_OWNER               = "UPDATE_OWNER";         
+export const UPDATE_ADMIN               = "UPDATE_ADMIN";         
 export const UPDATE_TENANT              = "UPDATE_TENANT";       
 export const UPDATE_PROPERTY            = "UPDATE_PROPERTY"; 
 export const ADD_TENANT                 = "ADD_TENANT";

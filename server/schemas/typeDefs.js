@@ -74,30 +74,65 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    owners: [Owner]
+    tenants: [Tenant]
+    properties: 
+    bboard: 
+    // categories: [Category]
+    // products(category: ID, name: String): [Product]
+    // product(_id: ID!): Product
+    // user: User
+    // order(_id: ID!): Order
+    // checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    addApplicant(
+    addAdmin(
       firstName: String!
       lastName: String!
       email: String!
       password: String!
-    ):A uth
-    addOrder(products: [ID]!): Order
-    updateUser(
-      firstName: String
-      lastName: String
-      email: String
-      password: String
-    ): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+      adminFlag: Boolean!
+      propertyID: []
+    ):Admin
+
+    addTenant(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+      leaseDate: String!
+      activeTenant: Boolean!
+      approvedRenter: Boolean!
+      propertyID: ID!
+    ): Tenant
+
+    addProperty(
+      propertyName: String!
+      propertyType: String!
+      streetAddress: String!
+      city: String!
+      state: String!
+      zipCode: Int!
+      sqFeet: Int!
+      numBathrooms: Float!
+      numBedroom: Int!
+      balcony: Boolean!
+      rent: Float!
+      petDeposit: Float!
+      renterDeposit: Float!
+      appFee: Float!
+      ownerInfo: {AdminPropertyDetails}     
+    ): Property
+
+    // updateUser(
+    //   firstName: String
+    //   lastName: String
+    //   email: String
+    //   password: String
+    // ): User
+    // updateProduct(_id: ID!, quantity: Int!): Product
+    // login(email: String!, password: String!): Auth
   }
 `;
 
