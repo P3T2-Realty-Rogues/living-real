@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function Nav() {
 
   return (
     <div>
-        <h4>Login</h4>
-        <h4>Signup</h4>
+      <Link to="/Login">Login </Link>
+      <Link to="/Signup">Signup </Link>
     </div>
-  )
+  );
 
 }
 
