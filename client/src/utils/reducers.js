@@ -5,9 +5,13 @@
 
 // Import the defined actions
 import {
-    UPDATE_OWNERS,    
-    UPDATE_TENANTS,   
-    UPDATE_PROPERTIES,
+    UPDATE_OWNER,    
+    UPDATE_TENANT,   
+    UPDATE_PROPERTY,
+    ADD_TENANT,
+    REMOVE_TENANT,
+    ADD_PROPERTY,
+    REMOVE_PROPERTY,
     CREATE_MAINTENANCE_REQUEST,
     CREATE_BB_POST,            
     CREATE_BB_POST_COMMENT,    
@@ -26,26 +30,54 @@ import {
   export const reducer = (state = initialState, action) => {
       switch (action.type) {
           // If action type value is the value of `UPDATE_OWNERS`, return a new state object with an updated owner array
-          case UPDATE_OWNERS:
+          case UPDATE_OWNER:
               return {
                   ...state,                          // the 'spread' operator
                   owners: [...action.owners],
               };
 
           // If action type value is the value of `UPDATE_TENANTS`, return a new state object with an updated tenants array
-          case UPDATE_TENANTS:
+          case UPDATE_TENANT:
               return {
                   ...state,
                   tenants: [...action.tenants]
               };
 
-          // If action type value is the value of `UPDATE_PROPERTIES`, return a new state object with an updated properties array
-          case UPDATE_PROPERTIES:
+          // If action type value is the value of `UPDATE_PROPERTY`, return a new state object with an updated properties array
+          case UPDATE_PROPERTY:
               return {
                   ...state,
                   properties: [...action.properties]
               };
-			  
+
+          // If action type value is the value of `ADD_TENANT`, return a new state object with an updated properties array
+          case ADD_TENANT:
+              return {
+                  ...state,
+                  tenants: [...action.tenants]
+              };
+
+          // If action type value is the value of `REMOVE_TENANT`, return a new state object with an updated properties array
+          case REMOVE_TENANT:
+              return {
+                  ...state,
+                  tenants: [...action.tenants]
+              };
+
+          // If action type value is the value of `ADD_PROPERTIES`, return a new state object with an updated properties array
+          case ADD_PROPERTY:
+              return {
+                  ...state,
+                  properties: [...action.properties]
+              };
+
+          // If action type value is the value of `REMOVE_PROPERTIES`, return a new state object with an updated properties array
+          case REMOVE_PROPERTY:
+              return {
+                  ...state,
+                  properties: [...action.properties]
+              };
+									  			  
           // If action type value is the value of `CREATE_MAINTENANCE_REQUEST`, return a new state object with an updated maintenance request value.
           case CREATE_MAINTENANCE_REQUEST:
               return {
@@ -75,11 +107,6 @@ import {
       }
   };
 
-  
-  // Initialize the global state and provide functionality to update this state.
-  // export function useProductReducer(initialState) {
-  //   return useReducer(reducer, initialState);
-  // }
 
   // Export the default reducer for Redux.
   export default reducer;

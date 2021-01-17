@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const QUERY_OWNERS = gql`
+export const QUERY_OWNER = gql`
   {
     owners {
       _id
@@ -8,13 +8,13 @@ export const QUERY_OWNERS = gql`
       lastName
       email
       password
-	  admin_flag
+	    admin_flag
       property_IDs[]
     }
   }
 `;
 
-export const QUERY_TENANTS = gql`
+export const QUERY_TENANT = gql`
   {
     tenants {
       _id
@@ -23,14 +23,14 @@ export const QUERY_TENANTS = gql`
       email
       password
       lease_date
-	  active_tenant
-	  approved_renter
-	  property_ID
+	    active_tenant
+	    approved_renter
+	    property_ID
     }
   }
 `;
 
-export const QUERY_PROPERTIES = gql`
+export const QUERY_PROPERTY = gql`
 {
   properties {
    _id
@@ -49,9 +49,7 @@ export const QUERY_PROPERTIES = gql`
    renterDeposit
    applicationFee
    ownerInfo: adminPropertyDetails
-
-
-----Admin Property Details------- the data here only available to Admins -------------
+#----Admin Property Details------- the data here only available to Admins -------------
    monthlyMortgage
    yearlyPropertyTaxes
    yearlyPropertyInsurance
@@ -68,10 +66,10 @@ export const QUERY_BBOARD = gql`
     _id
     poster_ID
     message
-	comments []{
-	  _id
-	  poster_ID
-	  comment
+	  comments []{
+	    _id
+	    poster_ID
+	    comment
     }
   }
 }
