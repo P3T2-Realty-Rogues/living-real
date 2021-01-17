@@ -1,19 +1,18 @@
 import React from "react";
 // import PropertyList from "../components/Properties"
 
-const Landing = () => {
-    return (
-        <div className ="">
-            <h1>
-                In A Virtual World, Live Real
-            </h1>
-            
-            <h2>
-                *Properties Carousel Goes Here*
-            </h2>
-            {/* <PropertyList /> */}
-        </div>
-    )
-}
+import Jumbotron from "../components/Jumbotron";
 
-export default Landing
+const Landing = () => {
+  return (
+    <div className="">
+      
+      <Jumbotron>
+        <h1>In A Virtual World, Live Real</h1>
+      </Jumbotron>
+      {/* <PropertyList /> */}
+    </div>
+  );
+};
+
+export default Landing;
