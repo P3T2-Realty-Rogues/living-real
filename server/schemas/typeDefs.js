@@ -5,8 +5,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    email:  String # convert to regex later
-    password: String # convert to regex 
+    email:  String
     adminFlag: True
     propertyID: []
   }
@@ -15,8 +14,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    email:  String # convert to regex later
-    password: String # convert to regex 
+    email:  String
     leaseDate: String
     activeTenant: Boolean
     approvedRenter: Boolean
