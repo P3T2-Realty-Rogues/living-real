@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+
 import ApolloClient from "apollo-boost";
 
 // import logo from './logo.svg';
@@ -30,7 +32,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="App">
-          {/* <Provider store={store}> */}
+          <Provider store={store}>
           <header className="App-header">
             <Nav />
             <Switch>
@@ -41,7 +43,7 @@ function App() {
             <Landing />
             {/* <PropertyList /> */}
           </header>
-          {/* </Provider> */}
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>
