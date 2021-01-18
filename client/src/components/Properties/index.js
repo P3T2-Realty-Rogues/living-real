@@ -21,12 +21,18 @@ function Properties() {
     },
   ])
 
+  // handleClick  => {
+
+  // }
+
   return (
     <div>
       {properties.map((image) => (
         <img key={image.id} 
           alt={image.name}
-          src={require(`../../assets/images/${image.id}.jpg`)}>
+          src={require(`../../assets/images/properties/${image.id}.jpg`)}
+          // onClick={handleClick}
+          >
         </img>
       ))}
     </div>

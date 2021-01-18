@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Detail from "./pages/Detail";
 
 import ApolloClient from "apollo-boost";
 
@@ -41,6 +42,7 @@ function App() {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash" component={TenantDash} />
+                <Route exact path="/detail" component={Detail} />
               </Switch>
               <Landing />
               {/* <PropertyList /> */}

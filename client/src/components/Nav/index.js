@@ -11,6 +11,7 @@ function Nav() {
           <Link to="/TenantDash">Tenant Dashboard </Link>
           <Link to="/Login">Login </Link>
           <Link to="/Signup">Signup </Link>
+          <Link to="/Detail">Property Detail</Link>
         </div>
       </div>
     );
