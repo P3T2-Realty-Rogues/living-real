@@ -12,12 +12,14 @@ function AdminDash() {
           <button>Update Property</button>
           <button>Remove Property</button>
           <button>View Maintenace Requests</button>
-          <button></button>
-          <button></button>
         </ul>
       </div>
-      <div className="admin-content"></div>
-      <div className="bulletin-board"></div>
+          <div className="admin-content">
+              <h1> Content goes here</h1>
+      </div>
+          <div className="bulletin-board">
+              <h1>Bulletin Board</h1>
+      </div>
     </div>
   );
 }
