@@ -13,6 +13,7 @@ import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AdminDash from "./pages/AdminDash";
+import TenantDash from "./pages/TenantDash";
 // import PropertyList from './components/Properties'
 
 const client = new ApolloClient({
@@ -33,16 +34,17 @@ function App() {
       <Router>
         <div className="App">
           <Provider store={store}>
-          <header className="App-header">
-            <Nav />
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/adminDash" component={AdminDash} />
-            </Switch>
-            <Landing />
-            {/* <PropertyList /> */}
-          </header>
+            <header className="App-header">
+              <Nav />
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/adminDash" component={AdminDash} />
+                <Route exact path="/tenantDash" component={TenantDash} />
+              </Switch>
+              <Landing />
+              {/* <PropertyList /> */}
+            </header>
           </Provider>
         </div>
       </Router>

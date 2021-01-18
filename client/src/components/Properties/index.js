@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Properties () {
-
+function Properties() {
+  return (
+    <div>
+      <p></p>
+    </div>
+  );
 }
 
-export default Properties
+export default Properties;

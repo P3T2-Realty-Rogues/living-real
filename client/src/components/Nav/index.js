@@ -8,6 +8,7 @@ function Nav() {
       <div>
         <div>
           <Link to="/AdminDash">Admin Dashboard </Link>
+          <Link to="/TenantDash">Tenant Dashboard </Link>
           <Link to="/Login">Login </Link>
           <Link to="/Signup">Signup </Link>
         </div>
