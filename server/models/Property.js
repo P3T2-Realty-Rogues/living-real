@@ -1,6 +1,29 @@
 const mongoose = require('mongoose');
-
+const User = require('./User')
 const { Schema } = mongoose;
+
+const adminPropertyDetails = new Schema ({
+    mortgage: {
+        type: Number,
+        trim: true,
+        required: true
+    },
+    propertyTaxes: {
+        type: Number,
+        trim: true,
+        required: true
+    },
+    propertyInsurance: {
+        type: Number,
+        trim: true,
+        required: true
+    },
+    availability: {
+        type: Boolean,
+        required: true
+    },
+    tenant: [User]
+})
 
 const propertySchema = new Schema ({
     propertyName: {
@@ -72,7 +95,8 @@ const propertySchema = new Schema ({
         type: Number,
         required: true,
         trim: true
-    }
+    },
+    adminPropertyDetails: adminPropertyDetails
 })
 
 const Property = mongoose.model('Property', propertySchema);

@@ -1,25 +1,20 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Admin {
+  type User {
     _id: ID
     firstName: String
     lastName: String
     email:  String
-    adminFlag: True
+    adminFlag: Boolean
     propertyID: []
+    tenantData: [TenantData]
   }
 
-  type Tenant {
+  type TenantData {
     _id: ID
-    firstName: String
-    lastName: String
-    email:  String
     leaseDate: String
     activeTenant: Boolean
-    approvedRenter: Boolean
-    propertyID: Int
-    balanceDue: Int
   }
 
   type Property {
@@ -45,16 +40,15 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    avail: Boolean
-    tenant: TenantArr
-    applicant: !Tenant.approvedRenter
+    availability: Boolean
+    tenant: [User]
   }
 
-  type BulletinBoardData  {
-    _id: ID
-    _posterID: ID
-    text: String
-  }
+  #type BulletinBoardData  {
+  #  _id: ID
+  #  _posterID: ID
+  #  text: String
+  #}
 
 
   type Maintenance {
