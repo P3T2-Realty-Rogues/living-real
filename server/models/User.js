@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
+const TenantData = require('./Tenant')
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
 
 const userSchema = new Schema({
   firstName: {
@@ -18,18 +17,33 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
   password: {
     type: String,
     required: true,
-    minlength: 5
+    validate: {
+      validator: function (password) {
+        return (password > 5 ? true : false)
+      },
+      message: 'Password must be more than 5 characters!'
+    }
   },
-  orders: [Order.schema]
+  adminFlag: {
+    type: Boolean,
+    required: true
+  },
+  propertyId: [
+    {
+      type: Number
+    }
+  ],
+  TenantData: [TenantData]
 });
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -39,7 +53,7 @@ userSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 

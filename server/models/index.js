@@ -1,6 +1,6 @@
-const User = require('./User');
-const Product = require('./Product');
-const Category = require('./Category');
-const Order = require('./Order');
+const Maintenance = require('./Maintenance')
+const User = require('./User')
+const Tenant = require('./Tenant')
+const Property = require('./Property')
 
-module.exports = { User, Product, Category, Order };
+module.exports = {Maintenance, User, Tenant, Property};
