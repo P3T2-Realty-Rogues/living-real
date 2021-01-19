@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Owner Acceptance Criteria](#owner-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme files for this project](#the-various-readme-files-for-this-project)
 
 ## Owner Acceptance Criteria
 
@@ -35,7 +35,7 @@ As an owner, leasing various properties:
 * When I am on the property owner dashboard, I can view the list of potential tenants that are requesting additional information.
 
 
-## The Various Readme.md files for this project
+## The Various Readme files for this project
 
 1) Main Readme: [main-readme.md](../README.md)
 

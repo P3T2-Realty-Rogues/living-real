@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Owner Acceptance Criteria](#owner-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme files for this project](#the-various-readme-files-for-this-project)
 
 
 ## Living Real Project Overview
@@ -19,7 +19,7 @@ Once logged in, owners are directed to a dashboard page where they can maintain 
 
 When tenants login, they are directed to a dashboard page where they can see details about their property, review their lease agreement, and submit maintenance requests.
 
-Applicants, who won't have a login, can view the details of each property in the photo carousel. Clicking on a photo will display additional images of that specific property, as well as its associated details and amentities. Potential tenants can submit an application with the application fee on desired properties.
+Applicants, who won't have a login, can view the details of each property in the photo carousel. Clicking on a photo will display additional images of that specific property, as well as its associated details and amenities. Potential tenants can submit an application with the application fee on desired properties.
 
 
 
@@ -27,7 +27,7 @@ Applicants, who won't have a login, can view the details of each property in the
 For local usage, run 'npm install' to install all of the dependencies.  After installing the dependencies, run 'npm start'.  To run on Heroku, see the deployment section below.
 
 
-## The Various Readme.md files for this project
+## The Various Readme files for this project
 
 1) Main Readme: [main-readme.md](../README.md)
 

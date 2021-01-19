@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Tenant Acceptance Criteria](#tenant-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme files for this project](#the-various-readme-files-for-this-project)
 
 ## Tenant Acceptance Criteria
 
@@ -27,7 +27,7 @@ As a tenant renting a specific property:
 * When I view my dashboard, their is an option to submit a maintenance request.
 
 
-## The Various Readme.md files for this project
+## The Various Readme files for this project
 
 1) Main Readme: [main-readme.md](../README.md)
 

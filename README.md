@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Application Walk Through](#application-walk-through)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme files for this project](#the-various-readme-files-for-this-project)
 * [Application Mind Maps](#application-mind-maps)
 * [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)
@@ -22,7 +22,7 @@ For tenants, the landing page has a login feature which should be used.  Once lo
 
 For owners, the landing page has a login feature which should be used.  Once logged in to the site, the owner can select a particular property to view/manipulate.  For a given property, the owner can view not only the details the tenant can view, but also private owner data (such as mortgage and tax information).  Owners can also view the maintenance requests from the property tenant.
 
-## The Various Readme.md files for this project
+## The Various Readme files for this project
 
 1) Overview: [overview-readme.md](./documentation/overview-readme.md)
 
