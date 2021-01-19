@@ -11,9 +11,9 @@ const tenantSchema = new Schema ({
     activeTenant: {
         type: Boolean,
         required: true
-    },
+    }
 })
 
-const TenantData = mongoose.model('TenantData', tenantSchema);
+const TenantData = mongoose.model('Tenant', tenantSchema);
 
 module.exports = TenantData;

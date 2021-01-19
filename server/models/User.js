@@ -25,7 +25,7 @@ const userSchema = new Schema({
     required: true,
     validate: {
       validator: function (password) {
-        return (password > 5 ? true : false).test(password)
+        return (password > 5 ? true : false)
       },
       message: 'Password must be more than 5 characters!'
     }

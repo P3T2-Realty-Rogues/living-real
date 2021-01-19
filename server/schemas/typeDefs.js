@@ -53,7 +53,7 @@ const typeDefs = gql`
 
   type Maintenance {
     _id: ID
-    _tenantID: Tenant.id # don't know if this works
+    tenantID: Tenant.id # don't know if this works
     date: String
     text: String
     grantAccess: Boolean
