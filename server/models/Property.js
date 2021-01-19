@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const User = require('./User')
 const { Schema } = mongoose;
+
+const User = require('./User')
 
 const adminPropertyDetails = new Schema ({
     mortgage: {
@@ -22,7 +23,7 @@ const adminPropertyDetails = new Schema ({
         type: Boolean,
         required: true
     },
-    tenant: [User]
+    //tenant: [User]
 })
 
 const propertySchema = new Schema ({
