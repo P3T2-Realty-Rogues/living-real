@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Application Walk Through](#application-walk-through)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project:)
 * [Application Mind Maps](#application-mind-maps)
 * [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)

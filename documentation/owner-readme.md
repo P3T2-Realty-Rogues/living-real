@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Owner Acceptance Criteria](#owner-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project:)
 
 ## Owner Acceptance Criteria
 

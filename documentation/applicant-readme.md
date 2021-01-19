@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Applicant Acceptance Criteria](#applicant-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
+* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project:)
 
 ## Applicant Acceptance Criteria
 
