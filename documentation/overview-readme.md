@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Owner Acceptance Criteria](#owner-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project:)
+* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
 
 
 ## Living Real Project Overview
@@ -27,7 +27,7 @@ Applicants, who won't have a login, can view the details of each property in the
 For local usage, run 'npm install' to install all of the dependencies.  After installing the dependencies, run 'npm start'.  To run on Heroku, see the deployment section below.
 
 
-## The Various Readme.md files for this project:
+## The Various Readme.md files for this project
 
 1) Main Readme: [main-readme.md](../README.md)
 

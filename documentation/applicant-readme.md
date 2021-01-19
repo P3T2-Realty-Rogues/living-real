@@ -6,7 +6,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 
 ## Table of Contents
 * [Applicant Acceptance Criteria](#applicant-acceptance-criteria)
-* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project:)
+* [The Various Readme.md files for this project](#the-various-readme.md-files-for-this-project)
 
 ## Applicant Acceptance Criteria
 
@@ -23,7 +23,7 @@ As an individual interested in renting a house:
 * When I decide on a particular home, I can fill out and submit an application, and the associated application fee.
 
 
-## The Various Readme.md files for this project:
+## The Various Readme.md files for this project
 
 1) Main Readme: [main-readme.md](../README.md)
 
