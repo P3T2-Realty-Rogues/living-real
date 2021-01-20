@@ -8,7 +8,7 @@ function Nav() {
   function showNavigation() {
     return (
       <div>
-        <Menu>
+        <Menu widths={4}>
           <Menu.Item><Link to="/AdminDash">Admin Dashboard </Link></Menu.Item>
           <Menu.Item><Link to="/TenantDash">Tenant Dashboard </Link></Menu.Item>
           <Menu.Item><Link to="/Login">Login </Link></Menu.Item>

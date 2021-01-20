@@ -62,7 +62,21 @@ body, .landing-image {
   margin-top: 3rem;
 }
 
-a, a:hover, a:focus, a:active {
+
+a:hover, a:focus, a:active {
   text-decoration: none !important;
-  color: inherit !important;
+  color: var(--tertiary) !important;
+  background-color: rgb(204, 236, 247) !important;
+}
+
+h1 a {
+  text-decoration: none !important;
+  color: white !important;
+
+}
+
+h1 a:hover, h1 a:focus, h1 a:active {
+  text-decoration: none !important;
+  color: blue !important;
+
 }
