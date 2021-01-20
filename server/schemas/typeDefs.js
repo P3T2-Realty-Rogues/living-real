@@ -9,11 +9,10 @@ const typeDefs = gql`
     phoneNumber: String
     adminFlag: Boolean
     propertyId: [String]
-    tenantData: [TenantData]
+    tenantData: TenantData
   }
 
   type TenantData {
-    _id: ID
     leaseDate: String
     activeTenant: Boolean
   }
@@ -92,8 +91,7 @@ const typeDefs = gql`
       phoneNumber: String!
       adminFlag: Boolean!
       propertyId: [String!]
-      leaseDate: String!
-      activeTenant: Boolean!
+      tenantData: TenantInput
     ): User
 
     addProperty(
@@ -113,6 +111,11 @@ const typeDefs = gql`
       appFee: Float!
       ownerInfo: AdminPropertyInput   
     ): Property
+  }
+
+  input TenantInput{
+    leaseDate: String
+    activeTenant: Boolean
   }
 
   input AdminPropertyInput{

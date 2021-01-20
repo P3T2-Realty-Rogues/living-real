@@ -11,6 +11,9 @@ const tenantSchema = new Schema ({
         type: Boolean,
         required: true
     }
+},
+{
+    _id: false
 })
 
 module.exports = tenantSchema;

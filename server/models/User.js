@@ -46,7 +46,7 @@ const userSchema = new Schema({
       type: String
     }
   ],
-  tenantData: [tenantSchema]
+  tenantData: tenantSchema
 });
 
 // set up pre-save middleware to create password
