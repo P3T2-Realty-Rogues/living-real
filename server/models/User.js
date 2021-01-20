@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const TenantData = require('./Tenant')
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+
+const tenantSchema = require('./Tenant')
 
 const userSchema = new Schema({
   firstName: {
@@ -39,7 +40,7 @@ const userSchema = new Schema({
       type: Number
     }
   ],
-  TenantData: [TenantData]
+  tenantData: [tenantSchema]
 });
 
 // set up pre-save middleware to create password
