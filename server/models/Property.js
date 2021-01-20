@@ -19,10 +19,6 @@ const adminPropertyDetails = new Schema ({
         trim: true,
         required: true
     },
-    availability: {
-        type: Boolean,
-        required: true
-    },
     tenant: []
 })
 
@@ -96,6 +92,10 @@ const propertySchema = new Schema ({
         type: Number,
         required: true,
         trim: true
+    },
+    availability: {
+        type: Boolean,
+        required: true
     },
     adminPropertyDetails: adminPropertyDetails
 })
