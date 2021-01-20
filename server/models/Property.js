@@ -23,7 +23,7 @@ const adminPropertyDetails = new Schema ({
         type: Boolean,
         required: true
     },
-    //tenant: [User]
+    tenant: []
 })
 
 const propertySchema = new Schema ({

@@ -6,8 +6,9 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email:  String
+    phoneNumber: String
     adminFlag: Boolean
-    propertyID: [ID]
+    propertyId: [String]
     tenantData: [TenantData]
   }
 
@@ -70,7 +71,7 @@ const typeDefs = gql`
     tenants: [User]
     properties: [Property]
     # bboard: 
-    user: User
+    users: [User]
   }
 
   type Mutation {
@@ -80,18 +81,19 @@ const typeDefs = gql`
       email: String!
       password: String!
       adminFlag: Boolean!
-      propertyID: [ID]
+      propertyId: [ID]
     ):User
 
-    addTenant(
+    addUser(
       firstName: String!
       lastName: String!
       email: String!
       password: String!
+      phoneNumber: String!
+      adminFlag: Boolean!
+      propertyId: [String!]
       leaseDate: String!
       activeTenant: Boolean!
-      approvedRenter: Boolean!
-      propertyID: ID!
     ): User
 
     addProperty(

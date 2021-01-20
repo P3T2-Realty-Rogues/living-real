@@ -5,10 +5,19 @@ const { User, Maintenance, Property } = require("../models");
 
 const resolvers = {
   Query: {
-    
+    users: async () => {
+      const userData = await User.find()
+      .select('-__v -password')
+      //console.log("User data - ",userData)
+      return userData
+    }
   },
   Mutation: {
-
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      
+      return user;
+    },
   }
 };
 
