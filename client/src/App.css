@@ -61,3 +61,8 @@ body, .landing-image {
 .posts {
   margin-top: 3rem;
 }
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}

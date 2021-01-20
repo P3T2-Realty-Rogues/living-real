@@ -21,8 +21,8 @@ function Nav() {
   return (
     <header className="flex-row px-1">
       <h1>
-        <Link to="/">Living Real</Link>
-      </h1>
+        <Link to="/">Living Real, In A Virtual World</Link>
+       </h1>
 
       <nav>{showNavigation()}</nav>
     </header>
