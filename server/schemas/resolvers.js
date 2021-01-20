@@ -7,9 +7,22 @@ const resolvers = {
   Query: {
     users: async () => {
       const userData = await User.find().select("-__v -password");
-      //console.log("User data - ",userData)
+      
       return userData;
     },
+    owners: async () => {
+      return await User.find({
+        adminFlag: true
+      }).select("-__v -password");
+    },
+    tenants: async () => {
+      return await User.find({
+        adminFlag: false
+      }).select("-__v -password");
+    },
+    properties: async () => {
+      return await Property.find().select("-__v")
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {

@@ -68,20 +68,11 @@ const typeDefs = gql`
   type Query {
     owners: [User]
     tenants: [User]
-    properties: [Property]
-    # bboard: 
+    properties: [Property] 
     users: [User]
   }
 
   type Mutation {
-    addAdmin(
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-      adminFlag: Boolean!
-      propertyId: [ID]
-    ):User
 
     addUser(
       firstName: String!
