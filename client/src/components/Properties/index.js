@@ -30,6 +30,7 @@ function Properties() {
       {properties.map((image) => (
         <img key={image.id} 
           alt={image.name}
+          // width="300" height="auto" 
           src={require(`../../assets/images/properties/${image.id}.jpg`)}
           // onClick={handleClick}
           >

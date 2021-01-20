@@ -11,7 +11,7 @@ function AdminDash() {
           <button>Add Property</button>
           <button>Update Property</button>
           <button>Remove Property</button>
-          <button>View Maintenace Requests</button>
+          <button>View Maintenance Requests</button>
         </ul>
       </div>
           <div className="admin-content">

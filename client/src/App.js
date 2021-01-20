@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
-import Detail from "./pages/Detail";
-import CreateUser from "./components/CreateUser/index.js";
-import CreateProperty from "./components/CreateProperty/index";
 
 import ApolloClient from "apollo-boost";
 
+import CreateUser from "./components/CreateUser/index.js";
+import CreateProperty from "./components/CreateProperty/index";
 
 import "./App.css";
+import Detail from "./pages/Detail";
 import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
 import TenantDash from "./pages/TenantDash";
 import NoMatch from "./pages/NoMatch";
@@ -41,8 +41,9 @@ function App() {
             <header className="App-header">
               <Nav />
               <Switch>
+                <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/requestInfo" component={RequestInfo} />
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash" component={TenantDash} />
                 <Route exact path="/detail" component={Detail} />
@@ -53,9 +54,8 @@ function App() {
                   component={CreateProperty}
                 />
                 <Route component={NoMatch} />
+                {/* <PropertyList /> */}
               </Switch>
-              <Landing />
-              {/* <PropertyList /> */}
             </header>
           </Provider>
         </div>
