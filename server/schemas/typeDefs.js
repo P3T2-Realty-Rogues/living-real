@@ -41,7 +41,7 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    tenant: [User]
+    tenant: [String]
   }
 
   #type BulletinBoardData  {
@@ -123,7 +123,6 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    availability: Boolean
     tenant: [String] #change later
   }
 `;

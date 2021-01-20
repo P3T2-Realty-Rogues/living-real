@@ -19,7 +19,7 @@ const adminPropertyDetails = new Schema ({
         trim: true,
         required: true
     },
-    tenant: []
+    tenant: [{type: String}]
 })
 
 const propertySchema = new Schema ({
