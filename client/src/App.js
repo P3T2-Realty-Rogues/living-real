@@ -4,6 +4,8 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Detail from "./pages/Detail";
+import CreateUser from './components/CreateUser/index.js';
+import CreateProperty from './components/CreateProperty/index';
 
 import ApolloClient from "apollo-boost";
 
@@ -43,6 +45,9 @@ function App() {
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash" component={TenantDash} />
                 <Route exact path="/detail" component={Detail} />
+                <Route exact path="/createuser" component={CreateUser} />
+                <Route exact path="/createproperty" component={CreateProperty} />
+
               </Switch>
               <Landing />
               {/* <PropertyList /> */}
