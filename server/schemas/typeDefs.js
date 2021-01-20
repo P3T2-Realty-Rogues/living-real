@@ -6,13 +6,13 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email:  String
+    phoneNumber: String
     adminFlag: Boolean
-    propertyID: []
-    tenantData: [TenantData]
+    propertyId: [String]
+    tenantData: TenantData
   }
 
   type TenantData {
-    _id: ID
     leaseDate: String
     activeTenant: Boolean
   }
@@ -33,15 +33,15 @@ const typeDefs = gql`
     petDeposit: Float
     renterDeposit: Float
     appFee: Float
-    ownerInfo: AdminPropertyDetails
+    ownerInfo: OwnerInfo
+    availability: Boolean
   }
 
-  type AdminPropertyDetails {
+  type OwnerInfo {
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    availability: Boolean
-    tenant: [User]
+    tenant: [String]
   }
 
   #type BulletinBoardData  {
@@ -53,7 +53,7 @@ const typeDefs = gql`
 
   type Maintenance {
     _id: ID
-    tenantID: Tenant.id # don't know if this works
+    tenantID: ID
     date: String
     text: String
     grantAccess: Boolean
@@ -62,20 +62,15 @@ const typeDefs = gql`
 
   type Auth {
     token: ID
-    user: Admin
+    user: User
   }
 
   type Query {
-    owners: [Owner]
-    tenants: [Tenant]
-    properties: 
-    bboard: 
-    // categories: [Category]
-    // products(category: ID, name: String): [Product]
-    // product(_id: ID!): Product
-    // user: User
-    // order(_id: ID!): Order
-    // checkout(products: [ID]!): Checkout
+    owners: [User]
+    tenants: [User]
+    properties: [Property]
+    # bboard: 
+    users: [User]
   }
 
   type Mutation {
@@ -85,19 +80,19 @@ const typeDefs = gql`
       email: String!
       password: String!
       adminFlag: Boolean!
-      propertyID: []
-    ):Admin
+      propertyId: [ID]
+    ):User
 
-    addTenant(
+    addUser(
       firstName: String!
       lastName: String!
       email: String!
       password: String!
-      leaseDate: String!
-      activeTenant: Boolean!
-      approvedRenter: Boolean!
-      propertyID: ID!
-    ): Tenant
+      phoneNumber: String!
+      adminFlag: Boolean!
+      propertyId: [String!]
+      tenantData: TenantInput
+    ): User
 
     addProperty(
       propertyName: String!
@@ -114,17 +109,21 @@ const typeDefs = gql`
       petDeposit: Float!
       renterDeposit: Float!
       appFee: Float!
-      ownerInfo: {AdminPropertyDetails}     
+      availability: Boolean!
+      ownerInfo: OwnerInfoInput   
     ): Property
+  }
 
-    // updateUser(
-    //   firstName: String
-    //   lastName: String
-    //   email: String
-    //   password: String
-    // ): User
-    // updateProduct(_id: ID!, quantity: Int!): Product
-    // login(email: String!, password: String!): Auth
+  input TenantInput{
+    leaseDate: String
+    activeTenant: Boolean
+  }
+
+  input OwnerInfoInput{
+    mortgage: Float
+    propertyTaxes: Float
+    propertyInsurance: Float
+    tenant: [String] #change later
   }
 `;
 

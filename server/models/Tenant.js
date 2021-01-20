@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
 
 
@@ -12,8 +11,9 @@ const tenantSchema = new Schema ({
         type: Boolean,
         required: true
     }
+},
+{
+    _id: false
 })
 
-const TenantData = mongoose.model('Tenant', tenantSchema);
-
-module.exports = TenantData;
+module.exports = tenantSchema;

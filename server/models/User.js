@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const TenantData = require('./Tenant')
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const tenantSchema = require('./Tenant')
 
 const userSchema = new Schema({
   firstName: {
@@ -20,12 +20,19 @@ const userSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
+  phoneNumber: {
+    type: String,
+    trim: true,
+    unique: true,
+    required: true,
+    match: [/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/, "Must be a valid phone number! (XXX) XXX-XXXX"]
+  },
   password: {
     type: String,
     required: true,
     validate: {
       validator: function (password) {
-        return (password > 5 ? true : false)
+        return (password.length > 5 ? true : false)
       },
       message: 'Password must be more than 5 characters!'
     }
@@ -36,10 +43,10 @@ const userSchema = new Schema({
   },
   propertyId: [
     {
-      type: Number
+      type: String
     }
   ],
-  TenantData: [TenantData]
+  tenantData: tenantSchema
 });
 
 // set up pre-save middleware to create password
