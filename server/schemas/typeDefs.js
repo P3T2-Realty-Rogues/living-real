@@ -33,11 +33,11 @@ const typeDefs = gql`
     petDeposit: Float
     renterDeposit: Float
     appFee: Float
-    ownerInfo: AdminPropertyDetails
+    ownerInfo: OwnerInfo
     availability: Boolean
   }
 
-  type AdminPropertyDetails {
+  type OwnerInfo {
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
@@ -110,7 +110,7 @@ const typeDefs = gql`
       renterDeposit: Float!
       appFee: Float!
       availability: Boolean!
-      ownerInfo: AdminPropertyInput   
+      ownerInfo: OwnerInfoInput   
     ): Property
   }
 
@@ -119,7 +119,7 @@ const typeDefs = gql`
     activeTenant: Boolean
   }
 
-  input AdminPropertyInput{
+  input OwnerInfoInput{
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float

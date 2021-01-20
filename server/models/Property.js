@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const User = require('./User')
 
-const adminPropertyDetails = new Schema ({
+const ownerInfoSchema = new Schema ({
     mortgage: {
         type: Number,
         trim: true,
@@ -19,7 +19,7 @@ const adminPropertyDetails = new Schema ({
         trim: true,
         required: true
     },
-    tenant: [{type: String}]
+    tenant: [{type: String}] //set to id that references users
 })
 
 const propertySchema = new Schema ({
@@ -97,7 +97,7 @@ const propertySchema = new Schema ({
         type: Boolean,
         required: true
     },
-    adminPropertyDetails: adminPropertyDetails
+    ownerInfo: ownerInfoSchema
 })
 
 const Property = mongoose.model('Property', propertySchema);
