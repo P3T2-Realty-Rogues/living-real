@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const User = require('./User')
-
 const ownerInfoSchema = new Schema ({
     mortgage: {
         type: Number,

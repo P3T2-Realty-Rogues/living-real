@@ -115,6 +115,26 @@ const typeDefs = gql`
       ownerInfo: OwnerInfoInput   
     ): Property
 
+    updateProperty(
+      propertyId: ID!
+      propertyName: String
+      propertyType: String
+      streetAddress: String
+      city: String
+      state: String
+      zipCode: Int
+      sqFeet: Int
+      numBathrooms: Float
+      numBedroom: Int
+      balcony: Boolean
+      rent: Float
+      petDeposit: Float
+      renterDeposit: Float
+      appFee: Float
+      availability: Boolean
+      ownerInfo: OwnerInfoInput   
+    ): Property
+
     login(email: String!, password: String!): Auth
   }
 

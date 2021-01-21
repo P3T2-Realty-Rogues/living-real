@@ -31,6 +31,7 @@ const resolvers = {
       return user;
     },
     updateUser: async (parent, args, context) => {
+      
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
@@ -42,9 +43,15 @@ const resolvers = {
 
       return property;
     },
+    updateProperty: async (parent, args, context) => {
+      if (context.user.adminFlag) {
+        return await Property.findByIdAndUpdate(args.propertyId, args, { new: true });
+      }
+
+      throw new AuthenticationError('Not Authorized');
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
       }
