@@ -44,13 +44,6 @@ const typeDefs = gql`
     tenant: [String]
   }
 
-  #type BulletinBoardData  {
-  #  _id: ID
-  #  _posterID: ID
-  #  text: String
-  #}
-
-
   type Maintenance {
     _id: ID
     tenantID: ID
