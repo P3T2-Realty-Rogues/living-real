@@ -5,6 +5,8 @@ export const REMOVE_USER = "REMOVE_USER";
 export const ADD_PROPERTY = "ADD_PROPERTY";
 export const REMOVE_PROPERTY = "REMOVE_PROPERTY";
 export const UPDATE_PROPERTY = "UPDATE_PROPERTY";
+export const UPDATE_PROPERTIES = "UPDATE_PROPERTIES";
+
 
 
 // // Define the actions needed - to maintain and update our state.

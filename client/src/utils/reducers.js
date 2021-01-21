@@ -5,6 +5,7 @@ import {
   REMOVE_USER,
   ADD_PROPERTY,
   UPDATE_PROPERTY,
+  UPDATE_PROPERTIES,
   REMOVE_PROPERTY,
 } from "./actions";
 
@@ -27,7 +28,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_USER:
       return {
         ...state, // the 'spread' operator
-        users: [...action.users],
+        user: [...action.user],
       };
 
     case REMOVE_USER:
@@ -43,6 +44,11 @@ export const reducer = (state = initialState, action) => {
       };
     // If action type value is the value of `UPDATE_PROPERTY`, return a new state object with an updated properties array
     case UPDATE_PROPERTY:
+      return {
+        ...state,
+        property: [...action.property],
+      };
+    case UPDATE_PROPERTIES:
       return {
         ...state,
         properties: [...action.properties],

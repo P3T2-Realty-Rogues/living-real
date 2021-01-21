@@ -1,48 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import { ADD_PROPERTY } from "../../utils/actions";
 import { useQuery } from "@apollo/react-hooks";
 
-// import { QUERY_PROPERTY } from "../../utils/queries";
-// import { UPDATE_PROPERTY } from "../../utils/actions";
+import { QUERY_PROPERTIES } from "../../utils/queries";
+import { UPDATE_PROPERTIES } from "../../utils/actions";
 
 function Properties() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // const [properties] = state;
+  const { properties } = state;
+  console.log(properties);
 
-  // const { loading, data } = useQuery(QUERY_PROPERTY);
+  // console.log(state);
+  const { loading, data } = useQuery(QUERY_PROPERTIES);
+  console.log(data);
 
-  //   useEffect(() => {
-  //     if (data) {
-  //       dispatch({
-  //         type: UPDATE_PROPERTY,
-  //         properties: data.properties
-  //     })
-  //   }
-  // })
-  const [properties] = useState([
-    {
-      id: 1,
-      name: "Home1",
-      description: "LOREM IPSUM",
-    },
-    {
-      id: 2,
-      name: "Home2",
-      description: "IPSUM LOREM",
-    },
-    {
-      id: 3,
-      name: "Home3",
-      description: "SOME TEXT",
-    },
-  ]);
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: UPDATE_PROPERTIES,
+        properties: data.properties,
+      });
+    }
+  }, [dispatch, data]);
+  // const [properties] = useState([
+  //   {
+  //     id: 1,
+  //     name: "Home1",
+  //     description: "LOREM IPSUM",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Home2",
+  //     description: "IPSUM LOREM",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Home3",
+  //     description: "SOME TEXT",
+  //   },
+  // ]);
 
   // const handleClick = (e) => {
   //   e.preventDefault();
@@ -50,31 +52,17 @@ function Properties() {
   //   // console.log(property);
   // };
 
-  // console.log([properties]);
-
-  // <div>
-  //    {properties.map((image) => (
-  //       <img key={image.id}
-  //         alt={image.name}
-  //         // width="300" height="auto"
-  //         src={require(`../../assets/images/properties/${image.id}.jpg`)}
-  //         // onClick={handleClick}
-  //         >
-  //       </img>
-  //     ))}
-  //   </div>
-
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop="true">
       {properties.map((image) => (
-        <Link to={`/detail/${image.id}`} key={image.id}>
-          <div key={image.id} className="image-container">
+        <Link to={`/detail/${image._id}`} key={image._id}>
+          <div key={image._id} className="image-container">
             <img
-              key={image.id}
+              key={image._id}
               alt={image.name}
               width="300"
               height="auto"
-              src={require(`../../assets/images/properties/${image.id}.jpg`)}
+              src={require(`../../assets/images/properties/${image._id}.jpg`)}
               // onClick={handleClick}
             ></img>
             <button
