@@ -19,4 +19,4 @@ function MaintenanceRequest() {
 	);
 }
 
-export default MaintenanceRequest();
+export default MaintenanceRequest;

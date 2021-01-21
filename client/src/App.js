@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import CreateUser from './components/CreateUser/index.js';
 import CreateProperty from './components/CreateProperty/index';
 import UpdateProperty from './components/UpdateProperty/index';
+import MaintenanceRequest from './components/MaintenanceRequest/index';
 
 
 import ApolloClient from "apollo-boost";
@@ -50,14 +51,10 @@ function App() {
                 <Route exact path="/tenantDash" component={TenantDash} />
                 <Route exact path="/detail" component={Detail} />
                 <Route exact path="/createuser" component={CreateUser} />
-                <Route exact path="/updateproperty" component={UpdateProperty} />                
-                <Route
-                  exact
-                  path="/createproperty"
-                  component={CreateProperty}
-                />
-                <Route component={NoMatch} />
-                {/* <PropertyList /> */}
+                <Route exact path="/createproperty" component={CreateProperty} />
+                <Route exact path="/updateproperty" component={UpdateProperty} />
+                <Route exact path="/maintenancerequest" component={MaintenanceRequest} />
+
               </Switch>
             </header>
           </Provider>
