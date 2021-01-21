@@ -1,4 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
+import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+
 
 
 function Properties() {
@@ -26,6 +32,7 @@ function Properties() {
   // }
 
   return (
+    <Carousel>
     <div>
       {properties.map((image) => (
         <img key={image.id} 
@@ -37,6 +44,7 @@ function Properties() {
         </img>
       ))}
     </div>
+    </Carousel>
   );
 }
 
