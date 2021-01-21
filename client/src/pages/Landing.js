@@ -6,10 +6,10 @@ import Properties from "../components/Properties";
 
 const Landing = () => {
   return (
-    <div className="">
+    <div >
+        {/* <h1>In A Virtual World, Live Real</h1> */}
       
       <Jumbotron>
-        <h1>In A Virtual World, Live Real</h1>
         <Properties/>
       </Jumbotron>
       {/* <PropertyList /> */}
