@@ -6,6 +6,8 @@ import store from "./utils/store";
 import Detail from "./pages/Detail";
 import CreateUser from './components/CreateUser/index.js';
 import CreateProperty from './components/CreateProperty/index';
+import UpdateProperty from './components/UpdateProperty/index';
+
 
 import ApolloClient from "apollo-boost";
 
@@ -47,6 +49,7 @@ function App() {
                 <Route exact path="/detail" component={Detail} />
                 <Route exact path="/createuser" component={CreateUser} />
                 <Route exact path="/createproperty" component={CreateProperty} />
+                <Route exact path="/updateproperty" component={UpdateProperty} />
 
               </Switch>
               <Landing />
