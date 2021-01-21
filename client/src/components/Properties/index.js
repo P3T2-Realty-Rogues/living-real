@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import { ADD_PROPERTY } from "../../utils/actions";
+// import { useMutation } from "@apollo/react-hooks";
 
 // import {QUERY_PROPERTY} from  "../../utils/queries"
 
@@ -11,13 +13,7 @@ function Properties() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch({
-      property: properties
-    })
-  };
-
+  
   const [properties] = useState([
     {
       id: 1,
@@ -35,9 +31,15 @@ function Properties() {
       description: "SOME TEXT",
     },
   ]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch([...properties]);
+    // console.log(property);
+  };
+
   // console.log([properties]);
 
- 
   // <div>
   //    {properties.map((image) => (
   //       <img key={image.id}
@@ -49,10 +51,11 @@ function Properties() {
   //       </img>
   //     ))}
   //   </div>
+
   return (
-    <Carousel>
+    <Carousel showThumbs={false} autoPlay infiniteLoop='true'>
       {properties.map((image) => (
-        <Link to={`/detail/${image.id}`}>
+        <Link to={`/detail/${image.id}`} key={image.id}>
           <div key={image.id}>
             <img
               key={image.id}
