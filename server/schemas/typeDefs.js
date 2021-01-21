@@ -132,7 +132,8 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    deleteUser(userId: ID!): User
+    deleteUser(_id: ID!): User
+    deleteProperty(_id: ID!): Property
   }
 
   input TenantInput{

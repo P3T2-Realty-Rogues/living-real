@@ -44,10 +44,12 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    deleteUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+    deleteUser: async (parent, {_id}, context) => {
+      if (context.user.adminFlag) {
+        return await User.findByIdAndDelete(_id);
       }
+
+      throw new AuthenticationError('Not Authorized');
     },
     addProperty: async (parent, args) => {
       const property = await Property.create(args);
@@ -57,6 +59,13 @@ const resolvers = {
     updateProperty: async (parent, args, context) => {
       if (context.user.adminFlag) {
         return await Property.findByIdAndUpdate(args.propertyId, args, { new: true });
+      }
+
+      throw new AuthenticationError('Not Authorized');
+    },
+    deleteProperty: async (parent, {_id}, context) => {
+      if (context.user.adminFlag) {
+        return await Property.findByIdAndDelete(_id);
       }
 
       throw new AuthenticationError('Not Authorized');
