@@ -85,6 +85,17 @@ const typeDefs = gql`
       tenantData: TenantInput
     ): User
 
+    updateUser(
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+      phoneNumber: String
+      adminFlag: Boolean
+      propertyId: [String]
+      tenantData: TenantInput
+    ): User
+
     addProperty(
       propertyName: String!
       propertyType: String!
@@ -103,6 +114,8 @@ const typeDefs = gql`
       availability: Boolean!
       ownerInfo: OwnerInfoInput   
     ): Property
+
+    login(email: String!, password: String!): Auth
   }
 
   input TenantInput{
