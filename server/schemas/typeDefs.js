@@ -63,6 +63,8 @@ const typeDefs = gql`
     tenants: [User]
     properties: [Property] 
     users: [User]
+    property(_id: ID!): Property
+    user(_id: ID!): User
   }
 
   type Mutation {
@@ -129,6 +131,8 @@ const typeDefs = gql`
     ): Property
 
     login(email: String!, password: String!): Auth
+
+    deleteUser(userId: ID!): User
   }
 
   input TenantInput{
