@@ -3,22 +3,16 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
-<<<<<<< HEAD
 import Detail from "./pages/Detail";
 import CreateUser from './components/CreateUser/index.js';
 import CreateProperty from './components/CreateProperty/index';
 import UpdateProperty from './components/UpdateProperty/index';
 
-=======
->>>>>>> feature/styling
 
 import ApolloClient from "apollo-boost";
 
-import CreateUser from "./components/CreateUser/index.js";
-import CreateProperty from "./components/CreateProperty/index";
 
 import "./App.css";
-import Detail from "./pages/Detail";
 import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
@@ -56,11 +50,7 @@ function App() {
                 <Route exact path="/tenantDash" component={TenantDash} />
                 <Route exact path="/detail" component={Detail} />
                 <Route exact path="/createuser" component={CreateUser} />
-<<<<<<< HEAD
-                <Route exact path="/createproperty" component={CreateProperty} />
-                <Route exact path="/updateproperty" component={UpdateProperty} />
-
-=======
+                <Route exact path="/updateproperty" component={UpdateProperty} />                
                 <Route
                   exact
                   path="/createproperty"
@@ -68,7 +58,6 @@ function App() {
                 />
                 <Route component={NoMatch} />
                 {/* <PropertyList /> */}
->>>>>>> feature/styling
               </Switch>
             </header>
           </Provider>
