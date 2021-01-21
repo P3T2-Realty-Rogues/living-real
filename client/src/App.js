@@ -4,14 +4,12 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Detail from "./pages/Detail";
-import CreateUser from './components/CreateUser/index.js';
-import CreateProperty from './components/CreateProperty/index';
-import UpdateProperty from './components/UpdateProperty/index';
-import MaintenanceRequest from './components/MaintenanceRequest/index';
-
+import CreateUser from "./components/CreateUser/index.js";
+import CreateProperty from "./components/CreateProperty/index";
+import UpdateProperty from "./components/UpdateProperty/index";
+import MaintenanceRequest from "./components/MaintenanceRequest/index";
 
 import ApolloClient from "apollo-boost";
-
 
 import "./App.css";
 import Landing from "./pages/Landing";
@@ -37,9 +35,9 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="App">
+    <div className="App">
+      <ApolloProvider client={client}>
+        <Router>
           <Provider store={store}>
             <header className="App-header">
               <Nav />
@@ -51,16 +49,27 @@ function App() {
                 <Route exact path="/tenantDash" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
                 <Route exact path="/createuser" component={CreateUser} />
-                <Route exact path="/createproperty" component={CreateProperty} />
-                <Route exact path="/updateproperty" component={UpdateProperty} />
-                <Route exact path="/maintenancerequest" component={MaintenanceRequest} />
-
+                <Route
+                  exact
+                  path="/createproperty"
+                  component={CreateProperty}
+                />
+                <Route
+                  exact
+                  path="/updateproperty"
+                  component={UpdateProperty}
+                />
+                <Route
+                  exact
+                  path="/maintenancerequest"
+                  component={MaintenanceRequest}
+                />
               </Switch>
             </header>
           </Provider>
-        </div>
-      </Router>
-    </ApolloProvider>
+        </Router>
+      </ApolloProvider>
+    </div>
   );
 }
 

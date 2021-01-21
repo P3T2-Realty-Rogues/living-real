@@ -5,17 +5,17 @@
 
 // Import the defined actions
 import {
-    UPDATE_ADMIN,    
-    UPDATE_TENANT,   
-    UPDATE_PROPERTY,
-    ADD_TENANT,
-    REMOVE_TENANT,
-    ADD_PROPERTY,
-    REMOVE_PROPERTY,
-    CREATE_MAINTENANCE_REQUEST,
-    CREATE_BB_POST,            
-    CREATE_BB_POST_COMMENT,    
-  } from "./actions";
+  UPDATE_USER,
+  UPDATE_TENANT,
+  UPDATE_PROPERTY,
+  ADD_TENANT,
+  REMOVE_TENANT,
+  ADD_PROPERTY,
+  REMOVE_PROPERTY,
+  CREATE_MAINTENANCE_REQUEST,
+  CREATE_BB_POST,
+  CREATE_BB_POST_COMMENT,
+} from "./actions";
 
   // Create the initial state for Redux
   const initialState = {
@@ -30,7 +30,7 @@ import {
   export const reducer = (state = initialState, action) => {
       switch (action.type) {
           // If action type value is the value of `UPDATE_ADMINS`, return a new state object with an updated owner array
-          case UPDATE_ADMIN:
+          case UPDATE_USER:
               return {
                   ...state,                          // the 'spread' operator
                   owners: [...action.owners],

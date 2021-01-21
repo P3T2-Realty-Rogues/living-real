@@ -1,9 +1,10 @@
 
-
 // Define the actions needed - to maintain and update our state.
-export const UPDATE_ADMIN               = "UPDATE_ADMIN";         
+export const UPDATE_USER                = "UPDATE_USER";         
+export const UPDATE_USERS               = "UPDATE_USERS";         
 export const UPDATE_TENANT              = "UPDATE_TENANT";       
 export const UPDATE_PROPERTY            = "UPDATE_PROPERTY"; 
+export const UPDATE_PROPERTIES          = "UPDATE_PROPERTIES"; 
 export const ADD_TENANT                 = "ADD_TENANT";
 export const REMOVE_TENANT              = "REMOVE_TENANT";
 export const ADD_PROPERTY               = "ADD_PROPERTY";
