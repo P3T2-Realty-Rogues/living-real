@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -11,12 +11,12 @@ function Properties() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  console.log(state);
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   // window.location = "/Detail";
-  // };
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch({
+      property: properties
+    })
+  };
 
   const [properties] = useState([
     {
@@ -35,6 +35,9 @@ function Properties() {
       description: "SOME TEXT",
     },
   ]);
+  // console.log([properties]);
+
+ 
   // <div>
   //    {properties.map((image) => (
   //       <img key={image.id}
@@ -56,9 +59,9 @@ function Properties() {
               alt={image.name}
               // width="300" height="auto"
               src={require(`../../assets/images/properties/${image.id}.jpg`)}
-              // onClick={handleClick}
+              onClick={handleClick}
             ></img>
-            <button className="legend" id="legend">
+            <button className="legend" id="legend" onClick={handleClick}>
               {image.name}
             </button>
           </div>

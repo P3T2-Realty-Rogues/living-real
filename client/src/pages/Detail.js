@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
-    const { id } = useParams();
-    
+  const { id } = useParams();
+  const state = useSelector((state) => state);
+    const dispatch = useDispatch();
+    console.log(state);
   return (
     <>
       {/* General home pictures and info */}
