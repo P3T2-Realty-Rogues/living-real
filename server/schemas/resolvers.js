@@ -7,8 +7,11 @@ const resolvers = {
   Query: {
     users: async () => {
       const userData = await User.find().select("-__v -password");
-      
+
       return userData;
+    },
+    user: async (parent, {_id}) => {
+      return await User.findById(_id)
     },
     owners: async () => {
       return await User.find({
@@ -22,7 +25,10 @@ const resolvers = {
     },
     properties: async () => {
       return await Property.find().select("-__v")
-    }
+    },
+    property: async (parent, {_id}) => {
+      return await Property.findById(_id)
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -31,12 +37,17 @@ const resolvers = {
       return user;
     },
     updateUser: async (parent, args, context) => {
-      
+
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    deleteUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      }
     },
     addProperty: async (parent, args) => {
       const property = await Property.create(args);
