@@ -73,6 +73,12 @@ export const QUERY_PROPERTY = gql`
       renterDeposit
       appFee
       availability
+      ownerInfo {
+        mortgage
+        propertyTaxes
+        propertyInsurance
+        tenant
+      }
     }
   }
 `;

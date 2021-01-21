@@ -74,7 +74,16 @@ export const ADD_PROPERTY = gql`
   }
 `;
 
-export const ADD_TENANT = gql`
+export const REMOVE_PROPERTY = gql`
+  mutation deleteProperty($_id: ID!) {
+    deleteProperty(_id: $_id) {
+      _id
+      propertyName
+    }
+  }
+`;
+
+export const ADD_USER = gql`
   mutation addUser(
     $firstName: String!
     $lastName: String!
@@ -106,6 +115,16 @@ export const ADD_TENANT = gql`
         activeTenant
         leaseDate
       }
+    }
+  }
+`;
+
+export const REMOVE_USER = gql`
+  mutation deleteUser($_id: ID!) {
+    deleteUser(_id: $_id) {
+      firstName
+      lastName
+      _id
     }
   }
 `;
