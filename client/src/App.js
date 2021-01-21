@@ -4,17 +4,23 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Detail from "./pages/Detail";
+import CreateUser from './components/CreateUser/index.js';
+import CreateProperty from './components/CreateProperty/index';
+import UpdateProperty from './components/UpdateProperty/index';
+import MaintenanceRequest from './components/MaintenanceRequest/index';
+
 
 import ApolloClient from "apollo-boost";
 
-// import logo from './logo.svg';
+
 import "./App.css";
 import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
 import TenantDash from "./pages/TenantDash";
+import NoMatch from "./pages/NoMatch";
 // import PropertyList from './components/Properties'
 
 const client = new ApolloClient({
@@ -38,14 +44,18 @@ function App() {
             <header className="App-header">
               <Nav />
               <Switch>
+                <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/requestInfo" component={RequestInfo} />
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash" component={TenantDash} />
-                <Route exact path="/detail" component={Detail} />
+                <Route exact path="/detail/:id" component={Detail} />
+                <Route exact path="/createuser" component={CreateUser} />
+                <Route exact path="/createproperty" component={CreateProperty} />
+                <Route exact path="/updateproperty" component={UpdateProperty} />
+                <Route exact path="/maintenancerequest" component={MaintenanceRequest} />
+
               </Switch>
-              <Landing />
-              {/* <PropertyList /> */}
             </header>
           </Provider>
         </div>

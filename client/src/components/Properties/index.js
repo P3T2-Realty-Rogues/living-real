@@ -1,41 +1,92 @@
 import React, { useState } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+// import { ADD_PROPERTY } from "../../utils/actions";
+// import { useMutation } from "@apollo/react-hooks";
 
+// import {QUERY_PROPERTY} from  "../../utils/queries"
 
 function Properties() {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
+  
   const [properties] = useState([
     {
       id: 1,
-      name: 'Home1',
-      description: '',
+      name: "Home1",
+      description: "LOREM IPSUM",
     },
     {
       id: 2,
-      name: 'Home1',
-      description: '',
+      name: "Home2",
+      description: "IPSUM LOREM",
     },
     {
       id: 3,
-      name: 'Home1',
-      description: '',
+      name: "Home3",
+      description: "SOME TEXT",
     },
-  ])
+  ]);
 
-  // handleClick  => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch([...properties]);
+    // console.log(property);
+  };
 
-  // }
+  // console.log([properties]);
+
+  // <div>
+  //    {properties.map((image) => (
+  //       <img key={image.id}
+  //         alt={image.name}
+  //         // width="300" height="auto"
+  //         src={require(`../../assets/images/properties/${image.id}.jpg`)}
+  //         // onClick={handleClick}
+  //         >
+  //       </img>
+  //     ))}
+  //   </div>
 
   return (
-    <div>
+    <Carousel showThumbs={false} autoPlay infiniteLoop='true'>
       {properties.map((image) => (
-        <img key={image.id} 
-          alt={image.name}
-          src={require(`../../assets/images/properties/${image.id}.jpg`)}
-          // onClick={handleClick}
-          >
-        </img>
+        <Link to={`/detail/${image.id}`} key={image.id}>
+          <div key={image.id}>
+            <img
+              key={image.id}
+              alt={image.name}
+              // width="300" height="auto"
+              src={require(`../../assets/images/properties/${image.id}.jpg`)}
+              onClick={handleClick}
+            ></img>
+            <button className="legend" id="legend" onClick={handleClick}>
+              {image.name}
+            </button>
+          </div>
+        </Link>
       ))}
-    </div>
+      {/* <img src={require("../../assets/images/properties/1.jpg")} />
+        <button className="legend" id="legend">
+          Home 1
+        </button>
+      </div>
+      <div>
+        <img src={require("../../assets/images/properties/2.jpg")} />
+        <button className="legend" id="legend">
+          Home 2
+        </button>
+      </div>
+      <div>
+        <img src={require("../../assets/images/properties/3.jpg")} />
+        <button className="legend" id="legend">
+          Home 3
+        </button> */}
+    </Carousel>
   );
 }
 
