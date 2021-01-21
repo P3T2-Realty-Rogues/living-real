@@ -19,7 +19,8 @@ body {
 } */
 
 html,
-body, .landing-image {
+body,
+.landing-image {
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -37,6 +38,10 @@ body, .landing-image {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+}
+
+#legend {
+  cursor: pointer;
 }
 
 /* .landing-image {
@@ -62,8 +67,9 @@ body, .landing-image {
   margin-top: 3rem;
 }
 
-
-a:hover, a:focus, a:active {
+a:hover,
+a:focus,
+a:active {
   text-decoration: none !important;
   color: var(--tertiary) !important;
   background-color: rgb(204, 236, 247) !important;
@@ -72,11 +78,11 @@ a:hover, a:focus, a:active {
 h1 a {
   text-decoration: none !important;
   color: white !important;
-
 }
 
-h1 a:hover, h1 a:focus, h1 a:active {
+h1 a:hover,
+h1 a:focus,
+h1 a:active {
   text-decoration: none !important;
   color: blue !important;
-
 }

@@ -1,79 +1,87 @@
-import React, { useState, Component } from "react";
-//import ReactDOM from 'react-dom';
+import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
+// import {QUERY_PROPERTY} from  "../../utils/queries"
 
+function Properties() {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-// function Properties() {
+  console.log(state);
 
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   // window.location = "/Detail";
+  // };
 
-
-  // handleClick  => {
-
-  // }
-
-  // return (
-  //   <Carousel>
-  //   <div>
-  //     {properties.map((image) => (
-  //       <img key={image.id} 
+  const [properties] = useState([
+    {
+      id: 1,
+      name: "Home1",
+      description: "LOREM IPSUM",
+    },
+    {
+      id: 2,
+      name: "Home2",
+      description: "IPSUM LOREM",
+    },
+    {
+      id: 3,
+      name: "Home3",
+      description: "SOME TEXT",
+    },
+  ]);
+  // <div>
+  //    {properties.map((image) => (
+  //       <img key={image.id}
   //         alt={image.name}
-  //         // width="300" height="auto" 
+  //         // width="300" height="auto"
   //         src={require(`../../assets/images/properties/${image.id}.jpg`)}
   //         // onClick={handleClick}
   //         >
   //       </img>
   //     ))}
   //   </div>
-  //   </Carousel>
-  // );
-
-  class Properties extends Component {
-    
-    render() {
-
-      // const [properties] = useState([
-      //   {
-      //     id: 1,
-      //     name: 'Home1',
-      //     description: '',
-      //   },
-      //   {
-      //     id: 2,
-      //     name: 'Home1',
-      //     description: '',
-      //   },
-      //   {
-      //     id: 3,
-      //     name: 'Home1',
-      //     description: '',
-      //   },
-      // ])
-
-         return (
-          <Carousel>
-          <div>
-              <img src={require("../../assets/images/properties/1.jpg" )}/>
-              <p className="legend">Home 1</p>
-         </div>
-         <div>
-              <img src={require("../../assets/images/properties/2.jpg" )} />
-              <p className="legend">Home 2</p>
+  return (
+    <Carousel>
+      {properties.map((image) => (
+        <Link to={`/detail/${image.id}`}>
+          <div key={image.id}>
+            <img
+              key={image.id}
+              alt={image.name}
+              // width="300" height="auto"
+              src={require(`../../assets/images/properties/${image.id}.jpg`)}
+              // onClick={handleClick}
+            ></img>
+            <button className="legend" id="legend">
+              {image.name}
+            </button>
           </div>
-          <div>
-              <img src={require("../../assets/images/properties/3.jpg" )} />
-              <p className="legend">Home 3</p>
-          </div>
-         </Carousel>
-       );
-    }
- };
-
-//  ReactDOM.render(<Properties />);
-//  // Don't for
-
+        </Link>
+      ))}
+      {/* <img src={require("../../assets/images/properties/1.jpg")} />
+        <button className="legend" id="legend">
+          Home 1
+        </button>
+      </div>
+      <div>
+        <img src={require("../../assets/images/properties/2.jpg")} />
+        <button className="legend" id="legend">
+          Home 2
+        </button>
+      </div>
+      <div>
+        <img src={require("../../assets/images/properties/3.jpg")} />
+        <button className="legend" id="legend">
+          Home 3
+        </button> */}
+    </Carousel>
+  );
+}
 
 export default Properties;

@@ -8,7 +8,6 @@ const Landing = () => {
   return (
     <div >
         {/* <h1>In A Virtual World, Live Real</h1> */}
-      
       <Jumbotron>
         <Properties/>
       </Jumbotron>
