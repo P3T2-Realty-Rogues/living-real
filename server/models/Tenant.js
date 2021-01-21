@@ -9,7 +9,6 @@ const tenantSchema = new Schema ({
     },
     activeTenant: {
         type: Boolean,
-        required: true
     }
 },
 {
