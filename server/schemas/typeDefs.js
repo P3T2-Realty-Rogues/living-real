@@ -44,13 +44,6 @@ const typeDefs = gql`
     tenant: [String]
   }
 
-  #type BulletinBoardData  {
-  #  _id: ID
-  #  _posterID: ID
-  #  text: String
-  #}
-
-
   type Maintenance {
     _id: ID
     tenantID: ID
@@ -68,20 +61,11 @@ const typeDefs = gql`
   type Query {
     owners: [User]
     tenants: [User]
-    properties: [Property]
-    # bboard: 
+    properties: [Property] 
     users: [User]
   }
 
   type Mutation {
-    addAdmin(
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-      adminFlag: Boolean!
-      propertyId: [ID]
-    ):User
 
     addUser(
       firstName: String!
@@ -91,6 +75,17 @@ const typeDefs = gql`
       phoneNumber: String!
       adminFlag: Boolean!
       propertyId: [String!]
+      tenantData: TenantInput
+    ): User
+
+    updateUser(
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+      phoneNumber: String
+      adminFlag: Boolean
+      propertyId: [String]
       tenantData: TenantInput
     ): User
 
@@ -112,6 +107,28 @@ const typeDefs = gql`
       availability: Boolean!
       ownerInfo: OwnerInfoInput   
     ): Property
+
+    updateProperty(
+      propertyId: ID!
+      propertyName: String
+      propertyType: String
+      streetAddress: String
+      city: String
+      state: String
+      zipCode: Int
+      sqFeet: Int
+      numBathrooms: Float
+      numBedroom: Int
+      balcony: Boolean
+      rent: Float
+      petDeposit: Float
+      renterDeposit: Float
+      appFee: Float
+      availability: Boolean
+      ownerInfo: OwnerInfoInput   
+    ): Property
+
+    login(email: String!, password: String!): Auth
   }
 
   input TenantInput{
