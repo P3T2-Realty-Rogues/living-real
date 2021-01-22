@@ -19,7 +19,6 @@ function Detail() {
 				currentProperty,
 			});
 		}
-		// on page leave (component unmount), unset current book
 		return () => {
 			dispatch({
 				type: UPDATE_PROPERTY,
@@ -38,8 +37,6 @@ function Detail() {
 				<h3>Address:</h3>
         <p>{state.currentProperty.streetAddress} <br></br>
         {state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</p>
-        {/* <h4>{state.currentProperty.streetAddress}</h4>
-        <h4>{state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</h4> */}
 			</header>
 
 			<div>
