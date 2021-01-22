@@ -14,20 +14,20 @@ function Properties() {
   const dispatch = useDispatch();
 
   const { properties } = state;
-  console.log(properties);
+  // console.log(properties);
 
   // console.log(state);
   const { loading, data } = useQuery(QUERY_PROPERTIES);
-  console.log(data);
+  console.log(data, loading);
 
-  useEffect(() => {
-    if (data) {
-      dispatch({
-        type: UPDATE_PROPERTIES,
-        properties: data.properties,
-      });
-    }
-  }, [dispatch, data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_PROPERTIES,
+  //       properties: data.properties,
+  //     });
+  //   }
+  // }, [dispatch, data]);
   // const [properties] = useState([
   //   {
   //     id: 1,
