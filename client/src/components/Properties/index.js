@@ -58,7 +58,7 @@ function Properties() {
               alt={image.name}
               width="300"
               height="auto"
-              src={require(`../../assets/images/properties/${image.id}.jpg`)}
+              src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.id + `.jpg`)}
               // onClick={handleClick}
             ></img>
             <button
