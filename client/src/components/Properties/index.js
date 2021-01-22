@@ -24,7 +24,7 @@ function Properties() {
   //     });
   //   }
   // }, [dispatch, data]);
-  const [properties] = useState([
+  const hardProperties = [
     {
       id: 1,
       name: "Home1",
@@ -40,7 +40,7 @@ function Properties() {
       name: "Home3",
       description: "SOME TEXT",
     },
-  ]);
+  ];
 
   // const handleClick = (e) => {
   //   e.preventDefault();
@@ -50,15 +50,15 @@ function Properties() {
 
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop="true">
-      {properties.map((image) => (
-        <Link to={`/detail/${image.id}`} key={image.id}>
-          <div key={image.id} className="image-container">
+      {state.properties.map((image,index) => (
+        <Link to={`/detail/${image._id}`} key={image._id}>
+          <div key={image._id} className="image-container">
             <img
-              key={image.id}
-              alt={image.name}
+              key={image._id}
+              alt={image.propertyName}
               width="300"
               height="auto"
-              src={require(`../../assets/images/properties/${image.id}.jpg`)}
+              src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
               // onClick={handleClick}
             ></img>
             <button
@@ -66,7 +66,7 @@ function Properties() {
               id="legend"
               // onClick={handleClick}
             >
-              {image.name}
+              {image.propertyName}
             </button>
           </div>
         </Link>
