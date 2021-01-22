@@ -4,10 +4,7 @@ import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.
 import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
 
-import { QUERY_PROPERTIES } from "../../utils/queries";
-import { UPDATE_PROPERTIES } from "../../utils/actions";
 
 function Properties() {
   const state = useSelector((state) => state);
@@ -17,8 +14,7 @@ function Properties() {
   // // console.log(properties);
 
   // // console.log(state);
-  const { loading, data } = useQuery(QUERY_PROPERTIES);
-  console.log(data, loading);
+  
 
   // useEffect(() => {
   //   if (data) {
