@@ -86,7 +86,6 @@ db.once('open', async () => {
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",
-    propertyId: [],
     adminFlag: true,
     tenantData: {}
   });
@@ -97,7 +96,6 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
-    propertyId: [],
     adminFlag: false,
     tenantData: {
       "activeTenant": true,

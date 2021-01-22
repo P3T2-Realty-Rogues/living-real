@@ -8,7 +8,7 @@ const typeDefs = gql`
     email:  String
     phoneNumber: String
     adminFlag: Boolean
-    propertyId: [String]
+    property: Property
     tenantData: TenantData
   }
 
@@ -76,7 +76,7 @@ const typeDefs = gql`
       password: String!
       phoneNumber: String!
       adminFlag: Boolean!
-      propertyId: [String!]
+      property: ID!
       tenantData: TenantInput
     ): User
 
@@ -87,7 +87,7 @@ const typeDefs = gql`
       password: String
       phoneNumber: String
       adminFlag: Boolean
-      propertyId: [String]
+      property: ID
       tenantData: TenantInput
     ): User
 
@@ -111,7 +111,7 @@ const typeDefs = gql`
     ): Property
 
     updateProperty(
-      propertyId: ID!
+      property: ID!
       propertyName: String
       propertyType: String
       streetAddress: String
@@ -135,7 +135,7 @@ const typeDefs = gql`
     deleteUser(_id: ID!): User
     deleteProperty(_id: ID!): Property
 
-    addTenant(tenantId: ID!, propertyId: ID!): Property
+    addTenant(tenantId: ID!, property: ID!): Property
   }
 
   input TenantInput{
@@ -147,7 +147,6 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    tenant: [String] #change later
   }
 `;
 

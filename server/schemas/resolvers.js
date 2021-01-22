@@ -6,12 +6,12 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      const userData = await User.find().select("-__v -password");
+      const userData = await User.find().select("-__v -password").populate('property');
 
       return userData;
     },
     user: async (parent, { _id }) => {
-      return await User.findById(_id)
+      return await User.findById(_id).populate('property')
     },
     owners: async () => {
       return await User.find({
@@ -21,7 +21,7 @@ const resolvers = {
     tenants: async () => {
       return await User.find({
         adminFlag: false
-      }).select("-__v -password");
+      }).select("-__v -password").populate('property');
     },
     properties: async () => {
       return await Property.find().select("-__v").populate('ownerInfo.tenant')
@@ -39,7 +39,7 @@ const resolvers = {
     updateUser: async (parent, args, context) => {
 
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true }).populate('property');
       }
 
       throw new AuthenticationError('Not logged in');
