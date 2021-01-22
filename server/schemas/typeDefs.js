@@ -41,7 +41,7 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    tenant: [String]
+    tenant: [User]
   }
 
   type Maintenance {
@@ -134,6 +134,8 @@ const typeDefs = gql`
 
     deleteUser(_id: ID!): User
     deleteProperty(_id: ID!): Property
+
+    addTenant(tenantId: ID!, propertyId: ID!): Property
   }
 
   input TenantInput{

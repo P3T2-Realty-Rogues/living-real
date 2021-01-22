@@ -10,7 +10,7 @@ const resolvers = {
 
       return userData;
     },
-    user: async (parent, {_id}) => {
+    user: async (parent, { _id }) => {
       return await User.findById(_id)
     },
     owners: async () => {
@@ -24,9 +24,9 @@ const resolvers = {
       }).select("-__v -password");
     },
     properties: async () => {
-      return await Property.find().select("-__v")
+      return await Property.find().select("-__v").populate('ownerInfo.tenant')
     },
-    property: async (parent, {_id}) => {
+    property: async (parent, { _id }) => {
       return await Property.findById(_id)
     },
   },
@@ -44,7 +44,7 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    deleteUser: async (parent, {_id}, context) => {
+    deleteUser: async (parent, { _id }, context) => {
       if (context.user.adminFlag) {
         return await User.findByIdAndDelete(_id);
       }
@@ -63,12 +63,22 @@ const resolvers = {
 
       throw new AuthenticationError('Not Authorized');
     },
-    deleteProperty: async (parent, {_id}, context) => {
+    deleteProperty: async (parent, { _id }, context) => {
       if (context.user.adminFlag) {
         return await Property.findByIdAndDelete(_id);
       }
 
       throw new AuthenticationError('Not Authorized');
+    },
+    addTenant: async (parent, {propertyId, tenantId}) => {
+
+      const updatedProperty = await Property.findOneAndUpdate(
+        { _id: propertyId },
+        { $addToSet: {'ownerInfo.tenant': tenantId } } ,
+        { new: true }
+      ).populate('ownerInfo.tenant');
+  
+      return updatedProperty;
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

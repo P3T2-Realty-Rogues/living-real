@@ -2,19 +2,7 @@ const db = require('./connection');
 const { User, Property, Maintenance } = require('../models');
 
 db.once('open', async () => {
-  // await Category.deleteMany();
-
-  // const categories = await Category.insertMany([
-  //   { name: 'Food' },
-  //   { name: 'Household Supplies' },
-  //   { name: 'Electronics' },
-  //   { name: 'Books' },
-  //   { name: 'Toys' }
-  // ]);
-
-  // console.log('categories seeded');
-
-  // await Product.deleteMany();
+  await Property.deleteMany();
 
   const properties = await Property.insertMany([
     {
@@ -37,7 +25,7 @@ db.once('open', async () => {
         mortgage: 1200,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["John Smith"]
+        tenant: []
       }
     },
     {
@@ -60,7 +48,7 @@ db.once('open', async () => {
         mortgage: 12500,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Shaun Smith"]
+        tenant: []
       }
     },
     {
@@ -83,7 +71,7 @@ db.once('open', async () => {
         mortgage: 12000,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Don Smith"]
+        tenant: []
       }
     }
   ]);
@@ -98,7 +86,7 @@ db.once('open', async () => {
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",
-    propertyId: ["123asd"],
+    propertyId: [],
     adminFlag: true,
     tenantData: {}
   });
@@ -109,7 +97,7 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
-    propertyId: ["23asawdd"],
+    propertyId: [],
     adminFlag: false,
     tenantData: {
       "activeTenant": true,
