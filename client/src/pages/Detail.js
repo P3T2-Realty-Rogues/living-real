@@ -36,8 +36,10 @@ function Detail() {
 
 				<h1>Property Name: {state.currentProperty.propertyName}</h1>
 				<h3>Address:</h3>
-        <h4>{state.currentProperty.streetAddress}</h4>
-        <h4>{state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</h4>
+        <p>{state.currentProperty.streetAddress} <br></br>
+        {state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</p>
+        {/* <h4>{state.currentProperty.streetAddress}</h4>
+        <h4>{state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</h4> */}
 			</header>
 
 			<div>
