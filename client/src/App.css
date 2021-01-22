@@ -82,7 +82,7 @@ h1 a {
 
 h1 a:hover,
 h1 a:focus,
-h1 a:active {
+h1 a:active, .item {
   text-decoration: none !important;
   color: blue !important;
 }
@@ -92,4 +92,20 @@ h1 a:active {
 #legend {
   display: none;
 }
+
+.landing-image {
+  background-repeat:repeat;
+}
+
+.item {
+  width: 100%;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  margin-left: 0!important;
+  margin-right: 0!important;
+  text-align: center;
+  display: flex;
+
+}
+
 }
