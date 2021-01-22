@@ -1,38 +1,60 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {useParams } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { UPDATE_PROPERTY } from '../utils/actions';
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
-  const { id } = useParams();
-  const state = useSelector((state) => state);
-    const dispatch = useDispatch();
-    console.log(state);
-  return (
-    <>
-      {/* General home pictures and info */}
-      <header>
-        <div>Image carousel of home views goes here...</div>
+	const { id } = useParams();
+	const state = useSelector(state => state);
+  const dispatch = useDispatch();
 
-        <h1>Property Name: Home 1</h1>
-        <h3>Address: street, city, state, zip</h3>
-      </header>
+  
+  const currentProperty = state.properties.find(({ _id }) => _id === id);
 
-      <div>
-        {/* Property description */}
-        <h2>Home Description: </h2>
-        <p>lorem ipsum</p>
-      </div>
+	useEffect(() => {
+		if (currentProperty) {
+			dispatch({
+				type: UPDATE_PROPERTY,
+				currentProperty,
+			});
+		}
+		// on page leave (component unmount), unset current book
+		return () => {
+			dispatch({
+				type: UPDATE_PROPERTY,
+				currentProperty: {},
+			});
+		};
+	}, [currentProperty, dispatch]);
 
-      <div>
-        {/* Property details and amenities */}
-        Table of property details
-      </div>
+	return (
+		<>
+			{/* General home pictures and info */}
+			<header>
+				<div>Image carousel of home views goes here...</div>
 
-      {/* Ability to apply for this property */}
-      <button>Apply Now</button>
-    </>
-  );
+				<h1>Property Name: {state.currentProperty.propertyName}</h1>
+				<h3>Address:</h3>
+        <h4>{state.currentProperty.streetAddress}</h4>
+        <h4>{state.currentProperty.city}, {state.currentProperty.state} {state.currentProperty.zipCode}</h4>
+			</header>
+
+			<div>
+				{/* Property description */}
+				<h2>Home Description: </h2>
+				<p>lorem ipsum</p>
+			</div>
+
+			<div>
+				{/* Property details and amenities */}
+				Table of property details
+			</div>
+
+			{/* Ability to apply for this property */}
+			<button>Apply Now</button>
+		</>
+	);
 }
 
 export default Detail;
