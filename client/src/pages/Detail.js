@@ -40,18 +40,72 @@ function Detail() {
 			</header>
 
 			<div>
+				<p>&nbsp;</p>
 				{/* Property description */}
 				<h2>Home Description: </h2>
 				<p>lorem ipsum</p>
 			</div>
 
 			<div>
+				<p>&nbsp;</p>
 				{/* Property details and amenities */}
-				Table of property details
-			</div>
-
+				<table class="ui striped  collapsing table">
+					<thead>
+						<tr>
+							<th>Detail Item</th>
+							<th>Unit</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+					    <tr>
+							<td>Size</td>
+							<td>sq. ft.</td>
+							<td>{state.currentProperty.sqFeet}</td>
+						</tr>
+						<tr>
+							<td>No. bathrooms</td>
+							<td> </td>
+							<td>{state.currentProperty.numBathrooms}</td>
+						</tr>
+						<tr>
+							<td>No. bedrooms</td>
+							<td> </td>							
+							<td>{state.currentProperty.numBedroom}</td>
+						</tr>
+						<tr>
+							<td>Balcony</td>
+							<td> </td>							
+							<td>{state.currentProperty.balcony}</td>
+						</tr>
+					    <tr>
+							<td>Rent</td>
+							<td> $ </td>							
+							<td>{state.currentProperty.rent}</td>
+						</tr>
+						<tr>
+							<td>Pet Deposit</td>
+							<td> $ </td>								
+							<td>{state.currentProperty.petDeposit}</td>
+						</tr>
+						<tr>
+							<td>Rent Deposit</td>
+							<td> $ </td>								
+							<td>{state.currentProperty.renterDeposit}</td>
+						</tr>
+						<tr>
+							<td>Application Fee</td>
+							<td> $ </td>								
+							<td>{state.currentProperty.appFee}</td>
+						</tr>						
+					</tbody>
+				</table>
+            </div>
 			{/* Ability to apply for this property */}
-			<button>Apply Now</button>
+			<div>
+			   <p>&nbsp;</p>
+			   <button>Apply Now</button>
+			</div>
 		</>
 	);
 }

@@ -87,6 +87,15 @@ h1 a:active, .item {
   color: blue !important;
 }
 
+.ui.table {
+  background: #7498bd1a;
+  color:  #b4d2f01a;
+}
+
+.ui.table tr td {
+  background: #b4d2f01a;
+}
+
 @media screen and (max-width: 768px) {
 
 #legend {
