@@ -30,10 +30,10 @@ body,
   font-size: 16px;
   color: var(--dark);
   background-color: #2753ba;
-  background-image: url("./assets/images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 60%;
+  background-image: url("./assets/images/blueprint6.jpg");
+  background-repeat:repeat;
+  background-size:contain;
+  background-position: 95%;
   background-attachment: fixed;
   height: 100%;
   width: 100%;
