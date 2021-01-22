@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -13,10 +13,10 @@ function Properties() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const { properties } = state;
-  // console.log(properties);
+  // const { properties } = state;
+  // // console.log(properties);
 
-  // console.log(state);
+  // // console.log(state);
   const { loading, data } = useQuery(QUERY_PROPERTIES);
   console.log(data, loading);
 
@@ -28,23 +28,23 @@ function Properties() {
   //     });
   //   }
   // }, [dispatch, data]);
-  // const [properties] = useState([
-  //   {
-  //     id: 1,
-  //     name: "Home1",
-  //     description: "LOREM IPSUM",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Home2",
-  //     description: "IPSUM LOREM",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Home3",
-  //     description: "SOME TEXT",
-  //   },
-  // ]);
+  const [properties] = useState([
+    {
+      id: 1,
+      name: "Home1",
+      description: "LOREM IPSUM",
+    },
+    {
+      id: 2,
+      name: "Home2",
+      description: "IPSUM LOREM",
+    },
+    {
+      id: 3,
+      name: "Home3",
+      description: "SOME TEXT",
+    },
+  ]);
 
   // const handleClick = (e) => {
   //   e.preventDefault();
@@ -55,14 +55,14 @@ function Properties() {
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop="true">
       {properties.map((image) => (
-        <Link to={`/detail/${image._id}`} key={image._id}>
-          <div key={image._id} className="image-container">
+        <Link to={`/detail/${image.id}`} key={image.id}>
+          <div key={image.id} className="image-container">
             <img
-              key={image._id}
+              key={image.id}
               alt={image.name}
               width="300"
               height="auto"
-              src={require(`../../assets/images/properties/${image._id}.jpg`)}
+              src={require(`../../assets/images/properties/${image.id}.jpg`)}
               // onClick={handleClick}
             ></img>
             <button
