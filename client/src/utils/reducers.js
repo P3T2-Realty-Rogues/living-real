@@ -14,6 +14,7 @@ const initialState = {
   user: [],
   tenants: [],
   properties: [],
+  currentProperty: {}
 };
 
 export const reducer = (state = initialState, action) => {
@@ -46,7 +47,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_PROPERTY:
       return {
         ...state,
-        property: [...action.property],
+        currentProperty: {...action.currentProperty}
       };
     case UPDATE_PROPERTIES:
       return {

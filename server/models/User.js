@@ -41,11 +41,10 @@ const userSchema = new Schema({
     type: Boolean,
     required: true
   },
-  propertyId: [
-    {
-      type: String
-    }
-  ],
+  property: {
+    type: Schema.Types.ObjectId,
+    ref: 'Property'
+  },
   tenantData: tenantSchema
 });
 

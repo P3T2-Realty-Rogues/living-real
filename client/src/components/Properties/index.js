@@ -4,10 +4,7 @@ import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.
 import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
 
-import { QUERY_PROPERTIES } from "../../utils/queries";
-import { UPDATE_PROPERTIES } from "../../utils/actions";
 
 function Properties() {
   const state = useSelector((state) => state);
@@ -17,8 +14,7 @@ function Properties() {
   // // console.log(properties);
 
   // // console.log(state);
-  const { loading, data } = useQuery(QUERY_PROPERTIES);
-  console.log(data, loading);
+  
 
   // useEffect(() => {
   //   if (data) {
@@ -28,7 +24,7 @@ function Properties() {
   //     });
   //   }
   // }, [dispatch, data]);
-  const [properties] = useState([
+  const hardProperties = [
     {
       id: 1,
       name: "Home1",
@@ -44,7 +40,7 @@ function Properties() {
       name: "Home3",
       description: "SOME TEXT",
     },
-  ]);
+  ];
 
   // const handleClick = (e) => {
   //   e.preventDefault();
@@ -54,15 +50,16 @@ function Properties() {
 
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop="true">
-      {properties.map((image) => (
-        <Link to={`/detail/${image.id}`} key={image.id}>
-          <div key={image.id} className="image-container">
+      {state.properties.map((image,index) => (
+        <Link to={`/detail/${image._id}`} key={image._id}>
+          <div key={image._id} className="image-container">
             <img
-              key={image.id}
-              alt={image.name}
+              key={image._id}
+              alt={image.propertyName}
               width="300"
               height="auto"
-              src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.id + `.jpg`)}
+              // src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.id + `.jpg`)}
+              src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
               // onClick={handleClick}
             ></img>
             <button
@@ -70,27 +67,11 @@ function Properties() {
               id="legend"
               // onClick={handleClick}
             >
-              {image.name}
+              {image.propertyName}
             </button>
           </div>
         </Link>
       ))}
-      {/* <img src={require("../../assets/images/properties/1.jpg")} />
-        <button className="legend" id="legend">
-          Home 1
-        </button>
-      </div>
-      <div>
-        <img src={require("../../assets/images/properties/2.jpg")} />
-        <button className="legend" id="legend">
-          Home 2
-        </button>
-      </div>
-      <div>
-        <img src={require("../../assets/images/properties/3.jpg")} />
-        <button className="legend" id="legend">
-          Home 3
-        </button> */}
     </Carousel>
   );
 }

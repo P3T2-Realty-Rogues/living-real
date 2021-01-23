@@ -2,19 +2,7 @@ const db = require('./connection');
 const { User, Property, Maintenance } = require('../models');
 
 db.once('open', async () => {
-  // await Category.deleteMany();
-
-  // const categories = await Category.insertMany([
-  //   { name: 'Food' },
-  //   { name: 'Household Supplies' },
-  //   { name: 'Electronics' },
-  //   { name: 'Books' },
-  //   { name: 'Toys' }
-  // ]);
-
-  // console.log('categories seeded');
-
-  // await Product.deleteMany();
+  await Property.deleteMany();
 
   const properties = await Property.insertMany([
     {
@@ -23,11 +11,12 @@ db.once('open', async () => {
       streetAddress: "8 nowhere ave",
       city: "Austin",
       state: "Texas",
-      zipCode: 78758,
+      zipCode: 1,
       sqFeet: 2000,
       numBathrooms: 2.5,
       numBedroom: 4,
       balcony: true,
+      pool: false,
       rent: 2500,
       petDeposit: 300,
       renterDeposit: 100,
@@ -37,7 +26,7 @@ db.once('open', async () => {
         mortgage: 1200,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["John Smith"]
+        tenant: []
       }
     },
     {
@@ -46,11 +35,12 @@ db.once('open', async () => {
       streetAddress: "9 nowhere ave",
       city: "Austin",
       state: "Texas",
-      zipCode: 78758,
+      zipCode: 2,
       sqFeet: 1000,
       numBathrooms: 25.1,
       numBedroom: 4,
       balcony: true,
+      pool: false,
       rent: 200,
       petDeposit: 3100,
       renterDeposit: 1050,
@@ -60,7 +50,7 @@ db.once('open', async () => {
         mortgage: 12500,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Shaun Smith"]
+        tenant: []
       }
     },
     {
@@ -69,11 +59,12 @@ db.once('open', async () => {
       streetAddress: "10 nowhere ave",
       city: "Austin",
       state: "Texas",
-      zipCode: 78758,
+      zipCode: 3,
       sqFeet: 4000,
       numBathrooms: 12.5,
       numBedroom: 1,
       balcony: false,
+      pool: false,
       rent: 500,
       petDeposit: 200,
       renterDeposit: 100,
@@ -83,7 +74,7 @@ db.once('open', async () => {
         mortgage: 12000,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Don Smith"]
+        tenant: []
       }
     }
   ]);
@@ -98,7 +89,6 @@ db.once('open', async () => {
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",
-    propertyId: ["123asd"],
     adminFlag: true,
     tenantData: {}
   });
@@ -109,7 +99,6 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
-    propertyId: ["23asawdd"],
     adminFlag: false,
     tenantData: {
       "activeTenant": true,
