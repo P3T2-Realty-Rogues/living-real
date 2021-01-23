@@ -80,7 +80,7 @@ const typeDefs = gql`
       password: String!
       phoneNumber: String!
       adminFlag: Boolean!
-      property: ID!
+      property: ID
       tenantData: TenantInput
     ): Auth
 
