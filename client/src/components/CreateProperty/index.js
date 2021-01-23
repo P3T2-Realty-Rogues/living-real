@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 // import S3 from 'react-aws-s3';
 
 
@@ -89,7 +90,6 @@ function CreateProperty() {
               <label for="photos"> <b>Upload Photos</b></label>
               <input type="file" id="img" ></input>
               <br />
-              <input type="submit" className="btn" ></input>
             </div>
           </div>
         </div>
@@ -114,6 +114,7 @@ function CreateProperty() {
               <div>
                 <br />
               <button className="btn">Create User</button>
+              <Link to="/AdminDash" className="btn">Back to Dashboard</Link>
             </div>
             </div>
           </div>

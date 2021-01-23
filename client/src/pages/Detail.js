@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { UPDATE_PROPERTY } from "../utils/actions";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
@@ -32,13 +33,14 @@ function Detail() {
   }, [currentProperty, dispatch]);
 
   console.log("state in Details: ", state);
-
+  console.log("current property", state.currentProperty.directoryName)
   return (
     <>
       {/* General home pictures and info */}
-        <div className='carousel-container'>
+        <div className='card'>
         	<Carousel showThumbs={false} autoPlay infiniteLoop="true" >
 	          <div className="image-container">
+              
 	            <img
 	              width="300"
                 height="auto"
@@ -77,10 +79,10 @@ function Detail() {
         <p>lorem ipsum</p>
       </div>
 
-      <div>
+      <div className="table">
         <p>&nbsp;</p>
         {/* Property details and amenities */}
-        <table class="ui striped  collapsing table">
+        <table className="ui striped  collapsing table">
           <thead>
             <tr>
               <th>Detail Item</th>
@@ -135,7 +137,9 @@ function Detail() {
       {/* Ability to apply for this property */}
       <div>
         <p>&nbsp;</p>
-        <button>Apply Now</button>
+        <button className="btn">Apply Now</button>
+        <Link to="/" className="btn">Back to Dashboard</Link>
+        <br />
       </div>
     </>
   );

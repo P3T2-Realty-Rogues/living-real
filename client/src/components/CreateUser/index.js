@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function CreateUser() {
   return(
@@ -27,7 +28,7 @@ function CreateUser() {
                 <br />
                 <button className="btn">Create User</button>
                 <br />
-                <button className="btn">Back to Dashboard</button>
+                <Link to="/AdminDash" className="btn">Back to Dashboard</Link>
             </div>
           </form>
           
