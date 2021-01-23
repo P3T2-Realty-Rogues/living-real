@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
     "aws-sdk": "^2.830.0",
     "if-env": "^1.0.4"
   },

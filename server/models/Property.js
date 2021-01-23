@@ -81,6 +81,11 @@ const propertySchema = new Schema ({
         required: true,
         trim: true
     },
+    pool: {
+        type: Boolean,
+        required: true,
+        trim: true
+    },
     rent: {
         type: Number,
         required: true,
@@ -105,14 +110,16 @@ const propertySchema = new Schema ({
         type: Boolean,
         required: true
     },
+    directoryName: {
+        type: String,
+        trim: true
+    },
     thumbnail: {
         type: String,
-        required: true,
         trim: true
     },
     pictures: [{
         type: String,
-        required: true,
         trim: true
     }],
     ownerInfo: ownerInfoSchema

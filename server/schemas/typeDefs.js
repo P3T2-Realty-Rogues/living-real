@@ -29,12 +29,14 @@ const typeDefs = gql`
     numBathrooms: Float
     numBedroom: Int
     balcony: Boolean
+    pool: Boolean
     rent: Float
     petDeposit: Float
     renterDeposit: Float
     appFee: Float
-    thumbnail: String!
-    pictures: [String!]
+    directoryName: String
+    thumbnail: String
+    pictures: [String]
     availability: Boolean
     ownerInfo: OwnerInfo
   }
@@ -104,13 +106,15 @@ const typeDefs = gql`
       numBathrooms: Float!
       numBedroom: Int!
       balcony: Boolean!
+      pool: Boolean!
       rent: Float!
       petDeposit: Float!
       renterDeposit: Float!
       appFee: Float!
       availability: Boolean!
-      thumbnail: String!
-      pictures: [String!]
+      directoryName: String
+      thumbnail: String
+      pictures: [String]
       ownerInfo: OwnerInfoInput   
     ): Property
 
@@ -126,13 +130,15 @@ const typeDefs = gql`
       numBathrooms: Float
       numBedroom: Int
       balcony: Boolean
+      pool: Boolean
       rent: Float
       petDeposit: Float
       renterDeposit: Float
       appFee: Float
       availability: Boolean
-      thumbnail: String!
-      pictures: [String!]
+      directoryName: String
+      thumbnail: String
+      pictures: [String]
       ownerInfo: OwnerInfoInput   
     ): Property
 
@@ -153,6 +159,7 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
+    tenant: ID
   }
 `;
 
