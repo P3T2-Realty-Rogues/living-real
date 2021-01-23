@@ -72,22 +72,6 @@ function Properties() {
           </div>
         </Link>
       ))}
-      {/* <img src={require("../../assets/images/properties/1.jpg")} />
-        <button className="legend" id="legend">
-          Home 1
-        </button>
-      </div>
-      <div>
-        <img src={require("../../assets/images/properties/2.jpg")} />
-        <button className="legend" id="legend">
-          Home 2
-        </button>
-      </div>
-      <div>
-        <img src={require("../../assets/images/properties/3.jpg")} />
-        <button className="legend" id="legend">
-          Home 3
-        </button> */}
     </Carousel>
   );
 }

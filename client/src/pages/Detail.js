@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { UPDATE_PROPERTY } from '../utils/actions';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+//import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
@@ -27,11 +31,36 @@ function Detail() {
 		};
 	}, [currentProperty, dispatch]);
 
+	console.log( "state in Details: ", state );
+
 	return (
 		<>
 			{/* General home pictures and info */}
 			<header>
-				<div>Image carousel of home views goes here...</div>
+				{/* <Carousel showThumbs={false} autoPlay infiniteLoop="true">
+					{state.properties.map((image, index) => (
+
+							<div key={image._id} className="image-container">
+								<img
+									key={image._id}
+									alt={image.propertyName}
+									width="300"
+									height="auto"
+									// src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.id + `.jpg`)}
+									//src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
+								// onClick={handleClick}
+								></img>
+								<button
+									className="legend"
+									id="legend"
+								// onClick={handleClick}
+								>
+									{image.propertyName}
+								</button>
+							</div>
+
+					))}
+				</Carousel> */}
 
 				<h1>Property Name: {state.currentProperty.propertyName}</h1>
 				<h3>Address:</h3>
