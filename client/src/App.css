@@ -67,6 +67,14 @@ body,
   margin-top: 3rem;
 }
 
+.carousel-container {
+  padding: 25px;
+  margin: 20px;
+  width: 65%;
+  align-items: center;
+  height: auto;
+}
+
 a:hover,
 a:focus,
 a:active {

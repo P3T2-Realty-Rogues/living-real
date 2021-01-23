@@ -102,11 +102,14 @@ export const QUERY_PROPERTIES = gql`
       renterDeposit
       appFee
       availability
+      directoryName
       ownerInfo {
         mortgage
         propertyTaxes
         propertyInsurance
-        tenant
+        tenant {
+          _id
+        }
       }
     }
   }
