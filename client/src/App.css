@@ -1,9 +1,12 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #679289;
-  --tertiary: #1d7874;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --primary: #265d91;
+  --secondary: #2753ba;
+  --tertiary: #19272e;
+  --light: #d7e6f3;
+  --dark: #19272e;
+  --error: rgb(228, 46, 1);
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
   --border-radius: .3rem;
   
 }
@@ -26,7 +29,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "IBM Plex Sans", sans-serif;
-  color: var(--dark);
+  /* color: var(--dark); */
   line-height: 1.5;
   font-size: 16px;
 }
@@ -43,7 +46,7 @@ header {
   /* background-image: url('../images/hero-bg-img.jpg'); */
   background-size: cover;
   background-blend-mode: screen;
-  border-bottom: var(--dark) solid 5px;
+  /* border-bottom: var(--dark) solid 5px; */
   padding-top: 20px;
 }
 
@@ -96,7 +99,6 @@ header {
 }
 
 
-
 h1,
 h2,
 h3,
@@ -134,7 +136,7 @@ iframe {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-dark);
+  background-color: var(--light);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
@@ -238,23 +240,33 @@ iframe {
 
 /* CARDS */
 .card {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
+  margin:  20px;
+  /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
-  
+  height: 100%;
+  width: 40%;
+  display: inline-block;  
 }
 
 .card-header {
-  color: var(--primary);
+  color: var(--light);
   background-color: var(--dark);
-  padding: 2.5%;
-  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  border-radius: var(--border-radius);
+  padding: 3%  10%;
+  margin: 2% 5%
+
   
 }
 
 .card-body {
-  padding: 2.5%;
   background-color: var(--secondary);
+  border-radius: var(--border-radius);
+  padding: 3%  10%;
+  margin: 0 5%
+}
+
+.carousel {
+  background-color: white;
 }
 
 /* FORM */
@@ -296,6 +308,7 @@ iframe {
 /* FLEX CONTENT */
 .flex-row {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -666,13 +679,7 @@ body,
   margin-top: 3rem;
 }
 
-.carousel-container {
-  padding: 25px;
-  margin: 20px;
-  width: 65%;
-  align-items: center;
-  height: auto;
-}
+
 
 a:hover,
 a:focus,

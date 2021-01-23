@@ -7,14 +7,8 @@ function TenantDash() {
         function showNavigation() {
             return (
               <div>
-                <Menu widths={2}>
-                  <Menu.Item>
-                    <Link to="/TenantDash/TenantInfo">My Information </Link>
-                  </Menu.Item>
-                  <Menu.Item>
-                    <Link to="/TenantDash/MaintenanceRequests">View Maintenance Re quests </Link>
-                  </Menu.Item>
-                </Menu>
+                    <Link className="btn" to="/TenantDash/TenantInfo">My Information </Link>
+                    <Link className="btn" to="/TenantDash/MaintenanceRequests">View Maintenance Requests </Link>
               </div>
             );
       }

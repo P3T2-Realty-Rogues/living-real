@@ -49,10 +49,10 @@ function Properties() {
   // };
 
   return (
-    <Carousel showThumbs={false} autoPlay infiniteLoop="true">
+    <Carousel className="card" showThumbs={false} autoPlay infiniteLoop="true">
       {state.properties.map((image,index) => (
         <Link to={`/detail/${image._id}`} key={image._id}>
-          <div key={image._id} className="image-container">
+          <div key={image._id} className="carousel">
             <img
               key={image._id}
               alt={image.propertyName}
@@ -63,7 +63,7 @@ function Properties() {
               // onClick={handleClick}
             ></img>
             <button
-              className="legend"
+              className="btn"
               id="legend"
               // onClick={handleClick}
             >

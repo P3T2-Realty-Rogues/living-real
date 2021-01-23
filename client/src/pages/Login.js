@@ -72,13 +72,14 @@ function Login(props) {
   };
 
   return (
-    <div className="container">
+    <div className="card">
       <Link to="/signup">← Go to Signup</Link>
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
+      <h2 className="card-header">Login</h2>
+      <form  className="card-body" onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="email">Email address:</label>
+          <label className="form-label" htmlFor="email">Email address:</label>
           <input
+          className="form-input"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -86,8 +87,9 @@ function Login(props) {
           />
         </div>
         <div>
-          <label htmlFor="pwd">Password:</label>
+          <label className="form-label" htmlFor="pwd">Password:</label>
           <input
+          className="form-input"
             placeholder="******"
             name="password"
             type="password"
@@ -100,7 +102,8 @@ function Login(props) {
           </div>
         ) : null} */}
         <div>
-          <button type="submit">Submit</button>
+          <br />
+          <button className="btn" type="submit">Submit</button>
         </div>
       </form>
     </div>
