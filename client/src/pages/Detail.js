@@ -14,7 +14,8 @@ function Detail() {
 
   const currentProperty = state.properties.find(({ _id }) => _id === id);
   // const propertyImages =  currentProperty.
-
+  console.log("current property", 
+  currentProperty)
   useEffect(() => {
     if (currentProperty) {
       dispatch({
@@ -40,12 +41,13 @@ function Detail() {
 	          <div className="image-container">
 	            <img
 	              width="300"
-	              height="auto"
+                height="auto"
+                alt="backyard image"
 	              src={
 	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/` +
 	                "backyard" +
 	                `.jpg`
-	              }
+                }
 	            ></img>
 	            <button
 	              className="legend"
