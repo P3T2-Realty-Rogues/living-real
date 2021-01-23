@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-
+//this nested schema is private info only the owner should see
 const ownerInfoSchema = new Schema ({
     mortgage: {
         type: Number,
@@ -29,7 +29,7 @@ const ownerInfoSchema = new Schema ({
     _id: false
 })
 
-
+//this model contains all info a user would want to see about a property
 const propertySchema = new Schema ({
     propertyName: {
         type: String,
