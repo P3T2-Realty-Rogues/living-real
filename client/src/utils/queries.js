@@ -1,80 +1,131 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
-export const QUERY_ADMIN = gql`
-  {
-    owners {
+export const QUERY_USER = gql`
+  query user($_id: ID!) {
+    user(_id: $_id) {
       _id
       firstName
       lastName
       email
-      password
-	    admin_flag
-      property_IDs[]
+      phoneNumber
+      adminFlag
+      propertyId
+      tenantData {
+        leaseDate
+        activeTenant
+      }
+    }
+  }
+`;
+
+export const QUERY_USERS = gql`
+  query {
+    users {
+      _id
+      firstName
+      lastName
+      email
+      phoneNumber
+      adminFlag
+      propertyId
+      tenantData {
+        leaseDate
+        activeTenant
+      }
     }
   }
 `;
 
 export const QUERY_TENANT = gql`
-  {
+  query {
     tenants {
       _id
       firstName
       lastName
       email
-      password
-      lease_date
-	    active_tenant
-	    approved_renter
-	    property_ID
+      phoneNumber
+      adminFlag
+      propertyId
+      tenantData {
+        leaseDate
+        activeTenant
+      }
     }
   }
 `;
 
 export const QUERY_PROPERTY = gql`
-{
-  properties {
-   _id
-   propertyName
-   propertyType
-   streetAddress
-   city
-   state
-   zipCode
-   squareFootage
-   numBedrooms
-   numBathrooms
-   balcony
-   monthlyRent
-   petDeposit
-   renterDeposit
-   applicationFee
-   ownerInfo: AdminPropertyDetails {
-      #----Admin Property Details------- the data here only available to Admins -------------
-      monthlyMortgage
-      yearlyPropertyTaxes
-      yearlyPropertyInsurance
-      propertyAvailable
-      tenants []
-      applicant []
+  query property($_id: ID!) {
+    property(_id: $_id) {
+      _id
+      propertyName
+      propertyType
+      streetAddress
+      city
+      state
+      zipCode
+      sqFeet
+      numBathrooms
+      numBedroom
+      balcony
+      rent
+      petDeposit
+      renterDeposit
+      appFee
+      availability
+      ownerInfo {
+        mortgage
+        propertyTaxes
+        propertyInsurance
+        tenant
+      }
     }
   }
-}
 `;
 
-export const QUERY_BBOARD = gql`
-{
-  bboard {
-    _id
-    poster_ID
-    message
-	  comments []{
-	    _id
-	    poster_ID
-	    comment
+export const QUERY_PROPERTIES = gql`
+  query {
+    properties {
+      _id
+      propertyName
+      propertyType
+      streetAddress
+      city
+      state
+      zipCode
+      sqFeet
+      numBathrooms
+      numBedroom
+      balcony
+      rent
+      petDeposit
+      renterDeposit
+      appFee
+      availability
+      ownerInfo {
+        mortgage
+        propertyTaxes
+        propertyInsurance
+        tenant
+      }
     }
   }
-}
 `;
+
+// export const QUERY_BBOARD = gql`
+// {
+//   bboard {
+//     _id
+//     poster_ID
+//     message
+// 	  comments []{
+// 	    _id
+// 	    poster_ID
+// 	    comment
+//     }
+//   }
+// }
+// `;
 
 // This sets up the checkout query
 //export const QUERY_CHECKOUT = gql`
