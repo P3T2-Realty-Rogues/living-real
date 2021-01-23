@@ -79,12 +79,10 @@ const propertySchema = new Schema ({
     balcony: {
         type: Boolean,
         required: true,
-        trim: true
     },
     pool: {
         type: Boolean,
         required: true,
-        trim: true
     },
     rent: {
         type: Number,

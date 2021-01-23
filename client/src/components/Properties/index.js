@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 function Properties() {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const { properties } = state;
   // // console.log(properties);
@@ -24,23 +24,23 @@ function Properties() {
   //     });
   //   }
   // }, [dispatch, data]);
-  const hardProperties = [
-    {
-      id: 1,
-      name: "Home1",
-      description: "LOREM IPSUM",
-    },
-    {
-      id: 2,
-      name: "Home2",
-      description: "IPSUM LOREM",
-    },
-    {
-      id: 3,
-      name: "Home3",
-      description: "SOME TEXT",
-    },
-  ];
+  // const hardProperties = [
+  //   {
+  //     id: 1,
+  //     name: "Home1",
+  //     description: "LOREM IPSUM",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Home2",
+  //     description: "IPSUM LOREM",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Home3",
+  //     description: "SOME TEXT",
+  //   },
+  // ];
 
   // const handleClick = (e) => {
   //   e.preventDefault();
@@ -58,8 +58,8 @@ function Properties() {
               alt={image.propertyName}
               width="300"
               height="auto"
-              // src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.id + `.jpg`)}
-              src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
+              src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.zipCode + `.jpg`)}
+              // src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
               // onClick={handleClick}
             ></img>
             <button

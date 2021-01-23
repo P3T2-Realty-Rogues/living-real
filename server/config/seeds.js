@@ -22,12 +22,13 @@ db.once('open', async () => {
       renterDeposit: 100,
       appFee: 50,
       availability: true,
+      directoryName: "home1",
       ownerInfo: {
         mortgage: 1200,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: []
-      }
+        tenant: [],
+      },
     },
     {
       propertyName: "Home 2",
@@ -46,12 +47,13 @@ db.once('open', async () => {
       renterDeposit: 1050,
       appFee: 350,
       availability: true,
+      directoryName: "home2",
       ownerInfo: {
         mortgage: 12500,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: []
-      }
+        tenant: [],
+      },
     },
     {
       propertyName: "Home 3",
@@ -70,13 +72,14 @@ db.once('open', async () => {
       renterDeposit: 100,
       appFee: 150,
       availability: true,
+      directoryName: "home3",
       ownerInfo: {
         mortgage: 12000,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: []
-      }
-    }
+        tenant: [],
+      },
+    },
   ]);
 
   console.log('Properties seeded');
