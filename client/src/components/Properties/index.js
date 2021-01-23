@@ -2,7 +2,7 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ function Properties() {
   // // console.log(properties);
 
   // // console.log(state);
-  
+
 
   // useEffect(() => {
   //   if (data) {
@@ -50,7 +50,7 @@ function Properties() {
 
   return (
     <Carousel className="card" showThumbs={false} autoPlay infiniteLoop="true">
-      {state.properties.map((image,index) => (
+      {state.properties.map((image, index) => (
         <Link to={`/detail/${image._id}`} key={image._id}>
           <div key={image._id} className="carousel">
             <img
@@ -59,17 +59,18 @@ function Properties() {
               width="300"
               height="auto"
               src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.zipCode + `.jpg`)}
-              // src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
-              // onClick={handleClick}
+            // src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
+            // onClick={handleClick}
             ></img>
             <button
               className="btn"
-              id="legend"
-              // onClick={handleClick}
+              
+            // onClick={handleClick}
             >
               {image.propertyName}
             </button>
           </div>
+
         </Link>
       ))}
     </Carousel>
