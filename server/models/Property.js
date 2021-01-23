@@ -105,6 +105,16 @@ const propertySchema = new Schema ({
         type: Boolean,
         required: true
     },
+    thumbnail: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    pictures: [{
+        type: String,
+        required: true,
+        trim: true
+    }],
     ownerInfo: ownerInfoSchema
 })
 

@@ -33,8 +33,10 @@ const typeDefs = gql`
     petDeposit: Float
     renterDeposit: Float
     appFee: Float
-    ownerInfo: OwnerInfo
+    thumbnail: String!
+    pictures: [String!]
     availability: Boolean
+    ownerInfo: OwnerInfo
   }
 
   type OwnerInfo {
@@ -107,6 +109,8 @@ const typeDefs = gql`
       renterDeposit: Float!
       appFee: Float!
       availability: Boolean!
+      thumbnail: String!
+      pictures: [String!]
       ownerInfo: OwnerInfoInput   
     ): Property
 
@@ -127,6 +131,8 @@ const typeDefs = gql`
       renterDeposit: Float
       appFee: Float
       availability: Boolean
+      thumbnail: String!
+      pictures: [String!]
       ownerInfo: OwnerInfoInput   
     ): Property
 
