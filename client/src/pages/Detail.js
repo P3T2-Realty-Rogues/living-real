@@ -30,7 +30,7 @@ function Detail() {
     };
   }, [currentProperty, dispatch]);
 
-  console.log("state in Details: ", state);
+  // console.log("state in Details: ", state);
 
   return (
     <>

@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { Menu, Header } from "semantic-ui-react";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_USERS } from "../utils/queries";
-import Auth from "../utils/auth";
+
 
 function TenantDash() {
-  // const loggedUser = Auth.getProfile();
+  
 
   // console.log("LOGGED USER", loggedUser);
   const { data } = useQuery(QUERY_USERS);
 
-  console.log("USER", data);
+  // console.log("USER", data);
 
   let user;
   if (data) {
@@ -31,6 +31,8 @@ function TenantDash() {
             </Link>
           </Menu.Item>
         </Menu>
+
+        
       </div>
     );
   }
