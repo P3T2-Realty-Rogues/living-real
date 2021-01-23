@@ -1,6 +1,24 @@
 import React from 'react';
+import S3 from 'react-aws-s3';
+
+
 
 function CreateProperty() {
+
+
+  /**
+   * {
+   *   Response: {
+   *     bucket: "myBucket",
+   *     key: "image/test-image.jpg",
+   *     location: "https://myBucket.s3.amazonaws.com/media/test-file.jpg"
+   *   }
+   * }
+   */
+  
+  
+
+
   return(
     <div>
     <h3>Add a New Property</h3>
@@ -47,6 +65,13 @@ function CreateProperty() {
 
       <label for="appFee"><b>App Fee</b></label>
       <input type="text" placeholder="$150" name="appFee"></input>
+
+      <div>
+        <label for ="photos"> <b>Upload Photos</b></label>
+        <input type="file" id="img" ></input>
+        <input type="submit"></input>
+      </div>
+      
         <div>
             <h2>Admin Property Details</h2>
             <label for="mortgage"><b>Mortgage</b></label>

@@ -1,25 +1,34 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { Menu, Header } from "semantic-ui-react";
 
 function TenantDash() {
-    return (
-        <div>
-            <header>
-                <h1>Tenant Name</h1>
-                {/* <img>tenant image</img> */}
-                <ul>
-                    <li>Address</li>
-                    <li>Email</li>
-                    <li>Phone</li>
-                </ul>
+
+        function showNavigation() {
+            return (
+              <div>
+                <Menu widths={2}>
+                  <Menu.Item>
+                    <Link to="/TenantDash/TenantInfo">My Information </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <Link to="/TenantDash/MaintenanceRequests">View Maintenance Re quests </Link>
+                  </Menu.Item>
+                </Menu>
+              </div>
+            );
+      }
+        
+          return (
+            <header className="flex-row px-1">
+              {/* < h1>
+                <Link to="/"> In A Virtual World</Link>
+               </h1> */}
+        
+              <nav>{showNavigation()}</nav>
             </header>
-            <div>
-                <h2>Lease Information</h2>
-                <p>Lease Date</p>
-                <a href="/">Lease Document</a>
-            </div>
-        </div>
-    )
+          );
+
 }
 
 export default TenantDash;
