@@ -25,7 +25,7 @@ db.once('open', async () => {
         mortgage: 1200,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["John Smith"]
+        tenant: []
       }
     },
     {
@@ -48,7 +48,7 @@ db.once('open', async () => {
         mortgage: 12500,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Shaun Smith"]
+        tenant: []
       }
     },
     {
@@ -71,7 +71,7 @@ db.once('open', async () => {
         mortgage: 12000,
         propertyTaxes: 700,
         propertyInsurance: 250,
-        tenant: ["Don Smith"]
+        tenant: []
       }
     }
   ]);
@@ -86,7 +86,6 @@ db.once('open', async () => {
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",
-    propertyId: ["123asd"],
     adminFlag: true,
     tenantData: {}
   });
@@ -97,7 +96,6 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
-    propertyId: ["23asawdd"],
     adminFlag: false,
     tenantData: {
       "activeTenant": true,
