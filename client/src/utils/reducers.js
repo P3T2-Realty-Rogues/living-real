@@ -11,31 +11,31 @@ import {
 
 // Create the initial state for Redux
 const initialState = {
-  user: [],
+  users: [],
   tenants: [],
   properties: [],
-  currentProperty: {}
+  currentProperty: {},
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // If action type value is the value of `UPDATE_ADMINS`, return a new state object with an updated owner array
+    // If action type value is the value of `ADD_USER`, return a new state object with an updated owner array
     case ADD_USER:
       return {
         ...state, // the 'spread' operator
-        user: [...action.user],
+        users: [...action.users],
       };
 
     case UPDATE_USER:
       return {
         ...state, // the 'spread' operator
-        user: [...action.user],
+        users: [...action.users],
       };
 
     case REMOVE_USER:
       return {
         ...state,
-        user: [...action.user],
+        users: [...action.users],
       };
     // If action type value is the value of `ADD_PROPERTIES`, return a new state object with an updated properties array
     case ADD_PROPERTY:
@@ -47,7 +47,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_PROPERTY:
       return {
         ...state,
-        currentProperty: {...action.currentProperty}
+        currentProperty: { ...action.currentProperty },
       };
     case UPDATE_PROPERTIES:
       return {
