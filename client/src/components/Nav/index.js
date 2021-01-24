@@ -29,7 +29,7 @@ function Nav() {
 
       return (
         <>
-          <Menu widths={5}>
+          <Menu widths={2}>
             {/* optional chaining here to optionally do this if currentUser exists
             so when the asynchronous code executes and currentUsers exists,
             we will conditionally render the admin or tenant dash */}
@@ -52,7 +52,7 @@ function Nav() {
       );
     } else {
       return (
-        <Menu widths={5}>
+        <Menu widths={2}>
           <Menu.Item>
             <Link to="/Login">Login </Link>
           </Menu.Item>
