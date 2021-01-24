@@ -6,9 +6,8 @@ import Properties from "../components/Properties";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { QUERY_PROPERTIES, QUERY_USERS } from "../utils/queries";
-import { UPDATE_PROPERTIES, ADD_USER } from "../utils/actions";
-// import Auth from "../utils/auth";
+import { QUERY_PROPERTIES } from "../utils/queries";
+import { UPDATE_PROPERTIES } from "../utils/actions";
 
 import { useQuery } from "@apollo/react-hooks";
 
@@ -17,25 +16,18 @@ const Landing = () => {
   const dispatch = useDispatch();
 
   const { loading, data } = useQuery(QUERY_PROPERTIES);
-  console.log("properties query", data, loading);
+  console.log(data, loading);
 
   useEffect(() => {
-    if (properties.data) {
+    if (data) {
       dispatch({
         type: UPDATE_PROPERTIES,
-        properties: properties.data.properties,
+        properties: data.properties,
       });
-      if (users.data) {
-        dispatch({
-          type: ADD_USER,
-          users: users.data.users,
-        });
-      }
     }
-  }, [dispatch, properties.data, users.data]);
+  }, [dispatch, data]);
 
-  // console.log("properties:", state.properties);
-  // console.log("users:", state.user);
+  console.log("state:", state.properties);
 
   return (
     <div>
