@@ -31,6 +31,7 @@ module.exports = {
     return req;
   },
   signToken: function (user) {
+    //possibly change this to exclude password
     const payload = user;
 
     return jwt.sign(
