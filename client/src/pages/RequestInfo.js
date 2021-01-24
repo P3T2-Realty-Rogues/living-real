@@ -36,14 +36,15 @@ function RequestInfo(props) {
     };
     
   return (
-    <div className="container">
+    <div className="card">
       <Link to="/login">← Go to Login</Link>
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
+      <h2 className="card-header">Request More Information</h2>
+      <form className="card-body" onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="firstName">First Name:</label>
+          <label className="form-label" htmlFor="firstName">First Name:</label>
           <input
+          className="form-input"
             placeholder="First"
             name="firstName"
             type="firstName"
@@ -52,8 +53,9 @@ function RequestInfo(props) {
           />
         </div>
         <div>
-          <label htmlFor="lastName">Last Name:</label>
+          <label className="form-label" htmlFor="lastName">Last Name:</label>
           <input
+          className="form-input"
             placeholder="Last"
             name="lastName"
             type="lastName"
@@ -62,8 +64,9 @@ function RequestInfo(props) {
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label className="form-label" htmlFor="email">Email:</label>
           <input
+          className="form-input"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -71,18 +74,9 @@ function RequestInfo(props) {
             // onChange={handleChange}
           />
         </div>
-        <div >
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            // onChange={handleChange}
-          />
-        </div>
         <div>
-          <button type="submit">Submit</button>
+          <br />
+          <button className="btn" type="submit">Submit</button>
         </div>
       </form>
     </div>

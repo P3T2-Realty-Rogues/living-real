@@ -8,7 +8,7 @@ const typeDefs = gql`
     email:  String
     phoneNumber: String
     adminFlag: Boolean
-    propertyId: [String]
+    property: Property
     tenantData: TenantData
   }
 
@@ -29,19 +29,23 @@ const typeDefs = gql`
     numBathrooms: Float
     numBedroom: Int
     balcony: Boolean
+    pool: Boolean
     rent: Float
     petDeposit: Float
     renterDeposit: Float
     appFee: Float
-    ownerInfo: OwnerInfo
+    directoryName: String
+    thumbnail: String
+    pictures: [String]
     availability: Boolean
+    ownerInfo: OwnerInfo
   }
 
   type OwnerInfo {
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    tenant: [String]
+    tenant: [User]
   }
 
   type Maintenance {
@@ -76,9 +80,9 @@ const typeDefs = gql`
       password: String!
       phoneNumber: String!
       adminFlag: Boolean!
-      propertyId: [String!]
+      property: ID!
       tenantData: TenantInput
-    ): User
+    ): Auth
 
     updateUser(
       firstName: String
@@ -87,7 +91,7 @@ const typeDefs = gql`
       password: String
       phoneNumber: String
       adminFlag: Boolean
-      propertyId: [String]
+      property: ID
       tenantData: TenantInput
     ): User
 
@@ -102,16 +106,20 @@ const typeDefs = gql`
       numBathrooms: Float!
       numBedroom: Int!
       balcony: Boolean!
+      pool: Boolean!
       rent: Float!
       petDeposit: Float!
       renterDeposit: Float!
       appFee: Float!
       availability: Boolean!
+      directoryName: String
+      thumbnail: String
+      pictures: [String]
       ownerInfo: OwnerInfoInput   
     ): Property
 
     updateProperty(
-      propertyId: ID!
+      property: ID!
       propertyName: String
       propertyType: String
       streetAddress: String
@@ -122,17 +130,24 @@ const typeDefs = gql`
       numBathrooms: Float
       numBedroom: Int
       balcony: Boolean
+      pool: Boolean
       rent: Float
       petDeposit: Float
       renterDeposit: Float
       appFee: Float
       availability: Boolean
+      directoryName: String
+      thumbnail: String
+      pictures: [String]
       ownerInfo: OwnerInfoInput   
     ): Property
 
     login(email: String!, password: String!): Auth
 
-    deleteUser(userId: ID!): User
+    deleteUser(_id: ID!): User
+    deleteProperty(_id: ID!): Property
+
+    addTenant(tenantId: ID!, property: ID!): Property
   }
 
   input TenantInput{
@@ -144,7 +159,7 @@ const typeDefs = gql`
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
-    tenant: [String] #change later
+    tenant: ID
   }
 `;
 

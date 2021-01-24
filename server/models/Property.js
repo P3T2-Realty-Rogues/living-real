@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+
 const ownerInfoSchema = new Schema ({
     mortgage: {
         type: Number,
@@ -17,8 +18,17 @@ const ownerInfoSchema = new Schema ({
         trim: true,
         required: true
     },
-    tenant: [{type: String}] //set to id that references users
+    tenant: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
+},
+{
+    _id: false
 })
+
 
 const propertySchema = new Schema ({
     propertyName: {
@@ -69,7 +79,10 @@ const propertySchema = new Schema ({
     balcony: {
         type: Boolean,
         required: true,
-        trim: true
+    },
+    pool: {
+        type: Boolean,
+        required: true,
     },
     rent: {
         type: Number,
@@ -95,6 +108,18 @@ const propertySchema = new Schema ({
         type: Boolean,
         required: true
     },
+    directoryName: {
+        type: String,
+        trim: true
+    },
+    thumbnail: {
+        type: String,
+        trim: true
+    },
+    pictures: [{
+        type: String,
+        trim: true
+    }],
     ownerInfo: ownerInfoSchema
 })
 
