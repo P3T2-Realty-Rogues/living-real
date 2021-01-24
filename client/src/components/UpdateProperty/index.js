@@ -1,91 +1,112 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 function UpdateProperty() {
     return (
-        <div>
-            <h3>Update Property</h3>
-            <form>
+        <div >
+          <div>
+              <h1>*Table of Properties Goes Here*</h1>
+          </div>
+          <form className="flex-row">
+            <div className="card">
+              <div className="card-header">
+              <h3 className="card-header">*Selected property goes here*</h3>
+              </div>
+    
+              <div className="card-body">
                 <div>
-                    {/* Table generated from API endpoint in db */}
-                    <label for="allProperties"><b>All Properties</b></label>
-                    <input type="text" placeholder="John" name="firstName"></input>
-
-                    <label for="lastName"><b>Search by Address</b></label>
-                    <input type="text" placeholder="123 Elm Street" name="addressSearch"></input>
-                    {/* Generated results return in a table */}
-                    <label for="propertiesByName"><b>Properties By Name</b></label>
-                    <input type="text" placeholder="example@domain.com" name="email"></input>
-
-                    <label for="leaseDate"><b>Update Property Information</b></label>
-                    <div>
-                        <div>
-                            <label for="propertyName"><b>Property Name</b></label>
-                            <input type="text" placeholder="101 Elm" name="propertyName"></input>
-
-                            <label for="propertyType"><b>Property Type</b></label>
-                            <input type="text" placeholder="Condo/House/Duplex" name="propertyType"></input>
-
-                            <label for="streetAddress"><b>Street Address</b></label>
-                            <input type="text" placeholder="1234 Sample Road" name="streetAddress"></input>
-
-                            <label for=" city"><b>City</b></label>
-                            <input type="text" placeholder="Austin" name="city"></input>
-
-                            <label for="state"><b>State</b></label>
-                            <input type="text" placeholder="Texas" name="state"></input>
-
-                            <label for="zipCode"><b>Zip Code</b></label>
-                            <input type="text" placeholder="12345" name="zipCode"></input>
-
-                            <label for="sqFeet"><b>Square Footage</b></label>
-                            <input type="text" placeholder="1,250" name="sqFeet"></input>
-
-                            <label for="numBedrooms"><b>Number of Bedrooms</b></label>
-                            <input type="text" placeholder="1/2/3/4" name="numBedrooms"></input>
-
-                            <label for="numBathrooms"><b>Number of Bathrooms</b></label>
-                            <input type="text" placeholder="1/2/3/4" name="numBathrooms"></input>
-
-                            <label for="balcony"><b>Number of Bedrooms</b></label>
-                            <input type="checkbox" name="balcony"></input>
-
-                            <label for="rent"><b>Rent</b></label>
-                            <input type="text" placeholder="$1200" name="rent"></input>
-
-                            <label for="petDeposit"><b>Pet Deposit</b></label>
-                            <input type="text" placeholder="$500" name="petDeposit"></input>
-
-                            <label for="renterDeposit"><b>Renter Deposit</b></label>
-                            <input type="text" placeholder="$200" name="renterDeposit"></input>
-
-                            <label for="appFee"><b>App Fee</b></label>
-                            <input type="text" placeholder="$150" name="appFee"></input>
-                            <div>
-                                <h2>Admin Property Details</h2>
-                                <label for="mortgage"><b>Mortgage</b></label>
-                                <input type="text" placeholder="$850" name="mortgage"></input>
-
-                                <label for="propertyTaxes"><b>Property Taxes</b></label>
-                                <input type="text" placeholder="$10,000" name="propertyTaxes"></input>
-
-                                <label for="propertyInsurance"><b>Property MInsurance</b></label>
-                                <input type="text" placeholder="$10,000" name="propertyInsurance"></input>
-
-                                <label for="availability"><b>Availability</b></label>
-                                <input type="checkbox" checkbox="checked" name="availability"></input>
-                            </div>
-                        </div>
-                    </div>
-
+                  <label className="form-label" for="propertyName"><b>Property Name</b></label>
+                  <input className="form-input" type="text" placeholder="101 Elm" name="propertyName"></input>
                 </div>
                 <div>
-                    <button>Update Property</button>
-                    <button>Delete Property</button>
+                  <label className="form-label" for="propertyType"><b>Property Type</b></label>
+                  <input className="form-input" type="text" placeholder="Condo/House/Duplex" name="propertyType"></input>
                 </div>
-            </form>
-
+                <div>
+                  <label className="form-label" for="streetAddress"><b>Street Address</b></label>
+                  <input className="form-input" type="text" placeholder="1234 Sample Road" name="streetAddress"></input>
+                </div>
+                <div>
+                  <label className="form-label" for=" city"><b>City</b></label>
+                  <input className="form-input" type="text" placeholder="Austin" name="city"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="state"><b>State</b></label>
+                  <input className="form-input" type="text" placeholder="Texas" name="state"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="zipCode"><b>Zip Code</b></label>
+                  <input className="form-input" type="text" placeholder="12345" name="zipCode"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="sqFeet"><b>Square Footage</b></label>
+                  <input className="form-input" type="text" placeholder="1,250" name="sqFeet"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="numBedrooms"><b>Number of Bedrooms</b></label>
+                  <input className="form-input" type="text" placeholder="1/2/3/4" name="numBedrooms"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="numBathrooms"><b>Number of Bathrooms</b></label>
+                  <input className="form-input" type="text" placeholder="1/2/3/4" name="numBathrooms"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="balcony"><b>Number of Bedrooms</b></label>
+                  <input className="form-input" type="checkbox" name="balcony"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="rent"><b>Rent</b></label>
+                  <input className="form-input" type="text" placeholder="$1200" name="rent"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="petDeposit"><b>Pet Deposit</b></label>
+                  <input className="form-input" type="text" placeholder="$500" name="petDeposit"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="renterDeposit"><b>Renter Deposit</b></label>
+                  <input className="form-input" type="text" placeholder="$200" name="renterDeposit"></input>
+                </div>
+                <div>
+                  <label className="form-label" for="appFee"><b>App Fee</b></label>
+                  <input className="form-input" type="text" placeholder="$150" name="appFee"></input>
+                </div>
+                <div>
+                  <label for="photos"> <b>Upload Photos</b></label>
+                  <input type="file" id="img" ></input>
+                  <br />
+                </div>
+              </div>
+            </div>
+              <div className="card">
+                <div className="card-header">
+                <h2 className="card-header">*admin details for selected property goes here*</h2>
+                </div>
+                <div className="card-body">
+                  <div>
+                    <label className="form-label"  for="mortgage"><b>Mortgage</b></label>
+                    <input className="form-input" type="text" placeholder="$850" name="mortgage"></input>
+                  </div>
+                  <div>
+                  <label className="form-label" for="propertyTaxes"><b>Property Taxes</b></label>
+                  <input className="form-input"  type="text" placeholder="$10,000" name="propertyTaxes"></input>
+                  </div>
+                  <div>
+                    <label className="form-label" for="propertyInsurance"><b>Property Insurance</b></label>
+                    <input className="form-input"  type="text" placeholder="$10,000" name="propertyInsurance"></input>
+                  </div>
+                  <div className="form-label"></div>
+                  <div>
+                    <br />
+                  <button className="btn" id="update-user">Update User</button>
+                  <button className="btn" id="delete-user">Delete User</button>
+                  <Link to="/AdminDash" className="btn">Back to Dashboard</Link>
+                </div>
+                </div>
+              </div>
+          </form>
+    
         </div>
-    );
-}
+      );
+    }
 
 export default UpdateProperty;
