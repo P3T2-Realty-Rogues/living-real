@@ -23,6 +23,11 @@ db.once('open', async () => {
       appFee: 50,
       availability: true,
       directoryName: "home1",
+      pictures: [
+          "attic-office.jpg",
+          "backyard.jpg",
+          "bathroom1.jpg"
+      ],
       ownerInfo: {
         mortgage: 1200,
         propertyTaxes: 700,
@@ -48,6 +53,9 @@ db.once('open', async () => {
       appFee: 350,
       availability: true,
       directoryName: "home2",
+      imageNameArray: [
+
+      ],
       ownerInfo: {
         mortgage: 12500,
         propertyTaxes: 700,
@@ -73,6 +81,9 @@ db.once('open', async () => {
       appFee: 150,
       availability: true,
       directoryName: "home3",
+      imageNameArray: [
+
+      ],
       ownerInfo: {
         mortgage: 12000,
         propertyTaxes: 700,

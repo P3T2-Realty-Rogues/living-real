@@ -16,13 +16,8 @@ const Landing = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // console.log("STATE", state);
-
-  const properties = useQuery(QUERY_PROPERTIES);
-  const users = useQuery(QUERY_USERS);
-
-  // console.log("PROPERTIES", properties.data);
-  // console.log("USERS", users.data);
+  const { loading, data } = useQuery(QUERY_PROPERTIES);
+  console.log("properties query", data, loading);
 
   useEffect(() => {
     if (properties.data) {

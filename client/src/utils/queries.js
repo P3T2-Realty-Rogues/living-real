@@ -75,6 +75,7 @@ export const QUERY_PROPERTY = gql`
       renterDeposit
       appFee
       availability
+      pictures
       ownerInfo {
         mortgage
         propertyTaxes
@@ -105,6 +106,7 @@ export const QUERY_PROPERTIES = gql`
       appFee
       availability
       directoryName
+      pictures
       ownerInfo {
         mortgage
         propertyTaxes

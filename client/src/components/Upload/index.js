@@ -7,16 +7,15 @@ function Upload() {
     const handleClick = event => {
         event.preventDefault()
         let file = fileInput.current.files[0]
-        console.log("file selected to upload to S3", file)
-        let newFileName = fileInput.current.files[0]
+        console.log("file:", file)
+        let newFileName = fileInput.current.files[0].name
         console.log("new file name:", newFileName)
 
         const config = {
             bucketName: 'living-real-bucket',
             dirName: "properties",
             region: 'us-east-2',
-            accessKeyId:'AKIAJ7V5GGDPUXATUAJA',
-            secretAccessKey: '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',
+
             key: newFileName
         };
         const ReactS3Client = new S3(config)
@@ -25,7 +24,7 @@ function Upload() {
       .then(data  => {
           console.log("Data sent to s3 bucket", data)
           if(data.status === 204) {
-              console.log("success")
+              console.log("success", )
           } else {
               console.log("failed to upload")
           }
