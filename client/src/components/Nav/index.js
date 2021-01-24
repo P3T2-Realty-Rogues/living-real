@@ -16,7 +16,6 @@ function Nav() {
       const loggedUser = Auth.getProfile();
       const currentUserId = loggedUser.data._id;
 
-      console.log();
       const currentUser = state.users.find(({ _id }) => _id === currentUserId);
 
         //currentUser is not working as an object in this context, so we can't access currentUser.adminFlag
@@ -26,12 +25,15 @@ function Nav() {
         //that user's admin flag property from state instead of from auth.getprofile
         // so we want match currentUser to the user stored in state and then access the adminFlag
 
-        console.log("current user", state.users);
+        // console.log("current user", state.users);
 
       return (
         <>
           <Menu widths={5}>
-            {currentUser ? (
+            {/* optional chaining here to optionally do this if currentUser exists
+            so when the asynchronous code executes and currentUsers exists,
+            we will conditionally render the admin or tenant dash */}
+            {currentUser?.adminFlag ? (
               <Menu.Item>
                 <Link to="/AdminDash">Admin Dashboard </Link>
               </Menu.Item>
