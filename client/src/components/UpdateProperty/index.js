@@ -1,11 +1,64 @@
-import React from "react";
-import { Link } from "react-router-dom"
+import React, { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { QUERY_PROPERTIES } from "../../utils/queries";
+
 
 function UpdateProperty() {
+
+    const { id } = useParams();
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
+    // console.log(state.properties)
+    console.log(QUERY_PROPERTIES)
+    // console.log()
+    const allProperties = state.properties.find(({ _id }) => _id === _id);
+    // const propertyImages =  allProperties.
+    
+    console.log("expecting property name:", allProperties.propertyName)
+    useEffect(() => {
+      if (allProperties) {
+        dispatch({
+          type: QUERY_PROPERTIES,
+          allProperties,
+        });
+      }
+      return () => {
+        dispatch({
+          type: QUERY_PROPERTIES,
+          allProperties: {},
+        });
+      };
+    }, [allProperties, dispatch]);
+
     return (
         <div >
           <div>
-              <h1>*Table of Properties Goes Here*</h1>
+          <div className="table">
+        <p>&nbsp;</p>
+        {/* Property details and amenities */}
+        <table className="ui striped  collapsing table">
+          <thead>
+            <tr>
+              <th>Property Name</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <button className="btn"><td>{allProperties.propertyName}</td></button>
+              <td>{allProperties.streetAddress}</td>
+              
+            </tr>
+            <tr>
+              <td>No. bathrooms</td>
+              <td> </td>
+              {/* <td>{state.allProperties.address}</td> */}
+            </tr>
+          </tbody>
+        </table>
+      </div>
           </div>
           <form className="flex-row">
             <div className="card">
