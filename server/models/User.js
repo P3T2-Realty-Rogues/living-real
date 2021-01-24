@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const tenantSchema = require('./Tenant')
 
+//User model containing info on Tenants, former tenants, and owners
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -37,6 +38,7 @@ const userSchema = new Schema({
       message: 'Password must be more than 5 characters!'
     }
   },
+  //this tell us whether or not the user is an admin (owner)
   adminFlag: {
     type: Boolean,
     required: true
@@ -48,7 +50,7 @@ const userSchema = new Schema({
   tenantData: tenantSchema
 });
 
-// set up pre-save middleware to create password
+// hash password before saving to database
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
