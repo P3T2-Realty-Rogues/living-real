@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, Header } from "semantic-ui-react";
-import CreateUser from '../components/CreateUser'
-import CreateProperty from '../components/CreateProperty'
+
 
 function AdminDash() {
 
