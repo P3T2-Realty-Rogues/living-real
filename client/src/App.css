@@ -21,7 +21,9 @@ html {
 }
 
 img {
-  border-radius: 50px;
+  border-radius: 25px;
+  height: 150px;
+  width: auto;
   /* border: var(--dark) solid 3px; */
 }
 body {
@@ -459,6 +461,12 @@ iframe {
   .col-sm-12 {
     flex: 0 0 100%;
   }
+ 
+img {
+  height: 350px;
+  width: auto;
+  /* border: var(--dark) solid 3px; */
+} 
 }
 
 
@@ -511,6 +519,12 @@ iframe {
   .col-md-12 {
     flex: 0 0 100%;
   }
+   
+img {
+  height: 350px;
+  width: auto;
+  /* border: var(--dark) solid 3px; */
+} 
 }
 
 /* col-lg */

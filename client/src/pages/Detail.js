@@ -62,8 +62,8 @@ function Detail() {
 	          <div className="image-container">
               
 	            <img
-	              width="300"
-                height="auto"
+	              // width="auto"
+                // height="350"
                 alt="backyard image"
 	              src={
 	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`
