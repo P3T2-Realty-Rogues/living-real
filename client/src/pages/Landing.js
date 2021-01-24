@@ -16,7 +16,7 @@ const Landing = () => {
   const dispatch = useDispatch();
 
   const { loading, data } = useQuery(QUERY_PROPERTIES);
-  console.log(data, loading);
+  console.log("properties query", data, loading);
 
   useEffect(() => {
     if (data) {

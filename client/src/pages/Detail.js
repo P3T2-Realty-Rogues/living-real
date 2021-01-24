@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {Link} from "react-router-dom";
@@ -33,12 +33,32 @@ function Detail() {
   }, [currentProperty, dispatch]);
 
   console.log("state in Details: ", state);
-  console.log("current property", state.currentProperty.directoryName)
+  console.log("current property", state.currentProperty.pictures)
+  
+  // const [imageArrayState, setImageArrayState] = useState([])
+
+  // function getImages() {
+  //   console.log("running get images function")
+  //   const imgNameArr = []
+  //   for(let i=0; i<= state.currentProperty.pictures?.length -1; i++) {
+  //       let currentImg = state.currentProperty.pictures[i]
+  //       console.log(currentImg)
+  //       imgNameArr.push(currentImg)
+  //   }  
+  //   setImageArrayState(imgNameArr)
+  // } 
+
+  // useEffect(() => {
+  //   getImages()
+  // }, [])
+  
+// console.log("image array state", imageArrayState)
   return (
     <>
       {/* General home pictures and info */}
         <div className='card'>
         	<Carousel showThumbs={false} autoPlay infiniteLoop="true" >
+          {state.currentProperty.pictures?.map((image, index) => (
 	          <div className="image-container">
               
 	            <img
@@ -46,9 +66,8 @@ function Detail() {
                 height="auto"
                 alt="backyard image"
 	              src={
-	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/` +
-	                "backyard" +
-	                `.jpg`
+	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`
+	               
                 }
 	            ></img>
 	            <button
@@ -59,6 +78,7 @@ function Detail() {
 	              {state.currentProperty.propertyName}
 	            </button>
 	          </div>
+            ))}
 	        </Carousel>
         </div>
       <header>

@@ -15,8 +15,7 @@ function Upload() {
             bucketName: 'living-real-bucket',
             dirName: "properties",
             region: 'us-east-2',
-            accessKeyId:'AKIAJ7V5GGDPUXATUAJA',
-            secretAccessKey: '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',
+
             key: newFileName
         };
         const ReactS3Client = new S3(config)

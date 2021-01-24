@@ -39,6 +39,7 @@ const typeDefs = gql`
     pictures: [String]
     availability: Boolean
     ownerInfo: OwnerInfo
+    imageNameArray: [String]
   }
 
   type OwnerInfo {
@@ -115,7 +116,8 @@ const typeDefs = gql`
       directoryName: String
       thumbnail: String
       pictures: [String]
-      ownerInfo: OwnerInfoInput   
+      ownerInfo: OwnerInfoInput 
+      imageNameArray: [String]  
     ): Property
 
     updateProperty(
@@ -139,7 +141,8 @@ const typeDefs = gql`
       directoryName: String
       thumbnail: String
       pictures: [String]
-      ownerInfo: OwnerInfoInput   
+      ownerInfo: OwnerInfoInput 
+      imageNameArray: [String]  
     ): Property
 
     login(email: String!, password: String!): Auth
