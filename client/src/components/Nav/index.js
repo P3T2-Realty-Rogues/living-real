@@ -52,7 +52,7 @@ function Nav() {
       );
     } else {
       return (
-        <Menu  widths={2}>
+        <Menu widths={2}>
           <Menu.Item>
             <Link to="/Login">Login </Link>
           </Menu.Item>
