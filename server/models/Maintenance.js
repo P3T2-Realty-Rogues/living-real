@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+//this will be added after MVP is reached
 const maintenanceSchema = new Schema({
     tenantID: {
         type: Schema.Types.ObjectId,

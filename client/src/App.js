@@ -9,6 +9,7 @@ import CreateProperty from "./components/CreateProperty";
 import UpdateProperty from "./components/UpdateProperty";
 import UpdateUser from "./components/UpdateUser";
 import TenantInfo from "./components/TenantInfo"
+import Upload from "./components/Upload"
 import MaintenanceRequest from "./components/MaintenanceRequest";
 
 import ApolloClient from "apollo-boost";
@@ -72,7 +73,7 @@ function App() {
                   component={MaintenanceRequest}
                 />
                <Route exact path="/TenantDash/TenantInfo" component={TenantInfo} />
-
+               <Route exact path="/Upload" component={Upload} />
               </Switch>
             </header>
           </div>

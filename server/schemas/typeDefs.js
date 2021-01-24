@@ -54,7 +54,7 @@ const typeDefs = gql`
     date: String
     text: String
     grantAccess: Boolean
-    critical: Int # change to regex to allow values 
+    critical: Int
   }
 
   type Auth {
@@ -66,7 +66,7 @@ const typeDefs = gql`
     owners: [User]
     tenants: [User]
     properties: [Property] 
-    users: [User]
+    users: [User] #if user is not currently renting property and/or tenant info might be null!
     property(_id: ID!): Property
     user(_id: ID!): User
   }
@@ -80,7 +80,7 @@ const typeDefs = gql`
       password: String!
       phoneNumber: String!
       adminFlag: Boolean!
-      property: ID!
+      property: ID
       tenantData: TenantInput
     ): Auth
 

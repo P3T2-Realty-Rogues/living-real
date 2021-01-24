@@ -1,24 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-// import S3 from 'react-aws-s3';
+import Upload from '../Upload'
+
 
 
 
 function CreateProperty() {
-
-
-  /**
-   * {
-   *   Response: {
-   *     bucket: "myBucket",
-   *     key: "image/test-image.jpg",
-   *     location: "https://myBucket.s3.amazonaws.com/media/test-file.jpg"
-   *   }
-   * }
-   */
-
-
-
 
   return (
     <div >
@@ -87,8 +74,7 @@ function CreateProperty() {
               <input className="form-input" type="text" placeholder="$150" name="appFee"></input>
             </div>
             <div>
-              <label for="photos"> <b>Upload Photos</b></label>
-              <input type="file" id="img" ></input>
+              <Upload />
               <br />
             </div>
           </div>
