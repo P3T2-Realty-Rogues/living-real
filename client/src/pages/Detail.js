@@ -32,8 +32,8 @@ function Detail() {
     };
   }, [currentProperty, dispatch]);
 
-  console.log("state in Details: ", state);
-  console.log("current property", state.currentProperty.directoryName)
+  // console.log("state in Details: ", state);
+
   return (
     <>
       {/* General home pictures and info */}

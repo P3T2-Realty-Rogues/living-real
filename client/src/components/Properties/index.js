@@ -8,46 +8,6 @@ import { Link } from "react-router-dom";
 
 function Properties() {
   const state = useSelector((state) => state);
-  // const dispatch = useDispatch();
-
-  // const { properties } = state;
-  // // console.log(properties);
-
-  // // console.log(state);
-
-
-  // useEffect(() => {
-  //   if (data) {
-  //     dispatch({
-  //       type: UPDATE_PROPERTIES,
-  //       properties: data.properties,
-  //     });
-  //   }
-  // }, [dispatch, data]);
-  // const hardProperties = [
-  //   {
-  //     id: 1,
-  //     name: "Home1",
-  //     description: "LOREM IPSUM",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Home2",
-  //     description: "IPSUM LOREM",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Home3",
-  //     description: "SOME TEXT",
-  //   },
-  // ];
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   dispatch([...properties]);
-  //   // console.log(property);
-  // };
-
   return (
     <Carousel className="card" showThumbs={false} autoPlay infiniteLoop="true">
       {state.properties.map((image, index) => (

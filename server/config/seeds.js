@@ -41,7 +41,7 @@ db.once('open', async () => {
       numBathrooms: 25.1,
       numBedroom: 4,
       balcony: true,
-      pool: false,
+      pool: true,
       rent: 200,
       petDeposit: 3100,
       renterDeposit: 1050,
@@ -88,7 +88,7 @@ db.once('open', async () => {
 
   await User.create({
     firstName: "ted",
-    lastName: "manson",
+    lastName: "Admin",
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",

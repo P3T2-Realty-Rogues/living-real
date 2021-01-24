@@ -5,30 +5,6 @@ import { Link } from "react-router-dom";
 // import { ADD_USER } from "../utils/mutations";
 
 function RequestInfo(props) {
-//   const [formState, setFormState] = useState({ email: "", password: "" });
-//   const [addUser] = useMutation(ADD_USER);
-
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-//     const mutationResponse = await addUser({
-//       variables: {
-//         email: formState.email,
-//         password: formState.password,
-//         firstName: formState.firstName,
-//         lastName: formState.lastName,
-//       },
-//     });
-//     const token = mutationResponse.data.addUser.token;
-//     Auth.login(token);
-//   };
-
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-//     setFormState({
-//       ...formState,
-//       [name]: value,
-//     });
-//   };
 
     const handleFormSubmit = async (event) => {
     event.preventDefault();
