@@ -45,6 +45,14 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    moveUser: async (parent, {userId, propertyId}, context) => {
+
+      if (context.user.adminFlag) {
+        return await User.findByIdAndUpdate({_id: userId}, {property: propertyId}, { new: true }).populate('property');
+      }
+
+      throw new AuthenticationError('Not Authorized');
+    },
     deleteUser: async (parent, { _id }, context) => {
       if (context.user.adminFlag) {
         return await User.findByIdAndDelete(_id);

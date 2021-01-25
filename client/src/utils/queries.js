@@ -1,126 +1,135 @@
 import gql from "graphql-tag";
 
 export const QUERY_USER = gql`
-  query user($_id: ID!) {
-    user(_id: $_id) {
-      _id
-      firstName
-      lastName
-      email
-      phoneNumber
-      adminFlag
-      property {
-        propertyName
-      }
-      tenantData {
-        leaseDate
-        activeTenant
-      }
-    }
-  }
+query user($_id: ID!) {
+  user(_id: $_id) {
+   _id
+   firstName
+   lastName
+   email
+   phoneNumber
+   adminFlag
+   property {
+     propertyName
+     streetAddress
+   }
+   tenantData {
+     leaseDate
+     activeTenant
+   }
+ }
+ }
 `;
 
 export const QUERY_USERS = gql`
-  query {
-    users {
+query {
+  users{
+    _id
+    firstName
+    lastName
+    email
+    phoneNumber
+    adminFlag
+    property {
       _id
-      firstName
-      lastName
-      email
-      phoneNumber
-      adminFlag
-      property {
-        _id
-        propertyName
-        streetAddress
-      }
-      tenantData {
-        leaseDate
-        activeTenant
-      }
+      propertyName
+      streetAddress
+    }
+    tenantData {
+      leaseDate
+      activeTenant
     }
   }
+}
 `;
 
-export const QUERY_TENANT = gql`
-  query {
-    tenants {
+export const QUERY_TENANTS = gql`
+query {
+  tenants {
+    _id
+    firstName
+    lastName
+    email
+    phoneNumber
+    adminFlag
+    property {
       _id
-      firstName
-      lastName
-      email
-      phoneNumber
-      adminFlag
-      property
-      tenantData {
-        leaseDate
-        activeTenant
-      }
+    	propertyName
+      streetAddress
+    }
+    tenantData {
+      leaseDate
+      activeTenant
     }
   }
+}
 `;
 
 export const QUERY_PROPERTY = gql`
-  query property($_id: ID!) {
-    property(_id: $_id) {
-      _id
-      propertyName
-      propertyType
-      streetAddress
-      city
-      state
-      zipCode
-      sqFeet
-      numBathrooms
-      numBedroom
-      balcony
-      rent
-      petDeposit
-      renterDeposit
-      appFee
-      availability
-      pictures
-      ownerInfo {
-        mortgage
-        propertyTaxes
-        propertyInsurance
-        tenant
+query property($_id:ID!) {
+  property(_id: $_id) {
+    _id
+    propertyName
+    propertyType
+    streetAddress
+  	city
+    state
+		zipCode
+    sqFeet
+    numBathrooms
+    numBedroom
+    balcony
+    rent
+    petDeposit
+    renterDeposit
+    appFee
+		availability
+    ownerInfo {
+      mortgage
+      propertyTaxes
+      propertyInsurance
+      tenant {
+        _id
+        firstName
+        lastName
       }
     }
   }
+}
 `;
 
 export const QUERY_PROPERTIES = gql`
-  query {
-    properties {
-      _id
-      propertyName
-      propertyType
-      streetAddress
-      city
-      state
-      zipCode
-      sqFeet
-      numBathrooms
-      numBedroom
-      balcony
-      rent
-      petDeposit
-      renterDeposit
-      appFee
-      availability
-      directoryName
-      pictures
-      ownerInfo {
-        mortgage
-        propertyTaxes
-        propertyInsurance
-        tenant {
-          _id
-        }
+query {
+  properties {
+    _id
+    propertyName
+    propertyType
+    streetAddress
+    city
+    state
+    pool
+    zipCode
+    sqFeet
+    numBathrooms
+    numBedroom
+    balcony
+    pool
+    rent
+    petDeposit
+    renterDeposit
+    appFee
+    availability
+    ownerInfo {
+      mortgage
+      propertyTaxes
+      propertyInsurance
+      tenant {
+        firstName
+        lastName
       }
     }
   }
+}
 `;
 
 // export const QUERY_BBOARD = gql`
