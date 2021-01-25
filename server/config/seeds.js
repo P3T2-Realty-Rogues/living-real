@@ -26,7 +26,12 @@ db.once('open', async () => {
       pictures: [
           "attic-office.jpg",
           "backyard.jpg",
-          "bathroom1.jpg"
+          "bathroom1.jpg",
+          "bathroom2.jpg",
+          "bedroom1.jpg",
+          "bedroom2.jpg",
+          "kitchen.jpg",
+          "livingroom.jpg"
       ],
       ownerInfo: {
         mortgage: 1200,
@@ -53,8 +58,18 @@ db.once('open', async () => {
       appFee: 350,
       availability: true,
       directoryName: "home2",
-      imageNameArray: [
-
+      pictures: [
+        "backyard.jpg",
+        "bathroom1.jpg",
+        "bathroom2.jpg",
+        "bedroom1.jpg",
+        "bedroom2.jpg",
+        "bedroom3.jpg",
+        "game-room.jpg",
+        "garage.jpg",
+        "halfbath.jpg",
+        "kitchen1.jpg",
+        "livingroom.jpg"
       ],
       ownerInfo: {
         mortgage: 12500,
@@ -81,8 +96,18 @@ db.once('open', async () => {
       appFee: 150,
       availability: true,
       directoryName: "home3",
-      imageNameArray: [
-
+      pictures: [
+        "backyard.jpg",
+        "bathroom1.jpg",
+        "bathroom2.jpg",
+        "bedroom1.jpg",
+        "bedroom2.jpg",
+        "bedroom3.jpg",
+        "garage.jpg",
+        "halfbath.jpg",
+        "kitchen.jpg",
+        "livingroom.jpg",
+        "media-game-room.jpg"
       ],
       ownerInfo: {
         mortgage: 12000,

@@ -16,8 +16,8 @@ function Properties() {
             <img
               key={image._id}
               alt={image.propertyName}
-              width="300"
-              height="auto"
+              // width="auto"
+              // height="350"
               src={(`https://living-real-bucket.s3.us-east-2.amazonaws.com/properties/` + image.zipCode + `.jpg`)}
             // src={require(`../../assets/images/properties/${image.zipCode}.jpg`)}
             // onClick={handleClick}
