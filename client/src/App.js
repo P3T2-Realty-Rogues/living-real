@@ -49,7 +49,7 @@ function App() {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/requestInfo" component={RequestInfo} />
                 <Route exact path="/adminDash" component={AdminDash} />
-                <Route exact path="/tenantDash" component={TenantDash} />
+                <Route exact path="/tenantDash/:id" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
                 <Route exact path="/AdminDash/CreateUser" component={CreateUser} />
                 <Route

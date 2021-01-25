@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UPDATE_PROPERTY } from "../utils/actions";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
@@ -15,8 +15,7 @@ function Detail() {
 
   const currentProperty = state.properties.find(({ _id }) => _id === id);
   // const propertyImages =  currentProperty.
-  console.log("current property", 
-  currentProperty)
+  // console.log("current property", currentProperty);
   useEffect(() => {
     if (currentProperty) {
       dispatch({
@@ -33,38 +32,24 @@ function Detail() {
   }, [currentProperty, dispatch]);
 
   console.log("state in Details: ", state);
-  console.log("current property", state.currentProperty.pictures)
+  console.log("current property", state.currentProperty.pictures);
 
   return (
     <>
       {/* General home pictures and info */}
-        <div className='card'>
-        	<Carousel showThumbs={false} autoPlay infiniteLoop="true" >
+      <div className="card">
+        <Carousel showThumbs={false} autoPlay infiniteLoop="true">
           {state.currentProperty.pictures?.map((image, index) => (
-	          <div className="image-container">
-              
-	            <img
-	              // width="auto"
-                // height="350"
+            <div className="image-container">
+              <img
                 alt="backyard image"
-	              src={
-	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`
-	               
-                }
-	            ></img>
-	            {/* <button
-	              className="legend"
-	              id="legend"
-	              // onClick={handleClick}
-	            >
-	              {state.currentProperty.propertyName}
-	            </button> */}
-	          </div>
-            ))}
-	        </Carousel>
-        </div>
+                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`}
+              ></img>
+            </div>
+          ))}
+        </Carousel>
+      </div>
       <header>
-
         <h1>Property Name: {state.currentProperty.propertyName}</h1>
         <h3>Address:</h3>
         <p>
@@ -140,7 +125,9 @@ function Detail() {
       <div>
         <p>&nbsp;</p>
         <button className="btn">Apply Now</button>
-        <Link to="/" className="btn">Back to Dashboard</Link>
+        <Link to="/" className="btn">
+          Back to Dashboard
+        </Link>
         <br />
       </div>
     </>
