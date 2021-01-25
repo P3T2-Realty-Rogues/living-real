@@ -142,6 +142,11 @@ const typeDefs = gql`
       ownerInfo: OwnerInfoInput   
     ): Property
 
+    moveUser(
+      userId: ID!
+      propertyId: ID!
+    ): User
+
     login(email: String!, password: String!): Auth
 
     deleteUser(_id: ID!): User
