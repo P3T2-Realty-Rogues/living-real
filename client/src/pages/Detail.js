@@ -34,25 +34,7 @@ function Detail() {
 
   console.log("state in Details: ", state);
   console.log("current property", state.currentProperty.pictures)
-  
-  // const [imageArrayState, setImageArrayState] = useState([])
 
-  // function getImages() {
-  //   console.log("running get images function")
-  //   const imgNameArr = []
-  //   for(let i=0; i<= state.currentProperty.pictures?.length -1; i++) {
-  //       let currentImg = state.currentProperty.pictures[i]
-  //       console.log(currentImg)
-  //       imgNameArr.push(currentImg)
-  //   }  
-  //   setImageArrayState(imgNameArr)
-  // } 
-
-  // useEffect(() => {
-  //   getImages()
-  // }, [])
-  
-// console.log("image array state", imageArrayState)
   return (
     <>
       {/* General home pictures and info */}
@@ -62,21 +44,21 @@ function Detail() {
 	          <div className="image-container">
               
 	            <img
-	              width="300"
-                height="auto"
+	              // width="auto"
+                // height="350"
                 alt="backyard image"
 	              src={
 	                `https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`
 	               
                 }
 	            ></img>
-	            <button
+	            {/* <button
 	              className="legend"
 	              id="legend"
 	              // onClick={handleClick}
 	            >
 	              {state.currentProperty.propertyName}
-	            </button>
+	            </button> */}
 	          </div>
             ))}
 	        </Carousel>

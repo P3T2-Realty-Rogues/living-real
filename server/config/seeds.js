@@ -35,7 +35,7 @@ db.once('open', async () => {
       ],
       ownerInfo: {
         mortgage: 1200,
-        propertyTaxes: 700,
+        propertyTaxes: 375,
         propertyInsurance: 250,
         tenant: [],
       },
@@ -72,9 +72,9 @@ db.once('open', async () => {
         "livingroom.jpg"
       ],
       ownerInfo: {
-        mortgage: 12500,
-        propertyTaxes: 700,
-        propertyInsurance: 250,
+        mortgage: 1250,
+        propertyTaxes: 410,
+        propertyInsurance: 315,
         tenant: [],
       },
     },
@@ -110,9 +110,9 @@ db.once('open', async () => {
         "media-game-room.jpg"
       ],
       ownerInfo: {
-        mortgage: 12000,
-        propertyTaxes: 700,
-        propertyInsurance: 250,
+        mortgage: 1050,
+        propertyTaxes: 450,
+        propertyInsurance: 300,
         tenant: [],
       },
     },
@@ -138,11 +138,16 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
+    property: {
+      _id: "600efe314846c00c8c751820",
+      propertyName: "Home 1",
+      streetAddress: "8 nowhere ave",
+    },
     adminFlag: false,
     tenantData: {
-      "activeTenant": true,
-      "leaseDate": "1/11/1111"
-    }
+      activeTenant: true,
+      leaseDate: "1/11/1111",
+    },
   });
 
   console.log('users seeded');
