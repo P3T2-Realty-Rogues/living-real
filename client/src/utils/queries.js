@@ -9,7 +9,9 @@ export const QUERY_USER = gql`
       email
       phoneNumber
       adminFlag
-      property
+      property {
+        propertyName
+      }
       tenantData {
         leaseDate
         activeTenant
@@ -28,7 +30,9 @@ export const QUERY_USERS = gql`
       phoneNumber
       adminFlag
       property {
+        _id
         propertyName
+        streetAddress
       }
       tenantData {
         leaseDate

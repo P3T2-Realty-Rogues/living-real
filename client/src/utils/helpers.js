@@ -7,6 +7,12 @@ export function pluralize(name, count) {
   return name + 's'
 }
 
+export default function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
 
 // Utility function to open/setup the local database
 export function idbPromise(storeName, method, object) {

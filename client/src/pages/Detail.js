@@ -52,13 +52,13 @@ function Detail() {
 	               
                 }
 	            ></img>
-	            <button
+	            {/* <button
 	              className="legend"
 	              id="legend"
 	              // onClick={handleClick}
 	            >
 	              {state.currentProperty.propertyName}
-	            </button>
+	            </button> */}
 	          </div>
             ))}
 	        </Carousel>
