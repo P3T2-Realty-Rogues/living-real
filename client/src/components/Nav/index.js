@@ -25,7 +25,7 @@ function Nav() {
         //that user's admin flag property from state instead of from auth.getprofile
         // so we want match currentUser to the user stored in state and then access the adminFlag
 
-        // console.log("current user", state.users);
+        console.log("current user", currentUser);
 
       return (
         <>
@@ -39,7 +39,7 @@ function Nav() {
               </Menu.Item>
             ) : (
               <Menu.Item>
-                <Link to="/TenantDash">Tenant Dashboard </Link>
+                <Link to={`/TenantDash/${currentUser?._id}`}>Tenant Dashboard </Link>
               </Menu.Item>
             )}
             <Menu.Item>
@@ -62,63 +62,13 @@ function Nav() {
         </Menu>
       );
     }
-    // return (
-    //   //Original idea
-    //   <div>
-    //     <Menu widths={5}>
-    //       <Menu.Item>
-    //         <Link to="/Login">Login </Link>
-    //       </Menu.Item>
-    //       <Menu.Item>
-    //         <Link to="/RequestInfo">Request Info </Link>
-    //       </Menu.Item>
-    //     </Menu>
-    //   </div>
-
-    // Option 2
-    // <div>
-    //     <Header>
-    //       <Link to="/">Living Real</Link>
-    //     </Header>
-
-    //     <div class="ui four item  tiny menu ">
-    //       <Link class="item" to="/AdminDash">Admin Dashboard </Link>
-    //       <Link class="item" to="/TenantDash">Tenant Dashboard </Link>
-    //       <Link class="item" to="/Login">Login </Link>
-    //       <Link class="item active" to="/RequestInfo">Request Info </Link>
-    //     </div>
-    // </div>
-
-    // Option 3
-    // <div className="ui menu">
-    //   <Link className="item" to="/">
-    //     Living Real
-    //   </Link>
-
-    //   <div className="right menu">
-    //     <div className="ui item">
-    //       <Link className="item" to="/AdminDash">
-    //         Admin Dashboard{" "}
-    //       </Link>
-    //       <Link className="item" to="/TenantDash">
-    //         Tenant Dashboard{" "}
-    //       </Link>
-    //       <Link className="item" to="/Login">
-    //         Login{" "}
-    //       </Link>
-    //       <Link className="item active" to="/RequestInfo">
-    //         Request Info{" "}
-    //       </Link>
-    //     </div>
-    //   </div>
-    // </div>
-    // );
+  
   }
 
   return (
     <header className="justify-center px-1">
       <Header>
-        <Link to="/">Living Real</Link>
+        <Link to="/"><h1 className="title">Living Real</h1></Link>
       </Header>
       <nav>{showNavigation()}</nav>
     </header>

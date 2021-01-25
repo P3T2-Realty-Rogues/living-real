@@ -4,40 +4,31 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { QUERY_PROPERTIES } from "../../utils/queries";
 import UpdatePropertyForm from "../UpdatePropertyForm";
-import { UPDATE_PROPERTY, TOGGLE_UPDATE_FORM } from '../../utils/actions'
-
-
-
+import { UPDATE_PROPERTY, TOGGLE_UPDATE_FORM } from "../../utils/actions";
 
 function UpdateProperty() {
-
   // const propId = id
   const { id } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const allProperties = state.properties
+  const allProperties = state.properties;
   // console.log("all properties from state:", allProperties)
 
-
   function toggleForm(id) {
-
-
     const currentProperty = state.properties.find(({ _id }) => _id === id);
-    
+
     dispatch({
       type: UPDATE_PROPERTY,
       currentProperty,
     });
-    console.log("current property", currentProperty)
-    
+    console.log("current property", currentProperty);
 
-    console.log("updated form state", state.updatePropertyForm)
+    console.log("updated form state", state.updatePropertyForm);
     dispatch({ type: TOGGLE_UPDATE_FORM });
     // propId = id
-    console.log("updated form state after click", state.updatePropertyForm)
-    console.log("id", id)
-
+    console.log("updated form state after click", state.updatePropertyForm);
+    console.log("id", id);
   }
 
   useEffect(() => {
@@ -55,9 +46,8 @@ function UpdateProperty() {
     };
   }, [allProperties, dispatch]);
 
-
   return (
-    <div >
+    <div>
       <div>
         <div className="table">
           <p>&nbsp;</p>
@@ -70,30 +60,44 @@ function UpdateProperty() {
                 <th>Address</th>
               </tr>
             </thead>
-            <tbody>{allProperties.map((property, index) => (
-              <tr>
-                <td>
-                  <button data={property._id} onClick={() => (toggleForm(property._id))} className="btn" id={property.propertyName.toLowerCase().replace(/\s/g, '')}>Select</button>
-                </td>
-                <td>{property.propertyName}</td>
-                <td>{property.streetAddress}</td>
-              </tr>
-            ))}
+            <tbody>
+              {allProperties.map((property, index) => (
+                <tr>
+                  <td>
+                    <button
+                      data={property._id}
+                      onClick={() => toggleForm(property._id)}
+                      className="btn"
+                      id={property.propertyName
+                        .toLowerCase()
+                        .replace(/\s/g, "")}
+                    >
+                      Select
+                    </button>
+                  </td>
+                  <td>{property.propertyName}</td>
+                  <td>{property.streetAddress}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
         <div>
-          < UpdatePropertyForm />
+          <UpdatePropertyForm />
           <div>
             <br />
-            <button className="btn" id="update-user">Update Property</button>
-            <button className="btn" id="delete-user">Delete Property</button>
-            <Link to="/AdminDash" className="btn">Back to Dashboard</Link>
+            <button className="btn" id="update-user">
+              Update Property
+            </button>
+            <button className="btn" id="delete-user">
+              Delete Property
+            </button>
+            <Link to="/AdminDash" className="btn">
+              Back to Dashboard
+            </Link>
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }

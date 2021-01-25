@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { Menu, Header } from "semantic-ui-react";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_USERS } from "../utils/queries";
-
+import TenantInfo from "../components/TenantInfo";
 
 function TenantDash() {
-  
-
   // console.log("LOGGED USER", loggedUser);
   const { data } = useQuery(QUERY_USERS);
 
@@ -21,18 +19,14 @@ function TenantDash() {
   function showNavigation() {
     return (
       <div>
-        <Menu widths={2}>
-          <Menu.Item>
-            <Link to="/TenantDash/TenantInfo">My Information </Link>
-          </Menu.Item>
+        <Menu widths={1}>
           <Menu.Item>
             <Link to="/TenantDash/MaintenanceRequests">
-              View Maintenance Re quests{" "}
+              View Maintenance Requests{" "}
             </Link>
           </Menu.Item>
         </Menu>
-
-        
+        <TenantInfo />
       </div>
     );
   }

@@ -138,11 +138,6 @@ db.once('open', async () => {
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
     password: "test1234",
-    property: {
-      _id: "600efe314846c00c8c751820",
-      propertyName: "Home 1",
-      streetAddress: "8 nowhere ave",
-    },
     adminFlag: false,
     tenantData: {
       activeTenant: true,
