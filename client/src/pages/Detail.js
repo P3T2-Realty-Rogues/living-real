@@ -34,25 +34,7 @@ function Detail() {
 
   console.log("state in Details: ", state);
   console.log("current property", state.currentProperty.pictures)
-  
-  // const [imageArrayState, setImageArrayState] = useState([])
 
-  // function getImages() {
-  //   console.log("running get images function")
-  //   const imgNameArr = []
-  //   for(let i=0; i<= state.currentProperty.pictures?.length -1; i++) {
-  //       let currentImg = state.currentProperty.pictures[i]
-  //       console.log(currentImg)
-  //       imgNameArr.push(currentImg)
-  //   }  
-  //   setImageArrayState(imgNameArr)
-  // } 
-
-  // useEffect(() => {
-  //   getImages()
-  // }, [])
-  
-// console.log("image array state", imageArrayState)
   return (
     <>
       {/* General home pictures and info */}
