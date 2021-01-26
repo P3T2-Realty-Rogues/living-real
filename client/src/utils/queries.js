@@ -84,6 +84,7 @@ query property($_id:ID!) {
     renterDeposit
     appFee
 		availability
+    pictures
     ownerInfo {
       mortgage
       propertyTaxes
@@ -119,6 +120,7 @@ query {
     renterDeposit
     appFee
     availability
+    pictures
     ownerInfo {
       mortgage
       propertyTaxes

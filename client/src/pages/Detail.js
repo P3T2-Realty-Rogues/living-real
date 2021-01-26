@@ -43,7 +43,7 @@ function Detail() {
             <div className="image-container">
               <img
                 alt="backyard image"
-                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`}
+                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.propertyName.toLowerCase().split(" ").join("")}/${state.currentProperty.pictures[index]}`}
               ></img>
             </div>
           ))}
