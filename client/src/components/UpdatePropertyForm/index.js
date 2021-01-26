@@ -13,6 +13,19 @@ function UpdatePropertyForm() {
     console.log("incoming property id", state.currentProperty.propertyName)
     // console.log("update form property from state",currentProperty)
 
+    // Setup the yes/no values for the balcony and pool.
+    let balconyPlaceHolder = "No";
+    if( state.currentProperty.balcony ) {
+       balconyPlaceHolder = "Yes";
+    } 
+
+    let poolPlaceHolder = "No";
+    if( state.currentProperty.pool ) {
+       poolPlaceHolder = "Yes";
+    }     
+
+
+    
     if(!state.updatePropertyForm) {
         return (
         <div>NOTHING TO SHOW</div>
@@ -65,11 +78,11 @@ function UpdatePropertyForm() {
               </div>
               <div>
                 <label className="form-label" htmlFor="balcony"><b>Balcony</b></label>
-                <input className="form-input" type="checkbox" name="balcony" checked={state.currentProperty.balcony}></input>
+                <input className="form-input" type="text" name="balcony" placeholder={balconyPlaceHolder}></input>            
               </div>
               <div>
-                <label className="form-label" htmlFor="balcony"><b>Pool</b></label>
-                <input className="form-input" type="checkbox" name="balcony" checked={state.currentProperty.pool}></input>
+                <label className="form-label" htmlFor="pool"><b>Pool</b></label>
+                <input className="form-input" type="text" name="pool" placeholder={poolPlaceHolder}></input>
               </div>
               <div>
                 <label className="form-label" htmlFor="rent"><b>Rent</b></label>
