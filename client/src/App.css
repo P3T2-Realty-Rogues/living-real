@@ -321,9 +321,9 @@ iframe {
   margin: 0 5%;
 }
 
-.carousel {
+.carousel .slide {
   padding: 20px;
-  background-color: white;
+  background: none;
 }
 /* TABLE */
 .table {
