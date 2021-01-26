@@ -8,7 +8,7 @@ import {
   UPDATE_PROPERTIES,
   REMOVE_PROPERTY,
   QUERY_PROPERTIES,
-  TOGGLE_UPDATE_FORM
+  TOGGLE_UPDATE_FORM,
 } from "./actions";
 
 // Create the initial state for Redux
@@ -17,7 +17,8 @@ const initialState = {
   tenants: [],
   properties: [],
   currentProperty: {},
-  updatePropertyForm: false
+  currentUser: {},
+  updatePropertyForm: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -32,7 +33,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_USER:
       return {
         ...state, // the 'spread' operator
-        users: [...action.users],
+        currentUser: { ...action.currentUser },
       };
 
     case REMOVE_USER:
@@ -68,14 +69,14 @@ export const reducer = (state = initialState, action) => {
     case QUERY_PROPERTIES:
       return {
         ...state,
-        property:[action.properties]
+        property: [action.properties],
       };
-    
+
     case TOGGLE_UPDATE_FORM:
       return {
         ...state,
-        updatePropertyForm: !state.updatePropertyForm
-      }
+        updatePropertyForm: !state.updatePropertyForm,
+      };
 
     // If it's none of these actions, do not update state at all and keep things the same!
     default:

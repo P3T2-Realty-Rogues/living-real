@@ -5,19 +5,19 @@ function UpdatePropertyForm() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-    console.log("incoming property id", state.currentProperty.propertyName)
+    console.log("incoming property id", state.properties)
     // console.log("update form property from state",currentProperty)
 
     // Setup the yes/no values for the balcony and pool.
     let balconyPlaceHolder = "No";
-    if( state.currentProperty.balcony.toUpperCase() === 'YES' ) {
-       balconyPlaceHolder = "Yes";
-    } 
+    // if( state.currentProperty.balcony.toUpperCase() === 'YES' ) {
+    //    balconyPlaceHolder = "Yes";
+    // } 
 
     let poolPlaceHolder = "No";
-    if( state.currentProperty.pool.toUpperCase() === 'YES' ) {
-       poolPlaceHolder = "Yes";
-    }     
+    // if( state.currentProperty.pool.toUpperCase() === 'YES' ) {
+    //    poolPlaceHolder = "Yes";
+    // }     
 
 
 
