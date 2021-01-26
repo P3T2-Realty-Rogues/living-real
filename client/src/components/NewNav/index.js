@@ -9,6 +9,7 @@ import {
   Link,
   MenuItem,
 } from "@material-ui/core";
+import Auth from "../../utils/auth";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() => ({
   header: {
     backgroundColor: "#2753ba",
     paddingRight: "79px",
-    paddingLeft: "118px",
+    paddingLeft: "25px",
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -41,8 +42,8 @@ const useStyles = makeStyles(() => ({
   },
   menuButton: {
     fontFamily: "IBM Plex Sans, sans-serif",
-    fontWeight: 700,
-    size: "18px",
+    fontWeight: 600,
+    size: "15px",
     marginLeft: "38px",
   },
   toolbar: {
@@ -121,45 +122,175 @@ export default function NavBar() {
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, href }) => {
+    if (Auth.loggedIn()) {
+      //wrap this as function and add it as a method in helpers.js
+      const currentUser = Auth.getProfile().data;
       return (
-        <Link
-          {...{
-            component: RouterLink,
-            to: href,
-            color: "inherit",
-            style: { textDecoration: "none" },
-            key: label,
-          }}
-        >
-          <MenuItem>{label}</MenuItem>
-        </Link>
+        <>
+          {/* optional chaining here to optionally do this if currentUser exists
+            so when the asynchronous code executes and currentUsers exists,
+            we will conditionally render the admin or tenant dash */}
+          {currentUser?.adminFlag ? (
+            <MenuItem>
+              <Button
+                {...{
+                  to: "/AdminDash",
+                  color: "inherit",
+                  component: RouterLink,
+                  className: menuButton,
+                }}
+              >
+                Admin Dashboard
+              </Button>
+            </MenuItem>
+          ) : (
+            <MenuItem>
+              <Button
+                {...{
+                  to: `/TenantDash/${currentUser?._id}`,
+                  color: "inherit",
+                  component: RouterLink,
+                  className: menuButton,
+                }}
+              >
+                Tenant Dashboard
+              </Button>
+            </MenuItem>
+          )}
+          <MenuItem>
+            <Button
+              {...{
+                to: `/`,
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+                onClick: () => Auth.logout(),
+              }}
+            >
+              Logout
+            </Button>
+          </MenuItem>
+        </>
       );
-    });
+    } else {
+      return (
+        <>
+          <MenuItem>
+            <Button
+              {...{
+                to: "/Login",
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+              }}
+            >
+              Login
+            </Button>
+          </MenuItem>
+          <MenuItem>
+            <Button
+              {...{
+                to: "/RequestInfo",
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+              }}
+            >
+              Request Info
+            </Button>
+          </MenuItem>
+        </>
+      );
+    }
   };
 
   const appTitle = (
-    <Typography variant="h4" component="h1" className={logo}>
+    <Typography  variant="h4" component="h1" className={logo}>
       Living Real
     </Typography>
   );
 
   const getMenuButtons = () => {
-    return headersData.map(({ label, href }) => {
+    if (Auth.loggedIn()) {
+      //wrap this as function and add it as a method in helpers.js
+      const currentUser = Auth.getProfile().data;
       return (
-        <Button
-          {...{
-            key: label,
-            color: "inherit",
-            to: href,
-            component: RouterLink,
-            className: menuButton,
-          }}
-        >
-          {label}
-        </Button>
+        <>
+          {/* optional chaining here to optionally do this if currentUser exists
+            so when the asynchronous code executes and currentUsers exists,
+            we will conditionally render the admin or tenant dash */}
+          {currentUser?.adminFlag ? (
+            <MenuItem>
+              <Button
+                {...{
+                  to: "/AdminDash",
+                  color: "inherit",
+                  component: RouterLink,
+                  className: menuButton,
+                }}
+              >
+                Admin Dashboard
+              </Button>
+            </MenuItem>
+          ) : (
+            <MenuItem>
+              <Button
+                {...{
+                  to: `/TenantDash/${currentUser?._id}`,
+                  color: "inherit",
+                  component: RouterLink,
+                  className: menuButton,
+                }}
+              >
+                Tenant Dashboard
+              </Button>
+            </MenuItem>
+          )}
+          <MenuItem>
+            <Button
+              {...{
+                to: `/`,
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+                onClick: () => Auth.logout(),
+              }}
+            >
+              Logout
+            </Button>
+          </MenuItem>
+        </>
       );
-    });
+    } else {
+      return (
+        <>
+          <MenuItem>
+            <Button
+              {...{
+                to: "/Login",
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+              }}
+            >
+              Login
+            </Button>
+          </MenuItem>
+          <MenuItem>
+            <Button
+              {...{
+                to: "/RequestInfo",
+                color: "inherit",
+                component: RouterLink,
+                className: menuButton,
+              }}
+            >
+              Request Info
+            </Button>
+          </MenuItem>
+        </>
+      );
+    }
   };
 
   return (

@@ -5,30 +5,35 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
 import { UPDATE_USER } from "../../utils/actions";
 import { QUERY_USERS } from "../../utils/queries";
-// import toTitleCase from "../../utils/helpers";
+import toTitleCase from "../../utils/helpers";
+import Auth from "../../utils/auth";
 
 function TenantInfo() {
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  // const state = useSelector((state) => state);
+  // const dispatch = useDispatch();
+  // const { id } = useParams();
 
-  const [currentUser, setCurrentUser] = useState({});
+  // const [currentUser, setCurrentUser] = useState({});
 
-  const { data } = useQuery(QUERY_USERS);
-  const { users } = state;
+  // const { data } = useQuery(QUERY_USERS);
+  // const { users } = state;
 
-  useEffect(() => {
-    if (users.length) {
-      setCurrentUser(users.find((user) => user._id === id));
-      // if we dont have data, we use the data from the useQuery to set the data to global state
-    } else if (data) {
-      dispatch({
-        type: UPDATE_USER,
-        users: data.users,
-      });
-    }
+  // useEffect(() => {
+  //   if (users.length) {
+  //     setCurrentUser(users.find((user) => user._id === id));
+  //     // if we dont have data, we use the data from the useQuery to set the data to global state
+  //   } else if (data) {
+  //     dispatch({
+  //       type: UPDATE_USER,
+  //       users: data.users,
+  //     });
+  //   }
    
-  }, [users, data, id, dispatch]);
+  // }, [users, data, id, dispatch]);
+
+  const currentUser = Auth.getProfile().data
+
+  console.log("CURRENT USER", currentUser);
 
   return (
     <div className="card">
@@ -37,8 +42,8 @@ function TenantInfo() {
       </header>
       <div className="card-body">
         <h2>
-          {currentUser?.firstName} &nbsp;
-          {currentUser?.lastName}
+          {toTitleCase(currentUser?.firstName)} &nbsp;
+          {toTitleCase(currentUser?.lastName)}
         </h2>
         <ul className="tenant-info">
           <li>Address: {currentUser?.property?.streetAddress}</li>

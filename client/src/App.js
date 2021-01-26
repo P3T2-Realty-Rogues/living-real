@@ -44,8 +44,8 @@ function App() {
         <Provider store={store}>
           <div className="App">
             <header className="App-header">
-              <Nav />
-              {/* <NavBar /> */}
+              {/* <Nav /> */}
+              <NavBar />
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
