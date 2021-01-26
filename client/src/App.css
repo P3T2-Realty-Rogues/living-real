@@ -21,8 +21,8 @@ html {
 
 img {
   border-radius: 25px;
-  height: 150px;
-  width: auto;
+  /* height: 150px;
+  width: auto; */
   /* border: var(--dark) solid 3px; */
 }
 
@@ -74,7 +74,6 @@ header,
 header,
 .title {
   color: var(--light);
-  /* background-image: url('../images/hero-bg-img.jpg'); */
   background-size: cover;
   background-blend-mode: screen;
   /* border-bottom: var(--dark) solid 5px; */
@@ -277,6 +276,11 @@ iframe {
   list-style-type: none;
 }
 
+#lease-doc {
+  text-decoration: none;
+  columns: var(--light);
+}
+
 .list-item:hover {
   background-color: var(--dark);
 }
@@ -320,11 +324,17 @@ iframe {
   padding: 3% 10%;
   margin: 0 5%;
 }
+/* .carousel-container {
+  width: 100%;
+} */
 
 .carousel .slide {
-  padding: 20px;
+  padding: 5rem;
   background: none;
+  width: 100%;
+  height: 100%;
 }
+
 /* TABLE */
 .table {
   margin: 20px;
