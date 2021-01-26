@@ -17,6 +17,7 @@ import ApolloClient from "apollo-boost";
 import "./App.css";
 import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
+import NavBar from "./components/NewNav";
 import Login from "./pages/Login";
 import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
@@ -44,6 +45,7 @@ function App() {
           <div className="App">
             <header className="App-header">
               <Nav />
+              {/* <NavBar /> */}
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
@@ -51,7 +53,11 @@ function App() {
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash/:id" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
-                <Route exact path="/AdminDash/CreateUser" component={CreateUser} />
+                <Route
+                  exact
+                  path="/AdminDash/CreateUser"
+                  component={CreateUser}
+                />
                 <Route
                   exact
                   path="/AdminDash/CreateProperty"
@@ -62,7 +68,7 @@ function App() {
                   path="/AdminDash/UpdateProperty"
                   component={UpdateProperty}
                 />
-                                <Route
+                <Route
                   exact
                   path="/AdminDash/UpdateUser"
                   component={UpdateUser}
@@ -72,8 +78,12 @@ function App() {
                   path="/TenantDash/MaintenanceRequests"
                   component={MaintenanceRequest}
                 />
-               <Route exact path="/TenantDash/TenantInfo" component={TenantInfo} />
-               <Route exact path="/Upload" component={Upload} />
+                <Route
+                  exact
+                  path="/TenantDash/TenantInfo"
+                  component={TenantInfo}
+                />
+                <Route exact path="/Upload" component={Upload} />
               </Switch>
             </header>
           </div>

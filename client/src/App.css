@@ -299,6 +299,7 @@ iframe {
 /* CARDS */
 .card {
   margin: 20px;
+  padding-top: 5rem;
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
