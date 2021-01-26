@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Properties() {
   const state = useSelector((state) => state);
   return (
-    <Carousel className="card" showThumbs={false} autoPlay infiniteLoop="true">
+    <Carousel style={{ background: "none"}} className="card" showThumbs={false} autoPlay infiniteLoop="true">
       {state.properties.map((image, index) => (
         <Link to={`/detail/${image._id}`} key={image._id}>
           <div key={image._id} className="carousel">
