@@ -173,7 +173,25 @@ iframe {
   background-color: var(--light);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
-}
+  }
+  
+ .btnNav {
+  font-size: 1.3rem;
+  text-decoration:none;
+  padding: 6px 5px;
+  width: auto;
+  display:inline-flex;
+  justify-content: center;
+  align-items:center;
+  margin: 15px 20px;
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  background-color: var(--light);
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+  }
 
 .btn:hover,
 .btn-secondary:hover,

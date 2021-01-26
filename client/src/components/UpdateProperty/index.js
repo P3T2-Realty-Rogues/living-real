@@ -86,6 +86,7 @@ function UpdateProperty() {
           <UpdatePropertyForm />
           <div>
             <br />
+<<<<<<< HEAD
             <button className="btn" id="update-user">
               Update Property
             </button>
@@ -95,6 +96,11 @@ function UpdateProperty() {
             <Link to="/AdminDash" className="btn">
               Back to Dashboard
             </Link>
+=======
+            <button className="btnNav" id="update-user">Update Property</button>
+            <button className="btnNav" id="delete-user">Delete Property</button>
+            <Link to="/AdminDash" className="btnNav">Back to Dashboard</Link>
+>>>>>>> 600120e7cf2c755d85ec89f0ae16de6b16f9d16d
           </div>
         </div>
       </div>
