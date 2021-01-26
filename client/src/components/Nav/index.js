@@ -8,7 +8,7 @@ function Nav() {
   const state = useSelector((state) => state);
   // let isAdmin;
 
-  console.log("NAV STATE", state);
+  //console.log("NAV STATE", state);
 
   function showNavigation() {
     if (Auth.loggedIn()) {

@@ -13,6 +13,9 @@ import { UPDATE_PROPERTIES, ADD_USER } from "../utils/actions";
 
 import { useQuery } from "@apollo/react-hooks";
 
+//import the idb helper to make transactions with the database
+import { idbPromise } from "../utils/helpers";
+
 const Landing = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -26,6 +29,7 @@ const Landing = () => {
   // console.log("USERS", users.data);
 
   useEffect(() => {
+    console.log('fired')
     if (properties.data) {
       dispatch({
         type: UPDATE_PROPERTIES,
@@ -37,6 +41,10 @@ const Landing = () => {
           users: users.data.users,
         });
       }
+
+      properties.data.properties.forEach((property) => {
+        idbPromise('properties', 'put', property);
+      });
     }
   }, [dispatch, properties.data, users.data]);
 
