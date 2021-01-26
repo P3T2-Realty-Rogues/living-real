@@ -6,29 +6,17 @@ import {
   Button,
   IconButton,
   Drawer,
-  Link,
   MenuItem,
+  Link,
 } from "@material-ui/core";
 import Auth from "../../utils/auth";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
-const headersData = [
-  {
-    label: "Request Info",
-    href: "/RequestInfo",
-  },
-  {
-    label: "Login",
-    href: "/Login",
-  },
-];
-
 const useStyles = makeStyles(() => ({
   header: {
     backgroundColor: "#2753ba",
-    paddingRight: "79px",
     paddingLeft: "25px",
     "@media (max-width: 900px)": {
       paddingLeft: 0,
@@ -37,7 +25,7 @@ const useStyles = makeStyles(() => ({
   logo: {
     fontFamily: "IBM Plex Sans, sans-serif",
     fontWeight: 600,
-    color: "#FFFEFE",
+    color: "#d7e6f3",
     textAlign: "left",
   },
   menuButton: {
@@ -49,14 +37,26 @@ const useStyles = makeStyles(() => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+    flexDirection: "row",
   },
   drawerContainer: {
     padding: "20px 30px",
   },
+  navContainer: {
+    display: "flex",
+    alignItems: "flex-start",
+  },
 }));
 
 export default function NavBar() {
-  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+  const {
+    header,
+    logo,
+    menuButton,
+    toolbar,
+    drawerContainer,
+    navContainer,
+  } = useStyles();
 
   const [state, setState] = useState({
     mobileView: false,
@@ -81,7 +81,7 @@ export default function NavBar() {
     return (
       <Toolbar className={toolbar}>
         {appTitle}
-        <div>{getMenuButtons()}</div>
+        <div className={navContainer}>{getMenuButtons()}</div>
       </Toolbar>
     );
   };
@@ -205,8 +205,16 @@ export default function NavBar() {
   };
 
   const appTitle = (
-    <Typography  variant="h4" component="h1" className={logo}>
-      Living Real
+    <Typography variant="h4" component="h1" className={logo} >
+      <Link
+        href="/"
+        color="inherit"
+        variant="inherit"
+        underlineHover="hover"
+        underlineNone="none"
+      >
+        Living Real
+      </Link>
     </Typography>
   );
 
@@ -216,9 +224,6 @@ export default function NavBar() {
       const currentUser = Auth.getProfile().data;
       return (
         <>
-          {/* optional chaining here to optionally do this if currentUser exists
-            so when the asynchronous code executes and currentUsers exists,
-            we will conditionally render the admin or tenant dash */}
           {currentUser?.adminFlag ? (
             <MenuItem>
               <Button
