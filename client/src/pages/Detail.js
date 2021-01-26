@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UPDATE_PROPERTY } from "../utils/actions";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-//import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+
+import Carousel from "react-material-ui-carousel";
+import { Paper } from "@material-ui/core";
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
@@ -37,15 +37,18 @@ function Detail() {
   return (
     <>
       {/* General home pictures and info */}
-      <div className="card">
+      <div className="image-slider">
         <Carousel showThumbs={false} autoPlay infiniteLoop="true">
           {state.currentProperty.pictures?.map((image, index) => (
-            <div className="image-container">
+            <Paper className="image-container" style={{ background: "none" }}>
               <img
                 alt="backyard image"
-                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.propertyName.toLowerCase().split(" ").join("")}/${state.currentProperty.pictures[index]}`}
+                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.propertyName
+                  .toLowerCase()
+                  .split(" ")
+                  .join("")}/${state.currentProperty.pictures[index]}`}
               ></img>
-            </div>
+            </Paper>
           ))}
         </Carousel>
       </div>
