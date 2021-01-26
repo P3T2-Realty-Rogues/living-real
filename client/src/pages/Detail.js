@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { UPDATE_PROPERTY } from "../utils/actions";
+import { UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_PROPERTIES } from "../utils/queries";
+
+//import the idb helper to make transactions with the database
+import { idbPromise } from "../utils/helpers";
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
@@ -13,49 +18,63 @@ function Detail() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const currentProperty = state.properties.find(({ _id }) => _id === id);
-  // const propertyImages =  currentProperty.
-  // console.log("current property", currentProperty);
+  const [currentProperty, setCurrentProperty] = useState({})
+
+  const { loading, data } = useQuery(QUERY_PROPERTIES);
+
+  const {properties} = state
+
+
+
   useEffect(() => {
-    if (currentProperty) {
+    // already in global store
+    if (properties.length) {
+      setCurrentProperty(properties.find(property => property._id === id));
+    }
+    // retrieved from server
+    else if (data) {
       dispatch({
-        type: UPDATE_PROPERTY,
-        currentProperty,
+        type: UPDATE_PROPERTIES,
+        properties: data.properties
+      });
+
+      data.properties.forEach((property) => {
+        idbPromise('properties', 'put', property);
       });
     }
-    return () => {
-      dispatch({
-        type: UPDATE_PROPERTY,
-        currentProperty: {},
+    // get cache from idb
+    else if (!loading) {
+      idbPromise('properties', 'get').then((indexedProperties) => {
+        dispatch({
+          type: UPDATE_PROPERTIES,
+          properties: indexedProperties
+        });
       });
-    };
-  }, [currentProperty, dispatch]);
-
-  console.log("state in Details: ", state);
-  console.log("current property", state.currentProperty.pictures);
+    }
+  }, [properties, data, loading, dispatch, id]);
 
   return (
     <>
       {/* General home pictures and info */}
       <div className="card">
         <Carousel showThumbs={false} autoPlay infiniteLoop="true">
-          {state.currentProperty.pictures?.map((image, index) => (
+          {currentProperty.pictures?.map((image, index) => (
             <div className="image-container">
               <img
                 alt="backyard image"
-                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${state.currentProperty.directoryName}/${state.currentProperty.pictures[index]}`}
+                src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${currentProperty.directoryName}/${currentProperty.pictures[index]}`}
               ></img>
             </div>
           ))}
         </Carousel>
       </div>
       <header>
-        <h1>Property Name: {state.currentProperty.propertyName}</h1>
+        <h1>Property Name: {currentProperty.propertyName}</h1>
         <h3>Address:</h3>
         <p>
-          {state.currentProperty.streetAddress} <br></br>
-          {state.currentProperty.city}, {state.currentProperty.state}{" "}
-          {state.currentProperty.zipCode}
+          {currentProperty.streetAddress} <br></br>
+          {currentProperty.city}, {currentProperty.state}{" "}
+          {currentProperty.zipCode}
         </p>
       </header>
 
@@ -81,42 +100,42 @@ function Detail() {
             <tr>
               <td>Size</td>
               <td>sq. ft.</td>
-              <td>{state.currentProperty.sqFeet}</td>
+              <td>{currentProperty.sqFeet}</td>
             </tr>
             <tr>
               <td>No. bathrooms</td>
               <td> </td>
-              <td>{state.currentProperty.numBathrooms}</td>
+              <td>{currentProperty.numBathrooms}</td>
             </tr>
             <tr>
               <td>No. bedrooms</td>
               <td> </td>
-              <td>{state.currentProperty.numBedroom}</td>
+              <td>{currentProperty.numBedroom}</td>
             </tr>
             <tr>
               <td>Balcony</td>
               <td> </td>
-              <td>{state.currentProperty.balcony}</td>
+              <td>{currentProperty.balcony}</td>
             </tr>
             <tr>
               <td>Rent</td>
               <td> $ </td>
-              <td>{state.currentProperty.rent}</td>
+              <td>{currentProperty.rent}</td>
             </tr>
             <tr>
               <td>Pet Deposit</td>
               <td> $ </td>
-              <td>{state.currentProperty.petDeposit}</td>
+              <td>{currentProperty.petDeposit}</td>
             </tr>
             <tr>
               <td>Rent Deposit</td>
               <td> $ </td>
-              <td>{state.currentProperty.renterDeposit}</td>
+              <td>{currentProperty.renterDeposit}</td>
             </tr>
             <tr>
               <td>Application Fee</td>
               <td> $ </td>
-              <td>{state.currentProperty.appFee}</td>
+              <td>{currentProperty.appFee}</td>
             </tr>
           </tbody>
         </table>
