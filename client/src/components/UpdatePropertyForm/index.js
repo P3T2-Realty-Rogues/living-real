@@ -15,17 +15,17 @@ function UpdatePropertyForm() {
 
     // Setup the yes/no values for the balcony and pool.
     let balconyPlaceHolder = "No";
-    if( state.currentProperty.balcony ) {
+    if( state.currentProperty.balcony.toUpperCase() === 'YES' ) {
        balconyPlaceHolder = "Yes";
     } 
 
     let poolPlaceHolder = "No";
-    if( state.currentProperty.pool ) {
+    if( state.currentProperty.pool.toUpperCase() === 'YES' ) {
        poolPlaceHolder = "Yes";
     }     
 
 
-    
+
     if(!state.updatePropertyForm) {
         return (
         <div>NOTHING TO SHOW</div>
