@@ -56,7 +56,7 @@ function Detail() {
   return (
     <>
       {/* General home pictures and info */}
-      <div className="card">
+      <div className="image-slider">
         <Carousel showThumbs={false} autoPlay infiniteLoop="true">
           {currentProperty.pictures?.map((image, index) => (
             <div className="image-container">
@@ -64,7 +64,7 @@ function Detail() {
                 alt="backyard image"
                 src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${currentProperty.directoryName}/${currentProperty.pictures[index]}`}
               ></img>
-            </div>
+            </Paper>
           ))}
         </Carousel>
       </div>
@@ -143,8 +143,8 @@ function Detail() {
       {/* Ability to apply for this property */}
       <div>
         <p>&nbsp;</p>
-        <button className="btn">Apply Now</button>
-        <Link to="/" className="btn">
+        <button className="btnNav">Apply Now</button>
+        <Link to="/" className="btnNav">
           Back to Dashboard
         </Link>
         <br />

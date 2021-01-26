@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 // import PropertyList from "../components/Properties"
 
@@ -52,13 +51,13 @@ const Landing = () => {
   // console.log("users:", state.user);
 
   return (
-    <div>
-      {/* <h1>In A Virtual World, Live Real</h1> */}
-      <Jumbotron>
-        <Properties />
-      </Jumbotron>
-      {/* <PropertyList /> */}
-    </div>
+    
+    <>
+    
+    <Properties />
+   
+  </>
+    
   );
 };
 
