@@ -5,11 +5,6 @@ function UpdatePropertyForm() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-    
-
-    const state = useSelector((state) => state)
-    const dispatch = useDispatch();
-    
     console.log("incoming property id", state.currentProperty.propertyName)
     // console.log("update form property from state",currentProperty)
 
