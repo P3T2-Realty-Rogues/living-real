@@ -48,7 +48,13 @@ const resolvers = {
     moveUser: async (parent, {userId, propertyId}, context) => {
 
       if (context.user.adminFlag) {
-        return await User.findByIdAndUpdate({_id: userId}, {property: propertyId}, { new: true }).populate('property');
+        const user = await User.findByIdAndUpdate({_id: userId}, {property: propertyId}, { new: true }).populate('property');
+        await Property.findOneAndUpdate(
+          { _id: propertyId },
+          { $addToSet: {'ownerInfo.tenant': userId } } ,
+          { new: true }
+        ).populate('ownerInfo.tenant')
+        return user
       }
 
       throw new AuthenticationError('Not Authorized');
