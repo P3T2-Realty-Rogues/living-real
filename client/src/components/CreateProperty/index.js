@@ -54,9 +54,13 @@ function CreateProperty() {
               <input className="form-input" type="text" placeholder="1/2/3/4" name="numBathrooms"></input>
             </div>
             <div>
-              <label className="form-label" for="balcony"><b>Number of Bedrooms</b></label>
-              <input className="form-input" type="checkbox" name="balcony"></input>
+            <label className="form-label" htmlFor="balcony"><b>Balcony</b></label>
+                <input className="form-input" type="text" name="balcony" placeholder="Balcony yes/no"></input>
             </div>
+            <div>
+                <label className="form-label" htmlFor="pool"><b>Pool</b></label>
+                <input className="form-input" type="text" name="pool" placeholder="Pool yes/no"></input>
+              </div>           
             <div>
               <label className="form-label" for="rent"><b>Rent</b></label>
               <input className="form-input" type="text" placeholder="$1200" name="rent"></input>
