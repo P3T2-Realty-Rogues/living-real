@@ -32,9 +32,15 @@ const Landing = () => {
   }, [dispatch, properties.data]);
 
   return (
-    <>
+
+
+    <div className='contentContainer'>
+
       <Properties />
-    </>
+
+    </div>
+
+
   );
 };
 

@@ -48,61 +48,62 @@ function App() {
             <header className="App-header">
               <NavBar />
             </header>
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/requestInfo" component={RequestInfo} />
-              <Route exact path="/adminDash" component={AdminDash} />
-              <Route exact path="/tenantDash/:id" component={TenantDash} />
-              <Route exact path="/detail/:id" component={Detail} />
-              <Route
+           <div className='contentContainer'>
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/requestInfo" component={RequestInfo} />
+                <Route exact path="/adminDash" component={AdminDash} />
+                <Route exact path="/tenantDash/:id" component={TenantDash} />
+                <Route exact path="/detail/:id" component={Detail} />
+                <Route
                   exact
                   path="/ApplyNow/:id"
                   component={ApplyNow}
-                />              
-              <Route
-                exact
-                path="/AdminDash/CreateUser"
-                component={CreateUser}
-              />
-              <Route
-                exact
-                path="/AdminDash/CreateProperty"
-                component={CreateProperty}
-              />
-              <Route
-                exact
-                path="/AdminDash/UpdateProperty"
-                component={UpdateProperties}
-              />
-              <Route
-                exact
-                path="/AdminDash/UpdateProperty/:id"
-                component={UpdatePropertyForm}
-              />
-              <Route
-                exact
-                path="/AdminDash/UpdateUser"
-                component={UpdateUser}
-              />
-              <Route
-                exact
-                path="/TenantDash/MaintenanceRequests"
-                component={MaintenanceRequest}
-              />
-              <Route
-                exact
-                path="/TenantDash/TenantInfo"
-                component={TenantInfo}
-              />
-              <Route
-                exact
-                path="/AdminDash/MoveUser"
-                component={MoveUser}
-              />
-              <Route exact path="/Upload" component={Upload} />
-            </Switch>
-
+                />
+                <Route
+                  exact
+                  path="/AdminDash/CreateUser"
+                  component={CreateUser}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/CreateProperty"
+                  component={CreateProperty}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty"
+                  component={UpdateProperties}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty/:id"
+                  component={UpdatePropertyForm}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateUser"
+                  component={UpdateUser}
+                />
+                <Route
+                  exact
+                  path="/TenantDash/MaintenanceRequests"
+                  component={MaintenanceRequest}
+                />
+                <Route
+                  exact
+                  path="/TenantDash/TenantInfo"
+                  component={TenantInfo}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/MoveUser"
+                  component={MoveUser}
+                />
+                <Route exact path="/Upload" component={Upload} />
+              </Switch>
+           </div>
           </div>
         </Provider>
       </Router>
