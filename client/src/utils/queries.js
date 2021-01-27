@@ -83,15 +83,10 @@ query property($_id:ID!) {
     petDeposit
     renterDeposit
     appFee
-<<<<<<< HEAD
     availability
     pictures
     thumbnail
     directoryName
-=======
-		availability
-    pictures
->>>>>>> develop
     ownerInfo {
       mortgage
       propertyTaxes
@@ -128,11 +123,8 @@ query {
     appFee
     availability
     pictures
-<<<<<<< HEAD
     thumbnail
     directoryName
-=======
->>>>>>> develop
     ownerInfo {
       mortgage
       propertyTaxes

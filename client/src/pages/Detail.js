@@ -24,8 +24,6 @@ function Detail() {
 
   const {properties} = state
 
-
-
   useEffect(() => {
     // already in global store
     if (properties.length) {
@@ -64,7 +62,7 @@ function Detail() {
                 alt="backyard image"
                 src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${currentProperty.directoryName}/${currentProperty.pictures[index]}`}
               ></img>
-            </Paper>
+            </div>
           ))}
         </Carousel>
       </div>

@@ -19,13 +19,7 @@ const Landing = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // console.log("STATE", state);
-
   const properties = useQuery(QUERY_PROPERTIES);
-  const users = useQuery(QUERY_USERS);
-
-  // console.log("PROPERTIES", properties.data);
-  // console.log("USERS", users.data);
 
   useEffect(() => {
     console.log('fired')
@@ -34,21 +28,12 @@ const Landing = () => {
         type: UPDATE_PROPERTIES,
         properties: properties.data.properties,
       });
-      if (users.data) {
-        dispatch({
-          type: ADD_USER,
-          users: users.data.users,
-        });
-      }
 
       properties.data.properties.forEach((property) => {
         idbPromise('properties', 'put', property);
       });
     }
-  }, [dispatch, properties.data, users.data]);
-
-  // console.log("properties:", state.properties);
-  // console.log("users:", state.user);
+  }, [dispatch, properties.data]);
 
   return (
     
