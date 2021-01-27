@@ -45,11 +45,12 @@ For owners, the landing page has a login feature which should be used.  Once log
 * Apollo Server
 * JWT (JSON Web Token)
 * NodeJS, Express.JS
+* indexDB
 * MongoDB
 * Redux
 * React
 * Stripe
-* Semantic UI
+* Materials UI
 
 
 ## Deployment Link
