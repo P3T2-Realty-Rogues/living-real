@@ -26,19 +26,15 @@ const Landing = () => {
       });
 
       properties.data.properties.forEach((property) => {
-        idbPromise('properties', 'put', property);
+        idbPromise("properties", "put", property);
       });
     }
   }, [dispatch, properties.data]);
 
   return (
-    
     <>
-    
-    <Properties />
-   
-  </>
-    
+      <Properties />
+    </>
   );
 };
 
