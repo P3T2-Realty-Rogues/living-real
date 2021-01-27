@@ -26,14 +26,14 @@ import TenantDash from "./pages/TenantDash";
 // import PropertyList from './components/Properties'
 
 const client = new ApolloClient({
-  // request: (operation) => {
-  //   const token = localStorage.getItem("id_token");
-  //   operation.setContext({
-  //     headers: {
-  //       authorization: token ? `Bearer ${token}` : "",
-  //     },
-  //   });
-  // },
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
   uri: '/graphql',
 });
 
