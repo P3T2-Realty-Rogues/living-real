@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { QUERY_PROPERTIES } from "../../utils/queries";
 import UpdatePropertyForm from "../UpdatePropertyForm";
 import { UPDATE_PROPERTY, TOGGLE_UPDATE_FORM } from "../../utils/actions";
 
 function UpdateProperty() {
-  // const propId = id
-  const { id } = useParams();
+  //const { id } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 

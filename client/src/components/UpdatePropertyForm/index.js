@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 function UpdatePropertyForm() {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
     console.log("incoming property id", state.properties)
     // console.log("update form property from state",currentProperty)

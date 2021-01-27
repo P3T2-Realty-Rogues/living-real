@@ -16,7 +16,6 @@ import ApolloClient from "apollo-boost";
 
 import "./App.css";
 import Landing from "./pages/Landing";
-import Nav from "./components/Nav";
 import NavBar from "./components/NewNav";
 import Login from "./pages/Login";
 import RequestInfo from "./pages/RequestInfo";
