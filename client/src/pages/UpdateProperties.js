@@ -1,48 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { QUERY_PROPERTIES } from "../../utils/queries";
-import UpdatePropertyForm from "../UpdatePropertyForm";
-import { UPDATE_PROPERTY, TOGGLE_UPDATE_FORM } from "../../utils/actions";
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_PROPERTIES } from "../utils/queries";
+import { UPDATE_PROPERTIES } from "../utils/actions";
+
+//import the idb helper to make transactions with the database
+import { idbPromise } from "../utils/helpers";
 
 function UpdateProperty() {
-  //const { id } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const allProperties = state.properties;
-  // console.log("all properties from state:", allProperties)
+  const [allProperties, setAllProperties] = useState([])
 
-  function toggleForm(id) {
-    const currentProperty = state.properties.find(({ _id }) => _id === id);
+  const { loading, data } = useQuery(QUERY_PROPERTIES);
 
-    dispatch({
-      type: UPDATE_PROPERTY,
-      currentProperty,
-    });
-    console.log("current property", currentProperty);
-
-    console.log("updated form state", state.updatePropertyForm);
-    dispatch({ type: TOGGLE_UPDATE_FORM });
-    // propId = id
-    console.log("updated form state after click", state.updatePropertyForm);
-    console.log("id", id);
-  }
+  const {properties} = state
 
   useEffect(() => {
-    if (allProperties) {
+    // already in global store
+    if (properties.length) {
+      setAllProperties(properties);
+    }
+    // retrieved from server
+    else if (data) {
       dispatch({
-        type: QUERY_PROPERTIES,
-        allProperties,
+        type: UPDATE_PROPERTIES,
+        properties: data.properties
+      });
+
+      data.properties.forEach((property) => {
+        idbPromise('properties', 'put', property);
       });
     }
-    return () => {
-      dispatch({
-        type: QUERY_PROPERTIES,
-        allProperties: {},
+    // get cache from idb
+    else if (!loading) {
+      idbPromise('properties', 'get').then((indexedProperties) => {
+        dispatch({
+          type: UPDATE_PROPERTIES,
+          properties: indexedProperties
+        });
       });
-    };
-  }, [allProperties, dispatch]);
+    }
+  }, [properties, data, loading, dispatch]);
 
   return (
     <div>
@@ -63,14 +64,12 @@ function UpdateProperty() {
                 <tr>
                   <td>
                     <button
-                      data={property._id}
-                      onClick={() => toggleForm(property._id)}
                       className="btn"
                       id={property.propertyName
                         .toLowerCase()
                         .replace(/\s/g, "")}
                     >
-                      Select
+                      <Link to={`/AdminDash/UpdateProperty/${property._id}`}> Edit </Link>
                     </button>
                   </td>
                   <td>{property.propertyName}</td>
@@ -81,7 +80,6 @@ function UpdateProperty() {
           </table>
         </div>
         <div>
-          <UpdatePropertyForm />
           <div>
             <br />
             <button className="btnNav" id="update-user">Update Property</button>
