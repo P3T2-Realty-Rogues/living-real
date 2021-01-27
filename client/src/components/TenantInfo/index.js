@@ -75,6 +75,8 @@ function TenantInfo() {
           <a
             className="btnNav"
             href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Lease Document
           </a>
