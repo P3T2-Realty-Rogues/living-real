@@ -26,7 +26,8 @@ img {
 }
 
 .image-slider {
-  margin: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: inline-block;
 }
 
@@ -59,18 +60,6 @@ body, .landing {
   font-size: 16px;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 header, .description, .center-text, .card-body, .card-header, .user-card, .subtitle {
   text-align: center;
 }
@@ -84,7 +73,11 @@ header, .title {
   background-size: cover;
   background-blend-mode: screen;
   /* border-bottom: var(--dark) solid 5px; */
-  padding-top: 20px;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 2rem;
 }
 
 #home-div, #footer-wrap {
