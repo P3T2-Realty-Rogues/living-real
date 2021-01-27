@@ -13,7 +13,7 @@ function Properties() {
 
   return (
     <>
-      <Carousel autoPlay="true" className="image-slider">
+      <Carousel autoPlay="true" className="image-slider top-buffer">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
             <Paper key={image._id} style={{ background: "none" }}>

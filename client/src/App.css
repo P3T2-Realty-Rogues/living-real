@@ -84,6 +84,10 @@ header,
   padding-top: 20px;
 }
 
+.top-buffer {
+  padding-top: 70px;
+}
+
 #home-div,
 #footer-wrap {
   border: none;
