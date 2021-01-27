@@ -25,9 +25,13 @@ img {
   width: 100%;
 }
 
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .image-slider {
-  margin-left: 1rem;
-  margin-right: 1rem;
   display: inline-block;
 }
 
@@ -331,12 +335,11 @@ iframe {
 /* TABLE */
 
 .table {
-  margin: 20px;
+  margin: auto;
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
   width: 50%;
-  display: inline-block;
 }
 
 /* FORM */

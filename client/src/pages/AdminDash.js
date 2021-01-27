@@ -31,12 +31,12 @@ function AdminDash() {
         <div>{showNavigation()}</div>
       </header>
 
-      <div >
+      {/* <div >
         <h1> Content goes here</h1>
       </div>
       <div>
         <h1>Bulletin Board</h1>
-      </div>
+      </div> */}
     </div>
   );
 
