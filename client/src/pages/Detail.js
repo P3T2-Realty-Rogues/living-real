@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import Carousel from "react-material-ui-carousel";
+import { Paper } from "@material-ui/core";
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PROPERTIES } from "../utils/queries";
 
@@ -55,14 +56,14 @@ function Detail() {
     <>
       {/* General home pictures and info */}
       <div className="image-slider">
-        <Carousel showThumbs={false} autoPlay infiniteLoop="true">
+        <Carousel showThumbs={false} autoPlay="true">
           {currentProperty.pictures?.map((image, index) => (
-            <div className="image-container">
+            <Paper className="image-container" style={{ background: "none" }}>
               <img
                 alt="backyard image"
                 src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${currentProperty.directoryName}/${currentProperty.pictures[index]}`}
               ></img>
-            </div>
+            </Paper>
           ))}
         </Carousel>
       </div>
