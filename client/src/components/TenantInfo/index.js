@@ -2,33 +2,55 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { useParams } from "react-router-dom";
-import { UPDATE_USER } from "../../utils/actions";
-import { QUERY_USERS } from "../../utils/queries";
-// import toTitleCase from "../../utils/helpers";
+import Auth from "../../utils/auth"
+import { QUERY_PROPERTIES } from "../../utils/queries";
+import { UPDATE_PROPERTIES} from "../../utils/actions";
+
+//import the idb helper to make transactions with the database
+import { idbPromise } from "../../utils/helpers";
+
 
 function TenantInfo() {
+  const currentUser = Auth.getProfile().data
+  const propertyId = currentUser.property
+
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { id } = useParams();
 
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentProperty, setCurrentProperty] = useState({})
 
-  const { data } = useQuery(QUERY_USERS);
-  const { users } = state;
+  const { loading, data } = useQuery(QUERY_PROPERTIES);
+
+  const {properties} = state
 
   useEffect(() => {
-    if (users.length) {
-      setCurrentUser(users.find((user) => user._id === id));
-      // if we dont have data, we use the data from the useQuery to set the data to global state
-    } else if (data) {
+    // already in global store
+    if (properties.length) {
+      setCurrentProperty(properties.find(property => property._id === propertyId));
+    }
+    // retrieved from server
+    else if (data) {
       dispatch({
-        type: UPDATE_USER,
-        users: data.users,
+        type: UPDATE_PROPERTIES,
+        properties: data.properties
+      });
+
+      data.properties.forEach((property) => {
+        idbPromise('properties', 'put', property);
       });
     }
-   
-  }, [users, data, id, dispatch]);
+    // get cache from idb
+    else if (!loading) {
+      idbPromise('properties', 'get').then((indexedProperties) => {
+        dispatch({
+          type: UPDATE_PROPERTIES,
+          properties: indexedProperties
+        });
+      });
+    }
+  }, [properties, data, loading, dispatch, propertyId]);
+
+  console.log(currentProperty)
 
   return (
     <div className="card">
@@ -41,7 +63,7 @@ function TenantInfo() {
           {currentUser?.lastName}
         </h2>
         <ul className="tenant-info">
-          <li>Address: {currentUser?.property?.streetAddress}</li>
+          <li>Address: {currentProperty.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
           <li>Phone: {currentUser?.phoneNumber}</li>
         </ul>

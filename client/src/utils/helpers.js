@@ -17,8 +17,8 @@ export default function toTitleCase(str) {
 // Utility function to open/setup the local database
 export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
-    // Open a connection to the database `shop-shop` with the version of 1
-    const request = window.indexedDB.open('shop-shop', 1);
+    // open a connection to the db
+    const request = window.indexedDB.open('realdb', 1);
 
     // Create variables to hold references to the database, transactions (tx), and the object store
     let db, tx, store;
@@ -29,8 +29,7 @@ export function idbPromise(storeName, method, object) {
 
       const db = request.result;
       // Create object store for each type of data and set "primary" key index to be the `_id` of the data
-      db.createObjectStore('owners', { keyPath: '_id' });
-      db.createObjectStore('tenants', { keyPath: '_id' });
+      db.createObjectStore('user', { keyPath: '_id' });
       db.createObjectStore('properties', { keyPath: '_id' });
     };
 

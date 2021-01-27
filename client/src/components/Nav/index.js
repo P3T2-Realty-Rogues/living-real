@@ -8,7 +8,7 @@ function Nav() {
   const state = useSelector((state) => state);
   // let isAdmin;
 
-  console.log("NAV STATE", state);
+  //console.log("NAV STATE", state);
 
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -25,7 +25,7 @@ function Nav() {
         //that user's admin flag property from state instead of from auth.getprofile
         // so we want match currentUser to the user stored in state and then access the adminFlag
 
-        console.log("current user", currentUser);
+        //console.log("current user", currentUser);
 
       return (
         <>
