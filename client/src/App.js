@@ -11,6 +11,7 @@ import UpdatePropertyForm from "./pages/UpdatePropertyForm";
 import UpdateUser from "./components/UpdateUser";
 import TenantInfo from "./components/TenantInfo"
 import Upload from "./components/Upload"
+import ApplyNow from "./pages/ApplyNow"
 import MaintenanceRequest from "./components/MaintenanceRequest";
 import MoveUser from './pages/MoveUser'
 
@@ -45,7 +46,6 @@ function App() {
         <Provider store={store}>
           <div className="App">
             <header className="App-header">
-              {/* <Nav /> */}
               <NavBar />
             </header>
             <Switch>
@@ -55,6 +55,11 @@ function App() {
               <Route exact path="/adminDash" component={AdminDash} />
               <Route exact path="/tenantDash/:id" component={TenantDash} />
               <Route exact path="/detail/:id" component={Detail} />
+              <Route
+                  exact
+                  path="/ApplyNow/:id"
+                  component={ApplyNow}
+                />              
               <Route
                 exact
                 path="/AdminDash/CreateUser"

@@ -52,10 +52,12 @@ function Detail() {
     }
   }, [properties, data, loading, dispatch, id]);
 
+  console.log( "In details.js, id value is: ", id) ;
+
   return (
     <>
       {/* General home pictures and info */}
-      <div className="image-slider">
+      <div className="image-slider top-buffer">
         <Carousel showThumbs={false} autoPlay="true">
           {currentProperty.pictures?.map((image, index) => (
             <Paper className="image-container" style={{ background: "none" }}>
@@ -139,10 +141,12 @@ function Detail() {
           </tbody>
         </table>
       </div>
+
       {/* Ability to apply for this property */}
       <div>
         <p>&nbsp;</p>
-        <button className="btnNav">Apply Now</button>
+        {/* <button className="btnNav">Apply Now</button> */}
+        <Link className="btnNav" to={`/ApplyNow/${id}`}>Apply Now</Link>
         <Link to="/" className="btnNav">
           Back to Dashboard
         </Link>
