@@ -142,7 +142,8 @@ function Detail() {
       {/* Ability to apply for this property */}
       <div>
         <p>&nbsp;</p>
-        <button className="btnNav">Apply Now</button>
+        {/* <button className="btnNav">Apply Now</button> */}
+        <Link className="btnNav" to="/ApplyNow/{id}">Apply Now</Link>
         <Link to="/" className="btnNav">
           Back to Dashboard
         </Link>

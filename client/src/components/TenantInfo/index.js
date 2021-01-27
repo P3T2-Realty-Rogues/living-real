@@ -63,7 +63,7 @@ function TenantInfo() {
           {toTitleCase(currentUser?.lastName)}
         </h2>
         <ul className="tenant-info">
-          <li>Address: {currentProperty.streetAddress}</li>
+          <li>Address: {currentProperty?.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
           <li>Phone: {currentUser?.phoneNumber}</li>
         </ul>
