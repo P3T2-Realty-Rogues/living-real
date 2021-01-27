@@ -6,14 +6,14 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 
 function Properties() {
   const state = useSelector((state) => state);
 
   return (
     <>
-      <Carousel autoPlay="true" className="image-slider">
+      <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
             <Paper key={image._id} style={{ background: "none" }}>

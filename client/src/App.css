@@ -30,8 +30,7 @@ img {
   display: inline-block;
 }
 
-body,
-.landing {
+body, .landing {
   background: rgba(4, 91, 251, 1);
   background: -webkit-linear-gradient(
     top,
@@ -50,7 +49,6 @@ body,
   );
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: 60%; */
   background-attachment: fixed;
   color: var(--light);
   margin: 0;
@@ -61,13 +59,19 @@ body,
   font-size: 16px;
 }
 
-header,
-.description,
-.center-text,
-.card-body,
-.card-header,
-.user-card,
-.subtitle {
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+header, .description, .center-text, .card-body, .card-header, .user-card, .subtitle {
   text-align: center;
 }
 
@@ -75,8 +79,7 @@ header,
   margin-bottom: 20px;
 }
 
-header,
-.title {
+header, .title {
   color: var(--light);
   background-size: cover;
   background-blend-mode: screen;
@@ -84,8 +87,7 @@ header,
   padding-top: 20px;
 }
 
-#home-div,
-#footer-wrap {
+#home-div, #footer-wrap {
   border: none;
 }
 
@@ -123,10 +125,7 @@ header,
   transform: translate(-1px, -1px);
 }
 
-.login-form,
-.signup-form,
-.edit-user-form,
-.avatar-div {
+.login-form, .signup-form, .edit-user-form, .avatar-div {
   display: flex;
   justify-content: center;
 }
@@ -136,12 +135,7 @@ header,
   margin-top: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   margin: 0;
   color: var(--dark);
@@ -196,9 +190,7 @@ iframe {
   transform: translate(-1px, -1px);
 }
 
-.btn:hover,
-.btn-secondary:hover,
-.app-title:hover {
+.btn:hover, .btn-secondary:hover, .app-title:hover {
   color: var(--primary);
   background-color: var(--tertiary);
   transform: translate(0, 0);
@@ -231,6 +223,7 @@ iframe {
   transform: translate(0, 0);
   box-shadow: 2px 2px var(--dark);
 }
+
 .btn-secondary {
   font-size: 1.5rem;
   background-color: var(--primary);
@@ -305,6 +298,7 @@ iframe {
 }
 
 /* CARDS */
+
 .card {
   margin: 20px;
   padding-top: 5rem;
@@ -329,6 +323,7 @@ iframe {
   padding: 3% 10%;
   margin: 0 5%;
 }
+
 /* .carousel-container {
   width: 100%;
 } */
@@ -341,6 +336,7 @@ iframe {
 } */
 
 /* TABLE */
+
 .table {
   margin: 20px;
   /* border: 3px solid var(--dark); */
@@ -349,10 +345,10 @@ iframe {
   width: 50%;
   display: inline-block;
 }
+
 /* FORM */
-.form-label,
-.form-input,
-.form-textarea {
+
+.form-label, .form-input, .form-textarea {
   display: block;
 }
 
@@ -371,6 +367,7 @@ iframe {
 }
 
 /* HEIGHT / WIDTH UTILS */
+
 .min-100-vh {
   min-height: 100vh;
 }
@@ -380,11 +377,13 @@ iframe {
 }
 
 /* FONT UTILS */
+
 .text-uppercase {
   text-transform: uppercase;
 }
 
 /* FLEX CONTENT */
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -482,6 +481,7 @@ iframe {
 }
 
 /* ============== MEDIA QUERIES  for various screen formats.   ==================== */
+
 @media screen and (min-width: 320px) {
   img {
     height: auto;
@@ -490,55 +490,44 @@ iframe {
 }
 
 /* col-sm */
+
 @media screen and (min-width: 640px) {
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
-
   .col-sm-2 {
     flex: 0 0 calc(100% * 2 / 12 - 2%);
   }
-
   .col-sm-3 {
     flex: 0 0 calc(100% * 3 / 12 - 2%);
   }
-
   .col-sm-4 {
     flex: 0 0 calc(100% * 4 / 12 - 2%);
   }
-
   .col-sm-5 {
     flex: 0 0 calc(100% * 5 / 12 - 2%);
   }
-
   .col-sm-6 {
     flex: 0 0 calc(100% * 6 / 12 - 2%);
   }
-
   .col-sm-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
   }
-
   .col-sm-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
   }
-
   .col-sm-9 {
     flex: 0 0 calc(100% * 9 / 12 - 2%);
   }
-
   .col-sm-10 {
     flex: 0 0 calc(100% * 10 / 12 - 2%);
   }
-
   .col-sm-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
   }
-
   .col-sm-12 {
     flex: 0 0 100%;
   }
-
   img {
     height: 350px;
     width: auto;
@@ -547,55 +536,44 @@ iframe {
 }
 
 /* col-md */
+
 @media screen and (min-width: 768px) {
   .col-md-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
-
   .col-md-2 {
     flex: 0 0 calc(100% * 2 / 12 - 2%);
   }
-
   .col-md-3 {
     flex: 0 0 calc(100% * 3 / 12 - 2%);
   }
-
   .col-md-4 {
     flex: 0 0 calc(100% * 4 / 12 - 2%);
   }
-
   .col-md-5 {
     flex: 0 0 calc(100% * 5 / 12 - 2%);
   }
-
   .col-md-6 {
     flex: 0 0 calc(100% * 6 / 12 - 2%);
   }
-
   .col-md-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
   }
-
   .col-md-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
   }
-
   .col-md-9 {
     flex: 0 0 calc(100% * 9 / 12 - 2%);
   }
-
   .col-md-10 {
     flex: 0 0 calc(100% * 10 / 12 - 2%);
   }
-
   .col-md-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
   }
-
   .col-md-12 {
     flex: 0 0 100%;
   }
-
   img {
     height: 350px;
     width: auto;
@@ -604,102 +582,82 @@ iframe {
 }
 
 /* col-lg */
+
 @media screen and (min-width: 992px) {
   .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
-
   .col-lg-2 {
     flex: 0 0 calc(100% * 2 / 12 - 2%);
   }
-
   .col-lg-3 {
     flex: 0 0 calc(100% * 3 / 12 - 2%);
   }
-
   .col-lg-4 {
     flex: 0 0 calc(100% * 4 / 12 - 2%);
   }
-
   .col-lg-5 {
     flex: 0 0 calc(100% * 5 / 12 - 2%);
   }
-
   .col-lg-6 {
     flex: 0 0 calc(100% * 6 / 12 - 2%);
   }
-
   .col-lg-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
   }
-
   .col-lg-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
   }
-
   .col-lg-9 {
     flex: 0 0 calc(100% * 9 / 12 - 2%);
   }
-
   .col-lg-10 {
     flex: 0 0 calc(100% * 10 / 12 - 2%);
   }
-
   .col-lg-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
   }
-
   .col-lg-12 {
     flex: 0 0 100%;
   }
 }
 
 /* col-xl */
+
 @media screen and (min-width: 1200px) {
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
-
   .col-xl-2 {
     flex: 0 0 calc(100% * 2 / 12 - 2%);
   }
-
   .col-xl-3 {
     flex: 0 0 calc(100% * 3 / 12 - 2%);
   }
-
   .col-xl-4 {
     flex: 0 0 calc(100% * 4 / 12 - 2%);
   }
-
   .col-xl-5 {
     flex: 0 0 calc(100% * 5 / 12 - 2%);
   }
-
   .col-xl-6 {
     flex: 0 0 calc(100% * 6 / 12 - 2%);
   }
-
   .col-xl-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
   }
-
   .col-xl-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
   }
-
   .col-xl-9 {
     flex: 0 0 calc(100% * 9 / 12 - 2%);
   }
-
   .col-xl-10 {
     flex: 0 0 calc(100% * 10 / 12 - 2%);
   }
-
   .col-xl-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
   }
-
   .col-xl-12 {
     flex: 0 0 100%;
   }

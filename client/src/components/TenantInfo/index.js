@@ -50,8 +50,6 @@ function TenantInfo() {
     }
   }, [properties, data, loading, dispatch, propertyId]);
 
-  console.log(currentProperty)
-
   return (
     <div className="card">
       <header>

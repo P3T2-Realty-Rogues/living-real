@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
+import { UPDATE_PROPERTIES } from "../utils/actions";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import Carousel from "react-material-ui-carousel";
@@ -60,7 +60,7 @@ function Detail() {
           {currentProperty.pictures?.map((image, index) => (
             <Paper className="image-container" style={{ background: "none" }}>
               <img
-                alt="backyard image"
+                alt=""
                 src={`https://living-real-bucket.s3.us-east-2.amazonaws.com/${currentProperty.directoryName}/${currentProperty.pictures[index]}`}
               ></img>
             </Paper>

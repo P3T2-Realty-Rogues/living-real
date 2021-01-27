@@ -6,7 +6,8 @@ import store from "./utils/store";
 import Detail from "./pages/Detail";
 import CreateUser from "./components/CreateUser";
 import CreateProperty from "./components/CreateProperty";
-import UpdateProperty from "./components/UpdateProperty";
+import UpdateProperties from "./pages/UpdateProperties";
+import UpdatePropertyForm from "./pages/UpdatePropertyForm";
 import UpdateUser from "./components/UpdateUser";
 import TenantInfo from "./components/TenantInfo"
 import Upload from "./components/Upload"
@@ -16,7 +17,6 @@ import ApolloClient from "apollo-boost";
 
 import "./App.css";
 import Landing from "./pages/Landing";
-import Nav from "./components/Nav";
 import NavBar from "./components/NewNav";
 import Login from "./pages/Login";
 import RequestInfo from "./pages/RequestInfo";
@@ -66,7 +66,12 @@ function App() {
                 <Route
                   exact
                   path="/AdminDash/UpdateProperty"
-                  component={UpdateProperty}
+                  component={UpdateProperties}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty/:id"
+                  component={UpdatePropertyForm}
                 />
                 <Route
                   exact

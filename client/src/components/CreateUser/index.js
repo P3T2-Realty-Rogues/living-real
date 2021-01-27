@@ -22,7 +22,7 @@ function CreateUser() {
             </div>
             <div>
             <label for="leaseDate"><b>Lease Date</b></label>
-            <input className="form-input" type="text" placeholder="01/01/0101" name="date"></input>
+            <input className="form-input" type="text" placeholder="01/01/1001" name="date"></input>
             </div>
             <div>
                 <br />
