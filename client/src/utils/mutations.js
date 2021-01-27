@@ -95,8 +95,6 @@ export const ADD_USER = gql`
 mutation addUser ($firstName: String!, $lastName: String!, $email: String!, $password: String!, $phoneNumber: String!, $adminFlag: Boolean!, $property: ID, $tenantData: TenantInput) {
 	addUser (tenantData: $tenantData, firstName: $firstName, lastName: $lastName, email: $email, password: $password, phoneNumber: $phoneNumber, adminFlag: $adminFlag, property: $property)
   {
-    token
-    user {
 			firstName
       lastName
       _id
@@ -112,7 +110,6 @@ mutation addUser ($firstName: String!, $lastName: String!, $email: String!, $pas
       }
     }
   }
-}
 `;
 
 export const DELETE_USER = gql`
