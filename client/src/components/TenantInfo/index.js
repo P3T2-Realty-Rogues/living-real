@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 import Auth from "../../utils/auth"
 import { QUERY_PROPERTIES } from "../../utils/queries";
 import { UPDATE_PROPERTIES} from "../../utils/actions";
-
+import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
 
@@ -59,8 +59,8 @@ function TenantInfo() {
       </header>
       <div className="card-body">
         <h2>
-          {currentUser?.firstName} &nbsp;
-          {currentUser?.lastName}
+          {toTitleCase(currentUser?.firstName)} &nbsp;
+          {toTitleCase(currentUser?.lastName)}
         </h2>
         <ul className="tenant-info">
           <li>Address: {currentProperty.streetAddress}</li>

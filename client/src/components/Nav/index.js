@@ -18,15 +18,6 @@ function Nav() {
 
       const currentUser = state.users.find(({ _id }) => _id === currentUserId);
 
-        //currentUser is not working as an object in this context, so we can't access currentUser.adminFlag
-        // console.log("current user", Object.entries(currentUser));
-
-        //need a way to use the current user to match that user in state and then access
-        //that user's admin flag property from state instead of from auth.getprofile
-        // so we want match currentUser to the user stored in state and then access the adminFlag
-
-        //console.log("current user", currentUser);
-
       return (
         <>
           <Menu widths={2}>
