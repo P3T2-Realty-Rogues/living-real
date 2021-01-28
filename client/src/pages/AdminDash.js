@@ -17,6 +17,8 @@ function AdminDash() {
             <br />
             <Link className="btn" to="/AdminDash/UpdateProperty">Update Property </Link>
             <br />
+            <Link className="btn" to="/AdminDash/MoveUser">Move Someone In or Out</Link>
+            <br />
             <Link className="btn" to="/AdminDash/MaintenanceRequests">View Maintenance Requests </Link>
           
         </ul>
@@ -31,12 +33,12 @@ function AdminDash() {
         <div>{showNavigation()}</div>
       </header>
 
-      <div >
+      {/* <div >
         <h1> Content goes here</h1>
       </div>
       <div>
         <h1>Bulletin Board</h1>
-      </div>
+      </div> */}
     </div>
   );
 

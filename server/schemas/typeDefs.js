@@ -87,7 +87,7 @@ const typeDefs = gql`
       adminFlag: Boolean!
       property: ID
       tenantData: TenantInput
-    ): Auth
+    ): User
 
     updateUser(
       firstName: String

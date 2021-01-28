@@ -6,17 +6,19 @@ import store from "./utils/store";
 import Detail from "./pages/Detail";
 import CreateUser from "./components/CreateUser";
 import CreateProperty from "./components/CreateProperty";
-import UpdateProperty from "./components/UpdateProperty";
+import UpdateProperties from "./pages/UpdateProperties";
+import UpdatePropertyForm from "./pages/UpdatePropertyForm";
 import UpdateUser from "./components/UpdateUser";
 import TenantInfo from "./components/TenantInfo"
 import Upload from "./components/Upload"
+import ApplyNow from "./pages/ApplyNow"
 import MaintenanceRequest from "./components/MaintenanceRequest";
+import MoveUser from './pages/MoveUser'
 
 import ApolloClient from "apollo-boost";
 
 import "./App.css";
 import Landing from "./pages/Landing";
-import Nav from "./components/Nav";
 import NavBar from "./components/NewNav";
 import Login from "./pages/Login";
 import RequestInfo from "./pages/RequestInfo";
@@ -26,14 +28,14 @@ import TenantDash from "./pages/TenantDash";
 // import PropertyList from './components/Properties'
 
 const client = new ApolloClient({
-  // request: (operation) => {
-  //   const token = localStorage.getItem("id_token");
-  //   operation.setContext({
-  //     headers: {
-  //       authorization: token ? `Bearer ${token}` : "",
-  //     },
-  //   });
-  // },
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
   uri: '/graphql',
 });
 
@@ -44,8 +46,9 @@ function App() {
         <Provider store={store}>
           <div className="App">
             <header className="App-header">
-              {/* <Nav /> */}
               <NavBar />
+            </header>
+           <div className='contentContainer'>
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
@@ -53,6 +56,11 @@ function App() {
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash/:id" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
+                <Route
+                  exact
+                  path="/ApplyNow/:id"
+                  component={ApplyNow}
+                />
                 <Route
                   exact
                   path="/AdminDash/CreateUser"
@@ -66,7 +74,12 @@ function App() {
                 <Route
                   exact
                   path="/AdminDash/UpdateProperty"
-                  component={UpdateProperty}
+                  component={UpdateProperties}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty/:id"
+                  component={UpdatePropertyForm}
                 />
                 <Route
                   exact
@@ -83,9 +96,14 @@ function App() {
                   path="/TenantDash/TenantInfo"
                   component={TenantInfo}
                 />
+                <Route
+                  exact
+                  path="/AdminDash/MoveUser"
+                  component={MoveUser}
+                />
                 <Route exact path="/Upload" component={Upload} />
               </Switch>
-            </header>
+           </div>
           </div>
         </Provider>
       </Router>

@@ -210,8 +210,6 @@ export default function NavBar() {
         href="/"
         color="inherit"
         variant="inherit"
-        underlineHover="hover"
-        underlineNone="none"
       >
         Living Real
       </Link>

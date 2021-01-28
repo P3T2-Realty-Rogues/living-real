@@ -8,7 +8,6 @@ import {
   UPDATE_PROPERTIES,
   REMOVE_PROPERTY,
   QUERY_PROPERTIES,
-  TOGGLE_UPDATE_FORM,
 } from "./actions";
 
 // Create the initial state for Redux
@@ -17,8 +16,7 @@ const initialState = {
   tenants: [],
   properties: [],
   currentProperty: {},
-  currentUser: {},
-  updatePropertyForm: false,
+  currentUser: {}
 };
 
 export const reducer = (state = initialState, action) => {
@@ -71,13 +69,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         property: [action.properties],
       };
-
-    case TOGGLE_UPDATE_FORM:
-      return {
-        ...state,
-        updatePropertyForm: !state.updatePropertyForm,
-      };
-
     // If it's none of these actions, do not update state at all and keep things the same!
     default:
       return state;
