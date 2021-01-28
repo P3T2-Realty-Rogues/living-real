@@ -13,6 +13,7 @@ function Properties() {
 
   return (
     <>
+      <div  className="image-slider top-buffer">
       <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
@@ -31,6 +32,20 @@ function Properties() {
           </Link>
         ))}
       </Carousel>
+      </div>
+      
+      <div className="card">
+        <p>
+          This is the website of Acme Properties.  We are honored that you have taken the time to
+          preview our exclusive properties.  You can click on the images above to view additional 
+          photographs and details about each property.  If you are interested in leasing a certain
+          property, we invite you to submit an application, and we will contact you to start
+          the process.
+        </p>
+        <p>Sincerely,
+          Acme Properties Management
+        </p>
+      </div>
     </>
   );
 }
