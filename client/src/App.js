@@ -25,6 +25,7 @@ import Login from "./pages/Login";
 import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
 import TenantDash from "./pages/TenantDash";
+import Success from "./pages/Success";
 // import NoMatch from "./pages/NoMatch";
 // import PropertyList from './components/Properties'
 
@@ -108,6 +109,7 @@ function App() {
                   component={MoveUserOut}
                 />
                 <Route exact path="/Upload" component={Upload} />
+                <Route exact path="/success" component={Success} />
               </Switch>
            </div>
           </div>
