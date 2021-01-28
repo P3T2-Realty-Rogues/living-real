@@ -73,7 +73,10 @@ const MoveUser = () => {
         console.log(moveData)
         try {
             await moveUser({ variables: { userId: moveData.userId, propertyId: moveData.propertyId } })
-            //setMoveData({userId: '', propertyId: ''})
+
+            setMoveData({userId: '', propertyId: ''})
+
+            window.location.reload()
         } catch (e) {
             console.log(e)
         }
