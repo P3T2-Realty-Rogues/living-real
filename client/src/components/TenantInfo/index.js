@@ -50,7 +50,8 @@ function TenantInfo() {
     }
   }, [properties, data, loading, dispatch, propertyId]);
 
-  console.log(currentProperty)
+  console.log("currentUser: ", currentUser);
+  console.log("currentProperty: ", currentProperty);
 
   return (
     <div className="card">
@@ -63,7 +64,7 @@ function TenantInfo() {
           {toTitleCase(currentUser?.lastName)}
         </h2>
         <ul className="tenant-info">
-          <li>Address: {currentProperty.streetAddress}</li>
+          <li>Address: {currentProperty?.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
           <li>Phone: {currentUser?.phoneNumber}</li>
         </ul>
@@ -71,6 +72,10 @@ function TenantInfo() {
           <p>
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
+          </p>
+          <p>
+            Rent Due:&nbsp;
+            {currentProperty?.rent}
           </p>
           <a
             className="btnNav"

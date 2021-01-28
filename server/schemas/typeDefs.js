@@ -62,6 +62,10 @@ const typeDefs = gql`
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     owners: [User]
     tenants: [User]
@@ -69,6 +73,7 @@ const typeDefs = gql`
     users: [User] #if user is not currently renting, property and/or tenant info might be null!
     property(_id: ID!): Property
     user(_id: ID!): User
+    checkout(_id: ID!): Checkout
   }
 
   type Mutation {
