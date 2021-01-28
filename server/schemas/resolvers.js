@@ -59,13 +59,27 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    moveUser: async (parent, {userId, propertyId}, context) => {
+    moveUserIn: async (parent, {userId, propertyId}, context) => {
 
       if (context.user.adminFlag) {
         const user = await User.findByIdAndUpdate({_id: userId}, {property: propertyId}, { new: true }).populate('property');
         await Property.findOneAndUpdate(
           { _id: propertyId },
           { $addToSet: {'ownerInfo.tenant': userId } } ,
+          { new: true }
+        ).populate('ownerInfo.tenant')
+        return user
+      }
+
+      throw new AuthenticationError('Not Authorized');
+    },
+    moveUserOut: async (parent, {userId, propertyId}, context) => {
+
+      if (context.user.adminFlag) {
+        const user = await User.findByIdAndUpdate({_id: userId}, {property: null}, { new: true }).populate('property');
+        await Property.findOneAndUpdate(
+          { _id: propertyId },
+          { $pull: {'ownerInfo.tenant': userId } } ,
           { new: true }
         ).populate('ownerInfo.tenant')
         return user
@@ -80,17 +94,19 @@ const resolvers = {
 
       throw new AuthenticationError('Not Authorized');
     },
-    addProperty: async (parent, args) => {
-      const property = await Property.create(args);
-
-      return property;
+    addProperty: async (parent, args, context) => {
+      if (context.user.adminFlag) {
+        return await Property.create(args);
+      }
+      
+      throw new AuthenticationError('Not Authorized');
     },
     updateProperty: async (parent, args, context) => {
       if (context.user.adminFlag) {
         return await Property.findByIdAndUpdate(args.propertyId, args, { new: true });
       }
 
-      throw new AuthenticationError('Not Authorized');
+      
     },
     deleteProperty: async (parent, { _id }, context) => {
       if (context.user.adminFlag) {

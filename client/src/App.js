@@ -14,6 +14,7 @@ import Upload from "./components/Upload"
 import ApplyNow from "./pages/ApplyNow"
 import MaintenanceRequest from "./components/MaintenanceRequest";
 import MoveUser from './pages/MoveUser'
+import MoveUserOut from './pages/MoveUserOut'
 
 import ApolloClient from "apollo-boost";
 
@@ -100,6 +101,11 @@ function App() {
                   exact
                   path="/AdminDash/MoveUser"
                   component={MoveUser}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/MoveUserOut/:id"
+                  component={MoveUserOut}
                 />
                 <Route exact path="/Upload" component={Upload} />
               </Switch>
