@@ -39,7 +39,7 @@ For owners, the landing page has a login feature which should be used.  Once log
 [Property Users](./documentation/property-users.jpg)
 
 2) Website usage map - this map shows the operations paths the various users of the website can take in navigating the site.
-[Navigation Paths](.documentation/usage-flow.jpg)
+[Navigation Paths](./documentation/usage-flow.jpg)
 
 
 ## Technologies Used

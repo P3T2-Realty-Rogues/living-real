@@ -149,6 +149,10 @@ p {
   font-size: 1.2rem;
 }
 
+p-dark {
+  color: var=(var(--tertiary));
+}
+
 iframe {
   height: 100vh;
 }

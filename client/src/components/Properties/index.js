@@ -12,7 +12,7 @@ function Properties() {
   const state = useSelector((state) => state);
 
   return (
-    <>
+    <div className="contentContainerColumn">
       <div  className="image-slider top-buffer">
       <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider">
         {state.properties.map((image, index) => (
@@ -35,7 +35,7 @@ function Properties() {
       </div>
       
       <div className="card">
-        <p>
+        <p className="p-dark">
           This is the website of Acme Properties.  We are honored that you have taken the time to
           preview our exclusive properties.  You can click on the images above to view additional 
           photographs and details about each property.  If you are interested in leasing a certain
@@ -46,7 +46,7 @@ function Properties() {
           Acme Properties Management
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
