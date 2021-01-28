@@ -63,6 +63,10 @@ function TenantInfo() {
           {toTitleCase(currentUser?.firstName)} &nbsp;
           {toTitleCase(currentUser?.lastName)}
         </h2>
+        <p>
+            Rent Due:&nbsp;
+            {currentProperty?.rent}
+          </p>
         <ul className="tenant-info">
           <li>Address: {currentProperty?.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
@@ -73,10 +77,7 @@ function TenantInfo() {
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
           </p>
-          <p>
-            Rent Due:&nbsp;
-            {currentProperty?.rent}
-          </p>
+          <a><div className="btnNav">Pay Rent</div></a>
           <a
             className="btnNav"
             href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
