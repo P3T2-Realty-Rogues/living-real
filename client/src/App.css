@@ -351,6 +351,24 @@ iframe {
   margin: 0 5%;
 }
 
+
+.p-dark {
+  color: var(--tertiary);
+}
+
+.social_icons {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  height: 45px;
+}
+
+#property-checkbox {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1rem;
+}
+
 /* .carousel-container {
   width: 100%;
 } */
