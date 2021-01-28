@@ -35,8 +35,11 @@ For owners, the landing page has a login feature which should be used.  Once log
 
 ## Application Mind Maps
 
-1) Website users map - this map shows the overall capabilities of the various user types.  (Note, these mind-maps are interactive, clicking on controls will expand/collapse the map.)
-[Property Users](./documentation/property-users.html)
+1) Website users map - this map shows the overall capabilities of the various user types.  
+[Property Users](./documentation/property-users.jpg)
+
+2) Website usage map - this map shows the operations paths the various users of the website can take in navigating the site.
+[Navigation Paths](./documentation/usage-flow.jpg)
 
 
 ## Technologies Used
@@ -51,6 +54,7 @@ For owners, the landing page has a login feature which should be used.  Once log
 * React
 * Stripe
 * Materials UI
+* Deployment on Heroku
 
 
 ## Deployment Link

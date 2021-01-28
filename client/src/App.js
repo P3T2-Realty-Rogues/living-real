@@ -8,7 +8,7 @@ import CreateUser from "./components/CreateUser";
 import CreateProperty from "./components/CreateProperty";
 import UpdateProperties from "./pages/UpdateProperties";
 import UpdatePropertyForm from "./pages/UpdatePropertyForm";
-import UpdateUser from "./components/UpdateUser";
+import UpdateUser from "./pages/UpdateUser";
 import TenantInfo from "./components/TenantInfo"
 import Upload from "./components/Upload"
 import ApplyNow from "./pages/ApplyNow"

@@ -56,6 +56,10 @@ img {
   display: inline-block;
 }
 
+.props-form {
+  display: inline
+}
+
 body, .landing {
   background: rgba(4, 91, 251, 1);
   background: -webkit-linear-gradient( top, rgba(4, 91, 251, 1), rgba(86, 195, 207, 1));
@@ -161,6 +165,18 @@ main {
 
 p {
   font-size: 1.2rem;
+}
+
+.p-dark {
+  color: var(--tertiary);
+}
+
+.social_icons {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  height: 45px;
 }
 
 iframe {
@@ -311,13 +327,13 @@ iframe {
 /* CARDS */
 
 .card {
-  margin: 20px;
-  padding-top: 5rem;
+  margin:0; 
+  /* padding-top: 5rem;  */
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 40%;
-  display: inline-block;
+  width: 30%;
+  display: block;
 }
 
 .card-header {
@@ -551,7 +567,7 @@ iframe {
 
 @media screen and (min-width: 768px) {
   .moveContainer {
-    padding: 5rem;
+    padding: 5rem 5rem 3rem 5rem;
   }
 
   .col-md-1 {
