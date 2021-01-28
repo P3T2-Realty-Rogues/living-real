@@ -163,16 +163,6 @@ p {
   font-size: 1.2rem;
 }
 
-.p-dark {
-  color: var(--tertiary);
-}
-
-.social_icons {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: auto;
-  height: 45px;
-}
 
 iframe {
   height: 100vh;
@@ -344,6 +334,18 @@ iframe {
   border-radius: var(--border-radius);
   padding: 3% 10%;
   margin: 0 5%;
+}
+
+
+.p-dark {
+  color: var(--tertiary);
+}
+
+.social_icons {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  height: 45px;
 }
 
 /* .carousel-container {

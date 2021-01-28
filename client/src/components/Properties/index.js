@@ -47,13 +47,23 @@ function Properties() {
         </p>
       </div>
 
-      {/* Add the social media icons. */}
+      {/* Add the social media icons. Since this isn't a real website, with a real owner, there are no social media
+          accounts.  Link these icons back to the UT-Boot-Camp site for now.*/}
       <div > 
-        <img className="social_icons" src={require(`../../assets/social_media/facebook.png`)} alt="Facebook" rel="noreferrer noopener"/>
-        <img className="social_icons" src={require(`../../assets/social_media/linkedin.png`)} alt="LinkedIn" rel="noreferrer noopener"/>
-        <img className="social_icons" src={require(`../../assets/social_media/twitter.png`)} alt="Twitter" rel="noreferrer noopener"/>
-        <img className="social_icons" src={require(`../../assets/social_media/youtube.png`)} alt="YouTube" rel="noreferrer noopener"/>
-        <img className="social_icons" src={require(`../../assets/social_media/instagram.png`)} alt="Instagram" rel="noreferrer noopener"/>
+        <a href="https://courses.bootcampspot.com/" rel="noreferrer noopener" target='_blank'>
+            <img className="social_icons" src={require(`../../assets/social_media/facebook.png`)} alt="Facebook" /></a>
+
+         <a href="https://courses.bootcampspot.com/" rel="noreferrer noopener" target='_blank'>           
+            <img className="social_icons" src={require(`../../assets/social_media/linkedin.png`)} alt="LinkedIn" /></a> 
+  
+         <a href="https://courses.bootcampspot.com/" rel="noreferrer noopener" target='_blank'>             
+            <img className="social_icons" src={require(`../../assets/social_media/twitter.png`)} alt="Twitter" /></a>
+   
+         <a href="https://courses.bootcampspot.com/" rel="noreferrer noopener" target='_blank'>            
+            <img className="social_icons" src={require(`../../assets/social_media/youtube.png`)} alt="YouTube" /></a>
+    
+        <a href="https://courses.bootcampspot.com/" rel="noreferrer noopener" target='_blank'> 
+              <img className="social_icons" src={require(`../../assets/social_media/instagram.png`)} alt="Instagram" /></a>
       </div>
     </div>
   );
