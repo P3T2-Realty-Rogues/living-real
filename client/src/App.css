@@ -551,7 +551,7 @@ iframe {
 
 @media screen and (min-width: 768px) {
   .moveContainer {
-    padding: 5rem;
+    padding: 5rem 5rem 3rem 5rem;
   }
 
   .col-md-1 {
