@@ -10,8 +10,23 @@
   --border-radius: 0.3rem;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+.App {
+  flex: 1 0 auto;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 * {
@@ -29,6 +44,45 @@ img {
   color: #616161 !important;
 }
 
+.footerContainer {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
+
+.footerBox {
+  margin-top: -8rem;
+  background-color: #2753ba;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #2753ba;
+  border-radius: 15px;
+  padding: 3.5rem 1.25rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer {
+  flex-shrink: 0;
+  padding: 4rem 1.5rem;
+  background: rgb(128,211,253);
+  background: linear-gradient(342deg, rgba(128,211,253,1) 17%, rgba(0,166,251,1) 100%);
+  color: white;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.svgLink {
+  transition: .03s;
+}
+
+.px-2 {
+  padding-right: .5rem!important;
+}
+
+
+
 .moveContainer {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: aliceblue;
@@ -36,7 +90,7 @@ img {
   padding: 2rem;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 1rem;
 }
 
 .contentContainer {
@@ -616,6 +670,15 @@ iframe {
 /* col-lg */
 
 @media screen and (min-width: 992px) {
+  .svgLink:hover {
+    fill: #80d3fd;
+    transform: scale(1.05);
+  }
+
+  .px-2 {
+    padding-right: 2rem!important;
+  }
+  
 
   .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
