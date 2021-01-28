@@ -56,6 +56,10 @@ img {
   display: inline-block;
 }
 
+.props-form {
+  display: inline
+}
+
 body, .landing {
   background: rgba(4, 91, 251, 1);
   background: -webkit-linear-gradient( top, rgba(4, 91, 251, 1), rgba(86, 195, 207, 1));
@@ -311,13 +315,13 @@ iframe {
 /* CARDS */
 
 .card {
-  margin: 20px;
-  padding-top: 5rem;
+  margin:0; 
+  /* padding-top: 5rem;  */
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 40%;
-  display: inline-block;
+  width: 30%;
+  display: block;
 }
 
 .card-header {

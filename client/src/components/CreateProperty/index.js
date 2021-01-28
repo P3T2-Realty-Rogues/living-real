@@ -60,14 +60,14 @@ function CreateProperty() {
   //      ...formState,
   //      [name]: value,
   //    });
-     
+
   //  };
 
-  
+
   return (
-    <div>
-      <form className="flex-row" >
-        <div className="card">
+    <div className="col-auto">
+      <form className="col-auto flex-row" >
+        <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">Add a New Property</h3>
           </div>
@@ -82,7 +82,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="101 Elm"
                 name="propertyName"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -94,7 +94,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="Condo/House/Duplex"
                 name="propertyType"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -106,7 +106,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="1234 Sample Road"
                 name="streetAddress"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -118,7 +118,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="Austin"
                 name="city"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -130,7 +130,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="Texas"
                 name="state"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -142,7 +142,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="12345"
                 name="zipCode"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -154,9 +154,17 @@ function CreateProperty() {
                 type="text"
                 placeholder="1,250"
                 name="sqFeet"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-header">
+          <h3 className="card-header">More Details</h3>
+            </div>
+            <div className="card-body">
+              
             <div>
               <label className="form-label" for="numBedrooms">
                 <b>Number of Bedrooms</b>
@@ -166,7 +174,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="1/2/3/4"
                 name="numBedrooms"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -178,7 +186,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="1/2/3/4"
                 name="numBathrooms"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -190,7 +198,7 @@ function CreateProperty() {
                 type="text"
                 name="balcony"
                 placeholder="Balcony yes/no"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -202,7 +210,7 @@ function CreateProperty() {
                 type="text"
                 name="pool"
                 placeholder="Pool yes/no"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -214,7 +222,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="$1200"
                 name="rent"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -226,7 +234,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="$500"
                 name="petDeposit"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -238,7 +246,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="$200"
                 name="renterDeposit"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -250,7 +258,7 @@ function CreateProperty() {
                 type="text"
                 placeholder="$150"
                 name="appFee"
-                // onChange={handleChange}
+              // onChange={handleChange}
               ></input>
             </div>
             <div>
@@ -261,7 +269,7 @@ function CreateProperty() {
         </div>
         <div className="card">
           <div className="card-header">
-            <h2 className="card-header">Admin Property Details</h2>
+            <h3 className="card-header">Admin Property Details</h3>
           </div>
           <div className="card-body">
             <div>
@@ -300,7 +308,7 @@ function CreateProperty() {
             <div className="form-label"></div>
             <div>
               <br />
-              <button className="btn">Create User</button>
+              <button className="btn">Create Property</button>
               <Link to="/AdminDash" className="btn">
                 Back to Dashboard
               </Link>
