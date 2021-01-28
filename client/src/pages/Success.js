@@ -5,12 +5,25 @@ import { ADD_ORDER } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
 
 function Success() {
+	useEffect(() => {
+		async function savePayment() {
+			setTimeout(() => {
+				window.location.assign('/');
+			}, 3000);
+    }
+    
+    savePayment();
+	});
+
 	return (
 		<div>
 			<Jumbotron>
 				<h1>Success!</h1>
 				<h2>Thank you for your payment!</h2>
-				<h2>You will now be redirected to the home page in a moment.</h2>
+				<h2>
+					You will now be redirected to the home page in a
+					moment.
+				</h2>
 			</Jumbotron>
 		</div>
 	);
