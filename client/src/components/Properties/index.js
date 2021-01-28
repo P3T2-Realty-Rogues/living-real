@@ -12,8 +12,9 @@ function Properties() {
   const state = useSelector((state) => state);
 
   return (
-    <>
-      <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider">
+    <div className="contentContainerColumn">
+      <div  className="image-slider top-buffer">
+      <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider" animation="slide">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
             <Paper elevation={0} key={image._id} style={{ background: "none" }}>
@@ -31,7 +32,30 @@ function Properties() {
           </Link>
         ))}
       </Carousel>
-    </>
+      </div>
+      
+      <div className="card">
+        <p className="p-dark">
+          This is the website of Acme Properties.  We are honored that you have taken the time to
+          preview our exclusive properties.  You can click on the images above to view additional 
+          photographs and details about each property.  If you are interested in leasing a certain
+          property, we invite you to submit an application, and we will contact you to start
+          the process.
+        </p>
+        <p className="p-dark">Sincerely,
+          Acme Properties Management
+        </p>
+      </div>
+
+      {/* Add the social media icons. */}
+      <div > 
+        <img className="social_icons" src={require(`../../assets/social_media/facebook.png`)} alt="Facebook" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/linkedin.png`)} alt="LinkedIn" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/twitter.png`)} alt="Twitter" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/youtube.png`)} alt="YouTube" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/instagram.png`)} alt="Instagram" rel="noreferrer noopener"/>
+      </div>
+    </div>
   );
 }
 
