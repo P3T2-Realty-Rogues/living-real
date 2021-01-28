@@ -163,8 +163,8 @@ p {
   font-size: 1.2rem;
 }
 
-p-dark {
-  color: var=(var(--tertiary));
+.p-dark {
+  color: var(--tertiary);
 }
 
 iframe {

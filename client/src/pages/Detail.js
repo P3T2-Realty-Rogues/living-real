@@ -59,7 +59,7 @@ function Detail() {
       {/* General home pictures and info */}
       <div className="detail">
         <div className="image-slider top-buffer">
-          <Carousel showThumbs={false} autoPlay="true">
+          <Carousel showThumbs={false} autoPlay="true" animation="slide">
             {currentProperty.pictures?.map((image, index) => (
               <Paper className="image-container" style={{ background: "none" }}>
                 <img
