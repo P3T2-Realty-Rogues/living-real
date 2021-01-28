@@ -72,7 +72,6 @@ const MoveUser = () => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        console.log(moveData)
         try {
             await moveUser({ variables: { userId: moveData.userId, propertyId: moveData.propertyId } })
             setMoveData({userId: '', propertyId: ''})

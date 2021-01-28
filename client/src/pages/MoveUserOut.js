@@ -83,7 +83,7 @@ const MoveUserOut = () => {
     }
 
     //this will stop the component from rendering if the data is no available yet
-    if (currentProperty === {}) {
+    if (currentProperty?.ownerInfo?.tenant === undefined) {
         return null
     }
 

@@ -11,8 +11,7 @@ function AdminDash() {
           
             <Link className="btn" to="/AdminDash/CreateUser">Create User </Link>
             <br />
-            <Link className="btn" to="/AdminDash/UpdateUser">Update User </Link>
-            <br />
+            {/* <Link className="btn" to="/AdminDash/UpdateUser">Update User </Link> */}
             <Link className="btn" to="/AdminDash/CreateProperty">Create Property </Link>
             <br />
             <Link className="btn" to="/AdminDash/UpdateProperty">Update Property </Link>
