@@ -17,7 +17,7 @@ function Properties() {
       <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider" animation="slide">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
-            <Paper key={image._id} style={{ background: "none" }}>
+            <Paper elevation={0} key={image._id} style={{ background: "none" }}>
               <img
                 key={image._id}
                 alt={image.propertyName}
