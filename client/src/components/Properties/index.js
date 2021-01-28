@@ -12,9 +12,9 @@ function Properties() {
   const state = useSelector((state) => state);
 
   return (
-    <>
+    <div className="contentContainerColumn">
       <div  className="image-slider top-buffer">
-      <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider">
+      <Carousel autoPlay={true} stopAutoPlayOnHover={true} className="image-slider" animation="slide">
         {state.properties.map((image, index) => (
           <Link to={`/detail/${image._id}`} key={image._id}>
             <Paper key={image._id} style={{ background: "none" }}>
@@ -35,18 +35,18 @@ function Properties() {
       </div>
       
       <div className="card">
-        <p>
+        <p className="p-dark">
           This is the website of Acme Properties.  We are honored that you have taken the time to
           preview our exclusive properties.  You can click on the images above to view additional 
           photographs and details about each property.  If you are interested in leasing a certain
           property, we invite you to submit an application, and we will contact you to start
           the process.
         </p>
-        <p>Sincerely,
+        <p className="p-dark">Sincerely,
           Acme Properties Management
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
