@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import {MOVE_USER} from '../utils/mutations'
+import {MOVE_USER_IN} from '../utils/mutations'
 
 
 
@@ -26,7 +26,7 @@ const MoveUser = () => {
 
     const { properties } = state
 
-    const [moveUser] = useMutation(MOVE_USER)
+    const [moveUser] = useMutation(MOVE_USER_IN)
 
     useEffect(() => {
         // already in global store
@@ -58,7 +58,10 @@ const MoveUser = () => {
     const [moveData, setMoveData] = useState({ userId: '', propertyId: '' })
 
     const handleChange = (event) => {
-        if (event.target.value != undefined) {
+        if (event.target.value === "") {
+            return
+        } else
+        if (event.target.value !== undefined) {
             if (event.target.id.split('-')[0] === "users") {
                 setMoveData({ ...moveData, userId: users.data?.users[event.target.attributes[3].value]._id })
             } else if (event.target.id.split('-')[0] === "home") {
@@ -66,19 +69,37 @@ const MoveUser = () => {
             };
         }
     };
-
     const handleSubmit = async event => {
         event.preventDefault();
 
-        console.log(moveData)
         try {
             await moveUser({ variables: { userId: moveData.userId, propertyId: moveData.propertyId } })
-
             setMoveData({userId: '', propertyId: ''})
-
             window.location.reload()
         } catch (e) {
             console.log(e)
+        }
+    }
+
+    const [moveOutData, setMoveOutData] = useState({ propertyId: '' })
+
+    const handleMoveOutChange = (event) => {
+        
+        if (event.target.value === "") {
+            return
+        } else
+        if (event.target.value !== undefined) {
+            if (event.target.id.split('-')[0] === "move") {
+                setMoveOutData({ propertyId: properties[event.target.attributes[3].value]._id })
+            };
+        }
+    };
+
+    const handleMoveOut = (event) => {
+        if (moveOutData.propertyId) {
+            console.log(moveOutData)
+                
+            window.location.replace(`/AdminDash/MoveUserOut/${moveOutData.propertyId}`)
         }
     }
 
@@ -88,6 +109,7 @@ const MoveUser = () => {
     }
 
     return (
+        <>
         <div className='moveContainer'>
             <Autocomplete
                 id="users-box"
@@ -102,12 +124,27 @@ const MoveUser = () => {
                 id="home-box"
                 options={allProperties}
                 getOptionLabel={(property) => property.propertyName}
-                style={{ width: "20rem" }, { marginTop: "10px" }}
+                style={{ width: "20rem", marginTop: "10px" }}
                 renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
                 onChange={handleChange}
             />
             <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='primary'>Move Tenant In</Button></div>
         </div>
+
+        <div className='moveContainer'>
+
+            <Autocomplete
+                id="move-out-box"
+                options={allProperties}
+                getOptionLabel={(property) => property.propertyName}
+                style={{ width: "20rem" }}
+                renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
+                onChange={handleMoveOutChange}
+            />
+            <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Tenants</Button></div>
+        </div>
+
+        </>
     );
 }
 

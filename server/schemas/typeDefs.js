@@ -142,7 +142,12 @@ const typeDefs = gql`
       ownerInfo: OwnerInfoInput   
     ): Property
 
-    moveUser(
+    moveUserIn(
+      userId: ID!
+      propertyId: ID!
+    ): User
+
+    moveUserOut(
       userId: ID!
       propertyId: ID!
     ): User
