@@ -65,17 +65,19 @@ const resolvers = {
 
       throw new AuthenticationError('Not Authorized');
     },
-    addProperty: async (parent, args) => {
-      const property = await Property.create(args);
-
-      return property;
+    addProperty: async (parent, args, context) => {
+      if (context.user.adminFlag) {
+        return await Property.create(args);
+      }
+      
+      throw new AuthenticationError('Not Authorized');
     },
     updateProperty: async (parent, args, context) => {
       if (context.user.adminFlag) {
         return await Property.findByIdAndUpdate(args.propertyId, args, { new: true });
       }
 
-      throw new AuthenticationError('Not Authorized');
+      
     },
     deleteProperty: async (parent, { _id }, context) => {
       if (context.user.adminFlag) {
