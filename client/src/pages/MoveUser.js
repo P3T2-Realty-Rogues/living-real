@@ -58,7 +58,7 @@ const MoveUser = () => {
     const [moveData, setMoveData] = useState({ userId: '', propertyId: '' })
 
     const handleChange = (event) => {
-        if (event.target.value != undefined) {
+        if (event.target.value !== undefined) {
             if (event.target.id.split('-')[0] === "users") {
                 setMoveData({ ...moveData, userId: users.data?.users[event.target.attributes[3].value]._id })
             } else if (event.target.id.split('-')[0] === "home") {
@@ -73,7 +73,7 @@ const MoveUser = () => {
         console.log(moveData)
         try {
             await moveUser({ variables: { userId: moveData.userId, propertyId: moveData.propertyId } })
-            //setMoveData({userId: '', propertyId: ''})
+            setMoveData({userId: '', propertyId: ''})
         } catch (e) {
             console.log(e)
         }
