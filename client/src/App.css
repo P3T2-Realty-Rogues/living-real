@@ -363,6 +363,12 @@ iframe {
   height: 45px;
 }
 
+#property-checkbox {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1rem;
+}
+
 /* .carousel-container {
   width: 100%;
 } */
