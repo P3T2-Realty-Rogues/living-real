@@ -167,6 +167,13 @@ p {
   color: var(--tertiary);
 }
 
+.social_icons {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  height: 45px;
+}
+
 iframe {
   height: 100vh;
 }
