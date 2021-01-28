@@ -32,7 +32,9 @@ function TenantInfo() {
   function submitCheckout() {
     console.log("in submit");
 
-    getCheckout({});
+    getCheckout({
+      
+    });
   }
 
   useEffect(() => {
