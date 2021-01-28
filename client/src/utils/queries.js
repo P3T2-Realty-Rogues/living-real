@@ -130,6 +130,7 @@ query {
       propertyTaxes
       propertyInsurance
       tenant {
+        _id
         firstName
         lastName
       }

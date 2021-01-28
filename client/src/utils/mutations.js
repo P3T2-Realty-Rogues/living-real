@@ -122,9 +122,21 @@ mutation deleteUser($_id: ID!) {
 }
 `;
 
-export const MOVE_USER = gql`
-mutation moveUser($propertyId: ID!, $userId: ID!) {
-  moveUser(propertyId: $propertyId, userId: $userId){
+export const MOVE_USER_IN = gql`
+mutation moveUserIn($propertyId: ID!, $userId: ID!) {
+  moveUserIn(propertyId: $propertyId, userId: $userId){
+    firstName
+    property {
+      propertyName
+      streetAddress
+    }
+  }
+}
+`
+
+export const MOVE_USER_OUT= gql`
+mutation moveUserOut($propertyId: ID!, $userId: ID!) {
+  moveUserOut(propertyId: $propertyId, userId: $userId){
     firstName
     property {
       propertyName
