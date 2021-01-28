@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useDispatch, useSelector } from "react-redux";
-import { QUERY_PROPERTIES } from "../utils/queries";
+import { QUERY_PROPERTIES, QUERY_USERS } from "../utils/queries";
 import { UPDATE_PROPERTIES } from "../utils/actions";
 
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
+
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+
 
 const MoveUser = () => {
     const state = useSelector((state) => state);
@@ -14,6 +19,10 @@ const MoveUser = () => {
     const [allProperties, setAllProperties] = useState([])
 
     const { loading, data } = useQuery(QUERY_PROPERTIES);
+
+    const users = useQuery(QUERY_USERS)
+
+    
 
     const { properties } = state
 
@@ -44,9 +53,26 @@ const MoveUser = () => {
         }
     }, [properties, data, loading, dispatch]);
 
+
     return (
-        <div>Hello, World!</div>
-    )
+        <div className='moveContainer'>
+            <Autocomplete
+                id="home-box"
+                options={allProperties}
+                getOptionLabel={(property) => property.propertyName}
+                style={{ width: "20rem" }}
+                renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
+            />
+
+            <Autocomplete
+                id="users-box"
+                options={users.data?.users}
+                getOptionLabel={(users) => users.firstName}
+                style={{ width: "20rem" }, {marginTop: "10px"}}
+                renderInput={(params) => <TextField {...params} label="User" variant="outlined" />}
+            />
+        </div>
+    );
 }
 
 export default MoveUser

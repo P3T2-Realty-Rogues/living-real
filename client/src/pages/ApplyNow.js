@@ -7,6 +7,7 @@ import { UPDATE_PROPERTIES} from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 import { Link } from "react-router-dom"
 import Upload from '../components/Upload'
+import Box from '@material-ui/core/Box';
 
 
 
@@ -72,35 +73,38 @@ function ApplyNow() {
 
 
       {/* Display the actual application form for the applicant to complete and submit. */}
-      <form >
-        <div className="card">
-          <div className="card-header">
-            <h3 className="card-header">Apply for a Property</h3>
+      {/* Box is from material */}
+      <Box my={5}>
+        <form>
+          <div>
+            <div className="card-header">
+              <h3 className="card-header">Apply for a Property</h3>
+            </div>
+  
+            <div className="card-body">
+  
+              {/* The fields below are entered by the applicant. */}
+              <div>
+                <label className="form-label" for="firstName"><b>First Name</b></label>
+                <input className="form-input" type="text" placeholder="your first name" name="firstName"></input>
+              </div>
+              <div>
+                <label className="form-label" for="lastName"><b>Last Name</b></label>
+                <input className="form-input" type="text" placeholder="your last name" name="lastName"></input>
+              </div>
+              <div>
+                <label className="form-label" for="email"><b>Email</b></label>
+                <input className="form-input" type="text" placeholder="your email" name="email"></input>
+              </div>
+              <div>
+                <label className="form-label" for="phone"><b>Phone Number</b></label>
+                <input className="form-input" type="text" name="phone" placeholder="your phone number"></input>
+              </div>
+  
+            </div>
           </div>
-
-          <div className="card-body">
-
-            {/* The fields below are entered by the applicant. */}
-            <div>
-              <label className="form-label" for="firstName"><b>First Name</b></label>
-              <input className="form-input" type="text" placeholder="your first name" name="firstName"></input>
-            </div>
-            <div>
-              <label className="form-label" for="lastName"><b>Last Name</b></label>
-              <input className="form-input" type="text" placeholder="your last name" name="lastName"></input>
-            </div>
-            <div>
-              <label className="form-label" for="email"><b>Email</b></label>
-              <input className="form-input" type="text" placeholder="your email" name="email"></input>
-            </div>
-            <div>
-              <label className="form-label" for="phone"><b>Phone Number</b></label>
-              <input className="form-input" type="text" name="phone" placeholder="your phone number"></input>
-            </div>
-
-          </div>
-        </div>
-      </form>
+        </form>
+      </Box>
 
     </div>
   );
