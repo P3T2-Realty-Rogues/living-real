@@ -46,6 +46,15 @@ function Properties() {
           Acme Properties Management
         </p>
       </div>
+
+      {/* Add the social media icons. */}
+      <div > 
+        <img className="social_icons" src={require(`../../assets/social_media/facebook.png`)} alt="Facebook" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/linkedin.png`)} alt="LinkedIn" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/twitter.png`)} alt="Twitter" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/youtube.png`)} alt="YouTube" rel="noreferrer noopener"/>
+        <img className="social_icons" src={require(`../../assets/social_media/instagram.png`)} alt="Instagram" rel="noreferrer noopener"/>
+      </div>
     </div>
   );
 }
