@@ -25,15 +25,17 @@ function TenantInfo() {
 
   const {properties} = state
 
-  const [getCheckout] = useLazyQuery(QUERY_CHECKOUT);
+  const [getCheckout, { data2 }] = useLazyQuery(QUERY_CHECKOUT);
 
   console.log("data: ", data);
 
   function submitCheckout() {
+    const ID = 0;
+
     console.log("in submit");
 
     getCheckout({
-      
+      variables: {_id: ID }
     });
   }
 
