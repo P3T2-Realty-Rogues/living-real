@@ -17,8 +17,8 @@ function AdminDash() {
             <Link className="btn" to="/AdminDash/UpdateProperty">Update Property </Link>
             <br />
             <Link className="btn" to="/AdminDash/MoveUser">Move Someone In</Link>
-            <br />
-            <Link className="btn" to="/AdminDash/MaintenanceRequests">View Maintenance Requests </Link>
+            {/* <br />
+            <Link className="btn" to="/AdminDash/MaintenanceRequests">View Maintenance Requests </Link> */}
           
         </ul>
 
