@@ -29,10 +29,26 @@ const resolvers = {
     property: async (parent, { _id }) => {
       return await Property.findById(_id)
     },
-    checkout: async (parent, args, context, { _id }) => {
+    checkout: async (context, { _id }) => {
       const url = new URL(context.headers.referer).origin;
 
-      const line_items = Property.findById(_id).rent;
+      const line_items = [];
+
+      const rent = await stripe.products.create({
+        name: "Monthly Rent"
+      })
+
+      const price = await stripe.prices.create({
+        product: rent.id,
+        unit_amount: 100,
+        currency: "usd"
+      })
+
+      line_items.push({
+        price: price.id,
+      })
+
+      console.log("line_items: ", line_items);
 
       const session = await stripe.checkout.sessions.create({
 				payment_method_types: ['card'],

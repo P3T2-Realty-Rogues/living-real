@@ -141,7 +141,7 @@ query {
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($_id:ID!) {
-    checkout(ID: $_id) {
+    checkout(_id: $_id) {
       session
     }
   }
