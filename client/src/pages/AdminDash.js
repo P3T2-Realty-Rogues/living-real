@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { FaUserCircle, FaUserEdit } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import { BiMoveHorizontal } from "react-icons/bi";
 import { BsHouseFill } from "react-icons/bs";
 import { FaHouseDamage } from "react-icons/fa";
 // import { GrHostMaintenance } from "react-icons/gr";
 
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-
 import Button from "@material-ui/core/Button";
 
 function AdminDash() {
@@ -33,7 +31,7 @@ function AdminDash() {
                 <div>
                   <Button size="large" variant="contained" color="primary">
                     <Link to="/AdminDash/CreateProperty">
-                      <b>CREATE</b> &nbsp;
+                      <b className="admin-btn">CREATE</b> &nbsp;
                       <BsHouseFill size={30} color="#fff"></BsHouseFill>
                     </Link>
                   </Button>
@@ -43,7 +41,7 @@ function AdminDash() {
                 <div>
                   <Button size="large" variant="contained" color="primary">
                     <Link to="/AdminDash/UpdateProperty">
-                      <b>UPDATE</b> &nbsp;
+                      <b className="admin-btn">UPDATE</b> &nbsp;
                       <FaHouseDamage
                         size={30}
                         color="#fff"
@@ -56,7 +54,7 @@ function AdminDash() {
                 <div>
                   <Button size="large" variant="contained" color="primary">
                     <Link to="/AdminDash/MoveUser">
-                      <b>TENANT</b> &nbsp;
+                      <b className="admin-btn">TENANT</b> &nbsp;
                       <BiMoveHorizontal
                         size={30}
                         color="#fff"
@@ -68,15 +66,6 @@ function AdminDash() {
             </Grid>
           </div>
 
-          <br />
-          <br />
-
-          <br />
-          <br />
-
-          <br />
-          <br />
-
           {/* <br />
             <Link  to="/AdminDash/MaintenanceRequests">View Maintenance Requests </Link> */}
         </ul>
@@ -85,18 +74,15 @@ function AdminDash() {
   }
 
   return (
-    <div className="flex-row">
-      <header>
-        <div>{showNavigation()}</div>
-      </header>
-
+    <>
+      <div>{showNavigation()}</div>
       {/* <div >
         <h1> Content goes here</h1>
       </div>
       <div>
         <h1>Bulletin Board</h1>
       </div> */}
-    </div>
+    </>
   );
 }
 
