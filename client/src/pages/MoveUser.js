@@ -10,6 +10,7 @@ import { idbPromise } from "../utils/helpers";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Box from '@material-ui/core/Box'
 
 import {MOVE_USER_IN} from '../utils/mutations'
 
@@ -110,38 +111,40 @@ const MoveUser = () => {
 
     return (
         <>
-        <div className='moveContainer'>
-            <Autocomplete
-                id="users-box"
-                options={users.data?.users}
-                getOptionLabel={(users) => users.firstName + ' ' + users.lastName}
-                style={{ width: "20rem" }}
-                renderInput={(params) => <TextField {...params} label="User" variant="outlined" />}
-                onChange={handleChange}
-            />
-
-            <Autocomplete
-                id="home-box"
-                options={allProperties}
-                getOptionLabel={(property) => property.propertyName}
-                style={{ width: "20rem", marginTop: "10px" }}
-                renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
-                onChange={handleChange}
-            />
-            <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='primary'>Move Tenant In</Button></div>
-        </div>
-
-        <div className='moveContainer'>
-
-            <Autocomplete
-                id="move-out-box"
-                options={allProperties}
-                getOptionLabel={(property) => property.propertyName}
-                style={{ width: "20rem" }}
-                renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
-                onChange={handleMoveOutChange}
-            />
-            <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Tenants</Button></div>
+        <div>
+            <Box className='moveContainer'>
+                <Autocomplete
+                    id="users-box"
+                    options={users.data?.users}
+                    getOptionLabel={(users) => users.firstName + ' ' + users.lastName}
+                    style={{ width: "20rem" }}
+                    renderInput={(params) => <TextField {...params} label="User" variant="outlined" />}
+                    onChange={handleChange}
+                />
+    
+                <Autocomplete
+                    id="home-box"
+                    options={allProperties}
+                    getOptionLabel={(property) => property.propertyName}
+                    style={{ width: "20rem", marginTop: "10px" }}
+                    renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
+                    onChange={handleChange}
+                />
+                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='primary'>Move Tenant In</Button></div>
+            </Box>
+    
+            <Box className='moveContainer'>
+    
+                <Autocomplete
+                    id="move-out-box"
+                    options={allProperties}
+                    getOptionLabel={(property) => property.propertyName}
+                    style={{ width: "20rem" }}
+                    renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
+                    onChange={handleMoveOutChange}
+                />
+                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Tenants</Button></div>
+            </Box>
         </div>
 
         </>

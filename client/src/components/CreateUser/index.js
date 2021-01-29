@@ -28,8 +28,9 @@ function CreateUser() {
         adminFlag: document.getElementById("checkbox").checked,
       },
     });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    // const token = mutationResponse.data.addUser.token;
+    // Auth.login(token);
+    window.location.replace( "/AdminDash");
   };
 
   const handleChange = (event) => {

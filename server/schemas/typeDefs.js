@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    email:  String
+    email: String
     phoneNumber: String
     adminFlag: Boolean
     property: Property
@@ -30,10 +30,10 @@ const typeDefs = gql`
     numBedroom: Int
     balcony: Boolean
     pool: Boolean
-    rent: Float
-    petDeposit: Float
-    renterDeposit: Float
-    appFee: Float
+    rent: Int
+    petDeposit: Int
+    renterDeposit: Int
+    appFee: Int
     directoryName: String
     thumbnail: String
     pictures: [String]
@@ -69,7 +69,7 @@ const typeDefs = gql`
   type Query {
     owners: [User]
     tenants: [User]
-    properties: [Property] 
+    properties: [Property]
     users: [User] #if user is not currently renting, property and/or tenant info might be null!
     property(_id: ID!): Property
     user(_id: ID!): User
@@ -77,7 +77,6 @@ const typeDefs = gql`
   }
 
   type Mutation {
-
     addUser(
       firstName: String!
       lastName: String!
@@ -112,19 +111,19 @@ const typeDefs = gql`
       numBedroom: Int!
       balcony: Boolean!
       pool: Boolean!
-      rent: Float!
-      petDeposit: Float!
-      renterDeposit: Float!
-      appFee: Float!
+      rent: Int!
+      petDeposit: Int!
+      renterDeposit: Int!
+      appFee: Int!
       availability: Boolean!
       directoryName: String
       thumbnail: String
       pictures: [String]
-      ownerInfo: OwnerInfoInput  
+      ownerInfo: OwnerInfoInput
     ): Property
 
     updateProperty(
-      property: ID!
+      propertyId: ID!
       propertyName: String
       propertyType: String
       streetAddress: String
@@ -136,26 +135,20 @@ const typeDefs = gql`
       numBedroom: Int
       balcony: Boolean
       pool: Boolean
-      rent: Float
-      petDeposit: Float
-      renterDeposit: Float
-      appFee: Float
+      rent: Int
+      petDeposit: Int
+      renterDeposit: Int
+      appFee: Int
       availability: Boolean
       directoryName: String
       thumbnail: String
       pictures: [String]
-      ownerInfo: OwnerInfoInput   
+      ownerInfo: OwnerInfoInput
     ): Property
 
-    moveUserIn(
-      userId: ID!
-      propertyId: ID!
-    ): User
+    moveUserIn(userId: ID!, propertyId: ID!): User
 
-    moveUserOut(
-      userId: ID!
-      propertyId: ID!
-    ): User
+    moveUserOut(userId: ID!, propertyId: ID!): User
 
     login(email: String!, password: String!): Auth
 
@@ -165,12 +158,12 @@ const typeDefs = gql`
     addTenant(tenantId: ID!, property: ID!): Property
   }
 
-  input TenantInput{
+  input TenantInput {
     leaseDate: String
     activeTenant: Boolean
   }
 
-  input OwnerInfoInput{
+  input OwnerInfoInput {
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
