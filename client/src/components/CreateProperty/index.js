@@ -34,7 +34,7 @@ function CreateProperty() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addProperty({
+    await addProperty({
       variables: {
         propertyName: formState.propertyName,
         propertyType: formState.propertyType,
@@ -52,7 +52,6 @@ function CreateProperty() {
         renterDeposit: parseInt(formState.renterDeposit),
         appFee: parseInt(formState.appFee),
         availability: formState.availability,
-
         // mortgage: parseInt(formState.mortgage),
         // propertyTaxes: parseInt(formState.propertyTaxes),
         // propertyInsurance: parseInt(formState.propertyInsurance),
@@ -65,16 +64,10 @@ function CreateProperty() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    console.log( "Name: ", name );
-    console.log( "Value: ", typeof(value) );
-
     setFormState({
       ...formState,
       [name]: value,
     });
-
-    console.log("formstate: ", formState);
   };
 
 
