@@ -77,7 +77,8 @@ function UpdatePropertyForm() {
         renterDeposit: parseInt(updatedProperty.renterDeposit),
         appFee: parseInt(updatedProperty.appFee),
       },
-    })
+   })
+      //comment
       console.log(data);
   };
 
