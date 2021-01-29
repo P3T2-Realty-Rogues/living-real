@@ -73,7 +73,7 @@ function CreateProperty() {
 
   return (
     <div className="col-auto">
-      <form className="col-auto flex-row" onSubmit={handleFormSubmit}>
+      <form className="col-auto flex-row flex-column-sm" onSubmit={handleFormSubmit}>
         <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">Add a New Property</h3>
