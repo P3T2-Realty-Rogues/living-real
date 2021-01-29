@@ -44,15 +44,13 @@ const resolvers = {
 
       const price = await stripe.prices.create({
         product: rent.id,
-        unit_amount: 100,
+        unit_amount: Property.findById(_id).rent * 100,
         currency: "usd"
       })
 
       line_items.push({
         price: price.id,
       })
-
-      console.log("line_items: ", line_items);
 
       const session = await stripe.checkout.sessions.create({
 				payment_method_types: ['card'],

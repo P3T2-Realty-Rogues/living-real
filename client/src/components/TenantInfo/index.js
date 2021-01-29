@@ -68,6 +68,7 @@ function TenantInfo() {
     if (data) {
       stripePromise.then((res) => {
         // res.redirectToCheckout({ sessionId: data.checkout.session });
+        res.redirectToCheckout({ sessionId: 4455 });
       });
     }
   }, [data]);
@@ -86,8 +87,7 @@ function TenantInfo() {
           {toTitleCase(currentUser?.lastName)}
         </h2>
         <p>
-            Rent Due:&nbsp;
-            {currentProperty?.rent}
+            Rent Due: ${currentProperty?.rent}
           </p>
         <ul className="tenant-info">
           <li>Address: {currentProperty?.streetAddress}</li>
