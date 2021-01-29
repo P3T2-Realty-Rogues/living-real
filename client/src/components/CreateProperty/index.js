@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { ADD_PROPERTY } from '../../utils/mutations';
-import Upload from '../Upload'
+import { ADD_PROPERTY } from "../../utils/mutations";
+import Upload from "../Upload";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../../utils/auth";
 
-
-
 function CreateProperty() {
-
   const [formState, setFormState] = useState({
     propertyName: "",
     propertyType: "",
@@ -26,9 +23,8 @@ function CreateProperty() {
     // mortgage: "",
     // propertyTaxes: "",
     // propertyInsurance: "",
-    availability: true
+    availability: true,
   });
-
 
   const [addProperty, { error }] = useMutation(ADD_PROPERTY);
 
@@ -59,7 +55,7 @@ function CreateProperty() {
     });
     // const token = mutationResponse.data.addProperty.token;
     // Auth.login(token);
-    window.location.replace( "/AdminDash");
+    window.location.replace("/AdminDash");
   };
 
   const handleChange = (event) => {
@@ -69,7 +65,6 @@ function CreateProperty() {
       [name]: value,
     });
   };
-
 
   return (
     <div className="col-auto">
@@ -172,7 +167,6 @@ function CreateProperty() {
             <h3 className="card-header">More Details</h3>
           </div>
           <div className="card-body">
-
             <div id="property-checkbox">
               <label className="form-label" htmlFor="balcony">
                 <b>Balcony</b>

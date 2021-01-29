@@ -14,6 +14,12 @@ import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
+import { BiLogOutCircle } from "react-icons/bi";
+import { AiFillDashboard, AiOutlineInfoCircle } from "react-icons/ai";
+import { GoDashboard } from "react-icons/go";
+import { VscRequestChanges } from "react-icons/vsc";
+import { IoMdLogIn } from "react-icons/io";
+
 const useStyles = makeStyles(() => ({
   header: {
     backgroundColor: "#2753ba",
@@ -140,7 +146,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Admin Dashboard
+                <AiFillDashboard size={40} color="#000"></AiFillDashboard>
               </Button>
             </MenuItem>
           ) : (
@@ -153,7 +159,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Tenant Dashboard
+                <GoDashboard size={40} color="#000"></GoDashboard>
               </Button>
             </MenuItem>
           )}
@@ -167,7 +173,7 @@ export default function NavBar() {
                 onClick: () => Auth.logout(),
               }}
             >
-              Logout
+              <BiLogOutCircle size={40} color="#000"></BiLogOutCircle>
             </Button>
           </MenuItem>
         </>
@@ -184,7 +190,7 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Login
+              <IoMdLogIn size={40} color="#000"></IoMdLogIn>
             </Button>
           </MenuItem>
           <MenuItem>
@@ -196,7 +202,10 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Request Info
+              <AiOutlineInfoCircle
+                size={40}
+                color="#000"
+              ></AiOutlineInfoCircle>
             </Button>
           </MenuItem>
         </>
@@ -205,13 +214,9 @@ export default function NavBar() {
   };
 
   const appTitle = (
-    <Typography variant="h4" component="h1" className={logo} >
-      <Link
-        href="/"
-        color="inherit"
-        variant="inherit"
-      >
-         <img src={require(`../../assets/images/logo1.png` )} id="app-logo"/>
+    <Typography variant="h4" component="h1" className={logo}>
+      <Link href="/" color="inherit" variant="inherit">
+        <img src={require(`../../assets/images/logo1.png`)} id="app-logo" />
       </Link>
     </Typography>
   );
@@ -232,7 +237,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Admin Dashboard
+                <AiFillDashboard size={40} color="#ffff"></AiFillDashboard>
               </Button>
             </MenuItem>
           ) : (
@@ -245,7 +250,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Tenant Dashboard
+                <GoDashboard size={40} color="#ffff"></GoDashboard>
               </Button>
             </MenuItem>
           )}
@@ -259,7 +264,7 @@ export default function NavBar() {
                 onClick: () => Auth.logout(),
               }}
             >
-              Logout
+              <BiLogOutCircle size={40} color="#ffff"></BiLogOutCircle>
             </Button>
           </MenuItem>
         </>
@@ -276,7 +281,7 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Login
+              <IoMdLogIn size={40} color="#ffff"></IoMdLogIn>
             </Button>
           </MenuItem>
           <MenuItem>
@@ -288,7 +293,11 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Request Info
+              Request &nbsp;
+              <AiOutlineInfoCircle
+                size={40}
+                color="#ffff"
+              ></AiOutlineInfoCircle>
             </Button>
           </MenuItem>
         </>
