@@ -68,7 +68,7 @@ function UpdatePropertyForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("updateProperty spread", { ...updatedProperty });
-   const {data} = await updateProperty({
+    const { data } = await updateProperty({
       variables: {
         propertyId: updatedProperty._id,
         propertyName: updatedProperty.propertyName,
@@ -77,9 +77,10 @@ function UpdatePropertyForm() {
         renterDeposit: parseInt(updatedProperty.renterDeposit),
         appFee: parseInt(updatedProperty.appFee),
       },
-   })
-      //comment
-      console.log(data);
+    });
+    //comment
+    //   console.log("DATA", data.updateProperty);
+      setUpdatedProperty(data.updateProperty);
   };
 
   //   console.log(currentProperty);
