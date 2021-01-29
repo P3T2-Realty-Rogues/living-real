@@ -25,6 +25,12 @@ img {
   width: 100%;
 }
 
+#nav-img {
+  border-radius: 25px;
+  height: 60px;
+  width: auto; 
+}
+
 .MuiFormLabel-root.Mui-focused {
   color: #616161 !important;
 }

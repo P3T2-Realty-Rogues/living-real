@@ -8,6 +8,8 @@ import { UPDATE_PROPERTIES} from "../../utils/actions";
 import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
+import {GrHostMaintenance} from "react-icons/gr";
+import {CgFileDocument} from "react-icons/cg";  
 
 
 function TenantInfo() {
@@ -76,10 +78,10 @@ function TenantInfo() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Lease Document
+            Lease Document &nbsp;<CgFileDocument size={30} color="#2753ba"></CgFileDocument>
           </a>
           <Link to="/TenantDash/MaintenanceRequests">
-            <div className="btnNav">View Maintenance Requests </div>
+            <div className="btnNav">View Maintenance Requests &nbsp;<GrHostMaintenance size={30} color="#2753ba"></GrHostMaintenance></div>
           </Link>
         </div>
       </div>

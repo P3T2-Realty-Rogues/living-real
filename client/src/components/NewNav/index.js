@@ -13,6 +13,11 @@ import Auth from "../../utils/auth";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import {FcHome} from "react-icons/fc";
+import {GrLogin, GrLogout} from "react-icons/gr";
+import {AiFillDashboard, AiOutlineInfoCircle} from "react-icons/ai";
+import {GoDashboard} from "react-icons/go";
+// import {AiOutlineInfoCircle} from "react-icons/bs";
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -27,6 +32,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: 600,
     color: "#d7e6f3",
     textAlign: "left",
+    alignItems: "center",
   },
   menuButton: {
     fontFamily: "IBM Plex Sans, sans-serif",
@@ -211,7 +217,8 @@ export default function NavBar() {
         color="inherit"
         variant="inherit"
       >
-        Living Real
+        <span>Living Real &nbsp;</span>
+        <FcHome size={40}></FcHome>
       </Link>
     </Typography>
   );
@@ -232,7 +239,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Admin Dashboard
+                Admin Dashboard &nbsp;<AiFillDashboard size={40} color="#000000"></AiFillDashboard>
               </Button>
             </MenuItem>
           ) : (
@@ -245,7 +252,7 @@ export default function NavBar() {
                   className: menuButton,
                 }}
               >
-                Tenant Dashboard
+                Tenant Dashboard &nbsp;<GoDashboard size={40} color="#000000"></GoDashboard>
               </Button>
             </MenuItem>
           )}
@@ -259,7 +266,7 @@ export default function NavBar() {
                 onClick: () => Auth.logout(),
               }}
             >
-              Logout
+              Logout &nbsp;<GrLogout size={40}></GrLogout>
             </Button>
           </MenuItem>
         </>
@@ -276,7 +283,7 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Login
+              Login &nbsp;<GrLogin size={40}></GrLogin>
             </Button>
           </MenuItem>
           <MenuItem>
@@ -288,7 +295,7 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              Request Info
+              Request Info &nbsp;<AiOutlineInfoCircle size={40} color="#000000"></AiOutlineInfoCircle>
             </Button>
           </MenuItem>
         </>

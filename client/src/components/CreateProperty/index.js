@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../../utils/auth";
 
+import {RiArrowGoBackLine} from "react-icons/ri";  
+import {BsHouseFill} from "react-icons/bs";
 
 
 function CreateProperty() {
@@ -327,9 +329,9 @@ function CreateProperty() {
             <div className="form-label"></div>
             <div>
               <br />
-              <button className="btn">Create Property</button>
+              <button className="btn">Create Property &nbsp;<BsHouseFill size={30} color="#2753ba"></BsHouseFill></button>
               <Link to="/AdminDash" className="btn">
-                Back to Dashboard
+                Back to Dashboard &nbsp;<RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine>
               </Link>
             </div>
           </div>

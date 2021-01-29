@@ -5,6 +5,9 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { UPDATE_PROPERTIES } from "../utils/actions";
 
+import {AiOutlineEdit} from "react-icons/ai"; 
+import {RiArrowGoBackLine} from "react-icons/ri";
+
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
@@ -69,7 +72,7 @@ function UpdateProperty() {
                         .toLowerCase()
                         .replace(/\s/g, "")}
                     >
-                      <Link to={`/AdminDash/UpdateProperty/${property._id}`}> Edit </Link>
+                      <Link to={`/AdminDash/UpdateProperty/${property._id}`}> Edit &nbsp;<AiOutlineEdit size={30} color="#2753ba"></AiOutlineEdit></Link>
                     </button>
                   </td>
                   <td>{property.propertyName}</td>
@@ -82,9 +85,9 @@ function UpdateProperty() {
         <div>
           <div>
             <br />
-            <button className="btnNav" id="update-user">Update Property</button>
-            <button className="btnNav" id="delete-user">Delete Property</button>
-            <Link to="/AdminDash" className="btnNav">Back to Dashboard</Link>
+            {/* <button className="btnNav" id="update-user">Update Property</button>
+            <button className="btnNav" id="delete-user">Delete Property</button> */}
+            <Link to="/AdminDash" className="btnNav">Back to Dashboard &nbsp;<RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine></Link>
           </div>
         </div>
       </div>
