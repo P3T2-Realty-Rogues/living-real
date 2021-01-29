@@ -68,7 +68,7 @@ function UpdatePropertyForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("updateProperty spread", { ...updatedProperty });
-   const {data} = await updateProperty({
+    const { data } = await updateProperty({
       variables: {
         propertyId: updatedProperty._id,
         propertyName: updatedProperty.propertyName,
@@ -77,15 +77,16 @@ function UpdatePropertyForm() {
         renterDeposit: parseInt(updatedProperty.renterDeposit),
         appFee: parseInt(updatedProperty.appFee),
       },
-   })
-      //comment
-      console.log(data);
+    });
+    //comment
+    //   console.log("DATA", data.updateProperty);
+    setUpdatedProperty(data.updateProperty);
   };
 
   //   console.log(currentProperty);
   return (
     <form className="flex-row" onSubmit={handleSubmit}>
-      <div className="card">
+      <div className="new-card">
         <div className="card-header">
           <h3 className="card-header">{updatedProperty?.propertyName}</h3>
         </div>
@@ -150,6 +151,15 @@ function UpdatePropertyForm() {
               name="appFee"
               onChange={handleChange}
             ></input>
+            <Button
+              onClick={handleSubmit}
+              type="submit"
+              size="large"
+              variant="contained"
+              color="secondary"
+            >
+              Update
+          </Button>
           </div>
           {/* <div>
                         <label htmlFor="photos"> <b>Upload Photos</b></label>
@@ -158,7 +168,7 @@ function UpdatePropertyForm() {
                     </div> */}
         </div>
       </div>
-      <div className="card">
+      {/* <div className="card">
         <div className="card-header">
           <h2 className="card-header">
             Admin Details for {updatedProperty?.propertyName}
@@ -198,17 +208,9 @@ function UpdatePropertyForm() {
               name="propertyInsurance"
             ></input>
           </div>
-          <Button
-            onClick={handleSubmit}
-            type="submit"
-            size="large"
-            variant="contained"
-            color="secondary"
-          >
-            Update
-          </Button>
+
         </div>
-      </div>
+      </div> */}
     </form>
   );
 }

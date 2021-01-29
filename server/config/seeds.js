@@ -6,7 +6,7 @@ db.once('open', async () => {
 
   const properties = await Property.insertMany([
     {
-      propertyName: "Home 1",
+      propertyName: "g",
       propertyType: "Single Family Home",
       streetAddress: "8 nowhere ave",
       city: "Austin",
@@ -41,7 +41,7 @@ db.once('open', async () => {
       },
     },
     {
-      propertyName: "Home 2",
+      propertyName: "Wayside Place",
       propertyType: "duplex",
       streetAddress: "9 nowhere ave",
       city: "Austin",
@@ -79,7 +79,7 @@ db.once('open', async () => {
       },
     },
     {
-      propertyName: "Home 3",
+      propertyName: "Downtown Lights",
       propertyType: "loft",
       streetAddress: "10 nowhere ave",
       city: "Austin",
@@ -123,8 +123,8 @@ db.once('open', async () => {
   await User.deleteMany();
 
   await User.create({
-    firstName: "ted",
-    lastName: "Admin",
+    firstName: "Ted",
+    lastName: "Manson",
     email: "ted@email.com",
     phoneNumber: "455-555-5555",
     password: "test1234",
@@ -133,10 +133,62 @@ db.once('open', async () => {
   });
 
   await User.create({
-    firstName: "guy",
-    lastName: "renter",
+    firstName: "Guy",
+    lastName: "Dude",
     email: "guy@email.com",
     phoneNumber: "555-555-5555",
+    password: "test1234",
+    adminFlag: false,
+    tenantData: {
+      activeTenant: true,
+      leaseDate: "1/11/1111",
+    },
+  });
+
+  await User.create({
+    firstName: "Ryan",
+    lastName: "Reynolds",
+    email: "ryan@email.com",
+    phoneNumber: "333-555-5555",
+    password: "test1234",
+    adminFlag: false,
+    tenantData: {
+      activeTenant: true,
+      leaseDate: "1/11/1111",
+    },
+  });
+
+  await User.create({
+    firstName: "Saffron",
+    lastName: "Barnard",
+    email: "saff@email.com",
+    phoneNumber: "111-555-5555",
+    password: "test1234",
+    adminFlag: false,
+    tenantData: {
+      activeTenant: true,
+      leaseDate: "1/11/1111",
+    },
+  });
+
+  await User.create({
+    firstName: "Suman",
+    lastName: "Conway",
+    email: "suman@email.com",
+    phoneNumber: "444-555-5555",
+    password: "test1234",
+    adminFlag: false,
+    tenantData: {
+      activeTenant: true,
+      leaseDate: "1/11/1111",
+    },
+  });
+
+  await User.create({
+    firstName: "Danish",
+    lastName: "Esquivel",
+    email: "dan@email.com",
+    phoneNumber: "000-555-5555",
     password: "test1234",
     adminFlag: false,
     tenantData: {
