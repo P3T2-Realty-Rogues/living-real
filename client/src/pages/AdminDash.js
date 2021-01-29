@@ -74,15 +74,17 @@ function AdminDash() {
   }
 
   return (
-    <>
-      <div>{showNavigation()}</div>
+    <div >
+      <header>
+        <div>{showNavigation()}</div>
+      </header>
       {/* <div >
         <h1> Content goes here</h1>
       </div>
       <div>
         <h1>Bulletin Board</h1>
       </div> */}
-    </>
+    </div>
   );
 }
 
