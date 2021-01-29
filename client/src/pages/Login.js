@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
+import {VscRequestChanges} from "react-icons/vsc";
+
 function Login(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
@@ -61,7 +63,7 @@ function Login(props) {
         ) : null}
         <div>
           <br />
-          <button className="btn" type="submit">Submit</button>
+          <button className="btn" type="submit"><VscRequestChanges size={30} color="#2753ba"></VscRequestChanges> &nbsp;Submit</button>
         </div>
       </form>
     </div>
