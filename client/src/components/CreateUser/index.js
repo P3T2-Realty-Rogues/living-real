@@ -47,7 +47,7 @@ function CreateUser() {
       </div>
       <form className="card-body" onSubmit={handleFormSubmit}>
         <div className="">
-          <label className="form-label" for="firstName">
+          <label className="form-label" htmlFor="firstName">
             <b>First Name</b>
           </label>
           <input
@@ -59,7 +59,7 @@ function CreateUser() {
           ></input>
         </div>
         <div>
-          <label for="lastName" className="form-label">
+          <label htmlFor="lastName" className="form-label">
             <b>Last Name</b>
           </label>
           <input
@@ -71,7 +71,7 @@ function CreateUser() {
           ></input>
         </div>
         <div>
-          <label for="email">
+          <label htmlFor="email">
             <b>Email Address</b>
           </label>
           <input
@@ -83,7 +83,7 @@ function CreateUser() {
           ></input>
         </div>
         <div>
-          <label for="password">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input
@@ -95,7 +95,7 @@ function CreateUser() {
           ></input>
         </div>
         <div>
-          <label for="phoneNumber">
+          <label htmlFor="phoneNumber">
             <b>Phone Number</b>
           </label>
           <input
@@ -107,7 +107,7 @@ function CreateUser() {
           ></input>
         </div>
         <div>
-          <label for="adminFlag">
+          <label htmlFor="adminFlag">
             <b>Administrator</b>
           </label>
           <input

@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import "semantic-ui-css/semantic.min.css";
 import reportWebVitals from './reportWebVitals';
+import Footer from './components/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );

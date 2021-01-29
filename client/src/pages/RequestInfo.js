@@ -13,7 +13,6 @@ function RequestInfo(props) {
     
   return (
     <div className="card">
-      <Link to="/login">← Go to Login</Link>
       <h2 className="card-header">Request More Information</h2>
       <form className="card-body" onSubmit={handleFormSubmit}>
         <div>
