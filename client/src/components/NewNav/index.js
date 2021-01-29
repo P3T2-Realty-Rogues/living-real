@@ -211,7 +211,7 @@ export default function NavBar() {
         color="inherit"
         variant="inherit"
       >
-        Living Real
+         <img src={require(`../../assets/images/logo1.png` )} id="app-logo"/>
       </Link>
     </Typography>
   );
