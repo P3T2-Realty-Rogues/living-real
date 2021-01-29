@@ -80,13 +80,13 @@ function UpdatePropertyForm() {
     });
     //comment
     //   console.log("DATA", data.updateProperty);
-      setUpdatedProperty(data.updateProperty);
+    setUpdatedProperty(data.updateProperty);
   };
 
   //   console.log(currentProperty);
   return (
     <form className="flex-row" onSubmit={handleSubmit}>
-      <div className="card">
+      <div className="new-card">
         <div className="card-header">
           <h3 className="card-header">{updatedProperty?.propertyName}</h3>
         </div>
@@ -151,6 +151,15 @@ function UpdatePropertyForm() {
               name="appFee"
               onChange={handleChange}
             ></input>
+            <Button
+              onClick={handleSubmit}
+              type="submit"
+              size="large"
+              variant="contained"
+              color="secondary"
+            >
+              Update
+          </Button>
           </div>
           {/* <div>
                         <label htmlFor="photos"> <b>Upload Photos</b></label>
@@ -159,7 +168,7 @@ function UpdatePropertyForm() {
                     </div> */}
         </div>
       </div>
-      <div className="card">
+      {/* <div className="card">
         <div className="card-header">
           <h2 className="card-header">
             Admin Details for {updatedProperty?.propertyName}
@@ -199,17 +208,9 @@ function UpdatePropertyForm() {
               name="propertyInsurance"
             ></input>
           </div>
-          <Button
-            onClick={handleSubmit}
-            type="submit"
-            size="large"
-            variant="contained"
-            color="secondary"
-          >
-            Update
-          </Button>
+
         </div>
-      </div>
+      </div> */}
     </form>
   );
 }
