@@ -87,7 +87,7 @@ function UpdateProperty() {
             <br />
             {/* <button className="btnNav" id="update-user">Update Property</button>
             <button className="btnNav" id="delete-user">Delete Property</button> */}
-            <Link to="/AdminDash" className="btnNav">Back to Dashboard &nbsp;<RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine></Link>
+            <Link to="/AdminDash" className="btnNav"><RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine> &nbsp;Back to Dashboard</Link>
           </div>
         </div>
       </div>

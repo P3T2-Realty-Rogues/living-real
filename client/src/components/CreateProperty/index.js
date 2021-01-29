@@ -322,9 +322,9 @@ function CreateProperty() {
             <div className="form-label"></div>
             <div>
               <br />
-              <button className="btn">Create Property &nbsp;<BsHouseFill size={30} color="#2753ba"></BsHouseFill></button>
+              <button className="btn"><BsHouseFill size={30} color="#2753ba"></BsHouseFill> &nbsp;Create Property</button>
               <Link to="/AdminDash" className="btn">
-                Back to Dashboard &nbsp;<RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine>
+                <RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine> &nbsp;Back to Dashboard
               </Link>
             </div>
           </div>

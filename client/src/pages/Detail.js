@@ -13,6 +13,9 @@ import { QUERY_PROPERTIES } from "../utils/queries";
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
+import {RiArrowGoBackLine} from "react-icons/ri";
+import {FaUserPlus} from "react-icons/fa";
+
 ////////////////////////////////////////////////////////////////////////////////////////
 function Detail() {
   const { id } = useParams();
@@ -147,8 +150,8 @@ function Detail() {
         <div className="contentContainer">
           <p>&nbsp;</p>
           {/* <button className="btnNav">Apply Now</button> */}
-          <Link className="btnNav" to={`/ApplyNow/${id}`}>Apply Now</Link>
-          <Link to="/" className="btnNav">
+          <Link className="btnNav" to={`/ApplyNow/${id}`}><FaUserPlus size={30} color="#2753ba"></FaUserPlus> &nbsp;Apply Now</Link>
+          <Link to="/" className="btnNav"><RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine> &nbsp;
             Back to Dashboard
           </Link>
           <br />

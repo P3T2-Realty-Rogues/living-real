@@ -14,17 +14,17 @@ function AdminDash() {
       <div>
         <ul>
           
-            <Link className="btn" to="/AdminDash/CreateUser">Create User &nbsp;<FaUserCircle size={30} color="#2753ba"></FaUserCircle></Link>
+            <Link className="btn" to="/AdminDash/CreateUser"><FaUserCircle size={30} color="#2753ba"></FaUserCircle> &nbsp;Create User </Link>
             <br />
-            <Link className="btn" to="/AdminDash/UpdateUser">Update User &nbsp;<FaUserEdit size={30} color="#2753ba"></FaUserEdit></Link>
+            <Link className="btn" to="/AdminDash/UpdateUser"><FaUserEdit size={30} color="#2753ba"></FaUserEdit> &nbsp;Update User </Link>
             <br />
-            <Link className="btn" to="/AdminDash/CreateProperty">Create Property &nbsp;<BsHouseFill size={30} color="#2753ba"></BsHouseFill></Link>
+            <Link className="btn" to="/AdminDash/CreateProperty"><BsHouseFill size={30} color="#2753ba"></BsHouseFill> &nbsp;Create Property </Link>
             <br />
-            <Link className="btn" to="/AdminDash/UpdateProperty">Update Property &nbsp;<FaHouseDamage size={30} color="#2753ba"></FaHouseDamage></Link>
+            <Link className="btn" to="/AdminDash/UpdateProperty"><FaHouseDamage size={30} color="#2753ba"></FaHouseDamage> &nbsp;Update Property </Link>
             <br />
-            <Link className="btn" to="/AdminDash/MoveUser">Move Someone In &nbsp;<BiMoveHorizontal size={30} color="#2753ba"></BiMoveHorizontal></Link>
+            <Link className="btn" to="/AdminDash/MoveUser"><BiMoveHorizontal size={30} color="#2753ba"></BiMoveHorizontal> &nbsp;Move Someone In </Link>
             <br />
-            <Link className="btn" to="/AdminDash/MaintenanceRequests">View Maintenance Requests  &nbsp;<GrHostMaintenance size={30} color="#2753ba"></GrHostMaintenance></Link>
+            <Link className="btn" to="/AdminDash/MaintenanceRequests"><GrHostMaintenance size={30} color="#2753ba"></GrHostMaintenance> &nbsp;View Maintenance Requests  </Link>
           
         </ul>
 

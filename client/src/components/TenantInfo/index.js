@@ -78,10 +78,10 @@ function TenantInfo() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Lease Document &nbsp;<CgFileDocument size={30} color="#2753ba"></CgFileDocument>
+            <CgFileDocument size={30} color="#2753ba"></CgFileDocument> &nbsp;Lease Document
           </a>
           <Link to="/TenantDash/MaintenanceRequests">
-            <div className="btnNav">View Maintenance Requests &nbsp;<GrHostMaintenance size={30} color="#2753ba"></GrHostMaintenance></div>
+            <div className="btnNav"><GrHostMaintenance size={30} color="#2753ba"></GrHostMaintenance> &nbsp;Submit Maintenance Requests</div>
           </Link>
         </div>
       </div>

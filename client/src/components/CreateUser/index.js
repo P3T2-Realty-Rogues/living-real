@@ -4,6 +4,9 @@ import { useMutation } from "@apollo/react-hooks";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
+import {RiArrowGoBackLine} from "react-icons/ri";
+import {FaUserCircle} from "react-icons/fa";
+
 function CreateUser() {
   const [formState, setFormState] = useState({
     email: "",
@@ -121,9 +124,9 @@ function CreateUser() {
         </div>
         <div>
           <br />
-          <button className="btn">Create User</button>
+          <button className="btn"><FaUserCircle size={30} color="#2753ba"></FaUserCircle> &nbsp;Create User</button>
           <br />
-          <Link to="/AdminDash" className="btn">
+          <Link to="/AdminDash" className="btn"><RiArrowGoBackLine size={30} color="#2753ba"></RiArrowGoBackLine> &nbsp;
             Back to Dashboard
           </Link>
         </div>
