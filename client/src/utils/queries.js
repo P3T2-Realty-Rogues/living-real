@@ -139,9 +139,17 @@ query {
 }
 `;
 
+// export const QUERY_CHECKOUT = gql`
+//   query getCheckout($_id:ID!) {
+//     checkout(_id: $_id) {
+//       session
+//     }
+//   }
+// `;
+
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($_id:ID!) {
-    checkout(_id: $_id) {
+  query getCheckout($property:ID!) {
+    checkout(property: $_id) {
       session
     }
   }
