@@ -103,11 +103,6 @@ function Detail() {
                       <td>{currentProperty.numBedroom}</td>
                     </tr>
                     <tr>
-                      <td>Balcony</td>
-                      <td> </td>
-                      <td>{currentProperty.balcony}</td>
-                    </tr>
-                    <tr>
                       <td>Rent</td>
                       <td> $ </td>
                       <td>{currentProperty.rent}</td>
