@@ -240,13 +240,92 @@ iframe {
   height: 100vh;
 }
 
-.btn {
+#file-upload-button {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 6px 5px;
   width: 100%;
   display: block;
   margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  border: none;
+  outline: none;
+  background-color: var(--light);
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+
+.btn  {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  border: none;
+  outline: none;
+  background-color: var(--light);
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+.create-btn {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--light);
+  border: none;
+  outline: none;
+  background-color: green;
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+.back-btn {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--light);
+  border: none;
+  outline: none;
+  background-color: red;
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+.back-btn-1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--light);
+  border: none;
+  outline: none;
+  background-color: red;
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+  text-align: center;
+}
+.btnNav {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5%;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   border-radius: var(--border-radius);
   color: var(--primary);
   border: none;
@@ -255,23 +334,9 @@ iframe {
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
-
-.btnNav {
-  font-size: 1.3rem;
-  text-decoration: none;
-  padding: 6px 5px;
-  width: auto;
-  display: inline-flex;
+ul {
+  background-color: none;
   justify-content: center;
-  align-items: center;
-  margin: 15px 20px;
-  border-radius: var(--border-radius);
-  color: var(--primary);
-  border: none;
-  outline: none;
-  background-color: var(--light);
-  box-shadow: 3px 3px var(--dark);
-  transform: translate(-1px, -1px);
 }
 
 .btn:hover, .btn-secondary:hover, .app-title:hover {
@@ -384,12 +449,30 @@ iframe {
 /* CARDS */
 
 .card {
-  margin:0; 
+  margin:0 auto; 
   /* padding-top: 5rem;  */
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 30%;
+  width: 40%;
+  display: block;
+}
+.options-card {
+  margin:0 auto; 
+  /* padding-top: 5rem;  */
+  /* border: 3px solid var(--dark); */
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 60%;
+  display: block;
+}
+.new-card {
+  margin:0 auto; 
+  /* padding-top: 5rem;  */
+  /* border: 3px solid var(--dark); */
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 100%;
   display: block;
 }
 
@@ -444,11 +527,15 @@ iframe {
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 50%;
+  width: 100%;
 }
 
 /* FORM */
-
+.form-detail {
+  width: 49%;
+  display: inline-block;
+  justify-content: space-between;
+}
 .form-label, .form-input, .form-textarea {
   display: block;
 }
@@ -474,7 +561,7 @@ iframe {
 }
 
 .min-100-vw {
-  min-width: 100vw;
+  max-width: 100vw;
 }
 
 /* FONT UTILS */
@@ -583,17 +670,41 @@ iframe {
 
 /* ============== MEDIA QUERIES  for various screen formats.   ==================== */
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 320px) {
 
   img {
     height: auto;
     width: 300px;
   }
+  .card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: block;
+  }
+  .new-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 60%;
+    display: block;
+  }
+
+  .flex-column-sm {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+  }
 }
 
 /* col-sm */
 
-@media screen and (min-width: 640px) {
+@media screen and (max-width: 640px) {
 
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -636,11 +747,44 @@ iframe {
     width: auto;
     /* border: var(--dark) solid 3px; */
   }
+  .card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: block;
+  }
+  .new-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 60%;
+    display: block;
+  }
+
+  .flex-column-sm {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+  }
+  .options-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: block;
+  }
 }
 
 /* col-md */
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .moveContainer {
     padding: 5rem 5rem 3rem 5rem;
   }
@@ -686,11 +830,36 @@ iframe {
     width: auto;
     /* border: var(--dark) solid 3px; */
   }
+  .card {
+    margin:0 auto; 
+
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+  .new-card {
+    margin:0 auto; 
+ 
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 90%;
+    display: block;
+  }
+  .options-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
 }
 
 /* col-lg */
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 992px) {
   .svgLink:hover {
     fill: #80d3fd;
     transform: scale(1.05);
@@ -741,7 +910,7 @@ iframe {
 
 /* col-xl */
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
 
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);

@@ -4,6 +4,8 @@ import Upload from "../Upload";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../../utils/auth";
+import { AiOutlineSend } from "react-icons/ai";
+import {RiArrowGoBackLine} from "react-icons/ri";
 
 function CreateProperty() {
   const [formState, setFormState] = useState({
@@ -68,12 +70,11 @@ function CreateProperty() {
 
   return (
     <div className="col-auto">
-      <form className="col-auto flex-row" onSubmit={handleFormSubmit}>
+      <form className="col-auto flex-row flex-column-sm" onSubmit={handleFormSubmit}>
         <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">Add a New Property</h3>
           </div>
-
           <div className="card-body">
             <div>
               <label className="form-label" for="propertyName">
@@ -111,7 +112,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for=" city">
                 <b>City</b>
               </label>
@@ -123,7 +124,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="state">
                 <b>State</b>
               </label>
@@ -135,7 +136,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="zipCode">
                 <b>Zip Code</b>
               </label>
@@ -148,7 +149,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="sqFeet">
                 <b>Square Footage</b>
               </label>
@@ -162,7 +163,7 @@ function CreateProperty() {
             </div>
           </div>
         </div>
-        <div className="card">
+        <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">More Details</h3>
           </div>
@@ -193,9 +194,9 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div  className = "form-detail">
               <label className="form-label" for="numBedroom">
-                <b>Number of Bedrooms</b>
+                <b>Bedrooms</b>
               </label>
               <input
                 className="form-input"
@@ -205,9 +206,9 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="numBathrooms">
-                <b>Number of Bathrooms</b>
+                <b>Bathrooms</b>
               </label>
               <input
                 className="form-input"
@@ -218,7 +219,7 @@ function CreateProperty() {
               ></input>
             </div>
 
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="rent">
                 <b>Rent</b>
               </label>
@@ -230,7 +231,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="petDeposit">
                 <b>Pet Deposit</b>
               </label>
@@ -242,7 +243,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="renterDeposit">
                 <b>Renter Deposit</b>
               </label>
@@ -254,7 +255,7 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className = "form-detail">
               <label className="form-label" for="appFee">
                 <b>App Fee</b>
               </label>
@@ -266,57 +267,32 @@ function CreateProperty() {
                 onChange={handleChange}
               ></input>
             </div>
-            <div>
+            <div className="form-label">
+              <br />
+              <br />
               <Upload />
               <br />
+              
             </div>
           </div>
         </div>
 
-        <div className="card">
+        <div className="options-card">
           <div className="card-header">
-            <h3 className="card-header">Admin Property Details</h3>
+            <h3 className="card-header">Options</h3>
           </div>
           <div className="card-body">
-            {/* <div>
-              <label className="form-label" for="mortgage">
-                <b>Mortgage</b>
-              </label>
-              <input
-                className="form-input"
-                type="number"
-                placeholder="$850"
-                name="mortgage"
-              ></input>
-            </div> */}
-            {/* <div>
-              <label className="form-label" for="propertyTaxes">
-                <b>Property Taxes</b>
-              </label>
-              <input
-                className="form-input"
-                type="number"
-                placeholder="$10,000"
-                name="propertyTaxes"
-              ></input>
-            </div>
-            <div>
-              <label className="form-label" for="propertyInsurance">
-                <b>Property Insurance</b>
-              </label>
-              <input
-                className="form-input"
-                type="number"
-                placeholder="$10,000"
-                name="propertyInsurance"
-              ></input>
-            </div> */}
             <div className="form-label"></div>
             <div>
-              <br />
-              <button className="btn">Create Property</button>
-              <Link to="/AdminDash" className="btn">
-                Back to Dashboard
+              
+              <button className="create-btn">
+              <AiOutlineSend size={30} color="default"></AiOutlineSend> 
+                &nbsp; 
+                <p>Create Property</p>
+              </button>
+              <Link to="/AdminDash" className="back-btn">
+                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+                <p>Back</p>
               </Link>
             </div>
           </div>

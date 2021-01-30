@@ -10,6 +10,7 @@ Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 * [Application Mind Maps](#application-mind-maps)
 * [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)
+* [Usage Instructions](#usage-instructions)
 * [Application Screen Shot](#application-screen-shot)
 
 ## Application Walk Through
@@ -62,6 +63,16 @@ The deployment link on Heroku is: https://living-real.herokuapp.com
 [Heroku](https://living-real.herokuapp.com/) 
 
 
+## Usage Instructions
+There are three types of users for this application: potential renters, tenants, and owner/admins.
+
+As a potential renter, login is not necessary, just browse the site and submit an application if necessary.
+
+As an existing tenant, login with 'guy@email.com' using a password of 'test1234'.  You can then browse the site as a tenant, viewing your specific data and capabilities.
+
+As an owner/admin, login with 'ted@email.com' using a password of 'test1234'.  You can then browse the site as an owner/admin with full capabilities.
+
 ## Application Screen Shot
 
-![Landing Page](./assets/images/landing-page.jpg) Image of the site landing page.
+![Landing Page](./client/src/assets/images/landing-page.jpg) Image of the site landing page.
+![Admin Dashboard](./client/src/assets/images/admin-dash.jpg) Image of the admin/owner dashboard.

@@ -151,7 +151,9 @@ function UpdatePropertyForm() {
               name="appFee"
               onChange={handleChange}
             ></input>
-            <Button
+            <br />
+            <button
+              className="create-btn"
               onClick={handleSubmit}
               type="submit"
               size="large"
@@ -159,7 +161,7 @@ function UpdatePropertyForm() {
               color="secondary"
             >
               Update
-          </Button>
+          </button>
           </div>
           {/* <div>
                         <label htmlFor="photos"> <b>Upload Photos</b></label>
