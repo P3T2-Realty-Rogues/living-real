@@ -3,6 +3,9 @@ import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
+import Button from "@material-ui/core/Button";
+import { AiOutlineSend } from "react-icons/ai";
+
 function Login(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
@@ -31,11 +34,13 @@ function Login(props) {
   return (
     <div className="card">
       <h2 className="card-header">Login</h2>
-      <form  className="card-body" onSubmit={handleFormSubmit}>
+      <form className="card-body" onSubmit={handleFormSubmit}>
         <div>
-          <label className="form-label" htmlFor="email">Email address:</label>
+          <label className="form-label" htmlFor="email">
+            Email address:
+          </label>
           <input
-          className="form-input"
+            className="form-input"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -44,9 +49,11 @@ function Login(props) {
           />
         </div>
         <div>
-          <label className="form-label" htmlFor="pwd">Password:</label>
+          <label className="form-label" htmlFor="pwd">
+            Password:
+          </label>
           <input
-          className="form-input"
+            className="form-input"
             placeholder="******"
             name="password"
             type="password"
@@ -61,7 +68,9 @@ function Login(props) {
         ) : null}
         <div>
           <br />
-          <button className="btn" type="submit">Submit</button>
+          <Button type="submit" size="large" variant="contained" color="green">
+           Login &nbsp; <AiOutlineSend size={30} color="default"></AiOutlineSend>{" "}
+          </Button>
         </div>
       </form>
     </div>

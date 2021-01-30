@@ -80,7 +80,7 @@ function UpdatePropertyForm() {
     });
     //comment
     //   console.log("DATA", data.updateProperty);
-      setUpdatedProperty(data.updateProperty);
+    setUpdatedProperty(data.updateProperty);
   };
 
   //   console.log(currentProperty);
@@ -151,14 +151,14 @@ function UpdatePropertyForm() {
               name="appFee"
               onChange={handleChange}
             ></input>
-                      <Button
-            onClick={handleSubmit}
-            type="submit"
-            size="large"
-            variant="contained"
-            color="secondary"
-          >
-            Update
+            <Button
+              onClick={handleSubmit}
+              type="submit"
+              size="large"
+              variant="contained"
+              color="secondary"
+            >
+              Update
           </Button>
           </div>
           {/* <div>

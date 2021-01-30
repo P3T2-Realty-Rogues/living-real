@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import Auth from "../../utils/auth"
-import { QUERY_PROPERTIES } from "../../utils/queries";
+import { QUERY_PROPERTIES, QUERY_CHECKOUT } from "../../utils/queries";
 import { UPDATE_PROPERTIES} from "../../utils/actions";
 import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
+import { loadStripe } from '@stripe/stripe-js';
 
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 function TenantInfo() {
   const currentUser = Auth.getProfile().data
@@ -22,6 +24,18 @@ function TenantInfo() {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
 
   const {properties} = state
+
+  const [getCheckout] = useLazyQuery(QUERY_CHECKOUT);
+
+  console.log("data: ", data);
+
+  function submitCheckout() {
+    console.log("in submit");
+
+    getCheckout({
+      
+    });
+  }
 
   useEffect(() => {
     // already in global store
@@ -50,6 +64,18 @@ function TenantInfo() {
     }
   }, [properties, data, loading, dispatch, propertyId]);
 
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        // res.redirectToCheckout({ sessionId: data.checkout.session });
+        res.redirectToCheckout({ sessionId: 4455 });
+      });
+    }
+  }, [data]);
+
+  console.log("currentUser: ", currentUser);
+  console.log("currentProperty: ", currentProperty);
+
   return (
     <div className="card">
       <header>
@@ -60,6 +86,9 @@ function TenantInfo() {
           {toTitleCase(currentUser?.firstName)} &nbsp;
           {toTitleCase(currentUser?.lastName)}
         </h2>
+        <p>
+            Rent Due: ${currentProperty?.rent}
+          </p>
         <ul className="tenant-info">
           <li>Address: {currentProperty?.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
@@ -70,6 +99,9 @@ function TenantInfo() {
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
           </p>
+          <Link className="btnNav" onClick={submitCheckout}>
+            Pay Rent
+          </Link>
           <a
             className="btnNav"
             href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"

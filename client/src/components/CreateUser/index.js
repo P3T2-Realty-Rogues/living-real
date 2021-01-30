@@ -30,7 +30,7 @@ function CreateUser() {
     });
     // const token = mutationResponse.data.addUser.token;
     // Auth.login(token);
-    window.location.replace( "/AdminDash");
+    window.location.replace("/AdminDash");
   };
 
   const handleChange = (event) => {

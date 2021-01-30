@@ -139,6 +139,14 @@ query {
 }
 `;
 
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($_id:ID!) {
+    checkout(_id: $_id) {
+      session
+    }
+  }
+`;
+
 // export const QUERY_BBOARD = gql`
 // {
 //   bboard {
@@ -153,12 +161,3 @@ query {
 //   }
 // }
 // `;
-
-// This sets up the checkout query
-//export const QUERY_CHECKOUT = gql`
-//  query getCheckout($products: [ID]!) {
-//    checkout(products: $products) {
-//      session
-//    }
-//  }
-//`;

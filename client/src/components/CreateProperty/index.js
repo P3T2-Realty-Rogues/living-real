@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { ADD_PROPERTY } from '../../utils/mutations';
-import Upload from '../Upload'
+import { ADD_PROPERTY } from "../../utils/mutations";
+import Upload from "../Upload";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../../utils/auth";
 
-
-
 function CreateProperty() {
-
   const [formState, setFormState] = useState({
     propertyName: "",
     propertyType: "",
@@ -26,9 +23,8 @@ function CreateProperty() {
     // mortgage: "",
     // propertyTaxes: "",
     // propertyInsurance: "",
-    availability: true
+    availability: true,
   });
-
 
   const [addProperty, { error }] = useMutation(ADD_PROPERTY);
 
@@ -59,7 +55,7 @@ function CreateProperty() {
     });
     // const token = mutationResponse.data.addProperty.token;
     // Auth.login(token);
-    window.location.replace( "/AdminDash");
+    window.location.replace("/AdminDash");
   };
 
   const handleChange = (event) => {
@@ -70,7 +66,6 @@ function CreateProperty() {
     });
   };
 
-
   return (
     <div className="col-auto">
       <form className="col-auto flex-row flex-column-sm" onSubmit={handleFormSubmit}>
@@ -78,7 +73,6 @@ function CreateProperty() {
           <div className="card-header">
             <h3 className="card-header">Add a New Property</h3>
           </div>
-
           <div className="card-body">
             <div>
               <label className="form-label" for="propertyName">
@@ -167,12 +161,11 @@ function CreateProperty() {
             </div>
           </div>
         </div>
-        <div className="card">
+        <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">More Details</h3>
           </div>
           <div className="card-body">
-
             <div id="property-checkbox">
               <label className="form-label" htmlFor="balcony">
                 <b>Balcony</b>
@@ -281,7 +274,7 @@ function CreateProperty() {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="card-header">Admin Property Details</h3>
+            <h3 className="card-header">Options</h3>
           </div>
           <div className="card-body">
             {/* <div>
@@ -319,9 +312,9 @@ function CreateProperty() {
             </div> */}
             <div className="form-label"></div>
             <div>
-              <br />
-              <button className="btn">Create Property</button>
-              <Link to="/AdminDash" className="btn">
+              
+              <button className="create-btn">Create Property</button>
+              <Link to="/AdminDash" className="back-btn">
                 Back to Dashboard
               </Link>
             </div>

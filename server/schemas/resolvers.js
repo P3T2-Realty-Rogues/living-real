@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Maintenance, Property } = require("../models");
 const { signToken } = require("../utils/auth");
-//const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
@@ -33,6 +33,35 @@ const resolvers = {
     property: async (parent, { _id }) => {
       return await Property.findById(_id);
     },
+    checkout: async (context, { _id }) => {
+      const url = new URL(context.headers.referer).origin;
+
+      const line_items = [];
+
+      const rent = await stripe.products.create({
+        name: "Monthly Rent"
+      })
+
+      const price = await stripe.prices.create({
+        product: rent.id,
+        unit_amount: Property.findById(_id).rent * 100,
+        currency: "usd"
+      })
+
+      line_items.push({
+        price: price.id,
+      })
+
+      const session = await stripe.checkout.sessions.create({
+				payment_method_types: ['card'],
+				line_items,
+				mode: 'payment',
+				success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+				cancel_url: `${url}/`,
+      });
+      
+      return { session: session.id };
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {

@@ -6,7 +6,7 @@ db.once('open', async () => {
 
   const properties = await Property.insertMany([
     {
-      propertyName: "Hillside View",
+      propertyName: "g",
       propertyType: "Single Family Home",
       streetAddress: "8 nowhere ave",
       city: "Austin",
