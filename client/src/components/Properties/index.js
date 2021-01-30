@@ -13,7 +13,7 @@ function Properties() {
 
   return (
     <div className="col-auto flex-column">
-      <div className="carousel">
+      <div className="carousel col-auto">
         <div className="image-slider">
           <Carousel autoPlay={false} stopAutoPlayOnHover={true} className="image-slider" animation="slide">
             {state.properties.map((image, index) => (

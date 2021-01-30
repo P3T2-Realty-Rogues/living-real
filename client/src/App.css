@@ -456,13 +456,15 @@ ul {
 
 /* CARDS */
 .carousel {
-  margin:0 auto; 
+  margin: auto;
+  padding: 10px; 
   /* padding-top: 5rem;  */
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
   width: 50%;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
@@ -707,6 +709,9 @@ ul {
       flex-direction: column;
       flex-wrap: wrap;
   }
+  .carousel {
+    width: 100%;
+  }
 }
 
 /* col-sm */
@@ -785,6 +790,17 @@ ul {
     width: 80%;
     display: block;
   }
+  .carousel {
+    margin: auto;
+    padding: 10px; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* col-md */
@@ -831,10 +847,16 @@ ul {
   .col-md-12 {
     flex: 0 0 100%;
   }
-  img {
-    height: 350px;
-    width: auto;
-    /* border: var(--dark) solid 3px; */
+  .carousel {
+    margin: auto;
+    padding: 10px; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
   }
   .card {
     margin:0 auto; 
