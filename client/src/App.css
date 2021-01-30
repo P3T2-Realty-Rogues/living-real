@@ -248,7 +248,7 @@ iframe {
   display: block;
   margin: 5px 0;
   border-radius: var(--border-radius);
-  color: var(--primary);
+  color: var(--dark);
   border: none;
   outline: none;
   background-color: var(--light);
@@ -778,7 +778,7 @@ iframe {
 
     border-radius: var(--border-radius);
     height: 100%;
-    width: 30%;
+    width: 90%;
     display: block;
   }
   .new-card {
@@ -789,12 +789,12 @@ iframe {
     width: 90%;
     display: block;
   }
-
+/* 
   .flex-column-sm {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-}
+} */
 }
 
 /* col-lg */

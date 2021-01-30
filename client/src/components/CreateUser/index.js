@@ -121,9 +121,9 @@ function CreateUser() {
         </div>
         <div>
           <br />
-          <button className="btn">Create User</button>
+          <button className="create-btn">Create User</button>
           <br />
-          <Link to="/AdminDash" className="btn">
+          <Link to="/AdminDash" className="back-btn">
             Back to Dashboard
           </Link>
         </div>

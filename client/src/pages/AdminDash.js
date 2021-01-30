@@ -7,55 +7,55 @@ import { BsHouseFill } from "react-icons/bs";
 import { FaHouseDamage } from "react-icons/fa";
 // import { GrHostMaintenance } from "react-icons/gr";
 
-import Button from "@material-ui/core/Button";
+// import button from "@material-ui/core/button";
 
 function AdminDash() {
   function showNavigation() {
     return (
       <div>
         <ul>
-          <Button size="large" variant="contained" color="primary">
+          <button className="btnNav">
             <Link  to="/AdminDash/CreateUser">
               <b>CREATE</b> &nbsp;
               <FaUserCircle size={30} color="#fff"></FaUserCircle>{" "}
             </Link>
-          </Button>
+          </button>
 
           <br />
-          {/* <Button size="large" variant="contained" color="primary">
+          {/* <button size="large" variant="contained" color="primary">
             <Link  to="/AdminDash/UpdateUser">
               <b>UPDATE</b> &nbsp;
               <FaUserEdit size={30} color="#fff"></FaUserEdit>{" "}
             </Link>
-          </Button> */}
+          </button> */}
           {/* <Link  to="/AdminDash/UpdateUser">
             <FaUserEdit size={30} color="#2753BA"></FaUserEdit> &nbsp;Update
           </Link> */}
           <br />
-          <Button size="large" variant="contained" color="primary">
+          <button className="btnNav">
             <Link  to="/AdminDash/CreateProperty">
               <b>CREATE</b> &nbsp;
               <BsHouseFill size={30} color="#fff"></BsHouseFill>
             </Link>
-          </Button>
+          </button>
           {/* <Link  to="/AdminDash/CreateProperty">
             Create &nbsp;<BsHouseFill size={30} color="#2753BA"></BsHouseFill>
           </Link> */}
           <br />
           <br />
-          <Button size="large" variant="contained" color="primary">
+          <button className="btnNav">
             <Link  to="/AdminDash/UpdateProperty">
               <b>UPDATE</b> &nbsp;
               <FaHouseDamage size={30} color="#fff"></FaHouseDamage>{" "}
             </Link>
-          </Button>
+          </button>
           {/* <Link  to="/AdminDash/UpdateProperty">
             <FaHouseDamage size={30} color="#2753BA"></FaHouseDamage>{" "}
             &nbsp;Update
           </Link> */}
           <br />
           <br />
-          <Button size="large" variant="contained" color="primary">
+          <button className="btnNav">
             <Link  to="/AdminDash/MoveUser">
               <b>TENANT</b> &nbsp;
               <BiMoveHorizontal
@@ -63,7 +63,7 @@ function AdminDash() {
                 color="#fff"
               ></BiMoveHorizontal>{" "}
             </Link>
-          </Button>
+          </button>
 
           {/* <Link  to="/AdminDash/MoveUser">
             <BiMoveHorizontal size={30} color="#2753BA"></BiMoveHorizontal>{" "}
