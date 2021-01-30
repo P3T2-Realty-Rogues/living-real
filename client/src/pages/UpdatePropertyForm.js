@@ -9,7 +9,7 @@ import { DELETE_PROPERTY, UPDATE_PROPERTY_DATA } from "../utils/mutations";
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
-function UpdatePropertyForm() {
+function UpdatePropertyForm(props) {
   const { id } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -25,9 +25,11 @@ function UpdatePropertyForm() {
   const { properties } = state;
 
   const [updateProperty] = useMutation(UPDATE_PROPERTY_DATA);
+
   const [deleteProperty] = useMutation(DELETE_PROPERTY);
 
   useEffect(() => {
+    console.log("STATE", properties);
     // already in global store
     if (properties.length) {
       setCurrentProperty(properties.find((property) => property._id === id));
@@ -43,7 +45,8 @@ function UpdatePropertyForm() {
       data.properties.forEach((property) => {
         idbPromise("properties", "put", property);
       });
-    } else if (data) {
+    }
+    else if (data) {
       dispatch({
         type: REMOVE_PROPERTY,
         properties: data.property._id,
@@ -80,7 +83,8 @@ function UpdatePropertyForm() {
         appFee: parseInt(updatedProperty.appFee),
       },
     });
-    setUpdatedProperty(data.updateProperty);
+    setUpdatedProperty(data.updateProperty); 
+    props.history.push("/AdminDash");
   };
 
   const handleDelete = async (e) => {
@@ -92,7 +96,7 @@ function UpdatePropertyForm() {
         },
       });
       setDeletedProperty({ propertyId: "" });
-      window.location.assign("/AdminDash");
+      props.history.push("/AdminDash");
     } catch (e) {
       console.log(e);
     }

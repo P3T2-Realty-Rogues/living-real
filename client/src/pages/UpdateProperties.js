@@ -44,6 +44,7 @@ function UpdateProperty() {
         });
       });
     }
+    
   }, [properties, data, loading, dispatch]);
 
   return (

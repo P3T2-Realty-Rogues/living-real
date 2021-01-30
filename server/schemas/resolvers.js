@@ -39,29 +39,29 @@ const resolvers = {
       const line_items = [];
 
       const rent = await stripe.products.create({
-        name: "Monthly Rent"
-      })
+        name: "Monthly Rent",
+      });
 
       const price = await stripe.prices.create({
         product: rent.id,
         unit_amount: Property.findById(_id).rent * 100,
-        currency: "usd"
-      })
+        currency: "usd",
+      });
 
       line_items.push({
         price: price.id,
-      })
+      });
 
       const session = await stripe.checkout.sessions.create({
-				payment_method_types: ['card'],
-				line_items,
-				mode: 'payment',
-				success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-				cancel_url: `${url}/`,
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
       });
-      
+
       return { session: session.id };
-    }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -127,7 +127,6 @@ const resolvers = {
       throw new AuthenticationError("Not Authorized");
     },
     updateProperty: async (parent, args, context) => {
-      console.log("Hitting this resolver");
       if (context.user.adminFlag) {
         return await Property.findByIdAndUpdate(args.propertyId, args, {
           new: true,
