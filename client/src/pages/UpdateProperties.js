@@ -7,6 +7,7 @@ import { UPDATE_PROPERTIES } from "../utils/actions";
 
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
+import {RiArrowGoBackLine} from "react-icons/ri"
 
 function UpdateProperty() {
   const state = useSelector((state) => state);
@@ -79,12 +80,19 @@ function UpdateProperty() {
             </tbody>
           </table>
         </div>
-        <div>
-          <div>
-            <br />
-            <button className="btnNav" id="update-user">Update Property</button>
-            <button className="btnNav" id="delete-user">Delete Property</button>
-            <Link to="/AdminDash" className="btnNav">Back to Dashboard</Link>
+        <div className="card">
+          <div className="card-header">
+            <h3 className="card-header">Options</h3>
+          </div>
+          <div className="card-body">
+            <div className="form-label"></div>
+            <div>
+  
+              <Link to="/AdminDash" className="back-btn">
+                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+                <p>Back</p>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
