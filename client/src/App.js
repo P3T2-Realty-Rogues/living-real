@@ -50,7 +50,7 @@ function App() {
             <header className="App-header">
               <NavBar />
             </header>
-           <div className='contentContainer'>
+            <div className='contentContainer'>
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
@@ -111,7 +111,7 @@ function App() {
                 <Route exact path="/Upload" component={Upload} />
                 <Route exact path="/success" component={Success} />
               </Switch>
-           </div>
+            </div>
           </div>
         </Provider>
       </Router>

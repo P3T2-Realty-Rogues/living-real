@@ -36,8 +36,6 @@ body {
 
 img {
   border-radius: 25px;
-  height: 100vh;
-  width: 100%;
 }
 
 .MuiFormLabel-root.Mui-focused {
@@ -80,10 +78,14 @@ footer {
   transition: .03s;
 }
 
-.px-2 {
-  padding-right: .5rem!important;
+.svgLink:hover {
+  fill: #80d3fd;
+  transform: scale(1.05);
 }
 
+.px-2 {
+  padding-right: 2rem!important;
+}
 
 
 .moveContainer {
@@ -671,11 +673,6 @@ ul {
 /* ============== MEDIA QUERIES  for various screen formats.   ==================== */
 
 @media screen and (max-width: 320px) {
-
-  img {
-    height: auto;
-    width: 300px;
-  }
   .card {
     margin:0 auto; 
     /* padding-top: 5rem;  */
@@ -705,6 +702,9 @@ ul {
 /* col-sm */
 
 @media screen and (max-width: 640px) {
+  .px-2 {
+    padding-right: .5rem!important;
+  }
 
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -785,6 +785,7 @@ ul {
 /* col-md */
 
 @media screen and (max-width: 768px) {
+
   .moveContainer {
     padding: 5rem 5rem 3rem 5rem;
   }
@@ -860,14 +861,8 @@ ul {
 /* col-lg */
 
 @media screen and (max-width: 992px) {
-  .svgLink:hover {
-    fill: #80d3fd;
-    transform: scale(1.05);
-  }
 
-  .px-2 {
-    padding-right: 2rem!important;
-  }
+  
   
 
   .col-lg-1 {
