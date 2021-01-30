@@ -103,8 +103,8 @@ function UpdatePropertyForm(props) {
   };
 
   return (
-    <form className="flex-row" onSubmit={handleSubmit}>
-      <div className="new-card">
+    <form className="col-auto flex-row" onSubmit={handleSubmit}>
+      <div className="card">
         <div className="card-header">
           <h3 className="card-header">{updatedProperty?.propertyName}</h3>
         </div>
