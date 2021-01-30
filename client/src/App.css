@@ -240,7 +240,23 @@ iframe {
   height: 100vh;
 }
 
-.btn {
+#file-upload-button {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  border: none;
+  outline: none;
+  background-color: var(--light);
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+
+.btn  {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 6px 5px;
@@ -288,12 +304,12 @@ iframe {
 .btnNav {
   font-size: 1.3rem;
   text-decoration: none;
-  padding: 6px 5px;
-  width: auto;
+  padding: 6px 5%;
+  width: 100%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 15px 20px;
+  margin: 0;
   border-radius: var(--border-radius);
   color: var(--primary);
   border: none;
@@ -301,6 +317,10 @@ iframe {
   background-color: var(--light);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
+}
+ul {
+  background-color: none;
+  justify-content: center;
 }
 
 .btn:hover, .btn-secondary:hover, .app-title:hover {
@@ -418,10 +438,18 @@ iframe {
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 30%;
+  width: 40%;
   display: block;
 }
-
+.options-card {
+  margin:0 auto; 
+  /* padding-top: 5rem;  */
+  /* border: 3px solid var(--dark); */
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 60%;
+  display: block;
+}
 .new-card {
   margin:0 auto; 
   /* padding-top: 5rem;  */
@@ -487,7 +515,11 @@ iframe {
 }
 
 /* FORM */
-
+.form-detail {
+  width: 49%;
+  display: inline-block;
+  justify-content: space-between;
+}
 .form-label, .form-input, .form-textarea {
   display: block;
 }
@@ -723,6 +755,15 @@ iframe {
       flex-direction: column;
       flex-wrap: wrap;
   }
+  .options-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 80%;
+    display: block;
+  }
 }
 
 /* col-md */
@@ -778,7 +819,7 @@ iframe {
 
     border-radius: var(--border-radius);
     height: 100%;
-    width: 90%;
+    width: 100%;
     display: block;
   }
   .new-card {
@@ -789,12 +830,15 @@ iframe {
     width: 90%;
     display: block;
   }
-/* 
-  .flex-column-sm {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-} */
+  .options-card {
+    margin:0 auto; 
+    /* padding-top: 5rem;  */
+    /* border: 3px solid var(--dark); */
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
 }
 
 /* col-lg */

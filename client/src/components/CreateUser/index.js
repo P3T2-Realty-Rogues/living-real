@@ -82,7 +82,7 @@ function CreateUser() {
             onChange={handleChange}
           ></input>
         </div>
-        <div>
+        <div >
           <label htmlFor="password">
             <b>Password</b>
           </label>
