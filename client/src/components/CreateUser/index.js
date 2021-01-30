@@ -58,6 +58,7 @@ function CreateUser() {
             placeholder="John"
             name="firstName"
             onChange={handleChange}
+            required
           ></input>
         </div>
         <div>
@@ -70,6 +71,7 @@ function CreateUser() {
             placeholder="Smith"
             name="lastName"
             onChange={handleChange}
+            required
           ></input>
         </div>
         <div>
@@ -82,6 +84,8 @@ function CreateUser() {
             placeholder="example@domain.com"
             name="email"
             onChange={handleChange}
+            pattern='^.+@.+\..+'
+            required
           ></input>
         </div>
         <div >
@@ -90,10 +94,12 @@ function CreateUser() {
           </label>
           <input
             className="form-input"
-            type="text"
+            type="password"
             placeholder="password"
             name="password"
             onChange={handleChange}
+            minlength="5"
+            required
           ></input>
         </div>
         <div>
@@ -105,7 +111,9 @@ function CreateUser() {
             type="tel"
             placeholder="555-555-5555"
             name="phoneNumber"
+            pattern='^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
             onChange={handleChange}
+            required
           ></input>
         </div>
         <br />
@@ -120,6 +128,7 @@ function CreateUser() {
             name="adminFlag"
             id="checkbox"
             onChange={handleChange}
+            required
           ></input>
         </div>
         <br />
