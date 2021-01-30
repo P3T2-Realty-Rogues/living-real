@@ -301,6 +301,22 @@ iframe {
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
+.back-btn-1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--light);
+  border: none;
+  outline: none;
+  background-color: red;
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+  text-align: center;
+}
 .btnNav {
   font-size: 1.3rem;
   text-decoration: none;
@@ -511,7 +527,7 @@ ul {
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 50%;
+  width: 100%;
 }
 
 /* FORM */

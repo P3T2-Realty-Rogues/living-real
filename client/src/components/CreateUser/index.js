@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { AiOutlineSend } from "react-icons/ai";
+import {RiArrowGoBackLine} from "react-icons/ri";
 
 function CreateUser() {
   const [formState, setFormState] = useState({
@@ -106,6 +108,7 @@ function CreateUser() {
             onChange={handleChange}
           ></input>
         </div>
+        <br />
         <div>
           <label htmlFor="adminFlag">
             <b>Administrator</b>
@@ -119,14 +122,19 @@ function CreateUser() {
             onChange={handleChange}
           ></input>
         </div>
+        <br />
         <div>
-          <br />
-          <button className="create-btn">Create User</button>
-          <br />
-          <Link to="/AdminDash" className="back-btn">
-            Back to Dashboard
-          </Link>
-        </div>
+              
+              <button className="create-btn">
+              <AiOutlineSend size={30} color="default"></AiOutlineSend> 
+                &nbsp; 
+                <p>Add User</p>
+              </button>
+              <Link to="/AdminDash" className="back-btn">
+                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+                <p>Back</p>
+              </Link>
+            </div>
       </form>
     </div>
   );
