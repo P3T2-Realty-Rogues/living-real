@@ -466,6 +466,17 @@ ul {
   display: flex;
   justify-content: center;
 }
+.carousel-detail, .carouselItem {
+  margin: auto;
+  padding: 10px; 
+  /* padding-top: 5rem;  */
+  /* border: 3px solid var(--dark); */
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 .card {
   margin:0 auto; 
@@ -536,7 +547,9 @@ ul {
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   height: 100%;
-  width: 100%;
+  width: 50%;
+  justify-content: center;
+
 }
 
 /* FORM */
@@ -587,9 +600,11 @@ ul {
 /* FLEX CONTENT */
 
 .flex-row {
+  margin: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .flex-column {

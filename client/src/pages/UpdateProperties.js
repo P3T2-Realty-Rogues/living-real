@@ -50,7 +50,7 @@ function UpdateProperty() {
   return (
     <div>
       <div className="flex-row">
-        <div className="table card">
+        <div className="table-card">
           <p>&nbsp;</p>
           {/* Property details and amenities */}
           <table className="ui striped  collapsing table">
