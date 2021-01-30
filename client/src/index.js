@@ -5,6 +5,7 @@ import App from './App';
 import "semantic-ui-css/semantic.min.css";
 import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer'
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+serviceWorker.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
