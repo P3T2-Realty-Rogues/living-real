@@ -87,20 +87,25 @@ const MoveUserOut = () => {
     }
 
     return (
+        <div className="card">
+            <div className="card-header">
+                <h3 className="card-header">Choose a Tenant</h3>
+            </div>
+            <div className='card-body'>
 
-
-        <div className='moveContainer'>
-
-            <Autocomplete
-                id="tenant-out-box"
-                options={currentProperty?.ownerInfo?.tenant}
-                getOptionLabel={(tenant) => tenant.firstName + ' ' + tenant.lastName}
-                style={{ width: "20rem" }}
-                renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
-                onChange={handleChange}
-            />
-            <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='secondary'>Move Tenant Out</Button></div>
+                <Autocomplete
+                    id="tenant-out-box"
+                    options={currentProperty?.ownerInfo?.tenant}
+                    getOptionLabel={(tenant) => tenant.firstName + ' ' + tenant.lastName}
+                    style={{color: "var(--light)"}, {background: "white"}}
+                    renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
+                    onChange={handleChange}
+                />
+                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='secondary'>Move Tenant Out</Button></div>
+            </div>
         </div>
+
+
 
     );
 };

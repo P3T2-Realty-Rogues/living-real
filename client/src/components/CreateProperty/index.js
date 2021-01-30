@@ -4,7 +4,7 @@ import Upload from "../Upload";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../../utils/auth";
-import {BsHouseFill} from "react-icons/bs"; 
+import { AiOutlineSend } from "react-icons/ai";
 import {RiArrowGoBackLine} from "react-icons/ri";
 
 function CreateProperty() {
@@ -286,7 +286,7 @@ function CreateProperty() {
             <div>
               
               <button className="create-btn">
-                <BsHouseFill size={30} color="var(--light)"></BsHouseFill> 
+              <AiOutlineSend size={30} color="default"></AiOutlineSend> 
                 &nbsp; 
                 <p>Create Property</p>
               </button>

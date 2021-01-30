@@ -110,44 +110,61 @@ const MoveUser = () => {
     }
 
     return (
-        <>
-        <div>
-            <Box className='moveContainer'>
+        
+        <div className="col-auto flex-row">
+        <div className="card">
+            <div className="card-header">
+                <h3 className="card-header">Move a Tenant In</h3>
+            </div>
+            <div className="card-body">
+            <Box>
+                <p style={{color: "var(--light)"}}>Choose a User</p>
                 <Autocomplete
                     id="users-box"
                     options={users.data?.users}
                     getOptionLabel={(users) => users.firstName + ' ' + users.lastName}
-                    style={{ width: "20rem" }}
+                    style={{color: "var(--light)"}, {background: "white"}}
                     renderInput={(params) => <TextField {...params} label="User" variant="outlined" />}
                     onChange={handleChange}
                 />
-    
+                <br />
+                <p style={{color: "var(--light)"}}>Choose a Property</p>
                 <Autocomplete
                     id="home-box"
                     options={allProperties}
                     getOptionLabel={(property) => property.propertyName}
-                    style={{ width: "20rem", marginTop: "10px" }}
+                    style={{color: "var(--light)"}, {background: "white"}}
                     renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
                     onChange={handleChange}
                 />
-                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='primary'>Move Tenant In</Button></div>
+                <br />
+                <div className='contentContainer'><button className="create-btn" onClick={handleSubmit} size='large' variant="contained" color='primary'>Submit</button></div>
             </Box>
-    
-            <Box className='moveContainer'>
-    
+            </div>
+            
+        </div>
+        <div className="card">
+            <div className="card-header">
+                <h3 className="card-header"> Choose A Property to Edit Tenants </h3>
+            </div>
+            <div className="card-body">
+            <Box>
+            <p style={{color: "var(--light)"}}>Choose a Property</p>
                 <Autocomplete
                     id="move-out-box"
                     options={allProperties}
                     getOptionLabel={(property) => property.propertyName}
-                    style={{ width: "20rem" }}
+                    style={{color: "var(--light)"}, {background: "white"}}
                     renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
                     onChange={handleMoveOutChange}
                 />
-                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Tenants</Button></div>
+                <br />
+                <div className='contentContainer'><button className="create-btn" onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Property</button></div>
             </Box>
+            </div>
         </div>
-
-        </>
+        
+        </div>
     );
 }
 

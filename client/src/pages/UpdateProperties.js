@@ -48,8 +48,8 @@ function UpdateProperty() {
 
   return (
     <div>
-      <div>
-        <div className="table">
+      <div className="flex-row">
+        <div className="table card">
           <p>&nbsp;</p>
           {/* Property details and amenities */}
           <table className="ui striped  collapsing table">
@@ -79,21 +79,9 @@ function UpdateProperty() {
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="card">
-          <div className="card-header">
-            <h3 className="card-header">Options</h3>
-          </div>
-          <div className="card-body">
-            <div className="form-label"></div>
-            <div>
-  
-              <Link to="/AdminDash" className="back-btn">
+          <Link to="/AdminDash" className="back-btn-1">
                 <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
-                <p>Back</p>
               </Link>
-            </div>
-          </div>
         </div>
       </div>
     </div>
