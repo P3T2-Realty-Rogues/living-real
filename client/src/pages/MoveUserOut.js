@@ -67,7 +67,6 @@ const MoveUserOut = () => {
                     setMoveOutData({ ...moveOutData, userId: currentProperty?.ownerInfo?.tenant[event.target.attributes[3].value]._id })
                 }
             }
-        console.log(moveOutData);
     };
     const handleSubmit = async event => {
         event.preventDefault();

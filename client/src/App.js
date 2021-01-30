@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from "react-redux";
 import store from "./utils/store";
@@ -9,12 +14,12 @@ import CreateProperty from "./components/CreateProperty";
 import UpdateProperties from "./pages/UpdateProperties";
 import UpdatePropertyForm from "./pages/UpdatePropertyForm";
 import UpdateUser from "./pages/UpdateUser";
-import TenantInfo from "./components/TenantInfo"
-import Upload from "./components/Upload"
-import ApplyNow from "./pages/ApplyNow"
+import TenantInfo from "./components/TenantInfo";
+import Upload from "./components/Upload";
+import ApplyNow from "./pages/ApplyNow";
 import MaintenanceRequest from "./components/MaintenanceRequest";
-import MoveUser from './pages/MoveUser'
-import MoveUserOut from './pages/MoveUserOut'
+import MoveUser from "./pages/MoveUser";
+import MoveUserOut from "./pages/MoveUserOut";
 
 import ApolloClient from "apollo-boost";
 
@@ -26,6 +31,7 @@ import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
 import TenantDash from "./pages/TenantDash";
 import Success from "./pages/Success";
+
 // import NoMatch from "./pages/NoMatch";
 // import PropertyList from './components/Properties'
 
@@ -38,10 +44,12 @@ const client = new ApolloClient({
       },
     });
   },
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 function App() {
+  const history = useHistory();
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -50,7 +58,7 @@ function App() {
             <header className="App-header">
               <NavBar />
             </header>
-            <div className='contentContainer'>
+            <div className="contentContainer">
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/login" component={Login} />
@@ -58,11 +66,7 @@ function App() {
                 <Route exact path="/adminDash" component={AdminDash} />
                 <Route exact path="/tenantDash/:id" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
-                <Route
-                  exact
-                  path="/ApplyNow/:id"
-                  component={ApplyNow}
-                />
+                <Route exact path="/ApplyNow/:id" component={ApplyNow} />
                 <Route
                   exact
                   path="/AdminDash/CreateUser"
@@ -82,6 +86,7 @@ function App() {
                   exact
                   path="/AdminDash/UpdateProperty/:id"
                   component={UpdatePropertyForm}
+                  history={history}
                 />
                 <Route
                   exact
@@ -98,11 +103,7 @@ function App() {
                   path="/TenantDash/TenantInfo"
                   component={TenantInfo}
                 />
-                <Route
-                  exact
-                  path="/AdminDash/MoveUser"
-                  component={MoveUser}
-                />
+                <Route exact path="/AdminDash/MoveUser" component={MoveUser} />
                 <Route
                   exact
                   path="/AdminDash/MoveUserOut/:id"

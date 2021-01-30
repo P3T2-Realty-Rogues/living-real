@@ -3,14 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { useParams } from "react-router-dom";
-import { UPDATE_PROPERTIES } from "../utils/actions";
-import { UPDATE_PROPERTY_DATA } from "../utils/mutations";
-import Button from "@material-ui/core/Button";
+import { REMOVE_PROPERTY, UPDATE_PROPERTIES } from "../utils/actions";
+import { DELETE_PROPERTY, UPDATE_PROPERTY_DATA } from "../utils/mutations";
 
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
-function UpdatePropertyForm() {
+function UpdatePropertyForm(props) {
   const { id } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -19,11 +18,18 @@ function UpdatePropertyForm() {
 
   const [updatedProperty, setUpdatedProperty] = useState({});
 
+  const [deletedProperty, setDeletedProperty] = useState({ propertyId: id });
+
   const { loading, data } = useQuery(QUERY_PROPERTIES);
 
   const { properties } = state;
 
+  const [updateProperty] = useMutation(UPDATE_PROPERTY_DATA);
+
+  const [deleteProperty] = useMutation(DELETE_PROPERTY);
+
   useEffect(() => {
+    console.log("STATE", properties);
     // already in global store
     if (properties.length) {
       setCurrentProperty(properties.find((property) => property._id === id));
@@ -40,6 +46,12 @@ function UpdatePropertyForm() {
         idbPromise("properties", "put", property);
       });
     }
+    else if (data) {
+      dispatch({
+        type: REMOVE_PROPERTY,
+        properties: data.property._id,
+      });
+    }
     // get cache from idb
     else if (!loading) {
       idbPromise("properties", "get").then((indexedProperties) => {
@@ -51,12 +63,6 @@ function UpdatePropertyForm() {
     }
   }, [properties, data, loading, dispatch, id]);
 
-  const [updateProperty] = useMutation(UPDATE_PROPERTY_DATA);
-
-  console.log("currentProperty", currentProperty);
-
-  console.log("updatedProperty", typeof updatedProperty?.rent);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdatedProperty({
@@ -67,7 +73,6 @@ function UpdatePropertyForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("updateProperty spread", { ...updatedProperty });
     const { data } = await updateProperty({
       variables: {
         propertyId: updatedProperty._id,
@@ -78,12 +83,25 @@ function UpdatePropertyForm() {
         appFee: parseInt(updatedProperty.appFee),
       },
     });
-    //comment
-    //   console.log("DATA", data.updateProperty);
-    setUpdatedProperty(data.updateProperty);
+    setUpdatedProperty(data.updateProperty); 
+    props.history.push("/AdminDash");
   };
 
-  //   console.log(currentProperty);
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await deleteProperty({
+        variables: {
+          _id: deletedProperty.propertyId,
+        },
+      });
+      setDeletedProperty({ propertyId: "" });
+      props.history.push("/AdminDash");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <form className="col-auto flex-row" onSubmit={handleSubmit}>
       <div className="card">
@@ -161,7 +179,17 @@ function UpdatePropertyForm() {
               color="secondary"
             >
               Update
-          </button>
+            </button>
+            <button
+              className="create-btn"
+              onClick={handleDelete}
+              type="submit"
+              size="large"
+              variant="contained"
+              color="secondary"
+            >
+              Delete
+            </button>
           </div>
           {/* <div>
                         <label htmlFor="photos"> <b>Upload Photos</b></label>
