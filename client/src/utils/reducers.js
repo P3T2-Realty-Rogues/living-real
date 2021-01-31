@@ -8,6 +8,7 @@ import {
   UPDATE_PROPERTIES,
   REMOVE_PROPERTY,
   QUERY_PROPERTIES,
+  QUERY_CHECKOUT,
 } from "./actions";
 
 // Create the initial state for Redux
@@ -79,6 +80,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         property: [action.properties],
       };
+
     // If it's none of these actions, do not update state at all and keep things the same!
     default:
       return state;
