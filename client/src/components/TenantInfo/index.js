@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import Auth from "../../utils/auth"
 import { QUERY_PROPERTIES, QUERY_CHECKOUT } from "../../utils/queries";
-//import { UPDATE_PROPERTIES} from "../../utils/actions";
+import { UPDATE_PROPERTIES} from "../../utils/actions";
 import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
@@ -42,37 +42,37 @@ function TenantInfo() {
     });
   }
 
-  // useEffect(() => {
-  //   // already in global store
-  //   if (properties.length) {
-  //     setCurrentProperty(properties.find(property => property._id === propertyId));
-  //   }
-  //   // retrieved from server
-  //   else if (data) {
-  //     dispatch({
-  //       type: UPDATE_PROPERTIES,
-  //       properties: data.properties
-  //     });
+  useEffect(() => {
+    // already in global store
+    if (properties.length) {
+      setCurrentProperty(properties.find(property => property._id === propertyId));
+    }
+    // retrieved from server
+    else if (data) {
+      dispatch({
+        type: UPDATE_PROPERTIES,
+        properties: data.properties
+      });
 
-  //     data.properties.forEach((property) => {
-  //       idbPromise('properties', 'put', property);
-  //     });
-  //   }
-  //   // get cache from idb
-  //   else if (!loading) {
-  //     idbPromise('properties', 'get').then((indexedProperties) => {
-  //       dispatch({
-  //         type: UPDATE_PROPERTIES,
-  //         properties: indexedProperties
-  //       });
-  //     });
-  //   }
-  // }, [properties, data, loading, dispatch, propertyId]);
+      data.properties.forEach((property) => {
+        idbPromise('properties', 'put', property);
+      });
+    }
+    // get cache from idb
+    else if (!loading) {
+      idbPromise('properties', 'get').then((indexedProperties) => {
+        dispatch({
+          type: UPDATE_PROPERTIES,
+          properties: indexedProperties
+        });
+      });
+    }
+  }, [properties, data, loading, dispatch, propertyId]);
 
   useEffect(() => {
     if (data2) {
       stripePromise.then((res) => {
-        // res.redirectToCheckout({ sessionId: data2.checkout.session });
+        // res.redirectToCheckout({ sessionId: data.checkout.session });
         //res.redirectToCheckout({ sessionId: "cs_test_b0YpWrYjFkbwzBNoce7ZKxoz5rk6WkBEQOPDsNHPAO25XODqogt779Pp" });
       });
     }
