@@ -9,6 +9,9 @@ import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
 import { loadStripe } from '@stripe/stripe-js';
+import {RiArrowGoBackLine} from "react-icons/ri";
+
+
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -99,20 +102,21 @@ function TenantInfo() {
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
           </p>
-          <Link className="btnNav" onClick={submitCheckout}>
-            Pay Rent
+          <Link  onClick={submitCheckout}>
+            <button className="create-btn">Pay Rent</button>
+            
           </Link>
-          <a
-            className="btnNav"
-            href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          <Link to="/LeaseDoc" className="btn">
             Lease Document
-          </a>
-          <Link to="/TenantDash/MaintenanceRequests">
-            <div className="btnNav">View Maintenance Requests </div>
           </Link>
+          <Link className="btn" to="/Contact">
+            Submit Maintenance Request
+          </Link>
+          <br />
+          <Link to="/" className="back-btn">
+                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+                <p>Back</p>
+              </Link>
         </div>
       </div>
     </div>
