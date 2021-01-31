@@ -34,29 +34,26 @@ const resolvers = {
       return await Property.findById(_id);
     },
     checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const line_items = [];
+
+      console.log("contect properties ", context.properties)
 
       console.log("args: ", args)
       console.log("type of arg ", typeof args.property)
       
-      const toNum = parseInt(args.property);
-      console.log("type of arg toNum", typeof toNum)
+      const toNum = parseInt(args.rent);
+      console.log("Property: ", Property)
 
-      const url = new URL(context.headers.referer).origin;
-      console.log( " In checkout, URL is: ", url );
-
-      const line_items = [];
-
-      console.log("awaiting product create")
+      console.log("awaiting products.create")
       const rent = await stripe.products.create({
         name: "Monthly Rent",
       });
 
-      console.log("awaiting price create")
-      console.log("property rent: ", args.property)
+      console.log("awaiting prices.create")
       const price = await stripe.prices.create({
         product: rent.id,
         unit_amount: toNum * 100,
-        // unit_amount: Property.findById(parseInt((args.property).rent)) * 100,
         currency: "usd",
       });
 
@@ -67,7 +64,6 @@ const resolvers = {
       });
 
       console.log("creating session")
-
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items,
@@ -77,7 +73,6 @@ const resolvers = {
       });
 
       console.log("session: ", session.id)
-
       return { session: session.id };
     },
   },

@@ -73,7 +73,7 @@ const typeDefs = gql`
     users: [User] #if user is not currently renting, property and/or tenant info might be null!
     property(_id: ID!): Property
     user(_id: ID!): User
-    checkout(property: ID!): Checkout
+    checkout(property: ID!, rent: Int): Checkout
   }
 
   type Mutation {
