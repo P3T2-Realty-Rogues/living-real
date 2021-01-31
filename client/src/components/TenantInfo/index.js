@@ -9,77 +9,70 @@ import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
 import { loadStripe } from '@stripe/stripe-js';
-import {RiArrowGoBackLine} from "react-icons/ri";
-
-
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 function TenantInfo() {
-  const currentUser = Auth.getProfile().data
-  const propertyId = currentUser.property
+	const currentUser = Auth.getProfile().data;
+	const propertyId = currentUser.property;
 
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+	const state = useSelector(state => state);
+	const dispatch = useDispatch();
 
-  const [currentProperty, setCurrentProperty] = useState({})
+	const [currentProperty, setCurrentProperty] = useState({});
 
-  const { loading, data } = useQuery(QUERY_PROPERTIES);
+	const { loading, data } = useQuery(QUERY_PROPERTIES);
 
-  const {properties} = state
+	const { properties } = state;
 
-  const [getCheckout] = useLazyQuery(QUERY_CHECKOUT);
+	const [getCheckout, { data: data2 }] = useLazyQuery(QUERY_CHECKOUT);
 
-  console.log("data: ", data);
+	function submitCheckout() {
+		getCheckout({
+			variables: { property: propertyId },
+		});
+	}
 
-  function submitCheckout() {
-    console.log("in submit");
+	useEffect(() => {
+		// already in global store
+		if (properties.length) {
+			setCurrentProperty(
+				properties.find(property => property._id === propertyId)
+			);
+		}
+		// retrieved from server
+		else if (data) {
+			dispatch({
+				type: UPDATE_PROPERTIES,
+				properties: data.properties,
+			});
 
-    getCheckout({
-      
-    });
-  }
+			data.properties.forEach(property => {
+				idbPromise('properties', 'put', property);
+			});
+		}
+		// get cache from idb
+		else if (!loading) {
+			idbPromise('properties', 'get').then(indexedProperties => {
+				dispatch({
+					type: UPDATE_PROPERTIES,
+					properties: indexedProperties,
+				});
+			});
+		}
+	}, [properties, data, loading, dispatch, propertyId]);
 
-  useEffect(() => {
-    // already in global store
-    if (properties.length) {
-      setCurrentProperty(properties.find(property => property._id === propertyId));
-    }
-    // retrieved from server
-    else if (data) {
-      dispatch({
-        type: UPDATE_PROPERTIES,
-        properties: data.properties
-      });
+	useEffect(() => {
+		if (data2) {
+			stripePromise.then(res => {
+				res.redirectToCheckout({
+					sessionId: data2.checkout.session,
+				});
+			});
+		}
+	}, [data2]);
 
-      data.properties.forEach((property) => {
-        idbPromise('properties', 'put', property);
-      });
-    }
-    // get from idb
-    else if (!loading) {
-      idbPromise('properties', 'get').then((indexedProperties) => {
-        dispatch({
-          type: UPDATE_PROPERTIES,
-          properties: indexedProperties
-        });
-      });
-    }
-  }, [properties, data, loading, dispatch, propertyId]);
-
-  useEffect(() => {
-    if (data) {
-      stripePromise.then((res) => {
-        // res.redirectToCheckout({ sessionId: data.checkout.session });
-        res.redirectToCheckout({ sessionId: 4455 });
-      });
-    }
-  }, [data]);
-
-  console.log("currentUser: ", currentUser);
-  console.log("currentProperty: ", currentProperty);
-
-  return (
+	return (
     <div className="card">
       <header>
         <h1 className="card-header">Lease Information</h1>
@@ -89,9 +82,7 @@ function TenantInfo() {
           {toTitleCase(currentUser?.firstName)} &nbsp;
           {toTitleCase(currentUser?.lastName)}
         </h2>
-        <p>
-            Rent Due: ${currentProperty?.rent}
-          </p>
+        <p>Rent Due: ${currentProperty?.rent}</p>
         <ul className="tenant-info">
           <li>Address: {currentProperty?.streetAddress}</li>
           <li>Email: {currentUser?.email}</li>
@@ -102,21 +93,25 @@ function TenantInfo() {
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
           </p>
-          <Link  onClick={submitCheckout}>
-            <button className="create-btn">Pay Rent</button>
-            
-          </Link>
-          <Link to="/LeaseDoc" className="btn">
+          <button
+            className="btnNav"
+            onClick={submitCheckout}
+          >
+            Pay Rent
+          </button>
+          <a
+            className="btnNav"
+            href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             Lease Document
+          </a>
+          <Link to="/TenantDash/MaintenanceRequests">
+            <div className="btnNav">
+              View Maintenance Requests{' '}
+            </div>
           </Link>
-          <Link className="btn" to="/Contact">
-            Submit Maintenance Request
-          </Link>
-          <br />
-          <Link to="/" className="back-btn">
-                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
-                <p>Back</p>
-              </Link>
         </div>
       </div>
     </div>
