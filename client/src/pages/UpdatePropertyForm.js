@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { useParams } from "react-router-dom";
-import { REMOVE_PROPERTY, UPDATE_PROPERTIES } from "../utils/actions";
+import { REMOVE_PROPERTY, UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
 import { DELETE_PROPERTY, UPDATE_PROPERTY_DATA } from "../utils/mutations";
 
 //import the idb helper to make transactions with the database
@@ -83,8 +83,13 @@ function UpdatePropertyForm(props) {
         appFee: parseInt(updatedProperty.appFee),
       },
     });
-    setUpdatedProperty(data.updateProperty); 
-    props.history.push("/AdminDash");
+    setUpdatedProperty(data.updateProperty);
+    dispatch({
+      type: UPDATE_PROPERTY,
+      updatedProperty: updatedProperty,
+      properties: properties
+    });
+    // props.history.push("/AdminDash");
   };
 
   const handleDelete = async (e) => {

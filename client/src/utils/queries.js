@@ -140,24 +140,9 @@ query {
 `;
 
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($_id:ID!) {
-    checkout(_id: $_id) {
+  query getCheckout($property:ID!, $rent:Int) {
+    checkout(property: $_id, rent: $rent) {
       session
     }
   }
 `;
-
-// export const QUERY_BBOARD = gql`
-// {
-//   bboard {
-//     _id
-//     poster_ID
-//     message
-// 	  comments []{
-// 	    _id
-// 	    poster_ID
-// 	    comment
-//     }
-//   }
-// }
-// `;

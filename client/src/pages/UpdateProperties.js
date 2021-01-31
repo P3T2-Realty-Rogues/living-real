@@ -67,11 +67,15 @@ function UpdateProperty() {
                   <td>
                     <button
                       className="btn"
+                      key={property.propertyName}
                       id={property.propertyName
                         .toLowerCase()
                         .replace(/\s/g, "")}
                     >
-                      <Link to={`/AdminDash/UpdateProperty/${property._id}`}> Edit </Link>
+                      <Link to={`/AdminDash/UpdateProperty/${property._id}`}>
+                        {" "}
+                        Edit{" "}
+                      </Link>
                     </button>
                   </td>
                   <td>{property.propertyName}</td>
@@ -81,9 +85,12 @@ function UpdateProperty() {
             </tbody>
           </table>
           <Link to="/AdminDash" className="back-btn-1">
-                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
-                <p>Back</p>
-              </Link>
+            <RiArrowGoBackLine
+              size={30}
+              color="var(--light)"
+            ></RiArrowGoBackLine>
+            <p>Back</p>
+          </Link>
         </div>
       </div>
     </div>
