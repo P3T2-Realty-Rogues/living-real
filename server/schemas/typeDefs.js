@@ -11,12 +11,10 @@ const typeDefs = gql`
     property: Property
     tenantData: TenantData
   }
-
   type TenantData {
     leaseDate: String
     activeTenant: Boolean
   }
-
   type Property {
     _id: ID
     propertyName: String
@@ -40,14 +38,12 @@ const typeDefs = gql`
     availability: Boolean
     ownerInfo: OwnerInfo
   }
-
   type OwnerInfo {
     mortgage: Float
     propertyTaxes: Float
     propertyInsurance: Float
     tenant: [User]
   }
-
   type Maintenance {
     _id: ID
     tenantID: ID
@@ -56,16 +52,13 @@ const typeDefs = gql`
     grantAccess: Boolean
     critical: Int
   }
-
   type Auth {
     token: ID
     user: User
   }
-
   type Checkout {
     session: ID
   }
-
   type Query {
     owners: [User]
     tenants: [User]
@@ -75,7 +68,6 @@ const typeDefs = gql`
     user(_id: ID!): User
     checkout(property: ID!, rent: Int): Checkout
   }
-
   type Mutation {
     addUser(
       firstName: String!
@@ -87,7 +79,6 @@ const typeDefs = gql`
       property: ID
       tenantData: TenantInput
     ): User
-
     updateUser(
       firstName: String
       lastName: String
@@ -98,7 +89,6 @@ const typeDefs = gql`
       property: ID
       tenantData: TenantInput
     ): User
-
     addProperty(
       propertyName: String!
       propertyType: String!
@@ -121,7 +111,6 @@ const typeDefs = gql`
       pictures: [String]
       ownerInfo: OwnerInfoInput
     ): Property
-
     updateProperty(
       propertyId: ID!
       propertyName: String
@@ -145,24 +134,17 @@ const typeDefs = gql`
       pictures: [String]
       ownerInfo: OwnerInfoInput
     ): Property
-
     moveUserIn(userId: ID!, propertyId: ID!): User
-
     moveUserOut(userId: ID!, propertyId: ID!): User
-
     login(email: String!, password: String!): Auth
-
     deleteUser(_id: ID!): User
     deleteProperty(_id: ID!): Property
-
     addTenant(tenantId: ID!, property: ID!): Property
   }
-
   input TenantInput {
     leaseDate: String
     activeTenant: Boolean
   }
-
   input OwnerInfoInput {
     mortgage: Float
     propertyTaxes: Float

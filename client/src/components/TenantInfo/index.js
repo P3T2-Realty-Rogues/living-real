@@ -9,9 +9,6 @@ import toTitleCase from '../../utils/helpers';
 //import the idb helper to make transactions with the database
 import { idbPromise } from '../../utils/helpers';
 import { loadStripe } from '@stripe/stripe-js';
-import {RiArrowGoBackLine} from "react-icons/ri";
-
-
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -31,12 +28,8 @@ function TenantInfo() {
 	const [getCheckout, { data: data2 }] = useLazyQuery(QUERY_CHECKOUT);
 
 	function submitCheckout() {
-		console.log('in submit');
-    console.log('propertyID: ', propertyId);
-    console.log('rent: ', currentProperty?.rent)
-
 		getCheckout({
-			variables: { property: propertyId, rent: currentProperty?.rent },
+			variables: { property: propertyId },
 		});
 	}
 
@@ -69,14 +62,12 @@ function TenantInfo() {
 		}
 	}, [properties, data, loading, dispatch, propertyId]);
 
-  console.log("data2 ", data2)
 	useEffect(() => {
 		if (data2) {
 			stripePromise.then(res => {
 				res.redirectToCheckout({
 					sessionId: data2.checkout.session,
 				});
-				//res.redirectToCheckout({ sessionId: "cs_test_b0YpWrYjFkbwzBNoce7ZKxoz5rk6WkBEQOPDsNHPAO25XODqogt779Pp" });
 			});
 		}
 	}, [data2]);
@@ -102,13 +93,9 @@ function TenantInfo() {
 						Lease Start:&nbsp;
 						{currentUser?.tenantData?.leaseDate}
 					</p>
-					<Link
-						to="/TenantDash"
-						className="btnNav"
-						onClick={submitCheckout}
-					>
+					<button className="btnNav" onClick={submitCheckout}>
 						Pay Rent
-					</Link>
+					</button>
 					<a
 						className="btnNav"
 						href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
