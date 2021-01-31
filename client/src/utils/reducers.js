@@ -47,9 +47,19 @@ export const reducer = (state = initialState, action) => {
       };
     // If action type value is the value of `UPDATE_PROPERTY`, return a new state object with an updated properties array
     case UPDATE_PROPERTY:
+      let newPropertiesArr = []
+
+      for (let i = 0; i < action.properties.length; i++) {
+        if (action.properties[i]._id != action.updatedProperty._id) {
+          newPropertiesArr.push(action.properties[i])
+        } else {
+          newPropertiesArr.push(action.updatedProperty)
+        }
+      }
+      
       return {
         ...state,
-        currentProperty: { ...action.currentProperty },
+        properties: newPropertiesArr,
       };
     case UPDATE_PROPERTIES:
       return {
