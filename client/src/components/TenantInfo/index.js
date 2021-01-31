@@ -56,7 +56,7 @@ function TenantInfo() {
         idbPromise('properties', 'put', property);
       });
     }
-    // get cache from idb
+    // get from idb
     else if (!loading) {
       idbPromise('properties', 'get').then((indexedProperties) => {
         dispatch({
