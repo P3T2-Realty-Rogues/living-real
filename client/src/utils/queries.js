@@ -141,7 +141,7 @@ query {
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($property:ID!, $rent:Int) {
-    checkout(property: $property, rent: $rent) {
+    checkout(property: $_id, rent: $rent) {
       session
     }
   }
