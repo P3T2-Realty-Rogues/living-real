@@ -77,7 +77,7 @@ function CreateProperty() {
           </div>
           <div className="card-body">
             <div>
-              <label className="form-label" for="propertyName">
+              <label className="form-label" htmlFor="propertyName">
                 <b>Property Name</b>
               </label>
               <input
@@ -90,7 +90,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div>
-              <label className="form-label" for="propertyType">
+              <label className="form-label" htmlFor="propertyType">
                 <b>Property Type</b>
               </label>
               <input
@@ -103,7 +103,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div>
-              <label className="form-label" for="streetAddress">
+              <label className="form-label" htmlFor="streetAddress">
                 <b>Street Address</b>
               </label>
               <input
@@ -116,7 +116,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for=" city">
+              <label className="form-label" htmlFor="city">
                 <b>City</b>
               </label>
               <input
@@ -129,7 +129,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="state">
+              <label className="form-label" htmlFor="state">
                 <b>State</b>
               </label>
               <input
@@ -142,7 +142,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="zipCode">
+              <label className="form-label" htmlFor="zipCode">
                 <b>Zip Code</b>
               </label>
               <input
@@ -156,7 +156,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="sqFeet">
+              <label className="form-label" htmlFor="sqFeet">
                 <b>Square Footage</b>
               </label>
               <input
@@ -204,7 +204,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div  className = "form-detail">
-              <label className="form-label" for="numBedroom">
+              <label className="form-label" htmlFor="numBedroom">
                 <b>Bedrooms</b>
               </label>
               <input
@@ -217,7 +217,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="numBathrooms">
+              <label className="form-label" htmlFor="numBathrooms">
                 <b>Bathrooms</b>
               </label>
               <input
@@ -231,7 +231,7 @@ function CreateProperty() {
             </div>
 
             <div className = "form-detail">
-              <label className="form-label" for="rent">
+              <label className="form-label" htmlFor="rent">
                 <b>Rent</b>
               </label>
               <input
@@ -244,7 +244,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="petDeposit">
+              <label className="form-label" htmlFor="petDeposit">
                 <b>Pet Deposit</b>
               </label>
               <input
@@ -257,7 +257,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="renterDeposit">
+              <label className="form-label" htmlFor="renterDeposit">
                 <b>Renter Deposit</b>
               </label>
               <input
@@ -270,7 +270,7 @@ function CreateProperty() {
               ></input>
             </div>
             <div className = "form-detail">
-              <label className="form-label" for="appFee">
+              <label className="form-label" htmlFor="appFee">
                 <b>App Fee</b>
               </label>
               <input

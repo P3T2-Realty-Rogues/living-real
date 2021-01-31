@@ -181,7 +181,7 @@ function UpdatePropertyForm(props) {
               Update
             </button>
             <button
-              className="create-btn"
+              className="back-btn"
               onClick={handleDelete}
               type="submit"
               size="large"

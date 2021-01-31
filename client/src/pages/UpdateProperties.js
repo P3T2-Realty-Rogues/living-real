@@ -82,6 +82,7 @@ function UpdateProperty() {
           </table>
           <Link to="/AdminDash" className="back-btn-1">
                 <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+                <p>Back</p>
               </Link>
         </div>
       </div>
