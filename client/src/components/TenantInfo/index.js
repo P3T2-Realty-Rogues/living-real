@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import Auth from "../../utils/auth"
 import { QUERY_PROPERTIES, QUERY_CHECKOUT } from "../../utils/queries";
-import { UPDATE_PROPERTIES} from "../../utils/actions";
+//import { UPDATE_PROPERTIES} from "../../utils/actions";
 import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
@@ -25,9 +25,10 @@ function TenantInfo() {
 
   const {properties} = state
 
-  const [getCheckout, { data2 }] = useLazyQuery(QUERY_CHECKOUT);
+  const [getCheckout,  data2 ] = useLazyQuery(QUERY_CHECKOUT);
   console.log("loading: ", loading)
-  console.log("data: ", data);
+  console.log("properties data: ", data);
+  console.log("checkout data2: ", data2);
 
   function submitCheckout() {
     const ID = 0;
@@ -41,44 +42,51 @@ function TenantInfo() {
     });
   }
 
-  useEffect(() => {
-    // already in global store
-    if (properties.length) {
-      setCurrentProperty(properties.find(property => property._id === propertyId));
-    }
-    // retrieved from server
-    else if (data) {
-      dispatch({
-        type: UPDATE_PROPERTIES,
-        properties: data.properties
-      });
+  // useEffect(() => {
+  //   // already in global store
+  //   if (properties.length) {
+  //     setCurrentProperty(properties.find(property => property._id === propertyId));
+  //   }
+  //   // retrieved from server
+  //   else if (data) {
+  //     dispatch({
+  //       type: UPDATE_PROPERTIES,
+  //       properties: data.properties
+  //     });
 
-      data.properties.forEach((property) => {
-        idbPromise('properties', 'put', property);
-      });
-    }
-    // get cache from idb
-    else if (!loading) {
-      idbPromise('properties', 'get').then((indexedProperties) => {
-        dispatch({
-          type: UPDATE_PROPERTIES,
-          properties: indexedProperties
-        });
-      });
-    }
-  }, [properties, data, loading, dispatch, propertyId]);
+  //     data.properties.forEach((property) => {
+  //       idbPromise('properties', 'put', property);
+  //     });
+  //   }
+  //   // get cache from idb
+  //   else if (!loading) {
+  //     idbPromise('properties', 'get').then((indexedProperties) => {
+  //       dispatch({
+  //         type: UPDATE_PROPERTIES,
+  //         properties: indexedProperties
+  //       });
+  //     });
+  //   }
+  // }, [properties, data, loading, dispatch, propertyId]);
 
   useEffect(() => {
-    if (data) {
+    if (data2) {
       stripePromise.then((res) => {
-        // res.redirectToCheckout({ sessionId: data.checkout.session });
-        // res.redirectToCheckout({ sessionId: "cs_test_b0YpWrYjFkbwzBNoce7ZKxoz5rk6WkBEQOPDsNHPAO25XODqogt779Pp" });
+        // res.redirectToCheckout({ sessionId: data2.checkout.session });
+        //res.redirectToCheckout({ sessionId: "cs_test_b0YpWrYjFkbwzBNoce7ZKxoz5rk6WkBEQOPDsNHPAO25XODqogt779Pp" });
       });
     }
   }, [data]);
 
-  console.log("currentUser: ", currentUser);
-  console.log("currentProperty: ", currentProperty);
+
+  // Define the 'payment object' for 'Stripe'
+  // let data2 = {};
+  // data2.firstName    = currentUser?.firstName;
+  // data2.lastName     = currentUser?.lastName;
+  // data2.propertyName = currentProperty?.propertyName;
+  // data2.propertyID   = currentProperty?._id;
+  // data2.rent         = currentProperty?.rent;
+  // console.log( "Data2 for Stripe: ", data2 );
 
   return (
     <div className="card">
@@ -103,7 +111,7 @@ function TenantInfo() {
             Lease Start:&nbsp;
             {currentUser?.tenantData?.leaseDate}
           </p>
-          <Link className="btnNav" onClick={submitCheckout}>
+          <Link to="/TenantDash" className="btnNav" onClick={submitCheckout}>
             Pay Rent
           </Link>
           <a

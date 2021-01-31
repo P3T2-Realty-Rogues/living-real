@@ -8,6 +8,7 @@ import {
   UPDATE_PROPERTIES,
   REMOVE_PROPERTY,
   QUERY_PROPERTIES,
+  QUERY_CHECKOUT,
 } from "./actions";
 
 // Create the initial state for Redux
@@ -69,6 +70,14 @@ export const reducer = (state = initialState, action) => {
         ...state,
         property: [action.properties],
       };
+
+    // If action type value is the value of `QUERY_CHECKOUT`, return a new state object with an updated properties array
+    case QUERY_CHECKOUT:
+      return {
+        ...state,
+        property: [...action.property],
+      };
+
     // If it's none of these actions, do not update state at all and keep things the same!
     default:
       return state;

@@ -33,8 +33,10 @@ const resolvers = {
     property: async (parent, { _id }) => {
       return await Property.findById(_id);
     },
-    checkout: async (context, { _id }) => {
+    checkout: async (parent, context, { _id }) => {
+
       const url = new URL(context.headers.referer).origin;
+      console.log( " In checkout, URL is: ", url );
 
       const line_items = [];
 
@@ -57,7 +59,7 @@ const resolvers = {
         line_items,
         mode: "payment",
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`,
+        cancel_url: `${url}/cancel`,
       });
 
       return { session: session.id };
