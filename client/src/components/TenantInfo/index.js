@@ -25,15 +25,19 @@ function TenantInfo() {
 
   const {properties} = state
 
-  const [getCheckout] = useLazyQuery(QUERY_CHECKOUT);
-
+  const [getCheckout, { data2 }] = useLazyQuery(QUERY_CHECKOUT);
+  console.log("loading: ", loading)
   console.log("data: ", data);
 
   function submitCheckout() {
+    const ID = 0;
+
     console.log("in submit");
+    console.log("propertyID: ", propertyId)
 
     getCheckout({
-      
+      variables: {property: propertyId }
+      // variables: {}
     });
   }
 
@@ -68,7 +72,7 @@ function TenantInfo() {
     if (data) {
       stripePromise.then((res) => {
         // res.redirectToCheckout({ sessionId: data.checkout.session });
-        res.redirectToCheckout({ sessionId: 4455 });
+        // res.redirectToCheckout({ sessionId: "cs_test_b0YpWrYjFkbwzBNoce7ZKxoz5rk6WkBEQOPDsNHPAO25XODqogt779Pp" });
       });
     }
   }, [data]);
