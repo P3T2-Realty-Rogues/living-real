@@ -264,6 +264,14 @@ iframe {
   transform: translate(-1px, -1px);
 }
 
+#button-hover:hover {
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--tertiary);
+  transform: translate(0, 0);
+  box-shadow: 2px 2px var(--dark);
+}
+
 .btn  {
   font-size: 1.3rem;
   text-decoration: none;

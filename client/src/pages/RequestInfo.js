@@ -1,4 +1,7 @@
 import React from "react";
+
+import {VscRequestChanges} from "react-icons/vsc";
+
 import { Link } from "react-router-dom";
 // import { useMutation } from "@apollo/react-hooks";
 // import Auth from "../utils/auth";
@@ -50,7 +53,7 @@ function RequestInfo(props) {
         </div>
         <div>
           <br />
-          <button className="btn" type="submit">Submit</button>
+          <button className="create-btn"  id="button-hover" type="submit"><VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /> <b>Submit</b></button>
         </div>
       </form>
     </div>

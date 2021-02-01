@@ -94,22 +94,20 @@ function TenantInfo() {
             {currentUser?.tenantData?.leaseDate}
           </p>
           <button
-            className="btnNav"
+            className="create-btn"  id="button-hover" 
             onClick={submitCheckout}
           >
             Pay Rent
           </button>
-          <a
-            className="btnNav"
-            href="https://drive.google.com/file/d/1s0VzqW0LTLrzxaDQUcN1g0aF7fqQ6S47/view?usp=sharing"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          <Link to="/LeaseDoc" className="create-btn"  id="button-hover">
+   
+
+          {/* > */}
             Lease Document
-          </a>
-          <Link to="/TenantDash/MaintenanceRequests">
-            <div className="btnNav">
-              View Maintenance Requests{' '}
+          </Link>
+          <Link to="/Contact">
+            <div className="create-btn"  id="button-hover">
+              Submit Maintenance Requests{' '}
             </div>
           </Link>
         </div>
