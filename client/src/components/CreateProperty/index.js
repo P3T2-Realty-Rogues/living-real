@@ -300,12 +300,12 @@ function CreateProperty() {
             <div className="form-label"></div>
             <div>
               
-              <button className="create-btn">
+              <button className="create-btn  id=button-hover">
               <AiOutlineSend size={30} color="default"></AiOutlineSend> 
                 &nbsp; 
                 <p>Create Property</p>
               </button>
-              <Link to="/AdminDash" className="back-btn">
+              <Link to="/AdminDash" className="back-btn  id=button-hover">
                 <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
                 <p>Back</p>
               </Link>

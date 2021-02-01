@@ -179,7 +179,7 @@ function UpdatePropertyForm(props) {
             ></input>
             <br />
             <button
-              className="create-btn"
+              className="create-btn  id=button-hover"
               onClick={handleSubmit}
               type="submit"
               size="large"
@@ -189,7 +189,7 @@ function UpdatePropertyForm(props) {
               <VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /><b>Update</b>
             </button>
             <button
-              className="back-btn"
+              className="back-btn  id=button-hover"
               onClick={handleDelete}
               type="submit"
               size="large"

@@ -160,9 +160,9 @@ function Detail() {
               <h3 className="card-header">Options</h3>
             </div>
           <div className="card-body" >
-            <Link className="create-btn" to={`/ApplyNow/${id}`}><FaUserPlus size={30} color="var(--light)">
+            <Link className="create-btn  id=button-hover" to={`/ApplyNow/${id}`}><FaUserPlus size={30} color="var(--light)">
               </FaUserPlus><br /><b>Apply Now</b></Link>
-            <Link to="/" className="back-btn">
+            <Link to="/" className="back-btn  id=button-hover">
             <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
               <p>Go Back</p>
           </Link>

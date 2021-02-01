@@ -20,7 +20,7 @@ function AdminDash() {
         <h3 className="card-header">Manage your Tenants and Properties</h3>
       </div>
       <div className="card-body">
-        <button className="btnNav">
+        <button className="btnNav  id=button-hover">
           <Link to="/AdminDash/CreateUser">
             <FaUserCircle size={30} color="var(--dark)"></FaUserCircle> <br />
             <b>Create User</b>
@@ -28,7 +28,7 @@ function AdminDash() {
         </button>
         <br />
         <br />
-        <button className="btnNav">
+        <button className="btnNav  id=button-hover">
           <Link to="/AdminDash/CreateProperty">
             <BsHouseFill size={30} color="var(--dark)"></BsHouseFill>
             <br />
@@ -37,7 +37,7 @@ function AdminDash() {
         </button>
         <br />
         <br />
-        <button className="btnNav">
+        <button className="btnNav  id=button-hover">
           <Link to="/AdminDash/UpdateProperty">
             <FaHouseDamage size={30} color="var(--dark)"></FaHouseDamage> <br />
             <b>Update Properties</b>
@@ -45,7 +45,7 @@ function AdminDash() {
         </button>
         <br />
         <br />
-        <button className="btnNav">
+        <button className="btnNav   id=button-hover">
           <Link to="/AdminDash/MoveUser">
             <BiMoveHorizontal size={30} color="var(--dark)"></BiMoveHorizontal>{" "}
             <br />

@@ -67,7 +67,7 @@ function UpdateProperty() {
                 <tr>
                   <td>
                     <button
-                      className="btn"
+                      className="btn  id=button-hover"
                       key={property.propertyName}
                       id={property.propertyName
                         .toLowerCase()
@@ -85,7 +85,7 @@ function UpdateProperty() {
               ))}
             </tbody>
           </table>
-          <Link to="/AdminDash" className="back-btn-1">
+          <Link to="/AdminDash" className="back-btn-1  id=button-hover">
             <RiArrowGoBackLine
               size={30}
               color="var(--light)"

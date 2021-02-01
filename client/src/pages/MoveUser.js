@@ -162,7 +162,7 @@ const MoveUser = () => {
                     onChange={handleMoveOutChange}
                 />
                 <br />
-                <div className='contentContainer'><button className="create-btn" onClick={handleMoveOut} size='large' variant="contained" color='secondary'><AiOutlineEdit size={30} color="var(--light)">
+                <div className='contentContainer'><button className="create-btn  id=button-hover" onClick={handleMoveOut} size='large' variant="contained" color='secondary'><AiOutlineEdit size={30} color="var(--light)">
               </AiOutlineEdit><br /><b>Edit Property</b></button></div>
             </Box>
             </div>
