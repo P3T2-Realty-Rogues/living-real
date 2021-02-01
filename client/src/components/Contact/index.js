@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import {RiArrowGoBackLine} from "react-icons/ri";
 import { validateEmail } from '../../utils/helpers';
+import {VscRequestChanges} from 'react-icons/vsc';
 
 function ContactForm() {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -63,7 +64,7 @@ function ContactForm() {
 
                     </form>
                     <div>
-                        <button className="create-btn" data-testid="button" type="submit">Submit</button>
+                        <button className="create-btn" data-testid="button" type="submit"><VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /> <b>Submit</b></button>
                     </div>
                     <Link to="/TenantDash/ :id" className="back-btn">
                 <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>

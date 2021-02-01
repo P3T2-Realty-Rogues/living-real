@@ -13,6 +13,7 @@ import { QUERY_PROPERTIES } from "../utils/queries";
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 import {RiArrowGoBackLine} from "react-icons/ri";
+import {FaUserPlus} from "react-icons/fa";
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -159,7 +160,8 @@ function Detail() {
               <h3 className="card-header">Options</h3>
             </div>
           <div className="card-body" >
-            <Link className="create-btn" to={`/ApplyNow/${id}`}>Apply Now</Link>
+            <Link className="create-btn" to={`/ApplyNow/${id}`}><FaUserPlus size={30} color="var(--light)">
+              </FaUserPlus><br /><b>Apply Now</b></Link>
             <Link to="/" className="back-btn">
             <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
               <p>Go Back</p>

@@ -8,6 +8,7 @@ import { UPDATE_PROPERTIES } from "../utils/actions";
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 import {RiArrowGoBackLine} from "react-icons/ri"
+import {AiOutlineEdit} from "react-icons/ai";
 
 function UpdateProperty() {
   const state = useSelector((state) => state);
@@ -73,8 +74,8 @@ function UpdateProperty() {
                         .replace(/\s/g, "")}
                     >
                       <Link to={`/AdminDash/UpdateProperty/${property._id}`}>
-                        {" "}
-                        Edit{" "}
+                        {" "}<AiOutlineEdit size={30} color="var(--primary)"></AiOutlineEdit><br /><b>
+                        Edit</b>{" "}
                       </Link>
                     </button>
                   </td>

@@ -6,6 +6,9 @@ import { useParams } from "react-router-dom";
 import { REMOVE_PROPERTY, UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
 import { DELETE_PROPERTY, UPDATE_PROPERTY_DATA } from "../utils/mutations";
 
+import {RiDeleteBinLine} from "react-icons/ri";
+import {VscRequestChanges} from "react-icons/vsc";
+
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
@@ -183,7 +186,7 @@ function UpdatePropertyForm(props) {
               variant="contained"
               color="secondary"
             >
-              Update
+              <VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /><b>Update</b>
             </button>
             <button
               className="back-btn"
@@ -193,7 +196,7 @@ function UpdatePropertyForm(props) {
               variant="contained"
               color="secondary"
             >
-              Delete
+              <RiDeleteBinLine size={30} color="var(--light)"></RiDeleteBinLine><br /><b>Delete</b>
             </button>
           </div>
           {/* <div>

@@ -8,6 +8,8 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { MOVE_USER_OUT } from '../utils/mutations'
 
+import {HiUserRemove} from 'react-icons/hi';
+
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
 
@@ -101,7 +103,8 @@ const MoveUserOut = () => {
                     renderInput={(params) => <TextField {...params} label="Home" variant="outlined" />}
                     onChange={handleChange}
                 />
-                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='secondary'>Move Tenant Out</Button></div>
+                <div className='contentContainer' style={{ marginTop: "42px" }}><Button onClick={handleSubmit} size='large' variant="contained" color='secondary'><HiUserRemove size={30} color="var(--light)"></HiUserRemove>
+                <br /><b> &nbsp;Move Tenant Out</b></Button></div>
             </div>
         </div>
 

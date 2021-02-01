@@ -9,6 +9,9 @@ import toTitleCase from "../../utils/helpers"
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../../utils/helpers";
 import { loadStripe } from '@stripe/stripe-js';
+import { VscRequestChanges } from "react-icons/vsc";
+import { CgFileDocument } from "react-icons/cg";
+import {RiSecurePaymentLine} from "react-icons/ri";
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -97,17 +100,13 @@ function TenantInfo() {
             className="create-btn"  id="button-hover" 
             onClick={submitCheckout}
           >
-            Pay Rent
+             <RiSecurePaymentLine size={30} color="var(--light)"></RiSecurePaymentLine><br /> <b>Pay Rent</b>
           </button>
           <Link to="/LeaseDoc" className="create-btn"  id="button-hover">
-   
-
-          {/* > */}
-            Lease Document
+		    <CgFileDocument size={30} color="var(--light)"></CgFileDocument><br /> <b>Lease Document</b>
           </Link>
           <Link to="/Contact">
-            <div className="create-btn"  id="button-hover">
-              Submit Maintenance Requests{' '}
+            <div className="create-btn"  id="button-hover"><VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /> <b>Submit Maintenance Requests</b>{' '}
             </div>
           </Link>
         </div>

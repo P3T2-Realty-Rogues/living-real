@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import S3 from "react-aws-s3";
+import {BiCloudUpload} from "react-icons/bi";
 
 function Upload() {
     const fileInput = useRef()
@@ -42,7 +43,8 @@ function Upload() {
             </label> 
             <br />
             <br />
-            <button className='btn' type="submit">Upload</button>
+            <button className='btn' type="submit"><BiCloudUpload size={30} color="var(--primary)"></BiCloudUpload>
+                <br /><b>Upload</b></button>
         </form>
         </>
     )

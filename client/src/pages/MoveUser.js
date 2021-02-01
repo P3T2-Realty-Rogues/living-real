@@ -11,6 +11,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Box from '@material-ui/core/Box'
+import {VscRequestChanges} from "react-icons/vsc";
+import {AiOutlineEdit} from "react-icons/ai";
 
 import {MOVE_USER_IN} from '../utils/mutations'
 
@@ -138,7 +140,8 @@ const MoveUser = () => {
                     onChange={handleChange}
                 />
                 <br />
-                <div className='contentContainer'><button className="create-btn" onClick={handleSubmit} size='large' variant="contained" color='primary'>Submit</button></div>
+                <div className='contentContainer'><button className="create-btn" onClick={handleSubmit} size='large' variant="contained" color='primary'><VscRequestChanges size={30} color="var(--light)">
+              </VscRequestChanges><br /><b>Submit</b></button></div>
             </Box>
             </div>
             
@@ -159,7 +162,8 @@ const MoveUser = () => {
                     onChange={handleMoveOutChange}
                 />
                 <br />
-                <div className='contentContainer'><button className="create-btn" onClick={handleMoveOut} size='large' variant="contained" color='secondary'>Edit Property</button></div>
+                <div className='contentContainer'><button className="create-btn" onClick={handleMoveOut} size='large' variant="contained" color='secondary'><AiOutlineEdit size={30} color="var(--light)">
+              </AiOutlineEdit><br /><b>Edit Property</b></button></div>
             </Box>
             </div>
         </div>
