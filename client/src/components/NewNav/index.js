@@ -202,10 +202,7 @@ export default function NavBar() {
                 className: menuButton,
               }}
             >
-              <AiOutlineInfoCircle
-                size={40}
-                color="#000"
-              ></AiOutlineInfoCircle>
+              <AiOutlineInfoCircle size={40} color="#000"></AiOutlineInfoCircle>
             </Button>
           </MenuItem>
         </>

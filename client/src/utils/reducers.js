@@ -17,7 +17,7 @@ const initialState = {
   tenants: [],
   properties: [],
   currentProperty: {},
-  currentUser: {}
+  currentUser: {},
 };
 
 export const reducer = (state = initialState, action) => {
@@ -48,16 +48,16 @@ export const reducer = (state = initialState, action) => {
       };
     // If action type value is the value of `UPDATE_PROPERTY`, return a new state object with an updated properties array
     case UPDATE_PROPERTY:
-      let newPropertiesArr = []
+      let newPropertiesArr = [];
 
       for (let i = 0; i < action.properties.length; i++) {
         if (action.properties[i]._id != action.updatedProperty._id) {
-          newPropertiesArr.push(action.properties[i])
+          newPropertiesArr.push(action.properties[i]);
         } else {
-          newPropertiesArr.push(action.updatedProperty)
+          newPropertiesArr.push(action.updatedProperty);
         }
       }
-      
+
       return {
         ...state,
         properties: newPropertiesArr,

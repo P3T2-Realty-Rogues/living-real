@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_USER } from "../../utils/mutations";
-import Auth from "../../utils/auth";
+
 import { AiOutlineSend } from "react-icons/ai";
-import {RiArrowGoBackLine} from "react-icons/ri";
+import { RiArrowGoBackLine } from "react-icons/ri";
 
 function CreateUser() {
   const [formState, setFormState] = useState({
@@ -30,8 +30,6 @@ function CreateUser() {
         adminFlag: document.getElementById("checkbox").checked,
       },
     });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
     window.location.replace("/AdminDash");
   };
 
@@ -84,11 +82,11 @@ function CreateUser() {
             placeholder="example@domain.com"
             name="email"
             onChange={handleChange}
-            pattern='^.+@.+\..+'
+            pattern="^.+@.+\..+"
             required
           ></input>
         </div>
-        <div >
+        <div>
           <label htmlFor="password">
             <b>Password</b>
           </label>
@@ -111,7 +109,7 @@ function CreateUser() {
             type="tel"
             placeholder="555-555-5555"
             name="phoneNumber"
-            pattern='^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
+            pattern="^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$"
             onChange={handleChange}
             required
           ></input>
@@ -133,17 +131,19 @@ function CreateUser() {
         </div>
         <br />
         <div>
-              
-              <button className="create-btn  id=button-hover">
-              <AiOutlineSend size={30} color="default"></AiOutlineSend> 
-                &nbsp; 
-                <p>Add User</p>
-              </button>
-              <Link to="/AdminDash" className="back-btn  id=button-hover">
-                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
-                <p>Back</p>
-              </Link>
-            </div>
+          <button className="create-btn" id="button-hover">
+            <AiOutlineSend size={30} color="default"></AiOutlineSend>
+            &nbsp;
+            <p>Add User</p>
+          </button>
+          <Link to="/AdminDash" className="back-btn" id="button-hover">
+            <RiArrowGoBackLine
+              size={30}
+              color="var(--light)"
+            ></RiArrowGoBackLine>
+            <p>Back</p>
+          </Link>
+        </div>
       </form>
     </div>
   );

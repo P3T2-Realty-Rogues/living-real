@@ -85,7 +85,7 @@ function UpdateProperty() {
               ))}
             </tbody>
           </table>
-          <Link to="/AdminDash" className="back-btn-1  id=button-hover">
+          <Link to="/AdminDash" className="back-btn-1"  id="button-hover">
             <RiArrowGoBackLine
               size={30}
               color="var(--light)"

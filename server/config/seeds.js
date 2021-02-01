@@ -1,7 +1,7 @@
-const db = require('./connection');
-const { User, Property, Maintenance } = require('../models');
+const db = require("./connection");
+const { User, Property, Maintenance } = require("../models");
 
-db.once('open', async () => {
+db.once("open", async () => {
   await Property.deleteMany();
 
   const properties = await Property.insertMany([
@@ -24,14 +24,14 @@ db.once('open', async () => {
       availability: true,
       directoryName: "home1",
       pictures: [
-          "attic-office.jpg",
-          "backyard.jpg",
-          "bathroom1.jpg",
-          "bathroom2.jpg",
-          "bedroom1.jpg",
-          "bedroom2.jpg",
-          "kitchen.jpg",
-          "livingroom.jpg"
+        "attic-office.jpg",
+        "backyard.jpg",
+        "bathroom1.jpg",
+        "bathroom2.jpg",
+        "bedroom1.jpg",
+        "bedroom2.jpg",
+        "kitchen.jpg",
+        "livingroom.jpg",
       ],
       ownerInfo: {
         mortgage: 1200,
@@ -69,7 +69,7 @@ db.once('open', async () => {
         "garage.jpg",
         "halfbath.jpg",
         "kitchen1.jpg",
-        "livingroom.jpg"
+        "livingroom.jpg",
       ],
       ownerInfo: {
         mortgage: 1250,
@@ -107,7 +107,7 @@ db.once('open', async () => {
         "halfbath.jpg",
         "kitchen.jpg",
         "livingroom.jpg",
-        "media-game-room.jpg"
+        "media-game-room.jpg",
       ],
       ownerInfo: {
         mortgage: 1050,
@@ -118,7 +118,7 @@ db.once('open', async () => {
     },
   ]);
 
-  console.log('Properties seeded');
+  console.log("Properties seeded");
 
   await User.deleteMany();
 
@@ -129,7 +129,7 @@ db.once('open', async () => {
     phoneNumber: "455-555-5555",
     password: "test1234",
     adminFlag: true,
-    tenantData: {}
+    tenantData: {},
   });
 
   await User.create({
@@ -197,7 +197,7 @@ db.once('open', async () => {
     },
   });
 
-  console.log('users seeded');
+  console.log("users seeded");
 
   process.exit();
 });

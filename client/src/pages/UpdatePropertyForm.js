@@ -3,11 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { useParams } from "react-router-dom";
-import { REMOVE_PROPERTY, UPDATE_PROPERTIES, UPDATE_PROPERTY } from "../utils/actions";
+import {
+  REMOVE_PROPERTY,
+  UPDATE_PROPERTIES,
+  UPDATE_PROPERTY,
+} from "../utils/actions";
 import { DELETE_PROPERTY, UPDATE_PROPERTY_DATA } from "../utils/mutations";
 
-import {RiDeleteBinLine} from "react-icons/ri";
-import {VscRequestChanges} from "react-icons/vsc";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { VscRequestChanges } from "react-icons/vsc";
 
 //import the idb helper to make transactions with the database
 import { idbPromise } from "../utils/helpers";
@@ -32,7 +36,6 @@ function UpdatePropertyForm(props) {
   const [deleteProperty] = useMutation(DELETE_PROPERTY);
 
   useEffect(() => {
-    console.log("STATE", properties);
     // already in global store
     if (properties.length) {
       setCurrentProperty(properties.find((property) => property._id === id));
@@ -48,8 +51,7 @@ function UpdatePropertyForm(props) {
       data.properties.forEach((property) => {
         idbPromise("properties", "put", property);
       });
-    }
-    else if (data) {
+    } else if (data) {
       dispatch({
         type: REMOVE_PROPERTY,
         properties: data.property._id,
@@ -90,9 +92,8 @@ function UpdatePropertyForm(props) {
     dispatch({
       type: UPDATE_PROPERTY,
       updatedProperty: updatedProperty,
-      properties: properties
+      properties: properties,
     });
-    // props.history.push("/AdminDash");
   };
 
   const handleDelete = async (e) => {
@@ -179,76 +180,37 @@ function UpdatePropertyForm(props) {
             ></input>
             <br />
             <button
-              className="create-btn  id=button-hover"
+              className="create-btn"
+              id="button-hover"
               onClick={handleSubmit}
               type="submit"
               size="large"
               variant="contained"
               color="secondary"
             >
-              <VscRequestChanges size={30} color="var(--light)"></VscRequestChanges><br /><b>Update</b>
+              <VscRequestChanges
+                size={30}
+                color="var(--light)"
+              ></VscRequestChanges>
+              <br />
+              <b>Update</b>
             </button>
             <button
-              className="back-btn  id=button-hover"
+              className="back-btn"
+              id="button-hover"
               onClick={handleDelete}
               type="submit"
               size="large"
               variant="contained"
               color="secondary"
             >
-              <RiDeleteBinLine size={30} color="var(--light)"></RiDeleteBinLine><br /><b>Delete</b>
+              <RiDeleteBinLine size={30} color="var(--light)"></RiDeleteBinLine>
+              <br />
+              <b>Delete</b>
             </button>
           </div>
-          {/* <div>
-                        <label htmlFor="photos"> <b>Upload Photos</b></label>
-                        <input type="file" id="img" ></input>
-                        <br />
-                    </div> */}
         </div>
       </div>
-      {/* <div className="card">
-        <div className="card-header">
-          <h2 className="card-header">
-            Admin Details for {updatedProperty?.propertyName}
-          </h2>
-        </div>
-        <div className="card-body">
-          <div>
-            <label className="form-label" htmlFor="mortgage">
-              <b>Mortgage</b>
-            </label>
-            <input
-              className="form-input"
-              type="text"
-              placeholder={updatedProperty?.ownerInfo?.mortgage}
-              name="mortgage"
-            ></input>
-          </div>
-          <div>
-            <label className="form-label" htmlFor="propertyTaxes">
-              <b>Property Taxes</b>
-            </label>
-            <input
-              className="form-input"
-              type="text"
-              placeholder={updatedProperty?.ownerInfo?.propertyTaxes}
-              name="propertyTaxes"
-            ></input>
-          </div>
-          <div>
-            <label className="form-label" htmlFor="propertyInsurance">
-              <b>Property Insurance</b>
-            </label>
-            <input
-              className="form-input"
-              type="text"
-              placeholder={updatedProperty?.ownerInfo?.propertyInsurance}
-              name="propertyInsurance"
-            ></input>
-          </div>
-
-        </div>
-      </div> */}
     </form>
   );
 }

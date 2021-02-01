@@ -6,7 +6,7 @@ import Auth from "../utils/auth";
 import Button from "@material-ui/core/Button";
 import { AiOutlineSend } from "react-icons/ai";
 
-function Login(props) {
+function Login() {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -68,8 +68,15 @@ function Login(props) {
         ) : null}
         <div>
           <br />
-          <Button type="submit" size="large" variant="contained" color="green" className="id=button-hover">
-           Login &nbsp; <AiOutlineSend size={30} color="default"></AiOutlineSend>{" "}
+          <Button
+            type="submit"
+            size="large"
+            variant="contained"
+            color="green"
+            id="button-hover"
+          >
+            Login &nbsp;{" "}
+            <AiOutlineSend size={30} color="default"></AiOutlineSend>{" "}
           </Button>
         </div>
       </form>

@@ -3,9 +3,8 @@ import { ADD_PROPERTY } from "../../utils/mutations";
 import Upload from "../Upload";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
-import Auth from "../../utils/auth";
 import { AiOutlineSend } from "react-icons/ai";
-import {RiArrowGoBackLine} from "react-icons/ri";
+import { RiArrowGoBackLine } from "react-icons/ri";
 
 function CreateProperty() {
   const [formState, setFormState] = useState({
@@ -22,9 +21,6 @@ function CreateProperty() {
     petDeposit: "",
     renterDeposit: "",
     appFee: "",
-    // mortgage: "",
-    // propertyTaxes: "",
-    // propertyInsurance: "",
     availability: true,
   });
 
@@ -50,13 +46,8 @@ function CreateProperty() {
         renterDeposit: parseInt(formState.renterDeposit),
         appFee: parseInt(formState.appFee),
         availability: formState.availability,
-        // mortgage: parseInt(formState.mortgage),
-        // propertyTaxes: parseInt(formState.propertyTaxes),
-        // propertyInsurance: parseInt(formState.propertyInsurance),
       },
     });
-    // const token = mutationResponse.data.addProperty.token;
-    // Auth.login(token);
     window.location.replace("/AdminDash");
   };
 
@@ -70,7 +61,10 @@ function CreateProperty() {
 
   return (
     <div className="col-auto">
-      <form className="col-auto flex-row flex-column-sm" onSubmit={handleFormSubmit}>
+      <form
+        className="col-auto flex-row flex-column-sm"
+        onSubmit={handleFormSubmit}
+      >
         <div className="card col-auto">
           <div className="card-header">
             <h3 className="card-header">Add a New Property</h3>
@@ -115,7 +109,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="city">
                 <b>City</b>
               </label>
@@ -128,7 +122,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="state">
                 <b>State</b>
               </label>
@@ -141,7 +135,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="zipCode">
                 <b>Zip Code</b>
               </label>
@@ -155,7 +149,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="sqFeet">
                 <b>Square Footage</b>
               </label>
@@ -203,7 +197,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div  className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="numBedroom">
                 <b>Bedrooms</b>
               </label>
@@ -216,7 +210,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="numBathrooms">
                 <b>Bathrooms</b>
               </label>
@@ -230,7 +224,7 @@ function CreateProperty() {
               ></input>
             </div>
 
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="rent">
                 <b>Rent</b>
               </label>
@@ -243,7 +237,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="petDeposit">
                 <b>Pet Deposit</b>
               </label>
@@ -256,7 +250,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="renterDeposit">
                 <b>Renter Deposit</b>
               </label>
@@ -269,7 +263,7 @@ function CreateProperty() {
                 required
               ></input>
             </div>
-            <div className = "form-detail">
+            <div className="form-detail">
               <label className="form-label" htmlFor="appFee">
                 <b>App Fee</b>
               </label>
@@ -287,7 +281,6 @@ function CreateProperty() {
               <br />
               <Upload />
               <br />
-              
             </div>
           </div>
         </div>
@@ -299,14 +292,16 @@ function CreateProperty() {
           <div className="card-body">
             <div className="form-label"></div>
             <div>
-              
-              <button className="create-btn  id=button-hover">
-              <AiOutlineSend size={30} color="default"></AiOutlineSend> 
-                &nbsp; 
+              <button className="create-btn" id="button-hover">
+                <AiOutlineSend size={30} color="default"></AiOutlineSend>
+                &nbsp;
                 <p>Create Property</p>
               </button>
-              <Link to="/AdminDash" className="back-btn  id=button-hover">
-                <RiArrowGoBackLine size={30} color="var(--light)"></RiArrowGoBackLine>
+              <Link to="/AdminDash" className="back-btn" id="button-hover">
+                <RiArrowGoBackLine
+                  size={30}
+                  color="var(--light)"
+                ></RiArrowGoBackLine>
                 <p>Back</p>
               </Link>
             </div>

@@ -21,7 +21,7 @@ import MaintenanceRequest from "./components/MaintenanceRequest";
 import MoveUser from "./pages/MoveUser";
 import MoveUserOut from "./pages/MoveUserOut";
 import LeaseDoc from "./pages/LeaseDoc";
-import ContactForm from "./components/Contact"
+import ContactForm from "./components/Contact";
 
 import ApolloClient from "apollo-boost";
 
@@ -33,9 +33,6 @@ import RequestInfo from "./pages/RequestInfo";
 import AdminDash from "./pages/AdminDash";
 import TenantDash from "./pages/TenantDash";
 import Success from "./pages/Success";
-
-// import NoMatch from "./pages/NoMatch";
-// import PropertyList from './components/Properties'
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -69,15 +66,48 @@ function App() {
                 <Route exact path="/tenantDash/:id" component={TenantDash} />
                 <Route exact path="/detail/:id" component={Detail} />
                 <Route exact path="/ApplyNow/:id" component={ApplyNow} />
-                <Route exact path="/AdminDash/CreateUser" component={CreateUser}/>
-                <Route exact path="/AdminDash/CreateProperty" component={CreateProperty} />
-                <Route exact path="/AdminDash/UpdateProperty" component={UpdateProperties} />
-                <Route exact path="/AdminDash/UpdateProperty/:id" component={UpdatePropertyForm} history={history} />
-                <Route exact path="/AdminDash/UpdateUser" component={UpdateUser} />
-                <Route exact path="/TenantDash/MaintenanceRequests" component={MaintenanceRequest} />
-                <Route exact path="/TenantDash/TenantInfo" component={TenantInfo} />
+                <Route
+                  exact
+                  path="/AdminDash/CreateUser"
+                  component={CreateUser}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/CreateProperty"
+                  component={CreateProperty}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty"
+                  component={UpdateProperties}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateProperty/:id"
+                  component={UpdatePropertyForm}
+                  history={history}
+                />
+                <Route
+                  exact
+                  path="/AdminDash/UpdateUser"
+                  component={UpdateUser}
+                />
+                <Route
+                  exact
+                  path="/TenantDash/MaintenanceRequests"
+                  component={MaintenanceRequest}
+                />
+                <Route
+                  exact
+                  path="/TenantDash/TenantInfo"
+                  component={TenantInfo}
+                />
                 <Route exact path="/AdminDash/MoveUser" component={MoveUser} />
-                <Route exact path="/AdminDash/MoveUserOut/:id" component={MoveUserOut} />
+                <Route
+                  exact
+                  path="/AdminDash/MoveUserOut/:id"
+                  component={MoveUserOut}
+                />
                 <Route exact path="/Upload" component={Upload} />
                 <Route exact path="/success" component={Success} />
                 <Route exact path="/LeaseDoc" component={LeaseDoc} />

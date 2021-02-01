@@ -1,7 +1,4 @@
 import React from "react";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from "react-responsive-carousel";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -15,10 +12,19 @@ function Properties() {
     <div className="col-auto flex-column">
       <div className="carousel col-auto">
         <div className="image-slider">
-          <Carousel autoPlay={false} stopAutoPlayOnHover={true} className="image-slider" animation="slide">
+          <Carousel
+            autoPlay={false}
+            stopAutoPlayOnHover={true}
+            className="image-slider"
+            animation="slide"
+          >
             {state.properties.map((image, index) => (
               <Link to={`/detail/${image._id}`} key={image._id}>
-                <Paper elevation={0} key={image._id} style={{ background: "none" }}>
+                <Paper
+                  elevation={0}
+                  key={image._id}
+                  style={{ background: "none" }}
+                >
                   <img
                     className="carousel-img"
                     key={image._id}
@@ -38,15 +44,14 @@ function Properties() {
 
       <div className="card">
         <p className="p-dark">
-          This is the website of Acme Properties.  We are honored that you have taken the time to
-          preview our exclusive properties.  You can click on the images above to view additional
-          photographs and details about each property.  If you are interested in leasing a certain
-          property, we invite you to submit an application, and we will contact you to start
+          This is the website of Acme Properties. We are honored that you have
+          taken the time to preview our exclusive properties. You can click on
+          the images above to view additional photographs and details about each
+          property. If you are interested in leasing a certain property, we
+          invite you to submit an application, and we will contact you to start
           the process.
         </p>
-        <p className="p-dark">Sincerely,
-        Acme Properties Management
-        </p>
+        <p className="p-dark">Sincerely, Acme Properties Management</p>
       </div>
     </div>
   );

@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-// import PropertyList from "../components/Properties"
 import Properties from "../components/Properties";
 
 import { useDispatch } from "react-redux";
 
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { UPDATE_PROPERTIES } from "../utils/actions";
-// import Auth from "../utils/auth";
 
 import { useQuery } from "@apollo/react-hooks";
 
@@ -32,15 +30,9 @@ const Landing = () => {
   }, [dispatch, properties.data]);
 
   return (
-
-
-    <div className='contentContainer'>
-
+    <div className="contentContainer">
       <Properties />
-
     </div>
-
-
   );
 };
 
