@@ -1,5 +1,7 @@
 # Living-Real
-A Realty Management Tool
+A Realty Management Tool. This app is intended for private property owners who want to advertise their properties, manage their tenants and manage their real estate all in one place. This application also functions as a hub for tenants to access their property and pay their rent.
+
+This app was done in collaboration by:
 Grey Whittenberger, Cameron Wills, Seth Uschuk, Owais Islam, Richard Ay
 (January 2021)
 
@@ -48,7 +50,7 @@ For owners, the landing page has a login feature which should be used.  Once log
 * GraphQL
 * Apollo Server
 * JWT (JSON Web Token)
-* NodeJS, Express.JS
+* Express.JS, NodeJS
 * indexDB
 * MongoDB
 * Redux
